@@ -55,7 +55,7 @@ def create_tmdl(dashboard_path, dataset_name, dataset_id, dataset):
 
 		# Loop through the dataset and find dates
 		for value in dataset[col][0:100]:
-			m = re.search("^\d{4}-\d{2}-\d{2}$", str(value))
+			m = re.search("^\\d{4}-\\d{2}-\\d{2}$", str(value))
 
 			if m is not None:
 				#print(f"{col}: This column is probably a date!")
@@ -88,7 +88,7 @@ def create_tmdl(dashboard_path, dataset_name, dataset_id, dataset):
 		# loop through the values in a column to see if it contains dates
 		# Loop through the dataset and find dates
 		for value in dataset[col][0:100]:
-			m = re.search("^\d{4}-\d{2}-\d{2}$", str(value))
+			m = re.search("^\\d{4}-\\d{2}-\\d{2}$", str(value))
 
 			if m is not None:
 				#print(f"{col}: This column is probably a date!")
