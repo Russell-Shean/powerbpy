@@ -1,0 +1,47 @@
+[project]
+name = "powerbpy"
+version = "1.2.0"
+authors = [
+  { name="Russell Shean", email="russshean@gmail.com" },
+]
+description = "Automatically create PowerBI dashboards using the .pbir file type"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICEN[CS]E*"]
+
+dependencies = [
+"azure.storage.blob",
+"azure.storage.file.datalake",
+"azure.identity",
+"keyring",
+"pandas"
+
+]
+
+[project.urls]
+Homepage = "https://github.com/Russell-Shean/powerbpy"
+Issues = "https://github.com/Russell-Shean/powerbpy/issues"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/powerbpy"]
+
+[tool.hatch.build.targets]
+docs = { script = "sphinx-build clean && sphinx-build -b html docs/ build/" }
+
+# pyproject.toml
+[tool.pytest.ini_options]
+minversion = "1.2.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests/blank_tests.py"
+]
