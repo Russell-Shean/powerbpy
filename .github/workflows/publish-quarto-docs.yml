@@ -52,13 +52,13 @@ jobs:
           # move back to original directory
           cd ..
 
-          # publish manually without everyone else's broken actions
-          quarto publish gh-pages ./docs --no-browser --no-prompt
-
           git status
           git add .
           git commit -m "commit site files back"
           git push
+
+          # publish manually without everyone else's broken actions
+          quarto publish gh-pages ./docs --no-browser --no-prompt
  
       # commit all this junk back to the repo
       #- uses: stefanzweifel/git-auto-commit-action@v5
