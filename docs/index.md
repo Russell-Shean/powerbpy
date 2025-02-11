@@ -12,15 +12,15 @@ This package uses the new .pbip/.pbir format with TMDL enabled. This stores dash
 
            
 # Features      
-Currently the package has functions that let you *automatically* 🥳 do the following:         
-- Create a new dashboard       
-- Import data from      
-  - csv file stored locally        
-  - csv file stored in Azure Data Lake Storage (ADLS)       
-  - Power BI table stored as a Tabular Model Definition Language (TMDL) file        
-- Add a page        
-- Add background images to a page         
-- Add visuals to a page        
+Currently the package has functions that let you do the following *without opening Power BI* 🥳:     
+- Create a new dashboard
+- Import data from
+  - csv file stored locally 
+  - csv file stored in Azure Data Lake Storage (ADLS)
+  - Power BI table stored as a Tabular Model Definition Language (TMDL) file
+- Add a page
+- Add background images to a page
+- Add visuals to a page
   - charts
   - slicers
   - cards
@@ -29,13 +29,13 @@ Currently the package has functions that let you *automatically* 🥳 do the fol
   - buttons
 
 ## Dependencies    
-Before you can start to build power BI dashboards using this package's functions you'll need the following: 
+Before you can start to build power BI dashboards using this package's functions you'll need the following:           
 1. python and pip installed and on path
 2. git installed and on path
 3. Power BI Desktop (You can create the dashboards without this, but not view them).
 
 Power BI settings:      
-You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:
+You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:            
 1. Shape map visual
 2. Power BI Project (.pbip) save option
 3. Store Semantic Model using TMDL format
@@ -52,10 +52,6 @@ mkdir automatic_PBI_dashboards_example
 
 :: move into the new folder
 cd automatic_PBI_dashboards_example
-```    
-   
-```r
-print("quarto is dumb")
 ```
 2. Clone the files from github.    
 ```batchfile
@@ -115,7 +111,7 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/user-attachments/assets/70cb3771-410d-44c0-850a-dfb5d13949f2)     
+![image](./docs/assets/images/page1.png)     
 ![image](https://github.com/user-attachments/assets/1dd0c4ee-469d-40b2-ab20-ef3da3fcdb66)        
 
 ![image](https://github.com/user-attachments/assets/3bdab36e-5fdc-47fc-9ddf-64a69e3fbd21)       
