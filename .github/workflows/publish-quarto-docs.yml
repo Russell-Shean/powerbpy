@@ -45,9 +45,12 @@ jobs:
 
           # move back to original directory
           cd ..
+
+          # publish manually without everyone else's broken actions
+          quarto publish gh-pages --no-browser --no-prompt
  
       # commit all this junk back to the repo
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      #- uses: stefanzweifel/git-auto-commit-action@v5
 
 
       #- name: Render and Publish
@@ -58,17 +61,17 @@ jobs:
         #env:
        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-   deploy-gh-pages:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deploy to GitHub pages 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
-        with:
-          clean: false
-          branch: gh-pages
-          folder: docs
+   #deploy-gh-pages:
+    #runs-on: ubuntu-latest
+    #permissions:
+    #  contents: write
+    #steps:
+    #  - uses: actions/checkout@v4
+    #  - name: Deploy to GitHub pages 🚀
+    #    if: github.event_name != 'pull_request'
+    #    uses: JamesIves/github-pages-deploy-action@v4.5.0
+    #    with:
+    #      clean: false
+    #      branch: gh-pages
+    #      folder: docs
 
