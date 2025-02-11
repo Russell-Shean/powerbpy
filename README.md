@@ -12,7 +12,7 @@ This package uses the new .pbip/.pbir format with TMDL enabled. This stores dash
 
            
 # Features      
-Currently the package has functions that let you *automatically* 🥳 do the following:     
+Currently the package has functions that let you do the following *without opening Power BI* 🥳:     
 - Create a new dashboard
 - Import data from
   - csv file stored locally 
@@ -29,13 +29,13 @@ Currently the package has functions that let you *automatically* 🥳 do the fol
   - buttons
 
 ## Dependencies    
-Before you can start to build power BI dashboards using this package's functions you'll need the following: 
+Before you can start to build power BI dashboards using this package's functions you'll need the following:           
 1. python and pip installed and on path
 2. git installed and on path
 3. Power BI Desktop (You can create the dashboards without this, but not view them).
 
 Power BI settings:      
-You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:
+You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:            
 1. Shape map visual
 2. Power BI Project (.pbip) save option
 3. Store Semantic Model using TMDL format
