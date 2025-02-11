@@ -1,0 +1,49 @@
+project:
+  type: website
+
+website:
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: index.md
+      - text: "Reference"
+        file: reference/index.qmd
+
+# tell quarto to read the generated sidebar
+metadata-files:
+  - _sidebar.yml
+
+
+quartodoc:
+  style: pkgdown
+  parser: "sphinx"
+  # the name used to import the package you want to create reference docs for
+  package: powerbpy
+
+  # write sidebar data to this file
+  sidebar: _sidebar.yml
+
+  sections:
+    - title: Power Bpy
+      desc: Python functions for building Power BI dashboards
+      contents:
+        # the functions being documented in the package.
+        # you can refer to anything: class methods, modules, etc..
+        - add_ADLS_csv
+        - add_background_image
+        - add_button
+        - add_card
+        - add_local_csv
+        - add_shape_map
+        - add_slicer
+        - add_text_box
+        - add_tmdl
+        - create_blank_dashboard
+        - create_new_chart
+        - create_new_page
+        - create_tmdl
+        - generate_bin_measures
+        - update_diagramLayout
+        - update_model_file
