@@ -30,6 +30,12 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Build docs
         run: |
+
+          # Set git credentials for later on
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "${GITHUB_ACTOR}"
+
+          
           # copy the readme file into the docs folder
           # and overwrite index.md 
           cp -rf ./README.md ./docs/index.md
