@@ -137,10 +137,12 @@ Try building your own dashboards with these functions and let me know what happe
 
 # Feedback    
 I welcome the following feedback:            
-1. Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.
-2. Issues to suggest new features, report bugs, or tell me that the documentation is confusing 😅
-3. Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. I don't really know Power BI 😅, so please feel free to suggest new features. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change.(Use the .pbip format)
-4. Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know! 
+<ol>
+           <li>Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.</li>
+           <li>Issues to suggest new features, report bugs, or tell me that the documentation is confusing 😅</li>
+           <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. I don't really know Power BI 😅, so please feel free to suggest new features. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change.(Use the .pbip format)</li>
+           <li>Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know!</li>
+</ol>
 
 # Big changes coming up:            
 1. This package will be renamed as powerbpy and migrated to a different github and pypi location. The version will be reset to 0.1.0
