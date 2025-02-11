@@ -1,0 +1,32 @@
+# add_local_csv { #powerbpy.add_local_csv }
+
+`add_local_csv`
+
+
+
+## Functions
+
+| Name | Description |
+| --- | --- |
+| [add_csv](#powerbpy.add_local_csv.add_csv) | Add a locally stored CSV file to a dashboard |
+
+### add_csv { #powerbpy.add_local_csv.add_csv }
+
+```python
+add_local_csv.add_csv(dashboard_path, data_path)
+```
+
+Add a locally stored CSV file to a dashboard
+
+#### Parameters {.doc-section .doc-section-parameters}
+
+| Name           | Type   | Description                                                                                                                                      | Default    |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| dashboard_path | str    | The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). | _required_ |
+| data_path      | str    | The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.                                                               | _required_ |
+
+#### Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|--------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        |        | dataset_id: A randomly generated UUID that you can use to reference the datset.   The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory.  This function creates custom M code and is therefore more picky than pandas or Power BI desktop.  The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column") NA values must display as "NA" or "null" not as N/A.  If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.   This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. |

@@ -1,0 +1,8 @@
+# update_model_file { #powerbpy.update_model_file }
+
+```python
+update_model_file(dashboard_path, dataset_name)
+```
+
+This is an internal function to add a dataset to the model.tmdl file when a new dataset is added. 
+It assumes you want the new dataset to be loaded last. 
