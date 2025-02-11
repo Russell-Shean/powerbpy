@@ -33,5 +33,10 @@ jobs:
           # build the docs
           quartodoc build --config ../docs/_quarto.yml
 
-          # hopefully that's enough?
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
