@@ -111,7 +111,7 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/user-attachments/assets/70cb3771-410d-44c0-850a-dfb5d13949f2)     
+![image](./docs/assets/images/page1.png)     
 ![image](https://github.com/user-attachments/assets/1dd0c4ee-469d-40b2-ab20-ef3da3fcdb66)        
 
 ![image](https://github.com/user-attachments/assets/3bdab36e-5fdc-47fc-9ddf-64a69e3fbd21)       
