@@ -1,0 +1,24 @@
+website:
+  sidebar:
+  - contents:
+    - reference/index.qmd
+    - contents:
+      - reference/add_ADLS_csv.qmd
+      - reference/add_background_image.qmd
+      - reference/add_button.qmd
+      - reference/add_card.qmd
+      - reference/add_local_csv.qmd
+      - reference/add_shape_map.qmd
+      - reference/add_slicer.qmd
+      - reference/add_text_box.qmd
+      - reference/add_tmdl.qmd
+      - reference/create_blank_dashboard.qmd
+      - reference/create_new_chart.qmd
+      - reference/create_new_page.qmd
+      - reference/create_tmdl.qmd
+      - reference/generate_bin_measures.qmd
+      - reference/update_diagramLayout.qmd
+      - reference/update_model_file.qmd
+      section: Power Bpy
+    id: reference
+  - id: dummy-sidebar

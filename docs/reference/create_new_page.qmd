@@ -1,0 +1,39 @@
+# create_new_page { #powerbpy.create_new_page }
+
+`create_new_page`
+
+
+
+## Functions
+
+| Name | Description |
+| --- | --- |
+| [add_new_page](#powerbpy.create_new_page.add_new_page) | Create a new blank dashboard page |
+
+### add_new_page { #powerbpy.create_new_page.add_new_page }
+
+```python
+create_new_page.add_new_page(
+    dashboard_path,
+    page_name,
+    title=None,
+    subtitle=None,
+)
+```
+
+Create a new blank dashboard page
+
+#### Parameters {.doc-section .doc-section-parameters}
+
+| Name           | Type   | Description                                                                                                                                                                       | Default    |
+|----------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| dashboard_path | str    | The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).                                  | _required_ |
+| page_name      | str    | The display name for the page you just created. This is differnt from the page_id which is only used internally.                                                                  | _required_ |
+| title          | str    | Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead. | `None`     |
+| sub_title      | str    | Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead. | _required_ |
+
+#### Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                                                                                                                                                                                                                                                                                                          |
+|--------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        |        | new_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. |
