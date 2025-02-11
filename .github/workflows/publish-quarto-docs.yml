@@ -47,7 +47,7 @@ jobs:
           cd ..
 
           # publish manually without everyone else's broken actions
-          quarto publish gh-pages --no-browser --no-prompt
+          quarto publish gh-pages ./docs --no-browser --no-prompt
  
       # commit all this junk back to the repo
       #- uses: stefanzweifel/git-auto-commit-action@v5
