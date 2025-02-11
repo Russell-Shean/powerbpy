@@ -12,21 +12,28 @@ This package uses the new .pbip/.pbir format with TMDL enabled. This stores dash
 
            
 # Features      
-Currently the package has functions that let you do the following *without opening Power BI* 🥳:          
-- Create a new dashboard
-- Import data from
-  - csv file stored locally
-  - csv file stored in Azure Data Lake Storage (ADLS)
-  - Power BI table stored as a Tabular Model Definition Language (TMDL) file
-- Add a page
-- Add background images to a page
-- Add visuals to a page
-  - charts
-  - slicers
-  - cards
-  - maps
-  - text boxes
-  - buttons
+Currently the package has functions that let you do the following *without opening Power BI* 🥳: 
+<!-- Because quarto and or github are dumb, we're using html instead of markdown for the bullet points -->
+<ul>
+           <li>Create a new dashboard</li>
+           <li>Import data from</li>
+           <ul>
+                      <li>csv file stored locally</li>
+                      <li>csv file stored in Azure Data Lake Storage (ADLS)</li>
+                      <li>Power BI table stored as a Tabular Model Definition Language (TMDL) file</li>
+           </ul>
+           <li>Add a page</li>
+           <li>Add background images to a page</li>
+           <li>Add visuals to a page</li>
+           <ul>
+                      <li>charts</li>
+                      <li>slicers</li>
+                      <li>cards</li>
+                      <li>maps</li>
+                      <li>text boxes</li>
+                      <li>buttons</li>
+           </ul>
+</ul>
 
 ## Dependencies    
 Before you can start to build power BI dashboards using this package's functions you'll need the following:                 
@@ -111,7 +118,7 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/Russell-Shean/powerbpy/docs/assets/images/page1.png)     
+![image](https://github.com/Russell-Shean/powerbpy/blob/800b77b62456f5abfc4b18a7cb07115bd59635df/docs/assets/images/page1.png)     
 ![image](https://github.com/user-attachments/assets/1dd0c4ee-469d-40b2-ab20-ef3da3fcdb66)        
 
 ![image](https://github.com/user-attachments/assets/3bdab36e-5fdc-47fc-9ddf-64a69e3fbd21)       
