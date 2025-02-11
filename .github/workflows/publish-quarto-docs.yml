@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v2
         with:
           python-version: "3.10"
@@ -43,6 +43,10 @@ jobs:
 
           # move back to original directory
           cd ..
+ 
+      # commit all this junk back to the repo
+      - uses: stefanzweifel/git-auto-commit-action@v4
+
 
       #- name: Render and Publish
        # uses: quarto-dev/quarto-actions/publish@v2
@@ -52,6 +56,12 @@ jobs:
         #env:
        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+   deploy-gh-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.5.0
