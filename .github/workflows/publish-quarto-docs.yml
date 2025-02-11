@@ -30,7 +30,8 @@ jobs:
         run: |
           # copy the readme file into the docs folder
           # and overwrite index.md 
-          cp -fr ./README.md ./docs/index.md
+          cp -rf ./README.md ./docs/index.md
+          ls ./docs
 
           
           # move into the src folder 
