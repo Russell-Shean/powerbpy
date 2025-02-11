@@ -48,3 +48,9 @@ quartodoc:
         - generate_bin_measures
         - update_diagramLayout
         - update_model_file
+
+
+format:
+  html:
+    toc: true
+    theme: styles.scss
