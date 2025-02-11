@@ -36,17 +36,23 @@ Currently the package has functions that let you do the following *without openi
 </ul>
 
 ## Dependencies    
-Before you can start to build power BI dashboards using this package's functions you'll need the following:                 
-1. python and pip installed and on path
-2. git installed and on path
-3. Power BI Desktop (You can create the dashboards without this, but not view them).
+Before you can start to build power BI dashboards using this package's functions you'll need the following:       
+<ol>
+           <li>Python and pip installed and on path</li>
+           <li>Git installed and on path</li>
+           <li>Power BI Desktop (You can create the dashboards without this, but not view them).</li>
+</ol>             
+
 
 Power BI settings:      
-You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:                 
-1. Shape map visual
-2. Power BI Project (.pbip) save option
-3. Store Semantic Model using TMDL format
-4. Store reports using enhanced metadata format (PBIR)
+You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:         
+<ol>
+           <li>Shape map visual</li>
+           <li>Power BI Project (.pbip) save option</li>
+           <li>Store Semantic Model using TMDL format</li>
+           <li>Store reports using enhanced metadata format (PBIR)</li>
+</ol>
+
 
 
 # Run the example
@@ -118,7 +124,7 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/Russell-Shean/powerbpy/blob/800b77b62456f5abfc4b18a7cb07115bd59635df/docs/assets/images/page1.png)     
+<img src="https://github.com/Russell-Shean/powerbpy/blob/800b77b62456f5abfc4b18a7cb07115bd59635df/docs/assets/images/page1.png">    
 ![image](https://github.com/user-attachments/assets/1dd0c4ee-469d-40b2-ab20-ef3da3fcdb66)        
 
 ![image](https://github.com/user-attachments/assets/3bdab36e-5fdc-47fc-9ddf-64a69e3fbd21)       
