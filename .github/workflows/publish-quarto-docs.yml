@@ -35,6 +35,9 @@ jobs:
           # build the docs
           quartodoc build --config ../docs/_quarto.yml
 
+          # move back to original directory
+          cd ..
+
       #- name: Render and Publish
        # uses: quarto-dev/quarto-actions/publish@v2
        # with:
