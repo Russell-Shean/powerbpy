@@ -28,6 +28,11 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Build docs
         run: |
+          # copy the readme file into the docs folder
+          # and overwrite index.md 
+          cp -fr README.md /docs/index.md
+
+          
           # move into the src folder 
           # so we don't have to build the package for this to work
           cd src
