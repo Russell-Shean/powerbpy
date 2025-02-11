@@ -1,0 +1,7 @@
+# update_diagramLayout { #powerbpy.update_diagramLayout }
+
+```python
+update_diagramLayout(dashboard_path, dataset_name, dataset_id)
+```
+
+This is an internal function to add a dataset to the diagramLayout file when a new dataset is added. 
