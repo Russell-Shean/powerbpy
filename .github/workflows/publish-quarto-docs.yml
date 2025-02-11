@@ -26,14 +26,14 @@ jobs:
           python -m pip install shiny shinylive
           python -m pip install --no-deps dascore==0.0.8
       - uses: quarto-dev/quarto-actions/setup@v2
-      - name: Build docs
-        run: |
+      #- name: Build docs
+        #run: |
           # move into the src folder 
           # so we don't have to build the package for this to work
-          cd src
+          # cd src
 
           # build the docs
-          quartodoc build --config ../docs/_quarto.yml
+          #quartodoc build --config ../docs/_quarto.yml
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
