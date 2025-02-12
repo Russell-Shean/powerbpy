@@ -38,7 +38,7 @@ jobs:
           
           # copy the readme file into the docs folder
           # and overwrite index.md 
-          cp -rf ./README.md ./docs/index.md
+          cp -rf ./README.md ./docs/PowerBpy.md
           ls ./docs
 
           
