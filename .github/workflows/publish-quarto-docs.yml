@@ -41,9 +41,14 @@ jobs:
           # add a title to the qmd file
           # and overwrite index.md 
           #cp -rf ./README.md ./docs/index.md
-          #ls ./docs
+          
           chmod +x ./.github/scripts/convert_readme_qmd.py
           python ./.github/scripts/convert_readme_qmd.py
+
+          # did the index qmd file write to the right place?
+          ls ./docs
+          ls
+          ls ./docs/docs
 
           
           # move into the src folder 
