@@ -55,7 +55,7 @@ quartodoc:
         - update_model_file
 
 
-#format:
-#  html:
-#    toc: true
+format:
+  html:
+    toc: true
 #    theme: styles.scss
