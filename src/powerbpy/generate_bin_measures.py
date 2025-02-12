@@ -28,7 +28,6 @@ def _generate_bin_ranges(bin_number, dataset_file_path, percentile_bin_breaks,da
       Step 3: Format the bin boundaries as desired to display in a card visual (output of the measure).
       */
 
-
   '''
   with open(dataset_file_path, 'a') as file:
     file.write(f"\tmeasure 'Bin {bin_number} Range' =\n")

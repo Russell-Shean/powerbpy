@@ -22,9 +22,7 @@ def add_chart(dashboard_path,
               tab_order = -1001,
               z_position = 6000 ):
 
-
   '''This function adds a new chart to a page in a power BI dashboard report. 
-
 
   :param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
   :param str page_id: The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
@@ -50,7 +48,6 @@ def add_chart(dashboard_path,
 
   :param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
   :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-
 
   '''
 

@@ -25,7 +25,6 @@ def create_new_dashboard(parent_dir, report_name):
 
 	If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. 
 	Only use this package if you have to :D
-
 	
 	'''
 
