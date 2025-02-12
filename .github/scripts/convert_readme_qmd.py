@@ -15,7 +15,7 @@ with open(index_qmd_path, "w") as new_file:
 	new_file.write('Title: "Power Bpy"\n')
 
 	# include a js script to update the title
-	new_file.write("include-before-body:\n")
+	new_file.write("include-after-body:\n")
 	new_file.write(" text: |\n")
 
 	# super duper dumb js~ Yay~~ 
