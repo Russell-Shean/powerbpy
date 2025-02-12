@@ -4,7 +4,7 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
  x_position, y_position, z_position = 6000, tab_order=-1001, 
  fill_color="#3086C3", alpha=0, url_link = None, page_navigation_link = None):
     
-  '''Add a text box to a page
+  '''Add a button to a page
 
   :param str label: The text you want to display inside the button.
   :param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 

@@ -22,8 +22,6 @@ def add_csv(dashboard_path, data_path):
 	This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
 	The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. 
 
-
-
 	'''
 
   # generate a random id for the data set
