@@ -8,7 +8,7 @@ website:
     search: true
     left:
       - text: "Home"
-        file: index.md
+        file: PowerBpy.md
       - text: "Reference"
         file: reference/index.qmd
 
