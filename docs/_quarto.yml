@@ -4,12 +4,12 @@ project:
 
 website:
   navbar:
+    title: "Works for one not the other"
     background: primary
     search: true
     left:
       - text: "Home"
         file: index.qmd
-        pagetitle: "Of course it's this easy"
       - text: "Reference"
         file: reference/index.qmd
 
