@@ -9,6 +9,7 @@ website:
     left:
       - text: "Home"
         file: index.qmd
+        pagetitle: "Of course it's this easy"
       - text: "Reference"
         file: reference/index.qmd
 
