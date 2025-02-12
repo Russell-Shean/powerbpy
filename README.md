@@ -95,11 +95,16 @@ py -m pip --version
 
 ```   
    
-5. Install the package.
-Install the package from pypi.     
+5. Install the package.      
+This package isn't on pypi yet, so you'll need to install it from Github      
+```batchfile
+```dosbat     
+py -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     
+```      
+
+After the package is on pypi, you'll be able to install it using this: 
 ```batchfile
 py -m pip install powerbpy
-
 ```     
 
 6. Create the example dashboard.

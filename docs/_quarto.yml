@@ -11,6 +11,8 @@ website:
         file: index.qmd
       - text: "Reference"
         file: reference/index.qmd
+      - text: "Worked Examples"
+        file: reference/worked_examples.qmd
 
     right:
       - icon: github
@@ -24,7 +26,7 @@ metadata-files:
 
 quartodoc:
   style: pkgdown
-  parser: "sphinx"
+  # parser: "sphinx"
   # the name used to import the package you want to create reference docs for
   package: powerbpy
 
