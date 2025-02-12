@@ -11,7 +11,6 @@ def add_background_img(dashboard_path, page_id, img_path, alpha = 100, scaling_m
 	:param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. 
 	:param str scaling_method: The method used to scale the image available options include ["Fit", ]
 
-
 	'''
 
 	if type(alpha) is not int:
