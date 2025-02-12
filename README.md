@@ -1,4 +1,4 @@
-# Power Bpy <a href="https://powerbpy.readthedocs.io/en/latest/powerbpy.html"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240" /></a>  
+# Power Bpy <a href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240" /></a>  
 Do you wish you could build dashboard with python or R, but can't because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?      
 
 
@@ -124,7 +124,7 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-<img src="https://github.com/Russell-Shean/powerbpy/blob/800b77b62456f5abfc4b18a7cb07115bd59635df/docs/assets/images/page1.png">    
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true)   
 ![image](https://github.com/user-attachments/assets/1dd0c4ee-469d-40b2-ab20-ef3da3fcdb66)        
 
 ![image](https://github.com/user-attachments/assets/3bdab36e-5fdc-47fc-9ddf-64a69e3fbd21)       
