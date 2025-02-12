@@ -17,7 +17,15 @@ with open(index_qmd_path, "w") as new_file:
 	# include a js script to update the title
 	new_file.write("include-before-body:\n")
 	new_file.write(" text: |\n")
-	new_file.write('  <script>document.title = "Power Bpy";</script>\n')
+
+	# super duper dumb js~ Yay~~ 
+	# change document title
+	new_file.write('  <script>document.title = "Power Bpy";')
+
+	# fix image in scroll bar - smaller, cuter, and floatier
+	new_file.write('  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.height="140px";')
+	new_file.write('  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.float='none';')
+	new_file.write('  </script>\n')
 	new_file.write("---\n\n")
 
 
