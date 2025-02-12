@@ -14,12 +14,12 @@ temp_path = "this_is_stupid.qmd"
 
 with open(temp_path, "w") as new_file:
 	new_file.write("---\n")
-	new_file.write('Title: "Function Reference"\n')
+	new_file.write('Title: "Power Bpy - Function Reference"\n')
 
 	# include a js script to update the title
 	new_file.write("include-before-body:\n")
 	new_file.write(" text: |\n")
-	new_file.write('  <script>document.title = "Function Reference";</script>\n')
+	new_file.write('  <script>document.title = "Power Bpy - Function Reference";</script>\n')
 	new_file.write("---\n\n")
 
 
