@@ -13,6 +13,9 @@ index_qmd_path = "docs/index.qmd"
 with open(index_qmd_path, "w") as new_file:
 	new_file.write("---\n")
 	new_file.write('Title: "Power Bpy"\n')
+	new_file.write("include-before-body:\n")
+	new_file.write("\ttext: |\n")
+	new_file.write('\t\t<script>document.title = "Power Bpy";</script>\n')
 	new_file.write("---\n\n")
 
 	with open(og_readme_path, "r") as old_file:
