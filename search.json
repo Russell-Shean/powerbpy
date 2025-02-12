@@ -4,158 +4,14 @@
     "href": "index.html",
     "title": "Power Bpy ",
     "section": "",
-    "text": "Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?\nIntroducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of the point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.\nThis package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl."
+    "text": "Power Bpy"
   },
   {
     "objectID": "index.html#dependencies",
     "href": "index.html#dependencies",
     "title": "Power Bpy ",
     "section": "Dependencies",
-    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n1. python and pip installed and on path 2. git installed and on path 3. Power BI Desktop (You can create the dashboards without this, but not view them).\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n1. Shape map visual 2. Power BI Project (.pbip) save option 3. Store Semantic Model using TMDL format 4. Store reports using enhanced metadata format (PBIR)"
-  },
-  {
-    "objectID": "reference/create_blank_dashboard.html",
-    "href": "reference/create_blank_dashboard.html",
-    "title": "create_blank_dashboard",
-    "section": "",
-    "text": "create_blank_dashboard\n\n\n\n\n\nName\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_blank_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nparent_dir\nstr\nThe path to the directory where you want to store the new dashboard\nrequired\n\n\nreport_name\nstr\nName of the report. This function creates a power BI report in the specified parent directory. The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package. The function creates a folder with the name report_name inside parent_dir with all the dashboard’s files. The dashboard uses a .pbip/.pbir format with TMDL enabled. To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions. (.pbip uses mimified json by default and throws an error when it’s given unpacked json). This dashboard turns off time intelligence and relationship autodection off by default If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\nrequired",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "create_blank_dashboard"
-    ]
-  },
-  {
-    "objectID": "reference/create_blank_dashboard.html#functions",
-    "href": "reference/create_blank_dashboard.html#functions",
-    "title": "create_blank_dashboard",
-    "section": "",
-    "text": "Name\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_blank_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nparent_dir\nstr\nThe path to the directory where you want to store the new dashboard\nrequired\n\n\nreport_name\nstr\nName of the report. This function creates a power BI report in the specified parent directory. The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package. The function creates a folder with the name report_name inside parent_dir with all the dashboard’s files. The dashboard uses a .pbip/.pbir format with TMDL enabled. To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions. (.pbip uses mimified json by default and throws an error when it’s given unpacked json). This dashboard turns off time intelligence and relationship autodection off by default If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\nrequired",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "create_blank_dashboard"
-    ]
-  },
-  {
-    "objectID": "reference/create_new_chart.html",
-    "href": "reference/create_new_chart.html",
-    "title": "create_new_chart",
-    "section": "",
-    "text": "create_new_chart\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_chart\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\ncreate_new_chart.add_chart(\n    dashboard_path,\n    page_id,\n    chart_id,\n    chart_type,\n    data_source,\n    chart_title,\n    x_axis_title,\n    y_axis_title,\n    x_axis_var,\n    y_axis_var,\n    y_axis_var_aggregation_type,\n    x_position,\n    y_position,\n    height,\n    width,\n    tab_order=-1001,\n    z_position=6000,\n)\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nchart_id\nstr\nPlease choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nchart_type\nstr\nThe type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nchart_title\nstr\nGive your chart an informative title!:D\nrequired\n\n\nx_axis_title\nstr\nText to display on the x axis\nrequired\n\n\ny_axis_title\nstr\nText to display on the y axis\nrequired\n\n\nx_axis_var\nstr\nColumn name of a column from data_source that you want to use for the x axis of the chart\nrequired\n\n\ny_axis_var\nstr\nColumn name of a column from data_source that you want to use for the y axis of the chart\nrequired\n\n\ny_axis_var_aggregation_type\nstr\nType of aggregation method you want to use to summarize y axis variable. Available options include” [“Sum”, “Count”, “Average”]\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\nheight\nint\nHeight of chart on the page\nrequired\n\n\nwidth\nint\nWidth of chart on the page\nrequired\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "create_new_chart"
-    ]
-  },
-  {
-    "objectID": "reference/create_new_chart.html#functions",
-    "href": "reference/create_new_chart.html#functions",
-    "title": "create_new_chart",
-    "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_chart\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\ncreate_new_chart.add_chart(\n    dashboard_path,\n    page_id,\n    chart_id,\n    chart_type,\n    data_source,\n    chart_title,\n    x_axis_title,\n    y_axis_title,\n    x_axis_var,\n    y_axis_var,\n    y_axis_var_aggregation_type,\n    x_position,\n    y_position,\n    height,\n    width,\n    tab_order=-1001,\n    z_position=6000,\n)\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nchart_id\nstr\nPlease choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nchart_type\nstr\nThe type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nchart_title\nstr\nGive your chart an informative title!:D\nrequired\n\n\nx_axis_title\nstr\nText to display on the x axis\nrequired\n\n\ny_axis_title\nstr\nText to display on the y axis\nrequired\n\n\nx_axis_var\nstr\nColumn name of a column from data_source that you want to use for the x axis of the chart\nrequired\n\n\ny_axis_var\nstr\nColumn name of a column from data_source that you want to use for the y axis of the chart\nrequired\n\n\ny_axis_var_aggregation_type\nstr\nType of aggregation method you want to use to summarize y axis variable. Available options include” [“Sum”, “Count”, “Average”]\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\nheight\nint\nHeight of chart on the page\nrequired\n\n\nwidth\nint\nWidth of chart on the page\nrequired\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "create_new_chart"
-    ]
-  },
-  {
-    "objectID": "reference/add_ADLS_csv.html",
-    "href": "reference/add_ADLS_csv.html",
-    "title": "add_ADLS_csv",
-    "section": "",
-    "text": "add_ADLS_csv\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_csv_from_blob\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\nadd_ADLS_csv.add_csv_from_blob(\n    dashboard_path,\n    account_url,\n    blob_name,\n    data_path,\n    tenant_id=None,\n    use_saved_storage_key=False,\n    SAS_url=None,\n    storage_account_key=None,\n    warnings=True,\n)\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\naccount_url\nstr\nThe url to your Azure storage account. It should be in the format of https://.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field\nrequired\n\n\nblob_name\nstr\nThe name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.\nrequired\n\n\ndata_path\nstr\nThe relative path to the file you want to load from the blob. It should be relative to blob_name\nrequired\n\n\ntenant_id\nstr\nThe tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).\nNone\n\n\nuse_saved_storage_key\nboolean\nThis optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.\nFalse\n\n\nSAS_url\nstr\nA limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”\nNone\n\n\nstorage_account_key\nstr\nPlease, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)\nNone\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nNone DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file. Thanks Microsoft for yet again doing a great job with backward compatibility lol. Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_ADLS_csv"
-    ]
-  },
-  {
-    "objectID": "reference/add_ADLS_csv.html#functions",
-    "href": "reference/add_ADLS_csv.html#functions",
-    "title": "add_ADLS_csv",
-    "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_csv_from_blob\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\nadd_ADLS_csv.add_csv_from_blob(\n    dashboard_path,\n    account_url,\n    blob_name,\n    data_path,\n    tenant_id=None,\n    use_saved_storage_key=False,\n    SAS_url=None,\n    storage_account_key=None,\n    warnings=True,\n)\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\naccount_url\nstr\nThe url to your Azure storage account. It should be in the format of https://.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field\nrequired\n\n\nblob_name\nstr\nThe name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.\nrequired\n\n\ndata_path\nstr\nThe relative path to the file you want to load from the blob. It should be relative to blob_name\nrequired\n\n\ntenant_id\nstr\nThe tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).\nNone\n\n\nuse_saved_storage_key\nboolean\nThis optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.\nFalse\n\n\nSAS_url\nstr\nA limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”\nNone\n\n\nstorage_account_key\nstr\nPlease, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)\nNone\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nNone DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file. Thanks Microsoft for yet again doing a great job with backward compatibility lol. Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_ADLS_csv"
-    ]
-  },
-  {
-    "objectID": "reference/add_shape_map.html",
-    "href": "reference/add_shape_map.html",
-    "title": "add_shape_map",
-    "section": "",
-    "text": "add_shape_map(\n    dashboard_path,\n    page_id,\n    map_id,\n    data_source,\n    shape_file_path,\n    map_title,\n    location_var,\n    color_var,\n    color_palette,\n    height,\n    width,\n    x_position,\n    y_position,\n    add_legend=True,\n    static_bin_breaks=None,\n    percentile_bin_breaks=None,\n    filtering_var=None,\n    z_position=6000,\n    tab_order=-1001,\n)\nAdd a map to a page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nmap_id\nstr\nPlease choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nshape_file_path\nstr\nA path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.\nrequired\n\n\nmap_title\nstr\nThe title you want to put above the map.\nrequired\n\n\nlocation_var\nstr\nThe name of the column in data_source that you want to use for the location variable on the map\nrequired\n\n\ncolor_var\nstr\nThe name of the column in data_source that you want to use for the color variable on the map\nrequired\n\n\nfiltering_var\nstr\nOptional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.\nNone\n\n\nstatic_bin_breaks\nlist\nThis should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.\nNone\n\n\ncolor_palatte\nlist\nA list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks\nrequired\n\n\nadd_legend\nbool\nTrue or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default)\nTrue\n\n\npercentile_bin_breaks\nlist\nThis should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]\nNone\n\n\nheight\nint\nHeight of map on the page\nrequired\n\n\nwidth\nint\nWidth of map on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) This function creates a new cloropleth map on a page.\n-1001",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_shape_map"
-    ]
-  },
-  {
-    "objectID": "reference/add_shape_map.html#parameters",
-    "href": "reference/add_shape_map.html#parameters",
-    "title": "add_shape_map",
-    "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nmap_id\nstr\nPlease choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nshape_file_path\nstr\nA path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.\nrequired\n\n\nmap_title\nstr\nThe title you want to put above the map.\nrequired\n\n\nlocation_var\nstr\nThe name of the column in data_source that you want to use for the location variable on the map\nrequired\n\n\ncolor_var\nstr\nThe name of the column in data_source that you want to use for the color variable on the map\nrequired\n\n\nfiltering_var\nstr\nOptional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.\nNone\n\n\nstatic_bin_breaks\nlist\nThis should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.\nNone\n\n\ncolor_palatte\nlist\nA list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks\nrequired\n\n\nadd_legend\nbool\nTrue or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default)\nTrue\n\n\npercentile_bin_breaks\nlist\nThis should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]\nNone\n\n\nheight\nint\nHeight of map on the page\nrequired\n\n\nwidth\nint\nWidth of map on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) This function creates a new cloropleth map on a page.\n-1001",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_shape_map"
-    ]
-  },
-  {
-    "objectID": "reference/add_button.html",
-    "href": "reference/add_button.html",
-    "title": "add_button",
-    "section": "",
-    "text": "add_button(\n    label,\n    dashboard_path,\n    page_id,\n    button_id,\n    height,\n    width,\n    x_position,\n    y_position,\n    z_position=6000,\n    tab_order=-1001,\n    fill_color='#3086C3',\n    alpha=0,\n    url_link=None,\n    page_navigation_link=None,\n)\nAdd a text box to a page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nlabel\nstr\nThe text you want to display inside the button.\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nbutton_id\nstr\nPlease choose a unique id to use to identify the button. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of text box on the page\nrequired\n\n\nwidth\nint\nWidth of text box on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nfill_color\nint\nHex code for the background (fill) color you’d like to use for the button. Defaults to blue (#3086C3)\n'#3086C3'\n\n\nalpha\nint\nThe transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)\n0\n\n\nurl_link\nstr\nOptional argument. If provided, the button will navigate to this URL. Should be a full, not relative url\nNone\n\n\npage_navigation_link\nstr\nOptional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report. This function creates a new button on a page.\nNone",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_button"
-    ]
-  },
-  {
-    "objectID": "reference/add_button.html#parameters",
-    "href": "reference/add_button.html#parameters",
-    "title": "add_button",
-    "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nlabel\nstr\nThe text you want to display inside the button.\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nbutton_id\nstr\nPlease choose a unique id to use to identify the button. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of text box on the page\nrequired\n\n\nwidth\nint\nWidth of text box on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nfill_color\nint\nHex code for the background (fill) color you’d like to use for the button. Defaults to blue (#3086C3)\n'#3086C3'\n\n\nalpha\nint\nThe transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)\n0\n\n\nurl_link\nstr\nOptional argument. If provided, the button will navigate to this URL. Should be a full, not relative url\nNone\n\n\npage_navigation_link\nstr\nOptional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report. This function creates a new button on a page.\nNone",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_button"
-    ]
-  },
-  {
-    "objectID": "reference/add_tmdl.html",
-    "href": "reference/add_tmdl.html",
-    "title": "add_tmdl",
-    "section": "",
-    "text": "add_tmdl\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_tmdl"
-    ]
-  },
-  {
-    "objectID": "reference/add_tmdl.html#functions",
-    "href": "reference/add_tmdl.html#functions",
-    "title": "add_tmdl",
-    "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_tmdl"
-    ]
+    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
   },
   {
     "objectID": "reference/generate_bin_measures.html",
@@ -179,66 +35,6 @@
       "Reference",
       "Power Bpy",
       "generate_bin_measures"
-    ]
-  },
-  {
-    "objectID": "reference/update_diagramLayout.html",
-    "href": "reference/update_diagramLayout.html",
-    "title": "update_diagramLayout",
-    "section": "",
-    "text": "update_diagramLayout\nupdate_diagramLayout(dashboard_path, dataset_name, dataset_id)\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "update_diagramLayout"
-    ]
-  },
-  {
-    "objectID": "reference/add_local_csv.html",
-    "href": "reference/add_local_csv.html",
-    "title": "add_local_csv",
-    "section": "",
-    "text": "add_local_csv\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\ndataset_id: A randomly generated UUID that you can use to reference the datset. The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_local_csv"
-    ]
-  },
-  {
-    "objectID": "reference/add_local_csv.html#functions",
-    "href": "reference/add_local_csv.html#functions",
-    "title": "add_local_csv",
-    "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\ndataset_id: A randomly generated UUID that you can use to reference the datset. The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_local_csv"
-    ]
-  },
-  {
-    "objectID": "reference/create_new_page.html",
-    "href": "reference/create_new_page.html",
-    "title": "create_new_page",
-    "section": "",
-    "text": "create_new_page\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\ncreate_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\nstr\nThe display name for the page you just created. This is differnt from the page_id which is only used internally.\nrequired\n\n\ntitle\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsub_title\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nnew_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "create_new_page"
-    ]
-  },
-  {
-    "objectID": "reference/create_new_page.html#functions",
-    "href": "reference/create_new_page.html#functions",
-    "title": "create_new_page",
-    "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\ncreate_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\nstr\nThe display name for the page you just created. This is differnt from the page_id which is only used internally.\nrequired\n\n\ntitle\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsub_title\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nnew_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "create_new_page"
     ]
   },
   {
@@ -302,42 +98,6 @@
     ]
   },
   {
-    "objectID": "reference/update_model_file.html",
-    "href": "reference/update_model_file.html",
-    "title": "update_model_file",
-    "section": "",
-    "text": "update_model_file\nupdate_model_file(dashboard_path, dataset_name)\nThis is an internal function to add a dataset to the model.tmdl file when a new dataset is added. It assumes you want the new dataset to be loaded last.",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "update_model_file"
-    ]
-  },
-  {
-    "objectID": "reference/add_slicer.html",
-    "href": "reference/add_slicer.html",
-    "title": "add_slicer",
-    "section": "",
-    "text": "add_slicer(\n    data_source,\n    column_name,\n    dashboard_path,\n    page_id,\n    slicer_id,\n    height,\n    width,\n    x_position,\n    y_position,\n    z_position=6000,\n    tab_order=-1001,\n    title=None,\n    text_align='left',\n    font_weight='bold',\n    font_size=32,\n    font_color='#000000',\n    background_color=None,\n    parent_group_id=None,\n)\nAdd a slicer to a page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata_source\nstr\nThis is the name of the dataset that you want to use to populate the slicer with\nrequired\n\n\ncolumn_name\nstr\nThis is the name of the measure (or variable) name you want to use to populate the slicer with\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the slicer to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nslicer_id\nstr\nPlease choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of slicer on the page\nrequired\n\n\nwidth\nint\nWidth of slicer on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\ntitle\nstr\nAn optional title to add to the slicer.\nNone\n\n\ntext_align\nstr\nHow would you like the text aligned (available options: “left”, “right”, “center”)\n'left'\n\n\nfont_weight\nstr\nThis is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]\n'bold'\n\n\nfont_size\nint\nThe font size in pts. Must be a whole integer. Defaults to 32 pt\n32\n\n\nfont_color\nstr\nHex code for the font color you’d like to use. Defaults to black (#000000)\n'#000000'\n\n\nbackground_color\nstr\nHex code for the background color of the slicer. Defaults to None (transparent)\nNone\n\n\nparent_group_id\nstr\nThis should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. This function creates a new slicer on a page.\nNone",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_slicer"
-    ]
-  },
-  {
-    "objectID": "reference/add_slicer.html#parameters",
-    "href": "reference/add_slicer.html#parameters",
-    "title": "add_slicer",
-    "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ndata_source\nstr\nThis is the name of the dataset that you want to use to populate the slicer with\nrequired\n\n\ncolumn_name\nstr\nThis is the name of the measure (or variable) name you want to use to populate the slicer with\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the slicer to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nslicer_id\nstr\nPlease choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of slicer on the page\nrequired\n\n\nwidth\nint\nWidth of slicer on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\ntitle\nstr\nAn optional title to add to the slicer.\nNone\n\n\ntext_align\nstr\nHow would you like the text aligned (available options: “left”, “right”, “center”)\n'left'\n\n\nfont_weight\nstr\nThis is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]\n'bold'\n\n\nfont_size\nint\nThe font size in pts. Must be a whole integer. Defaults to 32 pt\n32\n\n\nfont_color\nstr\nHex code for the font color you’d like to use. Defaults to black (#000000)\n'#000000'\n\n\nbackground_color\nstr\nHex code for the background color of the slicer. Defaults to None (transparent)\nNone\n\n\nparent_group_id\nstr\nThis should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. This function creates a new slicer on a page.\nNone",
-    "crumbs": [
-      "Reference",
-      "Power Bpy",
-      "add_slicer"
-    ]
-  },
-  {
     "objectID": "reference/index.html",
     "href": "reference/index.html",
     "title": "Function reference",
@@ -357,6 +117,90 @@
     "crumbs": [
       "Reference",
       "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/update_diagramLayout.html",
+    "href": "reference/update_diagramLayout.html",
+    "title": "update_diagramLayout",
+    "section": "",
+    "text": "update_diagramLayout\nupdate_diagramLayout(dashboard_path, dataset_name, dataset_id)\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "update_diagramLayout"
+    ]
+  },
+  {
+    "objectID": "reference/create_new_page.html",
+    "href": "reference/create_new_page.html",
+    "title": "create_new_page",
+    "section": "",
+    "text": "create_new_page\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\ncreate_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\nstr\nThe display name for the page you just created. This is differnt from the page_id which is only used internally.\nrequired\n\n\ntitle\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsub_title\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nnew_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "create_new_page"
+    ]
+  },
+  {
+    "objectID": "reference/create_new_page.html#functions",
+    "href": "reference/create_new_page.html#functions",
+    "title": "create_new_page",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\ncreate_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\nstr\nThe display name for the page you just created. This is differnt from the page_id which is only used internally.\nrequired\n\n\ntitle\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsub_title\nstr\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nnew_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "create_new_page"
+    ]
+  },
+  {
+    "objectID": "reference/add_ADLS_csv.html",
+    "href": "reference/add_ADLS_csv.html",
+    "title": "add_ADLS_csv",
+    "section": "",
+    "text": "add_ADLS_csv\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_csv_from_blob\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\nadd_ADLS_csv.add_csv_from_blob(\n    dashboard_path,\n    account_url,\n    blob_name,\n    data_path,\n    tenant_id=None,\n    use_saved_storage_key=False,\n    SAS_url=None,\n    storage_account_key=None,\n    warnings=True,\n)\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\naccount_url\nstr\nThe url to your Azure storage account. It should be in the format of https://.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field\nrequired\n\n\nblob_name\nstr\nThe name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.\nrequired\n\n\ndata_path\nstr\nThe relative path to the file you want to load from the blob. It should be relative to blob_name\nrequired\n\n\ntenant_id\nstr\nThe tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).\nNone\n\n\nuse_saved_storage_key\nboolean\nThis optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.\nFalse\n\n\nSAS_url\nstr\nA limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”\nNone\n\n\nstorage_account_key\nstr\nPlease, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)\nNone\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nNone DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file. Thanks Microsoft for yet again doing a great job with backward compatibility lol. Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_ADLS_csv"
+    ]
+  },
+  {
+    "objectID": "reference/add_ADLS_csv.html#functions",
+    "href": "reference/add_ADLS_csv.html#functions",
+    "title": "add_ADLS_csv",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_csv_from_blob\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\nadd_ADLS_csv.add_csv_from_blob(\n    dashboard_path,\n    account_url,\n    blob_name,\n    data_path,\n    tenant_id=None,\n    use_saved_storage_key=False,\n    SAS_url=None,\n    storage_account_key=None,\n    warnings=True,\n)\nAdd a csv file store in a ADLS blob container to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\naccount_url\nstr\nThe url to your Azure storage account. It should be in the format of https://.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field\nrequired\n\n\nblob_name\nstr\nThe name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.\nrequired\n\n\ndata_path\nstr\nThe relative path to the file you want to load from the blob. It should be relative to blob_name\nrequired\n\n\ntenant_id\nstr\nThe tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).\nNone\n\n\nuse_saved_storage_key\nboolean\nThis optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.\nFalse\n\n\nSAS_url\nstr\nA limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”\nNone\n\n\nstorage_account_key\nstr\nPlease, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)\nNone\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\nNone DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file. Thanks Microsoft for yet again doing a great job with backward compatibility lol. Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_ADLS_csv"
+    ]
+  },
+  {
+    "objectID": "reference/add_tmdl.html",
+    "href": "reference/add_tmdl.html",
+    "title": "add_tmdl",
+    "section": "",
+    "text": "add_tmdl\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_tmdl"
+    ]
+  },
+  {
+    "objectID": "reference/add_tmdl.html#functions",
+    "href": "reference/add_tmdl.html#functions",
+    "title": "add_tmdl",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_tmdl"
     ]
   },
   {
@@ -384,6 +228,138 @@
     ]
   },
   {
+    "objectID": "reference/add_local_csv.html",
+    "href": "reference/add_local_csv.html",
+    "title": "add_local_csv",
+    "section": "",
+    "text": "add_local_csv\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\ndataset_id: A randomly generated UUID that you can use to reference the datset. The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_local_csv"
+    ]
+  },
+  {
+    "objectID": "reference/add_local_csv.html#functions",
+    "href": "reference/add_local_csv.html#functions",
+    "title": "add_local_csv",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\n\ndataset_id: A randomly generated UUID that you can use to reference the datset. The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_local_csv"
+    ]
+  },
+  {
+    "objectID": "reference/add_button.html",
+    "href": "reference/add_button.html",
+    "title": "add_button",
+    "section": "",
+    "text": "add_button(\n    label,\n    dashboard_path,\n    page_id,\n    button_id,\n    height,\n    width,\n    x_position,\n    y_position,\n    z_position=6000,\n    tab_order=-1001,\n    fill_color='#3086C3',\n    alpha=0,\n    url_link=None,\n    page_navigation_link=None,\n)\nAdd a text box to a page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nlabel\nstr\nThe text you want to display inside the button.\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nbutton_id\nstr\nPlease choose a unique id to use to identify the button. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of text box on the page\nrequired\n\n\nwidth\nint\nWidth of text box on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nfill_color\nint\nHex code for the background (fill) color you’d like to use for the button. Defaults to blue (#3086C3)\n'#3086C3'\n\n\nalpha\nint\nThe transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)\n0\n\n\nurl_link\nstr\nOptional argument. If provided, the button will navigate to this URL. Should be a full, not relative url\nNone\n\n\npage_navigation_link\nstr\nOptional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report. This function creates a new button on a page.\nNone",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_button"
+    ]
+  },
+  {
+    "objectID": "reference/add_button.html#parameters",
+    "href": "reference/add_button.html#parameters",
+    "title": "add_button",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nlabel\nstr\nThe text you want to display inside the button.\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nbutton_id\nstr\nPlease choose a unique id to use to identify the button. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of text box on the page\nrequired\n\n\nwidth\nint\nWidth of text box on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nfill_color\nint\nHex code for the background (fill) color you’d like to use for the button. Defaults to blue (#3086C3)\n'#3086C3'\n\n\nalpha\nint\nThe transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)\n0\n\n\nurl_link\nstr\nOptional argument. If provided, the button will navigate to this URL. Should be a full, not relative url\nNone\n\n\npage_navigation_link\nstr\nOptional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report. This function creates a new button on a page.\nNone",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_button"
+    ]
+  },
+  {
+    "objectID": "reference/update_model_file.html",
+    "href": "reference/update_model_file.html",
+    "title": "update_model_file",
+    "section": "",
+    "text": "update_model_file\nupdate_model_file(dashboard_path, dataset_name)\nThis is an internal function to add a dataset to the model.tmdl file when a new dataset is added. It assumes you want the new dataset to be loaded last.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "update_model_file"
+    ]
+  },
+  {
+    "objectID": "reference/create_blank_dashboard.html",
+    "href": "reference/create_blank_dashboard.html",
+    "title": "create_blank_dashboard",
+    "section": "",
+    "text": "create_blank_dashboard\n\n\n\n\n\nName\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_blank_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nparent_dir\nstr\nThe path to the directory where you want to store the new dashboard\nrequired\n\n\nreport_name\nstr\nName of the report. This function creates a power BI report in the specified parent directory. The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package. The function creates a folder with the name report_name inside parent_dir with all the dashboard’s files. The dashboard uses a .pbip/.pbir format with TMDL enabled. To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions. (.pbip uses mimified json by default and throws an error when it’s given unpacked json). This dashboard turns off time intelligence and relationship autodection off by default If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\nrequired",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "create_blank_dashboard"
+    ]
+  },
+  {
+    "objectID": "reference/create_blank_dashboard.html#functions",
+    "href": "reference/create_blank_dashboard.html#functions",
+    "title": "create_blank_dashboard",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_blank_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nparent_dir\nstr\nThe path to the directory where you want to store the new dashboard\nrequired\n\n\nreport_name\nstr\nName of the report. This function creates a power BI report in the specified parent directory. The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package. The function creates a folder with the name report_name inside parent_dir with all the dashboard’s files. The dashboard uses a .pbip/.pbir format with TMDL enabled. To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions. (.pbip uses mimified json by default and throws an error when it’s given unpacked json). This dashboard turns off time intelligence and relationship autodection off by default If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\nrequired",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "create_blank_dashboard"
+    ]
+  },
+  {
+    "objectID": "reference/add_slicer.html",
+    "href": "reference/add_slicer.html",
+    "title": "add_slicer",
+    "section": "",
+    "text": "add_slicer(\n    data_source,\n    column_name,\n    dashboard_path,\n    page_id,\n    slicer_id,\n    height,\n    width,\n    x_position,\n    y_position,\n    z_position=6000,\n    tab_order=-1001,\n    title=None,\n    text_align='left',\n    font_weight='bold',\n    font_size=32,\n    font_color='#000000',\n    background_color=None,\n    parent_group_id=None,\n)\nAdd a slicer to a page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata_source\nstr\nThis is the name of the dataset that you want to use to populate the slicer with\nrequired\n\n\ncolumn_name\nstr\nThis is the name of the measure (or variable) name you want to use to populate the slicer with\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the slicer to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nslicer_id\nstr\nPlease choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of slicer on the page\nrequired\n\n\nwidth\nint\nWidth of slicer on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\ntitle\nstr\nAn optional title to add to the slicer.\nNone\n\n\ntext_align\nstr\nHow would you like the text aligned (available options: “left”, “right”, “center”)\n'left'\n\n\nfont_weight\nstr\nThis is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]\n'bold'\n\n\nfont_size\nint\nThe font size in pts. Must be a whole integer. Defaults to 32 pt\n32\n\n\nfont_color\nstr\nHex code for the font color you’d like to use. Defaults to black (#000000)\n'#000000'\n\n\nbackground_color\nstr\nHex code for the background color of the slicer. Defaults to None (transparent)\nNone\n\n\nparent_group_id\nstr\nThis should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. This function creates a new slicer on a page.\nNone",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_slicer"
+    ]
+  },
+  {
+    "objectID": "reference/add_slicer.html#parameters",
+    "href": "reference/add_slicer.html#parameters",
+    "title": "add_slicer",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ndata_source\nstr\nThis is the name of the dataset that you want to use to populate the slicer with\nrequired\n\n\ncolumn_name\nstr\nThis is the name of the measure (or variable) name you want to use to populate the slicer with\nrequired\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the slicer to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nslicer_id\nstr\nPlease choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nheight\nint\nHeight of slicer on the page\nrequired\n\n\nwidth\nint\nWidth of slicer on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the slicer on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\ntitle\nstr\nAn optional title to add to the slicer.\nNone\n\n\ntext_align\nstr\nHow would you like the text aligned (available options: “left”, “right”, “center”)\n'left'\n\n\nfont_weight\nstr\nThis is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]\n'bold'\n\n\nfont_size\nint\nThe font size in pts. Must be a whole integer. Defaults to 32 pt\n32\n\n\nfont_color\nstr\nHex code for the font color you’d like to use. Defaults to black (#000000)\n'#000000'\n\n\nbackground_color\nstr\nHex code for the background color of the slicer. Defaults to None (transparent)\nNone\n\n\nparent_group_id\nstr\nThis should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. This function creates a new slicer on a page.\nNone",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_slicer"
+    ]
+  },
+  {
+    "objectID": "reference/add_shape_map.html",
+    "href": "reference/add_shape_map.html",
+    "title": "add_shape_map",
+    "section": "",
+    "text": "add_shape_map(\n    dashboard_path,\n    page_id,\n    map_id,\n    data_source,\n    shape_file_path,\n    map_title,\n    location_var,\n    color_var,\n    color_palette,\n    height,\n    width,\n    x_position,\n    y_position,\n    add_legend=True,\n    static_bin_breaks=None,\n    percentile_bin_breaks=None,\n    filtering_var=None,\n    z_position=6000,\n    tab_order=-1001,\n)\nAdd a map to a page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nmap_id\nstr\nPlease choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nshape_file_path\nstr\nA path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.\nrequired\n\n\nmap_title\nstr\nThe title you want to put above the map.\nrequired\n\n\nlocation_var\nstr\nThe name of the column in data_source that you want to use for the location variable on the map\nrequired\n\n\ncolor_var\nstr\nThe name of the column in data_source that you want to use for the color variable on the map\nrequired\n\n\nfiltering_var\nstr\nOptional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.\nNone\n\n\nstatic_bin_breaks\nlist\nThis should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.\nNone\n\n\ncolor_palatte\nlist\nA list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks\nrequired\n\n\nadd_legend\nbool\nTrue or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default)\nTrue\n\n\npercentile_bin_breaks\nlist\nThis should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]\nNone\n\n\nheight\nint\nHeight of map on the page\nrequired\n\n\nwidth\nint\nWidth of map on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) This function creates a new cloropleth map on a page.\n-1001",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_shape_map"
+    ]
+  },
+  {
+    "objectID": "reference/add_shape_map.html#parameters",
+    "href": "reference/add_shape_map.html#parameters",
+    "title": "add_shape_map",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nmap_id\nstr\nPlease choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nshape_file_path\nstr\nA path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.\nrequired\n\n\nmap_title\nstr\nThe title you want to put above the map.\nrequired\n\n\nlocation_var\nstr\nThe name of the column in data_source that you want to use for the location variable on the map\nrequired\n\n\ncolor_var\nstr\nThe name of the column in data_source that you want to use for the color variable on the map\nrequired\n\n\nfiltering_var\nstr\nOptional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.\nNone\n\n\nstatic_bin_breaks\nlist\nThis should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.\nNone\n\n\ncolor_palatte\nlist\nA list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks\nrequired\n\n\nadd_legend\nbool\nTrue or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default)\nTrue\n\n\npercentile_bin_breaks\nlist\nThis should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]\nNone\n\n\nheight\nint\nHeight of map on the page\nrequired\n\n\nwidth\nint\nWidth of map on the page\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the map on the page. Origin is page’s top left corner.\nrequired\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) This function creates a new cloropleth map on a page.\n-1001",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_shape_map"
+    ]
+  },
+  {
     "objectID": "reference/add_card.html",
     "href": "reference/add_card.html",
     "title": "add_card",
@@ -408,17 +384,27 @@
     ]
   },
   {
-    "objectID": "PowerBpy.html",
-    "href": "PowerBpy.html",
-    "title": "Power Bpy ",
+    "objectID": "reference/create_new_chart.html",
+    "href": "reference/create_new_chart.html",
+    "title": "create_new_chart",
     "section": "",
-    "text": "Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?\nIntroducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of a point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.\nThis package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl."
+    "text": "create_new_chart\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_chart\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\ncreate_new_chart.add_chart(\n    dashboard_path,\n    page_id,\n    chart_id,\n    chart_type,\n    data_source,\n    chart_title,\n    x_axis_title,\n    y_axis_title,\n    x_axis_var,\n    y_axis_var,\n    y_axis_var_aggregation_type,\n    x_position,\n    y_position,\n    height,\n    width,\n    tab_order=-1001,\n    z_position=6000,\n)\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nchart_id\nstr\nPlease choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nchart_type\nstr\nThe type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nchart_title\nstr\nGive your chart an informative title!:D\nrequired\n\n\nx_axis_title\nstr\nText to display on the x axis\nrequired\n\n\ny_axis_title\nstr\nText to display on the y axis\nrequired\n\n\nx_axis_var\nstr\nColumn name of a column from data_source that you want to use for the x axis of the chart\nrequired\n\n\ny_axis_var\nstr\nColumn name of a column from data_source that you want to use for the y axis of the chart\nrequired\n\n\ny_axis_var_aggregation_type\nstr\nType of aggregation method you want to use to summarize y axis variable. Available options include” [“Sum”, “Count”, “Average”]\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\nheight\nint\nHeight of chart on the page\nrequired\n\n\nwidth\nint\nWidth of chart on the page\nrequired\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "create_new_chart"
+    ]
   },
   {
-    "objectID": "PowerBpy.html#dependencies",
-    "href": "PowerBpy.html#dependencies",
-    "title": "Power Bpy ",
-    "section": "Dependencies",
-    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
+    "objectID": "reference/create_new_chart.html#functions",
+    "href": "reference/create_new_chart.html#functions",
+    "title": "create_new_chart",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_chart\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\ncreate_new_chart.add_chart(\n    dashboard_path,\n    page_id,\n    chart_id,\n    chart_type,\n    data_source,\n    chart_title,\n    x_axis_title,\n    y_axis_title,\n    x_axis_var,\n    y_axis_var,\n    y_axis_var_aggregation_type,\n    x_position,\n    y_position,\n    height,\n    width,\n    tab_order=-1001,\n    z_position=6000,\n)\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_id\nstr\nThe unique id for the page you want to add the background image to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.\nrequired\n\n\nchart_id\nstr\nPlease choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\nrequired\n\n\nchart_type\nstr\nThe type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]\nrequired\n\n\ndata_source\nstr\nThe name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.\nrequired\n\n\nchart_title\nstr\nGive your chart an informative title!:D\nrequired\n\n\nx_axis_title\nstr\nText to display on the x axis\nrequired\n\n\ny_axis_title\nstr\nText to display on the y axis\nrequired\n\n\nx_axis_var\nstr\nColumn name of a column from data_source that you want to use for the x axis of the chart\nrequired\n\n\ny_axis_var\nstr\nColumn name of a column from data_source that you want to use for the y axis of the chart\nrequired\n\n\ny_axis_var_aggregation_type\nstr\nType of aggregation method you want to use to summarize y axis variable. Available options include” [“Sum”, “Count”, “Average”]\nrequired\n\n\nx_position\nint\nThe x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\ny_position\nint\nThe y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.\nrequired\n\n\nheight\nint\nHeight of chart on the page\nrequired\n\n\nwidth\nint\nWidth of chart on the page\nrequired\n\n\ntab_order\nint\nThe order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)\n-1001\n\n\nz_position\nint\nThe z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000\n6000",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "create_new_chart"
+    ]
   }
 ]
