@@ -9,6 +9,9 @@ website:
     left:
       - text: "Home"
         file: index.qmd
+        include-after-body:
+          text: |
+            <script >document.title = "Power Bpy</script>
       - text: "Reference"
         file: reference/index.qmd
 
