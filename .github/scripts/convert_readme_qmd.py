@@ -25,6 +25,17 @@ with open(index_qmd_path, "w") as new_file:
 	# fix image in scroll bar - smaller, cuter, and floatier
 	new_file.write('  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.height="140px";')
 	new_file.write('  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.float="none";')
+
+	# remove the stupid figure captions on images
+	# I could find the quarto setting, but this is easier lol
+	# but I should eventually make this a standalone script....
+
+	# find all the figure captions
+	new_file.write('  const fig_captions = document.querySelectorAll(".figure > figcaption");')
+
+	# loop through them and remove them
+	new_file.write('  for(let i = 0; i < fig_captions.length; i++){fig_captions[i].remove();}')
+
 	new_file.write('  </script>\n')
 	new_file.write("---\n\n")
 
