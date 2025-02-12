@@ -49,11 +49,6 @@ jobs:
           chmod +x ./.github/scripts/convert_readme_qmd.py
           python ./.github/scripts/convert_readme_qmd.py
 
-          # did the index qmd file write to the right place?
-          ls ./docs
-          ls
-          ls ./docs/docs
-
           
           # move into the src folder 
           # so we don't have to build the package for this to work
@@ -61,6 +56,11 @@ jobs:
 
           # build the docs
           quartodoc build --config ../docs/_quarto.yml
+
+          # add js script to change title to index references/index
+          chmod +x ./.github/scripts/convert_ref_index_qmd.py
+          python ./.github/scripts/convert_ref_index_qmd.py
+
 
           # move back to original directory
           cd ..

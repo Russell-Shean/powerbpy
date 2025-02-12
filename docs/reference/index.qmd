@@ -1,8 +1,8 @@
 ---
-Title: "Function References"  
+Title: "Function Reference"  
 include-before-body:
  text: |
-  <script>document.title = "Function References";</script>
+  <script>document.title = "Function Reference";</script>
 ---
 
       
