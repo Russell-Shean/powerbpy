@@ -58,8 +58,9 @@ quartodoc:
 format:
   html:
     toc: true
-     theme:
-      dark:darkly
-      light:cosmo
+    
+    theme:
+     dark:darkly
+     light:cosmo
 
 #    theme: styles.scss
