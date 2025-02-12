@@ -112,7 +112,7 @@ py powerbpy/examples/create_example_dashboard.py
     
 7. Open the dashboard.      
 Open the dashboard to confirm everything worked. 
-```
+```batchfile
 start test_dashboard/test_dashboard.pbip
 ```
 

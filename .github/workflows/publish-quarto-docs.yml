@@ -37,9 +37,13 @@ jobs:
 
           
           # copy the readme file into the docs folder
+          # switch out batchfile code highlight for dosbat
+          # add a title to the qmd file
           # and overwrite index.md 
-          cp -rf ./README.md ./docs/index.md
-          ls ./docs
+          #cp -rf ./README.md ./docs/index.md
+          #ls ./docs
+          chmod +x ./.github/scripts/convert_readme_qmd.py
+          python ./.github/scripts/convert_readme_qmd.py
 
           
           # move into the src folder 
