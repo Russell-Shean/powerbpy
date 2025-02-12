@@ -3,8 +3,8 @@ project:
   output-dir: docs
 
 website:
+  title: "Works for one not the other"
   navbar:
-    title: "Works for one not the other"
     background: primary
     search: true
     left:
