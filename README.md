@@ -124,8 +124,10 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true)        
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page2.gif?raw=true)        
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true)         
+        
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page2.gif?raw=true)            
+          
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/dataset_list.png?raw=true)       
 
 # Next steps
