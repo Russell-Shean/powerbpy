@@ -12,6 +12,11 @@ website:
       - text: "Reference"
         file: reference/index.qmd
 
+     right:
+      - icon: github
+        href: https://github.com/Russell-Shean/powerbpy
+        aria-label: GitHub
+
 # tell quarto to read the generated sidebar
 metadata-files:
   - _sidebar.yml
