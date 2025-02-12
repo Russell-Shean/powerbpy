@@ -124,15 +124,12 @@ After Power BI opens, you'll see a banner that looks like this:
 Click `Refresh now`      
 
 If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true)   
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true)        
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page2.gif?raw=true)        
-
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/dataset_list.png?raw=true)       
 
 # Next steps
-The code used to generate the dashboard is stored <a href= "https://github.com/Russell-Shean/powerbpy/blob/main/examples/create_example_dashboard.py">here</a>      
-The function documentation is stored <a href="https://powerbpy.readthedocs.io/en/latest/powerbpy.html">here</a>       
-
+The code used to generate the dashboard is stored <a href= "https://github.com/Russell-Shean/powerbpy/blob/main/examples/create_example_dashboard.py">here</a>         
 Try building your own dashboards with these functions and let me know what happens!   
 
 # Feedback    
