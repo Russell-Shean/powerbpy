@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>add_adls_csv</title>
+<title>powerbpy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-27f5e94ea64e0d69ab88429f33fb591c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27f5e94ea64e0d69ab88429f33fb591c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -117,11 +83,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../PowerBpy.html"> 
+    <a class="nav-link active" href="./PowerBpy.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
+    <a class="nav-link" href="./reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
@@ -130,292 +96,242 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/add_ADLS_csv.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/add_ADLS_csv.html">add_ADLS_csv</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Function reference</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Power Bpy</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_ADLS_csv.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">add_ADLS_csv</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_background_image.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_background_image</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_button.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_button</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_card.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_card</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_local_csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_local_csv</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_shape_map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_shape_map</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_slicer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_slicer</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_text_box.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_text_box</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/add_tmdl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">add_tmdl</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/create_blank_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">create_blank_dashboard</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/create_new_chart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">create_new_chart</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/create_new_page.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">create_new_page</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/create_tmdl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">create_tmdl</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/generate_bin_measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">generate_bin_measures</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/update_diagramLayout.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">update_diagramLayout</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/update_model_file.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">update_model_file</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#powerbpy.add_ADLS_csv" id="toc-powerbpy.add_ADLS_csv" class="nav-link active" data-scroll-target="#powerbpy.add_ADLS_csv">add_ADLS_csv</a>
+  <li><a href="#power-bpy" id="toc-power-bpy" class="nav-link active" data-scroll-target="#power-bpy">Power Bpy </a><a href="https://russell-shean.github.io/powerbpy/" class="nav-link" data-scroll-target="https\://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240"></a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a>
   <ul class="collapse">
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a>
-  <ul class="collapse">
-  <li><a href="#powerbpy.add_ADLS_csv.add_csv_from_blob" id="toc-powerbpy.add_ADLS_csv.add_csv_from_blob" class="nav-link" data-scroll-target="#powerbpy.add_ADLS_csv.add_csv_from_blob">add_csv_from_blob</a></li>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
   </ul></li>
-  </ul></li>
+  <li><a href="#run-the-example" id="toc-run-the-example" class="nav-link" data-scroll-target="#run-the-example">Run the example</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback">Feedback</a></li>
+  <li><a href="#big-changes-coming-up" id="toc-big-changes-coming-up" class="nav-link" data-scroll-target="#big-changes-coming-up">Big changes coming up:</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/add_ADLS_csv.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/add_ADLS_csv.html">add_ADLS_csv</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<section id="powerbpy.add_ADLS_csv" class="level1">
-<h1>add_ADLS_csv</h1>
-<p><code>add_ADLS_csv</code></p>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="#powerbpy.add_ADLS_csv.add_csv_from_blob">add_csv_from_blob</a></td>
-<td>Add a csv file store in a ADLS blob container to a dashboard</td>
-</tr>
-</tbody>
-</table>
-<section id="powerbpy.add_ADLS_csv.add_csv_from_blob" class="level3">
-<h3 class="anchored" data-anchor-id="powerbpy.add_ADLS_csv.add_csv_from_blob">add_csv_from_blob</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>add_ADLS_csv.add_csv_from_blob(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    dashboard_path,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    account_url,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    blob_name,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    data_path,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    tenant_id<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    use_saved_storage_key<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    SAS_url<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    storage_account_key<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    warnings<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Add a csv file store in a ADLS blob container to a dashboard</p>
-<section id="parameters" class="level4 doc-section doc-section-parameters">
-<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 1%">
-<col style="width: 92%">
-<col style="width: 2%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>dashboard_path</td>
-<td>str</td>
-<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>account_url</td>
-<td>str</td>
-<td>The url to your Azure storage account. It should be in the format of https://<your storage="" account="" name="">.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field</your></td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>blob_name</td>
-<td>str</td>
-<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>data_path</td>
-<td>str</td>
-<td>The relative path to the file you want to load from the blob. It should be relative to blob_name</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>tenant_id</td>
-<td>str</td>
-<td>The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).</td>
-<td><code>None</code></td>
-</tr>
-<tr class="even">
-<td>use_saved_storage_key</td>
-<td>boolean</td>
-<td>This optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.</td>
-<td><code>False</code></td>
-</tr>
-<tr class="odd">
-<td>SAS_url</td>
-<td>str</td>
-<td>A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”</td>
-<td><code>None</code></td>
-</tr>
-<tr class="even">
-<td>storage_account_key</td>
-<td>str</td>
-<td>Please, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
-</table>
+<section id="power-bpy" class="level1">
+<h1>Power Bpy <a href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240"></a></h1>
+<p>Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?</p>
+<p>Introducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of a point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.</p>
+<p>This package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl.</p>
+<p><a href="https://pypi.org/project/powerbpy/"><img src="https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&amp;logo=pypi&amp;logoColor=white" class="img-fluid" alt="pypi Version"></a> <a href="https://pepy.tech/projects/powerbpy"><img src="https://static.pepy.tech/badge/powerbpy.png" class="img-fluid" alt="PyPI Downloads"></a> <a href="https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=master"><img src="https://codecov.io/gh/Russell-Shean/powerbpy/branch/master/graph/badge.svg" class="img-fluid" alt="Codecov test coverage"></a></p>
 </section>
-<section id="returns" class="level4 doc-section doc-section-returns">
-<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 0%">
-<col style="width: 0%">
-<col style="width: 98%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>None DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file. Thanks Microsoft for yet again doing a great job with backward compatibility lol. Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.</td>
-</tr>
-</tbody>
-</table>
+<section id="features" class="level1">
+<h1>Features</h1>
+Currently the package has functions that let you do the following <em>without opening Power BI</em> 🥳: <!-- Because quarto and or github are dumb, we're using html instead of markdown for the bullet points -->
+<ul>
+<li>
+Create a new dashboard
+</li>
+<li>
+Import data from
+</li>
+<ul>
+<li>
+csv file stored locally
+</li>
+<li>
+csv file stored in Azure Data Lake Storage (ADLS)
+</li>
+<li>
+Power BI table stored as a Tabular Model Definition Language (TMDL) file
+</li>
+</ul>
+<li>
+Add a page
+</li>
+<li>
+Add background images to a page
+</li>
+<li>
+Add visuals to a page
+</li>
+<ul>
+<li>
+charts
+</li>
+<li>
+slicers
+</li>
+<li>
+cards
+</li>
+<li>
+maps
+</li>
+<li>
+text boxes
+</li>
+<li>
+buttons
+</li>
+</ul>
+</ul>
+<section id="dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
+Before you can start to build power BI dashboards using this package’s functions you’ll need the following:<br>
 
+<ol>
+<li>
+Python and pip installed and on path
+</li>
+<li>
+Git installed and on path
+</li>
+<li>
+Power BI Desktop (You can create the dashboards without this, but not view them).
+</li>
+</ol>
+Power BI settings:<br>
+You’ll need to enable some preview features in Power BI Desktop. Navigate to <code>File</code> &gt; <code>Options and Settings</code> &gt; <code>Options</code> &gt; <code>Preview features</code> and enable the following options:<br>
 
+<ol>
+<li>
+Shape map visual
+</li>
+<li>
+Power BI Project (.pbip) save option
+</li>
+<li>
+Store Semantic Model using TMDL format
+</li>
+<li>
+Store reports using enhanced metadata format (PBIR)
+</li>
+</ol>
 </section>
 </section>
+<section id="run-the-example" class="level1">
+<h1>Run the example</h1>
+<p>This example assumes you are on windows. All the code below should be entered in command prompt or put in a batch script.</p>
+<ol type="1">
+<li>Create a new folder to store all the files you’ll need.<br>
+</li>
+</ol>
+<pre class="batchfile"><code>:: create a new folder
+mkdir automatic_PBI_dashboards_example
+
+:: move into the new folder
+cd automatic_PBI_dashboards_example</code></pre>
+<ol start="2" type="1">
+<li>Clone the files from github.<br>
+</li>
+</ol>
+<pre class="batchfile"><code>git clone https://github.com/Russell-Shean/powerbpy</code></pre>
+<ol start="3" type="1">
+<li>Activate venv.<br>
+The following is taken from this <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">tutorial</a>. We’ll use venv to install the python package in an isolated environemnt.<br>
+</li>
+</ol>
+<pre class="batchfile"><code>:: create a virtual environment
+py -m venv .venv
+
+:: activate the virtual environment
+.venv\Scripts\activate
+
+:: For extra credit, verify that venv is working
+where python
+</code></pre>
+<ol start="4" type="1">
+<li>Make sure pip is installed and up-to-date.<br>
+Pip is the tool we’ll use to install the package.<br>
+</li>
+</ol>
+<pre class="batchfile"><code>:: install and/or upgrade pip
+py -m pip install --upgrade pip
+
+:: check version number (and confirm it's working)
+py -m pip --version
+</code></pre>
+<ol start="5" type="1">
+<li>Install the package. Install the package from pypi.<br>
+</li>
+</ol>
+<pre class="batchfile"><code>py -m pip install powerbpy
+</code></pre>
+<ol start="6" type="1">
+<li>Create the example dashboard. Run an example script to generate an example dashboard.</li>
+</ol>
+<pre class="batchfile"><code>
+py powerbpy/examples/create_example_dashboard.py
+</code></pre>
+<ol start="7" type="1">
+<li>Open the dashboard.<br>
+Open the dashboard to confirm everything worked.</li>
+</ol>
+<pre><code>start test_dashboard/test_dashboard.pbip</code></pre>
+<ol start="8" type="1">
+<li>Refresh data models</li>
+</ol>
+<p>After Power BI opens, you’ll see a banner that looks like this: <img src="https://github.com/user-attachments/assets/e71b04b0-7402-4544-9fda-ff9d898df614.png" class="img-fluid" alt="image"></p>
+<p>Click <code>Refresh now</code></p>
+<p>If everything worked you should have a dashboard that looks like this:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true" class="img-fluid" alt="image"><br>
+<img src="https://github.com/user-attachments/assets/1dd0c4ee-469d-40b2-ab20-ef3da3fcdb66.png" class="img-fluid" alt="image"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/user-attachments/assets/3bdab36e-5fdc-47fc-9ddf-64a69e3fbd21.png" class="img-fluid figure-img"></p>
+<figcaption>image</figcaption>
+</figure>
+</div>
 </section>
+<section id="next-steps" class="level1">
+<h1>Next steps</h1>
+<p>The code used to generate the dashboard is stored <a href="https://github.com/Russell-Shean/powerbpy/blob/main/examples/create_example_dashboard.py">here</a><br>
+The function documentation is stored <a href="https://powerbpy.readthedocs.io/en/latest/powerbpy.html">here</a></p>
+<p>Try building your own dashboards with these functions and let me know what happens!</p>
+</section>
+<section id="feedback" class="level1">
+<h1>Feedback</h1>
+I welcome the following feedback:<br>
+
+<ol>
+<li>
+Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.
+</li>
+<li>
+Issues to suggest new features, report bugs, or tell me that the documentation is confusing 😅
+</li>
+<li>
+Power BI feature requests. I need help from Power BI developers who don’t neccesarily have experience with python or github. I don’t really know Power BI 😅, so please feel free to suggest new features. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change.(Use the .pbip format)
+</li>
+<li>
+Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know!
+</li>
+</ol>
+</section>
+<section id="big-changes-coming-up" class="level1">
+<h1>Big changes coming up:</h1>
+<ol type="1">
+<li>This package will be renamed as powerbpy and migrated to a different github and pypi location. The version will be reset to 0.1.0</li>
+<li>I will add a step-by-step explanation/tutorial for the example dashboard</li>
+<li>I will deploy to conda</li>
+<li>I plan to convert the functions to classes and methods</li>
+<li>I will add tests and input validation. I doubt this will do anything except prevent malformed dashboard files, but stricter input validation may break some edge case uses.</li>
+<li>I will add functions to do the following:
+<ul>
+<li>Create a map with a dynamic legend</li>
+<li>Add cards and slicers</li>
+<li>list pages</li>
+</ul></li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
