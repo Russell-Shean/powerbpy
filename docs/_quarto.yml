@@ -1,13 +1,3 @@
----
-title: Power Bpy
-include-before-body:
-  text: |
-    <script>
-    console.log("The injected javascript worked!!");
-    </script>
----
-
-
 project:
   type: website
   output-dir: docs
