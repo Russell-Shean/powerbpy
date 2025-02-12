@@ -3,7 +3,6 @@ project:
   output-dir: docs
 
 website:
-  title: "Works for one not the other"
   navbar:
     background: primary
     search: true
