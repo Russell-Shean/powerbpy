@@ -59,7 +59,7 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
 This example assumes you are on windows. All the code below should be entered in command prompt or put in a batch script.      
 
 1. Create a new folder to store all the files you'll need.    
-```batchfile
+```dosbat
 :: create a new folder
 mkdir automatic_PBI_dashboards_example
 
