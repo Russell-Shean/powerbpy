@@ -1,3 +1,11 @@
+---
+Title: "Function References"  
+include-before-body:
+ text: |
+  <script>document.title = "Function References";</script>
+---
+
+      
 # Function reference {.doc .doc-index}
 
 ## Power Bpy
