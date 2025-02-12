@@ -18,8 +18,6 @@ with open(index_qmd_path, "w") as new_file:
 	with open(og_readme_path, "r") as old_file:
 		for line in old_file.readlines():
 			line = line.replace("batchfile", "dosbat")
-			print(line)
-
 			new_file.write(line)
 
 
