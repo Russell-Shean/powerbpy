@@ -29,7 +29,7 @@ jobs:
           python -m pip install --no-deps dascore==0.0.8
 
           # Install beautiful soup for updating title
-          python -m pip install bs4
+          #python -m pip install bs4
 
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Build docs
@@ -71,8 +71,8 @@ jobs:
           #git push
 
           # update html title in newly rendered index pages
-          chmod +x ./.github/scripts/replace_html_title.py
-          python ./.github/scripts/replace_html_title.py
+          #chmod +x ./.github/scripts/replace_html_title.py
+          #python ./.github/scripts/replace_html_title.py
 
 
           # publish manually without everyone else's broken actions

@@ -13,13 +13,13 @@ index_qmd_path = "docs/index.qmd"
 with open(index_qmd_path, "w") as new_file:
 	new_file.write("---\n")
 	new_file.write('Title: "Power Bpy"\n')
+
+	# include a js script to update the title
 	new_file.write("include-before-body:\n")
 	new_file.write(" text: |\n")
 	new_file.write('  <script>document.title = "Power Bpy";</script>\n')
 	new_file.write("---\n\n")
 
-	# That didn't work let's try adding an ojs block
-	#new_file.write('```{ojs}\ndocument.title = "Power Bpy"\n```\n\n')
 
 	with open(og_readme_path, "r") as old_file:
 		for line in old_file.readlines():
