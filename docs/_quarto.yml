@@ -12,7 +12,7 @@ website:
       - text: "Reference"
         file: reference/index.qmd
 
-     right:
+    right:
       - icon: github
         href: https://github.com/Russell-Shean/powerbpy
         aria-label: GitHub
