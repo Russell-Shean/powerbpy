@@ -60,7 +60,7 @@ format:
     toc: true
     
     theme:
-     dark:darkly
-     light:cosmo
+     dark: darkly
+     light: cosmo
 
 #    theme: styles.scss
