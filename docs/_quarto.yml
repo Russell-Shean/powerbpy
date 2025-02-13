@@ -12,7 +12,7 @@ website:
       - text: "Reference"
         file: reference/index.qmd
       - text: "Worked Examples"
-        file: reference/worked_examples.qmd
+        file: worked_examples/index.qmd
 
     right:
       - icon: github
