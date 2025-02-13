@@ -126,6 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reference/worked_examples.qmd"> 
+<span class="menu-text">Worked Examples</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -319,65 +323,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="powerbpy.add_local_csv.add_csv">add_csv</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>add_local_csv.add_csv(dashboard_path, data_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Add a locally stored CSV file to a dashboard</p>
-<section id="parameters" class="level4 doc-section doc-section-parameters">
-<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 4%">
-<col style="width: 80%">
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>dashboard_path</td>
-<td>str</td>
-<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>data_path</td>
-<td>str</td>
-<td>The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="returns" class="level4 doc-section doc-section-returns">
-<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 0%">
-<col style="width: 0%">
-<col style="width: 98%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>dataset_id: A randomly generated UUID that you can use to reference the datset. The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.</td>
-</tr>
-</tbody>
-</table>
+<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str data_path: The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.</p>
+<p>:returns: dataset_id: A randomly generated UUID that you can use to reference the datset.</p>
+<p>The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
+<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.</p>
 
 
-</section>
 </section>
 </section>
 </section>

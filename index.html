@@ -126,6 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reference/worked_examples.qmd"> 
+<span class="menu-text">Worked Examples</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -301,20 +305,24 @@ Pip is the tool we’ll use to install the package.<br>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">:: check version number </span><span class="er">(</span><span class="co">and confirm it's working</span><span class="er">)</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip -<span class="at">-version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
-<li>Install the package. Install the package from pypi.<br>
+<li>Install the package.<br>
+This package isn’t on pypi yet, so you’ll need to install it from Github<br>
 </li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install powerbpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>```dosbat     </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After the package is on pypi, you’ll be able to install it using this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install powerbpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
 <li>Create the example dashboard. Run an example script to generate an example dashboard.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>py powerbpy<span class="at">/examples/create_example_dashboard</span>.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>py powerbpy<span class="at">/examples/create_example_dashboard</span>.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="7" type="1">
 <li>Open the dashboard.<br>
 Open the dashboard to confirm everything worked.</li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">start</span> test_dashboard<span class="at">/test_dashboard</span>.pbip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">start</span> test_dashboard<span class="at">/test_dashboard</span>.pbip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="8" type="1">
 <li>Refresh data models</li>
 </ol>

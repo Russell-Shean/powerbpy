@@ -126,6 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reference/worked_examples.qmd"> 
+<span class="menu-text">Worked Examples</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -280,10 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#powerbpy.add_shape_map" id="toc-powerbpy.add_shape_map" class="nav-link active" data-scroll-target="#powerbpy.add_shape_map">add_shape_map</a>
-  <ul class="collapse">
-  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
-  </ul></li>
+  <li><a href="#powerbpy.add_shape_map" id="toc-powerbpy.add_shape_map" class="nav-link active" data-scroll-target="#powerbpy.add_shape_map">add_shape_map</a></li>
   </ul>
 </nav>
     </div>
@@ -317,143 +318,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    tab_order<span class="op">=-</span><span class="dv">1001</span>,</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Add a map to a page</p>
-<section id="parameters" class="level2 doc-section doc-section-parameters">
-<h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 1%">
-<col style="width: 92%">
-<col style="width: 2%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>dashboard_path</td>
-<td>str</td>
-<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>page_id</td>
-<td>str</td>
-<td>The unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>map_id</td>
-<td>str</td>
-<td>Please choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>data_source</td>
-<td>str</td>
-<td>The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>shape_file_path</td>
-<td>str</td>
-<td>A path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>map_title</td>
-<td>str</td>
-<td>The title you want to put above the map.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>location_var</td>
-<td>str</td>
-<td>The name of the column in data_source that you want to use for the location variable on the map</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>color_var</td>
-<td>str</td>
-<td>The name of the column in data_source that you want to use for the color variable on the map</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>filtering_var</td>
-<td>str</td>
-<td>Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.</td>
-<td><code>None</code></td>
-</tr>
-<tr class="even">
-<td>static_bin_breaks</td>
-<td>list</td>
-<td>This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.</td>
-<td><code>None</code></td>
-</tr>
-<tr class="odd">
-<td>color_palatte</td>
-<td>list</td>
-<td>A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>add_legend</td>
-<td>bool</td>
-<td>True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default)</td>
-<td><code>True</code></td>
-</tr>
-<tr class="odd">
-<td>percentile_bin_breaks</td>
-<td>list</td>
-<td>This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]</td>
-<td><code>None</code></td>
-</tr>
-<tr class="even">
-<td>height</td>
-<td>int</td>
-<td>Height of map on the page</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>width</td>
-<td>int</td>
-<td>Width of map on the page</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>x_position</td>
-<td>int</td>
-<td>The x coordinate of where you want to put the map on the page. Origin is page’s top left corner.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>y_position</td>
-<td>int</td>
-<td>The y coordinate of where you want to put the map on the page. Origin is page’s top left corner.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>z_position</td>
-<td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
-<td><code>6000</code></td>
-</tr>
-<tr class="odd">
-<td>tab_order</td>
-<td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) This function creates a new cloropleth map on a page.</td>
-<td><code>-1001</code></td>
-</tr>
-</tbody>
-</table>
+<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str map_id: Please choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</p>
+<p>:param str data_source: The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. :param str shape_file_path: A path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.</p>
+<p>:param str map_title: The title you want to put above the map. :param str location_var: The name of the column in data_source that you want to use for the location variable on the map :param str color_var: The name of the column in data_source that you want to use for the color variable on the map :param str filtering_var: Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.</p>
+<p>:param list static_bin_breaks: This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead. :param list color_palatte: A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks :param bool add_legend: True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default) :param list static_bin_breaks: This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. :param list percentile_bin_breaks: This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]</p>
+<p>:param int height: Height of map on the page :param int width: Width of map on the page</p>
+<p>:param int x_position: The x coordinate of where you want to put the map on the page. Origin is page’s top left corner. :param int y_position: The y coordinate of where you want to put the map on the page. Origin is page’s top left corner. :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000 :param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</p>
+<p>This function creates a new cloropleth map on a page.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

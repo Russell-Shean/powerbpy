@@ -126,6 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reference/worked_examples.qmd"> 
+<span class="menu-text">Worked Examples</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -294,6 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>update_diagramLayout</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>update_diagramLayout(dashboard_path, dataset_name, dataset_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is an internal function to add a dataset to the diagramLayout file when a new dataset is added.</p>
+<p>:param str dashboard_path The path to the top level folder where you store all the report’s files. :param str dataset_name The name of the dataset you are adding :param str dataset_id The unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions.</p>
+<p>return None</p>
 
 
 </section>

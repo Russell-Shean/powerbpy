@@ -126,6 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reference/worked_examples.qmd"> 
+<span class="menu-text">Worked Examples</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -319,35 +323,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="powerbpy.create_blank_dashboard.create_new_dashboard">create_new_dashboard</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>create_blank_dashboard.create_new_dashboard(parent_dir, report_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create a new dashboard in the specified folder</p>
-<section id="parameters" class="level4 doc-section doc-section-parameters">
-<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
+<pre><code>- This function creates a power BI report in the specified parent directory.          
+- The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.       
+- The function creates a folder with the name report_name inside parent_dir with all the dashboard's files.       
+- The dashboard uses a .pbip/.pbir format with TMDL enabled.        
+- To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing       
+- These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.       
+- (.pbip uses mimified json by default and throws an error when it's given unpacked json).      
+
+- This dashboard turns off time intelligence and relationship autodection off by default      
+
+- If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. 
+Only use this package if you have to :D</code></pre>
+<section id="parameters" class="level4 doc-section doc-section-----parameters">
+<h4 class="doc-section doc-section-----parameters anchored" data-anchor-id="parameters">Parameters</h4>
+<p>parent_dir: str The path to the directory where you want to store the new dashboard report_name: str Name of the report.</p>
+</section>
+<section id="returns" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 1%">
-<col style="width: 0%">
-<col style="width: 97%">
-<col style="width: 1%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>parent_dir</td>
-<td>str</td>
-<td>The path to the directory where you want to store the new dashboard</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>report_name</td>
-<td>str</td>
-<td>Name of the report. This function creates a power BI report in the specified parent directory. The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package. The function creates a folder with the name report_name inside parent_dir with all the dashboard’s files. The dashboard uses a .pbip/.pbir format with TMDL enabled. To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions. (.pbip uses mimified json by default and throws an error when it’s given unpacked json). This dashboard turns off time intelligence and relationship autodection off by default If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D</td>
-<td><em>required</em></td>
+<td></td>
+<td>None</td>
+<td></td>
 </tr>
 </tbody>
 </table>

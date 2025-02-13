@@ -126,6 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">Reference</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reference/worked_examples.qmd"> 
+<span class="menu-text">Worked Examples</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -325,59 +329,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    scaling_method<span class="op">=</span><span class="st">'Fit'</span>,</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Add a background image to a dashboard page</p>
-<section id="parameters" class="level4 doc-section doc-section-parameters">
-<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 2%">
-<col style="width: 90%">
-<col style="width: 3%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>dashboard_path</td>
-<td>str</td>
-<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>page_id</td>
-<td>str</td>
-<td>The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>img_path</td>
-<td>str</td>
-<td>The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>alpha</td>
-<td>int</td>
-<td>The transparency of the background image. Must be a whole integer between 1 and 100.</td>
-<td><code>100</code></td>
-</tr>
-<tr class="odd">
-<td>scaling_method</td>
-<td>str</td>
-<td>The method used to scale the image available options include [“Fit”, ]</td>
-<td><code>'Fit'</code></td>
-</tr>
-</tbody>
-</table>
+<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str img_path: The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png :param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. :param str scaling_method: The method used to scale the image available options include [“Fit”, ]</p>
 
 
-</section>
 </section>
 </section>
 </section>
