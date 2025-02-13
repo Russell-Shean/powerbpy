@@ -21,19 +21,18 @@ def create_new_dashboard(parent_dir, report_name):
 	- This dashboard turns off time intelligence and relationship autodection off by default      
 
 	- If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. 
-	Only use this package if you have to :D
-
-     
-	Parameters
- 	----------
-  	parent_dir: str
-    		The path to the directory where you want to store the new dashboard
-      	report_name: str
-       		Name of the report.      
-
-    	Returns
-    	-------    
-    	None
+	Only use this package if you have to :D            
+	          
+	Parameters          
+	----------         
+	parent_dir: str           
+		The path to the directory where you want to store the new dashboard          
+	report_name: str         
+		Name of the report.      
+		
+	Returns        
+	-------        
+	None
 
 	'''
 
