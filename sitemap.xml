@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/index.html</loc>
-    <lastmod>2025-02-13T00:08:28.089Z</lastmod>
+    <loc>https://Russell-Shean.github.io/powerbpy/worked_examples/index.html</loc>
+    <lastmod>2025-02-13T00:19:39.520Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_chart.html</loc>
-    <lastmod>2025-02-13T00:08:28.872Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.403Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_card.html</loc>
-    <lastmod>2025-02-13T00:08:28.823Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.354Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_shape_map.html</loc>
-    <lastmod>2025-02-13T00:08:28.836Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.366Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_slicer.html</loc>
-    <lastmod>2025-02-13T00:08:28.844Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.373Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_blank_dashboard.html</loc>
-    <lastmod>2025-02-13T00:08:28.864Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.394Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/update_model_file.html</loc>
-    <lastmod>2025-02-13T00:08:28.892Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.424Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_button.html</loc>
-    <lastmod>2025-02-13T00:08:28.815Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.346Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_local_csv.html</loc>
-    <lastmod>2025-02-13T00:08:28.828Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.358Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_text_box.html</loc>
-    <lastmod>2025-02-13T00:08:28.850Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.380Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_tmdl.html</loc>
-    <lastmod>2025-02-13T00:08:28.855Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.385Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_ADLS_csv.html</loc>
-    <lastmod>2025-02-13T00:08:28.804Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.334Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_page.html</loc>
-    <lastmod>2025-02-13T00:08:28.877Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.408Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/update_diagramLayout.html</loc>
-    <lastmod>2025-02-13T00:08:28.890Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.420Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/index.html</loc>
-    <lastmod>2025-02-13T00:08:28.968Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.520Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_tmdl.html</loc>
-    <lastmod>2025-02-13T00:08:28.881Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.411Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_background_image.html</loc>
-    <lastmod>2025-02-13T00:08:28.809Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.340Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/generate_bin_measures.html</loc>
-    <lastmod>2025-02-13T00:08:28.887Z</lastmod>
+    <lastmod>2025-02-13T00:19:39.417Z</lastmod>
   </url>
   <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/worked_examples.html</loc>
-    <lastmod>2025-02-13T00:08:04.824Z</lastmod>
+    <loc>https://Russell-Shean.github.io/powerbpy/index.html</loc>
+    <lastmod>2025-02-13T00:19:38.471Z</lastmod>
   </url>
 </urlset>

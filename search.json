@@ -1,17 +1,31 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Power Bpy ",
+    "objectID": "worked_examples/index.html",
+    "href": "worked_examples/index.html",
+    "title": "What you’ll learn",
     "section": "",
-    "text": "Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?\nIntroducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of a point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.\nThis package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl."
+    "text": "These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I’ll show how to use {powerbpy} to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you’ll need a copy of Power BI desktop….so kind of windows only 😞"
   },
   {
-    "objectID": "index.html#dependencies",
-    "href": "index.html#dependencies",
-    "title": "Power Bpy ",
-    "section": "Dependencies",
-    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
+    "objectID": "worked_examples/index.html#install-dependencies",
+    "href": "worked_examples/index.html#install-dependencies",
+    "title": "What you’ll learn",
+    "section": "Install dependencies",
+    "text": "Install dependencies\n\nInstall python\nYou’ll need to install python. Here are some instructions\n\nInstall Power Bpy\nThe {powerbpy} package isn’t on pypi yet, so you’ll need to install it from github. Open a terminal and enter the following:\n\npy -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     \nAfter the package is on pypi, you’ll be able to install it using this:\npy -m pip install powerbpy"
+  },
+  {
+    "objectID": "worked_examples/index.html#executing-python-scripts",
+    "href": "worked_examples/index.html#executing-python-scripts",
+    "title": "What you’ll learn",
+    "section": "Executing python scripts",
+    "text": "Executing python scripts\nThat’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:\npy build_dashboard.py\nThis assumes that you named your script build_dashboard.py and the command prompt’s current directory is the folder storing build_dashboard.py. You can change the current directory of the terminal using the cd command. For example you can use the following to move into C:/Users/:\ncd C:/Users/\nYou can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your %userprofile% (C:/Users/[your username]) and the python script is stored at C:/Users/[your username]/python_projects/build_dashboard.py, you can execute the script with the following:\npy python_projects/build_dashboard.py"
+  },
+  {
+    "objectID": "worked_examples/index.html#create-a-new-dashboard",
+    "href": "worked_examples/index.html#create-a-new-dashboard",
+    "title": "What you’ll learn",
+    "section": "Create a new dashboard",
+    "text": "Create a new dashboard\nTo Create a new dashboard, you’ll need to provide two arguments:\n1. parent_dir - This is the folder where you want to store your dashboard\n2. report_name - This is the name you want to give your dashboard project.\nIf you want to create a dashboard called bigfoots in a folder called C:/Users/Russ/PBI_projects, here’s what the code should look like\n# Import the package\nimport powerbpy as PBI\n\n\nPBI.create_new_dashboard(report_location = \"C:/Users/Russ/PBI_projects\", report_name = \"bigfoots\")\n\n\n\n# Create a new dashboard -----------------------------------------------------------------------------------------\nPBI_dash.create_new_dashboard(report_location, report_name)    \nIf everything worked, the function should have created the following files:\n\nYou can open the bigfoots.pbip file in Power BI desktop normally. (Although you will probably need to turn on these preview features. )"
   },
   {
     "objectID": "reference/create_new_chart.html",
@@ -324,31 +338,17 @@
     ]
   },
   {
-    "objectID": "worked_examples.html",
-    "href": "worked_examples.html",
-    "title": "What you’ll learn",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Power Bpy ",
     "section": "",
-    "text": "These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I’ll show how to use {powerbpy} to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you’ll need a copy of Power BI desktop….so kind of windows only 😞"
+    "text": "Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?\nIntroducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of a point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.\nThis package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl."
   },
   {
-    "objectID": "worked_examples.html#install-dependencies",
-    "href": "worked_examples.html#install-dependencies",
-    "title": "What you’ll learn",
-    "section": "Install dependencies",
-    "text": "Install dependencies\n\nInstall python\nYou’ll need to install python. Here are some instructions\n\nInstall Power Bpy\nThe {powerbpy} package isn’t on pypi yet, so you’ll need to install it from github. Open a terminal and enter the following:\n\npy -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     \nAfter the package is on pypi, you’ll be able to install it using this:\npy -m pip install powerbpy"
-  },
-  {
-    "objectID": "worked_examples.html#executing-python-scripts",
-    "href": "worked_examples.html#executing-python-scripts",
-    "title": "What you’ll learn",
-    "section": "Executing python scripts",
-    "text": "Executing python scripts\nThat’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:\npy build_dashboard.py\nThis assumes that you named your script build_dashboard.py and the command prompt’s current directory is the folder storing build_dashboard.py. You can change the current directory of the terminal using the cd command. For example you can use the following to move into C:/Users/:\ncd C:/Users/\nYou can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your %userprofile% (C:/Users/[your username]) and the python script is stored at C:/Users/[your username]/python_projects/build_dashboard.py, you can execute the script with the following:\npy python_projects/build_dashboard.py"
-  },
-  {
-    "objectID": "worked_examples.html#create-a-new-dashboard",
-    "href": "worked_examples.html#create-a-new-dashboard",
-    "title": "What you’ll learn",
-    "section": "Create a new dashboard",
-    "text": "Create a new dashboard\nTo Create a new dashboard, you’ll need to provide two arguments:\n1. parent_dir - This is the folder where you want to store your dashboard\n2. report_name - This is the name you want to give your dashboard project.\nIf you want to create a dashboard called bigfoots in a folder called C:/Users/Russ/PBI_projects, here’s what the code should look like\n# Import the package\nimport powerbpy as PBI\n\n\nPBI.create_new_dashboard(report_location = \"C:/Users/Russ/PBI_projects\", report_name = \"bigfoots\")\n\n\n\n# Create a new dashboard -----------------------------------------------------------------------------------------\nPBI_dash.create_new_dashboard(report_location, report_name)    \nIf everything worked, the function should have created the following files:\n\nYou can open the bigfoots.pbip file in Power BI desktop normally. (Although you will probably need to turn on these preview features. )"
+    "objectID": "index.html#dependencies",
+    "href": "index.html#dependencies",
+    "title": "Power Bpy ",
+    "section": "Dependencies",
+    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
   }
 ]
