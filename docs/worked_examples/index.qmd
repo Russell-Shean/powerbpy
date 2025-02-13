@@ -3,7 +3,7 @@ Title: "Worked examples"
 ---
 
 # What you'll learn
-These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I'll show how to use `{powerbpy}` to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you'll need a copy of Power BI desktop....so kind of windows only 😞    
+These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I'll show how to use `{powerbpy}` to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you'll need a copy of Power BI desktop and therfore using Windows.    
    
 # Setup    
 ## Install dependencies
@@ -57,4 +57,6 @@ PBI_dash.create_new_dashboard(report_location, report_name)
 If everything worked, the function should have created the following files:     
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true)       
     
-You can open the `bigfoots.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. ) 
+You can open the `bigfoots.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )      
+    
+## Add a new dashboard
