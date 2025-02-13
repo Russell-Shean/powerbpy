@@ -949,7 +949,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>document.title = "Power Bpy";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.height="140px";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.float="none";  const fig_captions = document.querySelectorAll(".figure > figcaption");  for(let i = 0; i < fig_captions.length; i++){fig_captions[i].remove();}  </script>
+<script>document.title = "Power Bpy";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.height="140px";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.float="none";  const fig_captions = document.querySelectorAll(".figure > figcaption");  for(let caption of fig_captions){caption.remove();}  </script>
 
 
 
