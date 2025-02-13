@@ -11,16 +11,22 @@ import powerbpy.update_model_file as PBI_model              # internal function 
 
 def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = True):
 
-	'''Add a locally stored TMDL file to the dashboard
+	'''Add a locally stored TMDL file to the dashboard       
 
-	:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
-	:param str data_path: The path where the tmdl file is stored.
-	:param boolean add_default_datetable: Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date heirarchies instead of using time intelligence
+	- TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.        
+	- In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale         
+	- Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.       
 
-	TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. 
-	In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale
-	Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail. 
+	Parameters        
+	----------        
+	dashboard_path: str        
+		The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).        
+	data_path: str        
+		The path where the tmdl file is stored.        
+	add_default_datetable: boolean       
+		Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date heirarchies instead of using time intelligence
 
+	
 	'''
 
 	if data_path is not None and add_default_datetable is True:
