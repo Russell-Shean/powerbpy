@@ -25,18 +25,16 @@ def create_new_dashboard(parent_dir, report_name):
 
      
 	Parameters
-    ----------
-    parent_dir: str
-    	The path to the directory where you want to store the new dashboard
-    report_name: str
-        Name of the report.      
+ 	----------
+  	parent_dir: str
+    		The path to the directory where you want to store the new dashboard
+      	report_name: str
+       		Name of the report.      
 
-    Returns
-    -------    
-    None
+    	Returns
+    	-------    
+    	None
 
-	
-	
 	'''
 
 
