@@ -24,9 +24,9 @@ def add_html_title(og_path, title):
 		new_file.write("---\n\n")
 
 
-	with open(og_path, "r") as old_file:
-		for line in old_file.readlines():
-			new_file.write(line)
+		with open(og_path, "r") as old_file:
+			for line in old_file.readlines():
+				new_file.write(line)
 
 
 	shutil.move(temp_path, og_path)
