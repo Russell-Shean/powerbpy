@@ -200,7 +200,7 @@
     "href": "index.html#dependencies",
     "title": "Power Bpy ",
     "section": "Dependencies",
-    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
+    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython (version 3.12 or higher!) and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
   },
   {
     "objectID": "reference/add_shape_map.html",
