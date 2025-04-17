@@ -92,10 +92,13 @@ def create_new_dashboard(parent_dir, report_name):
 
 	# Transfer all the blank dashboard files from the package resources ---------------------------------------------------
 
-	traversable = resources.files("PBI_dashboard_creator.dashboard_resources")
+
+	traversable = resources.files("powerbpy.dashboard_resources")
 	
 	with resources.as_file(traversable) as path:
 		shutil.copytree(path, project_folder_path)
+
+
 
 
 	# Change file names -----------------------------------------------------------------------------------------------------
