@@ -38,7 +38,7 @@ Currently the package has functions that let you do the following *without openi
 ## Dependencies    
 Before you can start to build power BI dashboards using this package's functions you'll need the following:       
 <ol>
-           <li>Python and pip installed and on path</li>
+           <li>Python (version 3.12 or higher!) and pip installed and on path</li>
            <li>Git installed and on path</li>
            <li>Power BI Desktop (You can create the dashboards without this, but not view them).</li>
 </ol>             
