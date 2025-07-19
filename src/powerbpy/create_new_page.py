@@ -3,7 +3,7 @@ import os, json
 import powerbpy as PBI
 
 
-def add_new_page(dashboard_path, page_name, title = None, subtitle = None, displayOption = "FitToPage"):
+def add_new_page(dashboard_path, page_name, title = None, subtitle = None, displayOption = 'FitToPage'):
 
 	'''Create a new blank dashboard page
 
