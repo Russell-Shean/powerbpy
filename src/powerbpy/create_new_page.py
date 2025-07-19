@@ -3,7 +3,7 @@ import os, json
 import powerbpy as PBI
 
 
-def add_new_page(dashboard_path, page_name, title = None, subtitle = None):
+def add_new_page(dashboard_path, page_name, title = None, subtitle = None, displayOption = "FitToPage"):
 
 	'''Create a new blank dashboard page
 
@@ -11,7 +11,7 @@ def add_new_page(dashboard_path, page_name, title = None, subtitle = None):
 	:param str page_name: The display name for the page you just created. This is differnt from the page_id which is only used internally. 
 	:param str title: Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
 	:param str sub_title: Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
-
+	:param str displayOption: Default way to display the page for end users (View -> Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize
 
 	:returns: new_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
   
@@ -50,7 +50,7 @@ def add_new_page(dashboard_path, page_name, title = None, subtitle = None):
 	new_page_json = {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
 	                  "name": new_page_id,
 	                  "displayName": page_name,
-	                  "displayOption": "FitToPage",
+	                  "displayOption": displayOption,
 	                  "height": 720,
 	                  "width": 1280,
 					  "objects":{}}
@@ -86,4 +86,3 @@ def add_new_page(dashboard_path, page_name, title = None, subtitle = None):
 
 
 	return new_page_id
-
