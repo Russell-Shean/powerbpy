@@ -16,5 +16,4 @@ from .create_tmdl import *
 from .generate_bin_measures import *
 from .update_diagramLayout import *
 from .update_model_file import *
-from .update_model_file import *
 from .get_measures_list import *
