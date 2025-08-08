@@ -18,6 +18,7 @@ create_new_page.add_new_page(
     page_name,
     title=None,
     subtitle=None,
+    displayOption = "FitToPage"
 )
 ```
 
@@ -25,12 +26,13 @@ Create a new blank dashboard page
 
 #### Parameters {.doc-section .doc-section-parameters}
 
-| Name           | Type   | Description                                                                                                                                                                       | Default    |
-|----------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| dashboard_path | str    | The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).                                  | _required_ |
-| page_name      | str    | The display name for the page you just created. This is differnt from the page_id which is only used internally.                                                                  | _required_ |
-| title          | str    | Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead. | `None`     |
-| sub_title      | str    | Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead. | _required_ |
+| Name           | Type | Description                                                                                                                                                                       | Default     |
+|----------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| dashboard_path | str  | The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).                                  | _required_  |
+| page_name      | str  | The display name for the page you just created. This is differnt from the page_id which is only used internally.                                                                  | _required_  |
+| title          | str  | Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead. | `None`      |
+| sub_title      | str  | Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead. | _required_  |
+| displayOption  | str  | Default way to display the page for end users (View -> Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize.                                       | `FitToPage` |
 
 #### Returns {.doc-section .doc-section-returns}
 
