@@ -30,4 +30,3 @@ Python functions for building Power BI dashboards
 | [generate_bin_measures](generate_bin_measures.qmd#powerbpy.generate_bin_measures) |  |
 | [update_diagramLayout](update_diagramLayout.qmd#powerbpy.update_diagramLayout) | This is an internal function to add a dataset to the diagramLayout file when a new dataset is added.  |
 | [update_model_file](update_model_file.qmd#powerbpy.update_model_file) | This is an internal function to add a dataset to the model.tmdl file when a new dataset is added.  |
-| [get_measures_list](get_measures_list.qmd#powerbpy.get_measures_list) | Returns a list of DAX measures in the report. |
