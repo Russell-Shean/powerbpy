@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/worked_examples/index.html</loc>
-    <lastmod>2025-04-17T07:46:55.060Z</lastmod>
-  </url>
-  <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_page.html</loc>
-    <lastmod>2025-04-17T07:46:54.967Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_text_box.html</loc>
-    <lastmod>2025-04-17T07:46:54.945Z</lastmod>
+    <lastmod>2025-08-08T05:26:59.601Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_tmdl.html</loc>
-    <lastmod>2025-04-17T07:46:54.950Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_ADLS_csv.html</loc>
-    <lastmod>2025-04-17T07:46:54.902Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_card.html</loc>
-    <lastmod>2025-04-17T07:46:54.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_background_image.html</loc>
-    <lastmod>2025-04-17T07:46:54.907Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/index.html</loc>
-    <lastmod>2025-04-17T07:46:55.060Z</lastmod>
+    <lastmod>2025-08-08T05:26:59.583Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/update_model_file.html</loc>
-    <lastmod>2025-04-17T07:46:54.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/index.html</loc>
-    <lastmod>2025-04-17T07:46:54.042Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_shape_map.html</loc>
-    <lastmod>2025-04-17T07:46:54.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/update_diagramLayout.html</loc>
-    <lastmod>2025-04-17T07:46:54.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/create_blank_dashboard.html</loc>
-    <lastmod>2025-04-17T07:46:54.955Z</lastmod>
+    <lastmod>2025-08-08T05:26:59.620Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_slicer.html</loc>
-    <lastmod>2025-04-17T07:46:54.939Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_local_csv.html</loc>
-    <lastmod>2025-04-17T07:46:54.924Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/create_tmdl.html</loc>
-    <lastmod>2025-04-17T07:46:54.971Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_button.html</loc>
-    <lastmod>2025-04-17T07:46:54.913Z</lastmod>
+    <lastmod>2025-08-08T05:26:59.570Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/generate_bin_measures.html</loc>
-    <lastmod>2025-04-17T07:46:54.976Z</lastmod>
+    <lastmod>2025-08-08T05:26:59.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/update_diagramLayout.html</loc>
+    <lastmod>2025-08-08T05:26:59.616Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/index.html</loc>
+    <lastmod>2025-08-08T05:26:59.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_local_csv.html</loc>
+    <lastmod>2025-08-08T05:26:59.553Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_button.html</loc>
+    <lastmod>2025-08-08T05:26:59.540Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/index.html</loc>
+    <lastmod>2025-08-08T05:26:58.760Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/worked_examples/index.html</loc>
+    <lastmod>2025-08-08T05:26:59.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_shape_map.html</loc>
+    <lastmod>2025-08-08T05:26:59.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_text_box.html</loc>
+    <lastmod>2025-08-08T05:26:59.578Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_background_image.html</loc>
+    <lastmod>2025-08-08T05:26:59.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/create_tmdl.html</loc>
+    <lastmod>2025-08-08T05:26:59.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_card.html</loc>
+    <lastmod>2025-08-08T05:26:59.549Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_chart.html</loc>
-    <lastmod>2025-04-17T07:46:54.963Z</lastmod>
+    <lastmod>2025-08-08T05:26:59.596Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/create_blank_dashboard.html</loc>
+    <lastmod>2025-08-08T05:26:59.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_ADLS_csv.html</loc>
+    <lastmod>2025-08-08T05:26:59.528Z</lastmod>
   </url>
 </urlset>
