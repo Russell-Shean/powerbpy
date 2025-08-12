@@ -55,6 +55,7 @@ quartodoc:
         - generate_bin_measures
         - update_diagramLayout
         - update_model_file
+        - get_measures_list
 
 
 format:
