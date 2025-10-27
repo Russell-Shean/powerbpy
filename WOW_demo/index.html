@@ -294,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Reference</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../worked_examples/index.html" aria-current="page"> 
+    <a class="nav-link" href="../worked_examples/index.html"> 
 <span class="menu-text">Worked Examples</span></a>
   </li>  
 </ul>
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-youll-learn" id="toc-what-youll-learn" class="nav-link active" data-scroll-target="#what-youll-learn">What you’ll learn</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
-  <li><a href="#install-dependencies" id="toc-install-dependencies" class="nav-link" data-scroll-target="#install-dependencies">Install dependencies</a></li>
+  <li><a href="#obtain-and-prepare-data" id="toc-obtain-and-prepare-data" class="nav-link" data-scroll-target="#obtain-and-prepare-data">Obtain and prepare data</a></li>
   <li><a href="#executing-python-scripts" id="toc-executing-python-scripts" class="nav-link" data-scroll-target="#executing-python-scripts">Executing python scripts</a></li>
   </ul></li>
   <li><a href="#build-dashboards" id="toc-build-dashboards" class="nav-link" data-scroll-target="#build-dashboards">Build dashboards</a>
@@ -338,26 +338,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<script>document.title = "Power Bpy - Worked examples";</script>
 
 
 
 
 <section id="what-youll-learn" class="level1">
 <h1>What you’ll learn</h1>
-<p>These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I’ll show how to use <code>{powerbpy}</code> to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you’ll need a copy of Power BI desktop and therfore using Windows.</p>
+<p>This blog post shows how I used the PowerBpy python module to recreate an example dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a>. This particular example recreates the dashboard from the <a href="https://workout-wednesday.com/pbi-2023-w52/">2023 Week 52 | Power BI: Format Bar Charts with Transparency, Borders, and Detail Labels</a> challenge.</p>
 </section>
 <section id="setup" class="level1">
 <h1>Setup</h1>
-<section id="install-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="install-dependencies">Install dependencies</h2>
-<ol type="1">
-<li>Install python<br>
-You’ll need to install python. Here are some <a href="https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/">instructions</a><br>
-</li>
-<li>Install Power Bpy<br>
-The <code>{powerbpy}</code> package isn’t on pypi yet, so you’ll need to install it from github. <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089">Open a terminal</a> and enter the following:</li>
-</ol>
+<section id="obtain-and-prepare-data" class="level2">
+<h2 class="anchored" data-anchor-id="obtain-and-prepare-data">Obtain and prepare data</h2>
+<p>One of the central assumptions built into the PowerBpy package is that you’d prefer to write python code over using Power BI. Therefore this example will use garden variety python including standard modules for data science to load and transform the data. Once the data is ready will use PowerBpy to create the dashboard.</p>
+<p>This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After the package is on pypi, you’ll be able to install it using this:</p>
 <pre class="batchfile"><code>py -m pip install powerbpy</code></pre>
