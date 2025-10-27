@@ -13,6 +13,8 @@ website:
         file: reference/index.qmd
       - text: "Worked Examples"
         file: worked_examples/index.qmd
+      - text: "Example Dashboard"
+        file: WOW_demo/index.qmd
 
     right:
       - icon: github
