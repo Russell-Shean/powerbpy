@@ -180,3 +180,6 @@ cython_debug/
 
 # ignore website files
 docs/docs/**
+
+# user generated dashboards
+test_dashboard/

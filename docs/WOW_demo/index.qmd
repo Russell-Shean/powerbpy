@@ -1,0 +1,63 @@
+---
+Title: "WOW Power BI 2023 week 52 demonstration"
+---
+
+# What you'll learn
+This blog post shows how I used the PowerBpy python module to recreate an example dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a>. This particular example recreates the dashboard from the <a href="https://workout-wednesday.com/pbi-2023-w52/">2023 Week 52 | Power BI: Format Bar Charts with Transparency, Borders, and Detail Labels</a> challenge. 
+
+# Setup    
+## Obtain and prepare data
+One of the central assumptions built into the PowerBpy package is that you'd prefer to write python code over using Power BI. Therefore this example will use garden variety python including standard modules for data science  to load and transform the data. Once the data is ready will use PowerBpy to create the dashboard. 
+
+This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas. 
+
+
+
+```dosbat     
+py -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     
+```     
+   
+After the package is on pypi, you'll be able to install it using this: 
+```batchfile
+py -m pip install powerbpy
+```
+   
+## Executing python scripts   
+That's all you need to install! To create the dashboards, you'll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it'll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:     
+```dosbat
+py build_dashboard.py
+```  
+This assumes that you named your script `build_dashboard.py` and the command prompt's current directory is the folder storing `build_dashboard.py`. You can change the current directory of the terminal using the `cd` command. For example you can use the following to move into `C:/Users/`:     
+```dosbat
+cd C:/Users/
+```
+You can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your `%userprofile%` (`C:/Users/[your username]`) and the python script is stored at `C:/Users/[your username]/python_projects/build_dashboard.py`, you can execute the script with the following:     
+```dosbat      
+py python_projects/build_dashboard.py    
+```    
+
+# Build dashboards   
+## Create a new dashboard
+To Create a new dashboard, you'll need to provide two arguments:      
+1. parent_dir - This is the folder where you want to store your dashboard     
+2. report_name - This is the name you want to give your dashboard project.       
+     
+If you want to create a dashboard called `bigfoots` in a folder called `C:/Users/Russ/PBI_projects`,  here's what the code should look like    
+```python    
+# Import the package
+import powerbpy as PBI
+
+
+PBI.create_new_dashboard(report_location = "C:/Users/Russ/PBI_projects", report_name = "bigfoots")
+
+
+
+# Create a new dashboard -----------------------------------------------------------------------------------------
+PBI_dash.create_new_dashboard(report_location, report_name)    
+```     
+If everything worked, the function should have created the following files:     
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true)       
+    
+You can open the `bigfoots.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )      
+    
+## Add a new dashboard

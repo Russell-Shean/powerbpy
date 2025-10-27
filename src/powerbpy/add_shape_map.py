@@ -177,7 +177,7 @@ def add_shape_map(dashboard_path, page_id, map_id, data_source, shape_file_path,
                   color_var = color_var, 
                   percentile_bin_breaks = percentile_bin_breaks, 
                   color_palette = color_palette,
-                  filtering_var = "season",
+                  filtering_var = filtering_var,
                   location_var = location_var
                   #data_filtering_condition = {"metric":"adj_rate"}
                   )   

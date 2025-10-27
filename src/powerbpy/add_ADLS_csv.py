@@ -11,7 +11,15 @@ import powerbpy.update_diagramLayout as PBI_DL
 import powerbpy.create_tmdl as PBI_TMDL
 
 
-def add_csv_from_blob(dashboard_path, account_url, blob_name, data_path, tenant_id = None,  use_saved_storage_key = False,  SAS_url = None, storage_account_key = None, warnings = True):
+def add_csv_from_blob(dashboard_path, 
+    account_url, 
+    blob_name, 
+    data_path, 
+    tenant_id = None, 
+    use_saved_storage_key = False,  
+    SAS_url = None,
+    storage_account_key = None, 
+    warnings = True):
 
     '''Add a csv file store in a ADLS blob container to a dashboard
 
