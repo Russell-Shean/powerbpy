@@ -59,7 +59,7 @@ def _generate_bin_ranges(bin_number, dataset_file_path, percentile_bin_breaks,da
 
 def add_bin_measures(dashboard_path, dataset_name, color_var, percentile_bin_breaks, color_palette, filtering_var,location_var, data_filtering_condition = None):
 
-  '''An internally called function that creates a TMDL file from a pandas dataframe
+  '''An internally called function that adds bin measures to a TMDL file
 
   :param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
   :param str dataset_name: The name of the dataset. This should be the basename of the original file without the extension. For example if you loaded "%userprofile%/documents/datasets/birds.csv", the dataset name would be "birds".
