@@ -7,32 +7,18 @@
     "text": "This blog post shows how I used the PowerBpy python module to recreate an example dashboard from the Workout Wednesday Group. This particular example recreates the dashboard from the 2023 Week 52 | Power BI: Format Bar Charts with Transparency, Borders, and Detail Labels challenge."
   },
   {
+    "objectID": "WOW_demo/index.html#assumptions",
+    "href": "WOW_demo/index.html#assumptions",
+    "title": "What you’ll learn",
+    "section": "Assumptions",
+    "text": "Assumptions\nThis example assumes that you already have python installed and setup and that you know how to install python modules such as pandas."
+  },
+  {
     "objectID": "WOW_demo/index.html#obtain-and-prepare-data",
     "href": "WOW_demo/index.html#obtain-and-prepare-data",
     "title": "What you’ll learn",
     "section": "Obtain and prepare data",
-    "text": "Obtain and prepare data\nOne of the central assumptions built into the PowerBpy package is that you’d prefer to write python code over using Power BI. Therefore this example will use garden variety python including standard modules for data science to load and transform the data. Once the data is ready will use PowerBpy to create the dashboard.\nThis example assumes that you already have python installed and setup and that you know how to install python modules such as pandas.\npy -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     \nAfter the package is on pypi, you’ll be able to install it using this:\npy -m pip install powerbpy"
-  },
-  {
-    "objectID": "WOW_demo/index.html#executing-python-scripts",
-    "href": "WOW_demo/index.html#executing-python-scripts",
-    "title": "What you’ll learn",
-    "section": "Executing python scripts",
-    "text": "Executing python scripts\nThat’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:\npy build_dashboard.py\nThis assumes that you named your script build_dashboard.py and the command prompt’s current directory is the folder storing build_dashboard.py. You can change the current directory of the terminal using the cd command. For example you can use the following to move into C:/Users/:\ncd C:/Users/\nYou can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your %userprofile% (C:/Users/[your username]) and the python script is stored at C:/Users/[your username]/python_projects/build_dashboard.py, you can execute the script with the following:\npy python_projects/build_dashboard.py"
-  },
-  {
-    "objectID": "WOW_demo/index.html#create-a-new-dashboard",
-    "href": "WOW_demo/index.html#create-a-new-dashboard",
-    "title": "What you’ll learn",
-    "section": "Create a new dashboard",
-    "text": "Create a new dashboard\nTo Create a new dashboard, you’ll need to provide two arguments:\n1. parent_dir - This is the folder where you want to store your dashboard\n2. report_name - This is the name you want to give your dashboard project.\nIf you want to create a dashboard called bigfoots in a folder called C:/Users/Russ/PBI_projects, here’s what the code should look like\n# Import the package\nimport powerbpy as PBI\n\n\nPBI.create_new_dashboard(report_location = \"C:/Users/Russ/PBI_projects\", report_name = \"bigfoots\")\n\n\n\n# Create a new dashboard -----------------------------------------------------------------------------------------\nPBI_dash.create_new_dashboard(report_location, report_name)    \nIf everything worked, the function should have created the following files:\n\nYou can open the bigfoots.pbip file in Power BI desktop normally. (Although you will probably need to turn on these preview features. )"
-  },
-  {
-    "objectID": "WOW_demo/index.html#add-a-new-dashboard",
-    "href": "WOW_demo/index.html#add-a-new-dashboard",
-    "title": "What you’ll learn",
-    "section": "Add a new dashboard",
-    "text": "Add a new dashboard"
+    "text": "Obtain and prepare data\nOne of the central assumptions built into the PowerBpy package is that you’d prefer to write python code over using Power BI. Therefore this example will use garden variety python including standard modules for data science to load and transform the data. Once the data is ready will use PowerBpy to create the dashboard.\nThe data for this example is provided as a pdf file that you’re supposed to import using a Power BI pdf importer and then manipulate the data using DAX. Instead we’ll use python to read the text from the pdf and then parse and clean the data from the extracted text."
   },
   {
     "objectID": "reference/add_ADLS_csv.html",

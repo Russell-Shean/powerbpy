@@ -328,13 +328,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-youll-learn" id="toc-what-youll-learn" class="nav-link active" data-scroll-target="#what-youll-learn">What you’ll learn</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
   <li><a href="#obtain-and-prepare-data" id="toc-obtain-and-prepare-data" class="nav-link" data-scroll-target="#obtain-and-prepare-data">Obtain and prepare data</a></li>
-  <li><a href="#executing-python-scripts" id="toc-executing-python-scripts" class="nav-link" data-scroll-target="#executing-python-scripts">Executing python scripts</a></li>
-  </ul></li>
-  <li><a href="#build-dashboards" id="toc-build-dashboards" class="nav-link" data-scroll-target="#build-dashboards">Build dashboards</a>
-  <ul class="collapse">
-  <li><a href="#create-a-new-dashboard" id="toc-create-a-new-dashboard" class="nav-link" data-scroll-target="#create-a-new-dashboard">Create a new dashboard</a></li>
-  <li><a href="#add-a-new-dashboard" id="toc-add-a-new-dashboard" class="nav-link" data-scroll-target="#add-a-new-dashboard">Add a new dashboard</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -352,48 +347,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup" class="level1">
 <h1>Setup</h1>
+<section id="assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
+<p>This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas.</p>
+</section>
 <section id="obtain-and-prepare-data" class="level2">
 <h2 class="anchored" data-anchor-id="obtain-and-prepare-data">Obtain and prepare data</h2>
 <p>One of the central assumptions built into the PowerBpy package is that you’d prefer to write python code over using Power BI. Therefore this example will use garden variety python including standard modules for data science to load and transform the data. Once the data is ready will use PowerBpy to create the dashboard.</p>
-<p>This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After the package is on pypi, you’ll be able to install it using this:</p>
-<pre class="batchfile"><code>py -m pip install powerbpy</code></pre>
-</section>
-<section id="executing-python-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="executing-python-scripts">Executing python scripts</h2>
-<p>That’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>py build_dashboard.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This assumes that you named your script <code>build_dashboard.py</code> and the command prompt’s current directory is the folder storing <code>build_dashboard.py</code>. You can change the current directory of the terminal using the <code>cd</code> command. For example you can use the following to move into <code>C:/Users/</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:<span class="at">/Users</span>/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your <code>%userprofile%</code> (<code>C:/Users/[your username]</code>) and the python script is stored at <code>C:/Users/[your username]/python_projects/build_dashboard.py</code>, you can execute the script with the following:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>py python_projects<span class="at">/build_dashboard</span>.py    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="build-dashboards" class="level1">
-<h1>Build dashboards</h1>
-<section id="create-a-new-dashboard" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-new-dashboard">Create a new dashboard</h2>
-<p>To Create a new dashboard, you’ll need to provide two arguments:<br>
-1. parent_dir - This is the folder where you want to store your dashboard<br>
-2. report_name - This is the name you want to give your dashboard project.</p>
-<p>If you want to create a dashboard called <code>bigfoots</code> in a folder called <code>C:/Users/Russ/PBI_projects</code>, here’s what the code should look like</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the package</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> powerbpy <span class="im">as</span> PBI</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>PBI.create_new_dashboard(report_location <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects"</span>, report_name <span class="op">=</span> <span class="st">"bigfoots"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new dashboard -----------------------------------------------------------------------------------------</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>PBI_dash.create_new_dashboard(report_location, report_name)    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If everything worked, the function should have created the following files:<br>
-<img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true" class="img-fluid" alt="image"></p>
-<p>You can open the <code>bigfoots.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )</p>
-</section>
-<section id="add-a-new-dashboard" class="level2">
-<h2 class="anchored" data-anchor-id="add-a-new-dashboard">Add a new dashboard</h2>
+<p>The data for this example is provided as a pdf file that you’re supposed to import using a Power BI pdf importer and then manipulate the data using DAX. Instead we’ll use python to read the text from the pdf and then parse and clean the data from the extracted text.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
