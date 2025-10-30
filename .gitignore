@@ -183,3 +183,10 @@ docs/docs/**
 
 # user generated dashboards
 test_dashboard/
+.Rproj.user
+
+# random R files
+*.Rproj
+
+# development files
+local_experiments/
