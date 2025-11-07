@@ -1,10 +1,10 @@
 from .add_background_image import *
 from .add_button import *
 from .add_card import *
-from .add_chart 
+from .add_chart import *
 from .add_csv_from_blob import *
 from .add_local_csv import *
-from .add_new_page
+from .add_new_page import *
 from .add_shape_map import *
 from .add_slicer import *
 from .add_text_box import *
