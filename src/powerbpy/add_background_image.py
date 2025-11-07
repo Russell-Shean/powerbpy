@@ -1,7 +1,7 @@
 #background_image
 import os, shutil, json
 
-def add_background_img(dashboard_path, page_id, img_path, alpha = 100, scaling_method = "Fit"):
+def add_background_image(dashboard_path, page_id, img_path, alpha = 100, scaling_method = "Fit"):
 
 	'''Add a background image to a dashboard page
 

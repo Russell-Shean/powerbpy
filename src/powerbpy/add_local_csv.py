@@ -4,7 +4,7 @@ import os, uuid, json, re, shutil
 # Import a custom function to create the date heirarchies
 import powerbpy as PBI
 
-def add_csv(dashboard_path, data_path):
+def add_local_csv(dashboard_path, data_path):
 
 	'''Add a locally stored CSV file to a dashboard
 	

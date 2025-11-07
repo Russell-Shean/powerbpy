@@ -2,7 +2,7 @@
 import uuid, os
 
 
-def create_date_hr(col_name, dataset_name, report_name, dashboard_path):
+def create_date_hrcy(col_name, dataset_name, report_name, dashboard_path):
 
 	'''
 	
