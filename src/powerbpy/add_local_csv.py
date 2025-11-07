@@ -38,7 +38,14 @@ def add_local_csv(dashboard_path, data_path):
 
 	report_name = os.path.basename(dashboard_path)
 
-  # Reverse slash directions bc windows is stooooooopid
+
+	# Convert the user provided data_path to a relative path
+	# because Power BI requires it...
+	data_path = os.path.abspath(os.path.expanduser(data_path))
+
+
+
+  # Reverse slash directions bc windows
 	data_path_reversed = data_path.replace('/', '\\')
 	
 
