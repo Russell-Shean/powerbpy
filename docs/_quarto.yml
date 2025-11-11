@@ -50,6 +50,7 @@ quartodoc:
         - add_new_page
         - add_shape_map
         - add_slicer
+        - add_table
         - add_text_box
         - add_tmdl_dataset
         - create_date_hrcy
