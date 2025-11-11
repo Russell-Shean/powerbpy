@@ -1,5 +1,9 @@
 # Ignore developer files for testing package between releases
-src/test.py
+# Actually we maybe do want this file....
+# But we'll change some file names 
+# src/test_script_prod.py will be the final version of the tests that we want to run regularly 
+# We'll continue to ignore the dev script?? 
+src/test_script_dev.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
