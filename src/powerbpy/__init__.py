@@ -5,6 +5,7 @@ from .add_chart import *
 from .add_csv_from_blob import *
 from .add_local_csv import *
 from .add_new_page import *
+from .add_sanky_chart import *
 from .add_shape_map import *
 from .add_slicer import *
 from .add_table import *
