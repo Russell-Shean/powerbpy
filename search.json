@@ -227,88 +227,90 @@
     ]
   },
   {
-    "objectID": "reference/index.html",
-    "href": "reference/index.html",
-    "title": "Function reference",
+    "objectID": "reference/add_table.html",
+    "href": "reference/add_table.html",
+    "title": "add_table",
     "section": "",
-    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
-    "crumbs": [
-      "Reference",
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/index.html#power-bpy",
-    "href": "reference/index.html#power-bpy",
-    "title": "Function reference",
-    "section": "",
-    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
-    "crumbs": [
-      "Reference",
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/add_tmdl_dataset.html",
-    "href": "reference/add_tmdl_dataset.html",
-    "title": "add_tmdl_dataset",
-    "section": "",
-    "text": "add_tmdl_dataset\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl_dataset.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\nTMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.\n\nIn practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale\n\nPotential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\n\n\n\ndashboard_path: str\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\ndata_path: str\nThe path where the tmdl file is stored.\nadd_default_datetable: boolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence",
+    "text": "add_table\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_table\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\nadd_table.add_table(\n    dashboard_path,\n    page_id,\n    table_id,\n    data_source,\n    variables,\n    x_position,\n    y_position,\n    height,\n    width,\n    add_totals_row=False,\n    table_title=None,\n    column_widths=None,\n    tab_order=-1001,\n    z_position=6000,\n)\nThis function adds a new chart to a page in a power BI dashboard report.\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the background image to. If you used this package’s functions to create pages it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str chart_id: Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\n:param str data_source: The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. :param list variables: The variables from the table that you want to include\n:param str table_title: Give your table an informative title!:D\n:param dict column_widths: Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values. :param int x_position: The x coordinate of where you want to put the table on the page. Origin is page’s top left corner. :param int y_position: The y coordinate of where you want to put the table on the page. Origin is page’s top left corner.\n:param int height: Height of table on the page :param int width: Width of table on the page\n:param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "add_tmdl_dataset"
+      "add_table"
     ]
   },
   {
-    "objectID": "reference/add_tmdl_dataset.html#functions",
-    "href": "reference/add_tmdl_dataset.html#functions",
-    "title": "add_tmdl_dataset",
+    "objectID": "reference/add_table.html#functions",
+    "href": "reference/add_table.html#functions",
+    "title": "add_table",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl_dataset.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\nTMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.\n\nIn practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale\n\nPotential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\n\n\n\ndashboard_path: str\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\ndata_path: str\nThe path where the tmdl file is stored.\nadd_default_datetable: boolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence",
+    "text": "Name\nDescription\n\n\n\n\nadd_table\nThis function adds a new chart to a page in a power BI dashboard report.\n\n\n\n\n\nadd_table.add_table(\n    dashboard_path,\n    page_id,\n    table_id,\n    data_source,\n    variables,\n    x_position,\n    y_position,\n    height,\n    width,\n    add_totals_row=False,\n    table_title=None,\n    column_widths=None,\n    tab_order=-1001,\n    z_position=6000,\n)\nThis function adds a new chart to a page in a power BI dashboard report.\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the background image to. If you used this package’s functions to create pages it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str chart_id: Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.\n:param str data_source: The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. :param list variables: The variables from the table that you want to include\n:param str table_title: Give your table an informative title!:D\n:param dict column_widths: Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values. :param int x_position: The x coordinate of where you want to put the table on the page. Origin is page’s top left corner. :param int y_position: The y coordinate of where you want to put the table on the page. Origin is page’s top left corner.\n:param int height: Height of table on the page :param int width: Width of table on the page\n:param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "add_tmdl_dataset"
+      "add_table"
     ]
   },
   {
-    "objectID": "reference/add_background_image.html",
-    "href": "reference/add_background_image.html",
-    "title": "add_background_image",
+    "objectID": "reference/add_tmdl.html",
+    "href": "reference/add_tmdl.html",
+    "title": "add_tmdl",
     "section": "",
-    "text": "add_background_image\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_background_image\nAdd a background image to a dashboard page\n\n\n\n\n\nadd_background_image.add_background_image(\n    dashboard_path,\n    page_id,\n    img_path,\n    alpha=100,\n    scaling_method='Fit',\n)\nAdd a background image to a dashboard page\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str img_path: The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png :param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. :param str scaling_method: The method used to scale the image available options include [“Fit”, ]",
+    "text": "add_tmdl\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue"
+  },
+  {
+    "objectID": "reference/add_tmdl.html#functions",
+    "href": "reference/add_tmdl.html#functions",
+    "title": "add_tmdl",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue"
+  },
+  {
+    "objectID": "reference/create_new_dashboard.html",
+    "href": "reference/create_new_dashboard.html",
+    "title": "create_new_dashboard",
+    "section": "",
+    "text": "create_new_dashboard\n\n\n\n\n\nName\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_new_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\nThis function creates a power BI report in the specified parent directory.\n\nThe dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.\n\nThe function creates a folder with the name report_name inside parent_dir with all the dashboard’s files.\n\nThe dashboard uses a .pbip/.pbir format with TMDL enabled.\n\nTo publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing\n\nThese annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.\n\n(.pbip uses mimified json by default and throws an error when it’s given unpacked json).\nThis dashboard turns off time intelligence and relationship autodection off by default\nIf you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\n\n\n\nparent_dir: str\nThe path to the directory where you want to store the new dashboard\nreport_name: str\nName of the report.\n\n\n\nNone",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "add_background_image"
+      "create_new_dashboard"
     ]
   },
   {
-    "objectID": "reference/add_background_image.html#functions",
-    "href": "reference/add_background_image.html#functions",
-    "title": "add_background_image",
+    "objectID": "reference/create_new_dashboard.html#functions",
+    "href": "reference/create_new_dashboard.html#functions",
+    "title": "create_new_dashboard",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_background_image\nAdd a background image to a dashboard page\n\n\n\n\n\nadd_background_image.add_background_image(\n    dashboard_path,\n    page_id,\n    img_path,\n    alpha=100,\n    scaling_method='Fit',\n)\nAdd a background image to a dashboard page\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str img_path: The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png :param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. :param str scaling_method: The method used to scale the image available options include [“Fit”, ]",
+    "text": "Name\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_new_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\nThis function creates a power BI report in the specified parent directory.\n\nThe dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.\n\nThe function creates a folder with the name report_name inside parent_dir with all the dashboard’s files.\n\nThe dashboard uses a .pbip/.pbir format with TMDL enabled.\n\nTo publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing\n\nThese annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.\n\n(.pbip uses mimified json by default and throws an error when it’s given unpacked json).\nThis dashboard turns off time intelligence and relationship autodection off by default\nIf you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\n\n\n\nparent_dir: str\nThe path to the directory where you want to store the new dashboard\nreport_name: str\nName of the report.\n\n\n\nNone",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "add_background_image"
+      "create_new_dashboard"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Power Bpy ",
+    "objectID": "reference/add_local_csv.html",
+    "href": "reference/add_local_csv.html",
+    "title": "add_local_csv",
     "section": "",
-    "text": "Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?\nIntroducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of a point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.\nThis package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl."
+    "text": "add_local_csv\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_local_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_local_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str data_path: The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\n:returns: dataset_id: A randomly generated UUID that you can use to reference the datset.\nThe dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.\nThis function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_local_csv"
+    ]
   },
   {
-    "objectID": "index.html#dependencies",
-    "href": "index.html#dependencies",
-    "title": "Power Bpy ",
-    "section": "Dependencies",
-    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython (version 3.12 or higher!) and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
+    "objectID": "reference/add_local_csv.html#functions",
+    "href": "reference/add_local_csv.html#functions",
+    "title": "add_local_csv",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nadd_local_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_local_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str data_path: The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\n:returns: dataset_id: A randomly generated UUID that you can use to reference the datset.\nThe dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.\nThis function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
+    "crumbs": [
+      "Reference",
+      "Power Bpy",
+      "add_local_csv"
+    ]
   },
   {
     "objectID": "worked_examples/index.html",
@@ -346,66 +348,88 @@
     "text": "Add a new dashboard"
   },
   {
-    "objectID": "reference/add_local_csv.html",
-    "href": "reference/add_local_csv.html",
-    "title": "add_local_csv",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Power Bpy ",
     "section": "",
-    "text": "add_local_csv\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_local_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_local_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str data_path: The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\n:returns: dataset_id: A randomly generated UUID that you can use to reference the datset.\nThe dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.\nThis function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
+    "text": "Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?\nIntroducing Power Bpy, a python package that lets you create Power BI dashboards using functions 💪 instead of a point-and-click interface 🥹. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.\nThis package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl."
+  },
+  {
+    "objectID": "index.html#dependencies",
+    "href": "index.html#dependencies",
+    "title": "Power Bpy ",
+    "section": "Dependencies",
+    "text": "Dependencies\nBefore you can start to build power BI dashboards using this package’s functions you’ll need the following:\n\n\n\nPython (version 3.12 or higher!) and pip installed and on path\n\n\nGit installed and on path\n\n\nPower BI Desktop (You can create the dashboards without this, but not view them).\n\n\nPower BI settings:\nYou’ll need to enable some preview features in Power BI Desktop. Navigate to File &gt; Options and Settings &gt; Options &gt; Preview features and enable the following options:\n\n\n\nShape map visual\n\n\nPower BI Project (.pbip) save option\n\n\nStore Semantic Model using TMDL format\n\n\nStore reports using enhanced metadata format (PBIR)"
+  },
+  {
+    "objectID": "reference/add_background_image.html",
+    "href": "reference/add_background_image.html",
+    "title": "add_background_image",
+    "section": "",
+    "text": "add_background_image\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_background_image\nAdd a background image to a dashboard page\n\n\n\n\n\nadd_background_image.add_background_image(\n    dashboard_path,\n    page_id,\n    img_path,\n    alpha=100,\n    scaling_method='Fit',\n)\nAdd a background image to a dashboard page\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str img_path: The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png :param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. :param str scaling_method: The method used to scale the image available options include [“Fit”, ]",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "add_local_csv"
+      "add_background_image"
     ]
   },
   {
-    "objectID": "reference/add_local_csv.html#functions",
-    "href": "reference/add_local_csv.html#functions",
-    "title": "add_local_csv",
+    "objectID": "reference/add_background_image.html#functions",
+    "href": "reference/add_background_image.html#functions",
+    "title": "add_background_image",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_local_csv\nAdd a locally stored CSV file to a dashboard\n\n\n\n\n\nadd_local_csv.add_local_csv(dashboard_path, data_path)\nAdd a locally stored CSV file to a dashboard\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str data_path: The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK.\n:returns: dataset_id: A randomly generated UUID that you can use to reference the datset.\nThe dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.\nThis function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.",
+    "text": "Name\nDescription\n\n\n\n\nadd_background_image\nAdd a background image to a dashboard page\n\n\n\n\n\nadd_background_image.add_background_image(\n    dashboard_path,\n    page_id,\n    img_path,\n    alpha=100,\n    scaling_method='Fit',\n)\nAdd a background image to a dashboard page\n:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str img_path: The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png :param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. :param str scaling_method: The method used to scale the image available options include [“Fit”, ]",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "add_local_csv"
+      "add_background_image"
     ]
   },
   {
-    "objectID": "reference/create_new_dashboard.html",
-    "href": "reference/create_new_dashboard.html",
-    "title": "create_new_dashboard",
+    "objectID": "reference/add_tmdl_dataset.html",
+    "href": "reference/add_tmdl_dataset.html",
+    "title": "add_tmdl_dataset",
     "section": "",
-    "text": "create_new_dashboard\n\n\n\n\n\nName\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_new_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\nThis function creates a power BI report in the specified parent directory.\n\nThe dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.\n\nThe function creates a folder with the name report_name inside parent_dir with all the dashboard’s files.\n\nThe dashboard uses a .pbip/.pbir format with TMDL enabled.\n\nTo publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing\n\nThese annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.\n\n(.pbip uses mimified json by default and throws an error when it’s given unpacked json).\nThis dashboard turns off time intelligence and relationship autodection off by default\nIf you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\n\n\n\nparent_dir: str\nThe path to the directory where you want to store the new dashboard\nreport_name: str\nName of the report.\n\n\n\nNone",
+    "text": "add_tmdl_dataset\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl_dataset.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\nTMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.\n\nIn practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale\n\nPotential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\n\n\n\ndashboard_path: str\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\ndata_path: str\nThe path where the tmdl file is stored.\nadd_default_datetable: boolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "create_new_dashboard"
+      "add_tmdl_dataset"
     ]
   },
   {
-    "objectID": "reference/create_new_dashboard.html#functions",
-    "href": "reference/create_new_dashboard.html#functions",
-    "title": "create_new_dashboard",
+    "objectID": "reference/add_tmdl_dataset.html#functions",
+    "href": "reference/add_tmdl_dataset.html#functions",
+    "title": "add_tmdl_dataset",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\ncreate_new_dashboard\nCreate a new dashboard in the specified folder\n\n\n\n\n\ncreate_new_dashboard.create_new_dashboard(parent_dir, report_name)\nCreate a new dashboard in the specified folder\n\nThis function creates a power BI report in the specified parent directory.\n\nThe dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.\n\nThe function creates a folder with the name report_name inside parent_dir with all the dashboard’s files.\n\nThe dashboard uses a .pbip/.pbir format with TMDL enabled.\n\nTo publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing\n\nThese annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.\n\n(.pbip uses mimified json by default and throws an error when it’s given unpacked json).\nThis dashboard turns off time intelligence and relationship autodection off by default\nIf you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. Only use this package if you have to :D\n\n\n\nparent_dir: str\nThe path to the directory where you want to store the new dashboard\nreport_name: str\nName of the report.\n\n\n\nNone",
+    "text": "Name\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl_dataset.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\nTMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.\n\nIn practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale\n\nPotential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\n\n\n\ndashboard_path: str\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\ndata_path: str\nThe path where the tmdl file is stored.\nadd_default_datetable: boolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence",
     "crumbs": [
       "Reference",
       "Power Bpy",
-      "create_new_dashboard"
+      "add_tmdl_dataset"
     ]
   },
   {
-    "objectID": "reference/add_tmdl.html",
-    "href": "reference/add_tmdl.html",
-    "title": "add_tmdl",
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
     "section": "",
-    "text": "add_tmdl\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue"
+    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_table\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
   },
   {
-    "objectID": "reference/add_tmdl.html#functions",
-    "href": "reference/add_tmdl.html#functions",
-    "title": "add_tmdl",
+    "objectID": "reference/index.html#power-bpy",
+    "href": "reference/index.html#power-bpy",
+    "title": "Function reference",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_tmdl_dataset\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\nadd_tmdl.add_tmdl_dataset(\n    dashboard_path,\n    data_path=None,\n    add_default_datetable=True,\n)\nAdd a locally stored TMDL file to the dashboard\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\nstr\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\ndata_path\nstr\nThe path where the tmdl file is stored.\nNone\n\n\nadd_default_datetable\nboolean\nDo you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset. In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.\nTrue"
+    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_table\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
   },
   {
     "objectID": "reference/add_button.html",

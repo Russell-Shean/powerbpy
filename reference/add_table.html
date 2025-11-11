@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>add_shape_map</title>
+<title>add_table</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -320,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/add_background_image.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/add_shape_map.html">add_shape_map</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/add_background_image.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/add_table.html">add_table</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -395,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/add_shape_map.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/add_shape_map.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">add_shape_map</span></a>
   </div>
 </li>
@@ -407,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/add_table.html" class="sidebar-item-text sidebar-link">
+  <a href="../reference/add_table.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">add_table</span></a>
   </div>
 </li>
@@ -477,26 +477,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#powerbpy.add_shape_map" id="toc-powerbpy.add_shape_map" class="nav-link active" data-scroll-target="#powerbpy.add_shape_map">add_shape_map</a>
+  <li><a href="#powerbpy.add_table" id="toc-powerbpy.add_table" class="nav-link active" data-scroll-target="#powerbpy.add_table">add_table</a>
   <ul class="collapse">
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a>
   <ul class="collapse">
-  <li><a href="#powerbpy.add_shape_map.add_shape_map" id="toc-powerbpy.add_shape_map.add_shape_map" class="nav-link" data-scroll-target="#powerbpy.add_shape_map.add_shape_map">add_shape_map</a></li>
+  <li><a href="#powerbpy.add_table.add_table" id="toc-powerbpy.add_table.add_table" class="nav-link" data-scroll-target="#powerbpy.add_table.add_table">add_table</a></li>
   </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/add_background_image.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/add_shape_map.html">add_shape_map</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/add_background_image.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/add_table.html">add_table</a></li></ol></nav></header>
 
 
 
 
 
-<section id="powerbpy.add_shape_map" class="level1">
-<h1>add_shape_map</h1>
-<p><code>add_shape_map</code></p>
+<section id="powerbpy.add_table" class="level1">
+<h1>add_table</h1>
+<p><code>add_table</code></p>
 <section id="functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions">Functions</h2>
 <table class="caption-top table">
@@ -508,42 +508,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="#powerbpy.add_shape_map.add_shape_map">add_shape_map</a></td>
-<td>Add a map to a page</td>
+<td><a href="#powerbpy.add_table.add_table">add_table</a></td>
+<td>This function adds a new chart to a page in a power BI dashboard report.</td>
 </tr>
 </tbody>
 </table>
-<section id="powerbpy.add_shape_map.add_shape_map" class="level3">
-<h3 class="anchored" data-anchor-id="powerbpy.add_shape_map.add_shape_map">add_shape_map</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>add_shape_map.add_shape_map(</span>
+<section id="powerbpy.add_table.add_table" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.add_table.add_table">add_table</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>add_table.add_table(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    dashboard_path,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    page_id,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    map_id,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    table_id,</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    data_source,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    shape_file_path,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    map_title,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    location_var,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    color_var,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    color_palette,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    height,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    width,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    x_position,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    y_position,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    add_legend<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    static_bin_breaks<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    percentile_bin_breaks<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    filtering_var<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    z_position<span class="op">=</span><span class="dv">6000</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    tab_order<span class="op">=-</span><span class="dv">1001</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add a map to a page</p>
-<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the map to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str map_id: Please choose a unique id to use to identify the map. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</p>
-<p>:param str data_source: The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. :param str shape_file_path: A path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.</p>
-<p>:param str map_title: The title you want to put above the map. :param str location_var: The name of the column in data_source that you want to use for the location variable on the map :param str color_var: The name of the column in data_source that you want to use for the color variable on the map :param str filtering_var: Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.</p>
-<p>:param list static_bin_breaks: This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead. :param list color_palatte: A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks :param bool add_legend: True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default) :param list static_bin_breaks: This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. :param list percentile_bin_breaks: This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]</p>
-<p>:param int height: Height of map on the page :param int width: Width of map on the page</p>
-<p>:param int x_position: The x coordinate of where you want to put the map on the page. Origin is page’s top left corner. :param int y_position: The y coordinate of where you want to put the map on the page. Origin is page’s top left corner. :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000 :param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</p>
-<p>This function creates a new cloropleth map on a page.</p>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    variables,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    x_position,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    y_position,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    height,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    width,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    add_totals_row<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    table_title<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    column_widths<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    tab_order<span class="op">=-</span><span class="dv">1001</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    z_position<span class="op">=</span><span class="dv">6000</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function adds a new chart to a page in a power BI dashboard report.</p>
+<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_id: The unique id for the page you want to add the background image to. If you used this package’s functions to create pages it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. :param str chart_id: Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</p>
+<p>:param str data_source: The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. :param list variables: The variables from the table that you want to include</p>
+<p>:param str table_title: Give your table an informative title!:D</p>
+<p>:param dict column_widths: Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values. :param int x_position: The x coordinate of where you want to put the table on the page. Origin is page’s top left corner. :param int y_position: The y coordinate of where you want to put the table on the page. Origin is page’s top left corner.</p>
+<p>:param int height: Height of table on the page :param int width: Width of table on the page</p>
+<p>:param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions) :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</p>
 
 
 </section>

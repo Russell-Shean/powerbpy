@@ -2,114 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/WOW_demo/index.html</loc>
-    <lastmod>2025-11-11T09:19:09.714Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.634Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/get_measures_list.html</loc>
-    <lastmod>2025-11-11T09:19:40.205Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.563Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_csv_from_blob.html</loc>
-    <lastmod>2025-11-11T09:19:40.128Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.477Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_date_hrcy.html</loc>
-    <lastmod>2025-11-11T09:19:40.181Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.539Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_text_box.html</loc>
-    <lastmod>2025-11-11T09:19:40.170Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.528Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_slicer.html</loc>
-    <lastmod>2025-11-11T09:19:40.160Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.509Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/update_model_file.html</loc>
-    <lastmod>2025-11-11T09:19:40.215Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.573Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_new_page.html</loc>
-    <lastmod>2025-11-11T09:19:40.139Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.488Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/generate_bin_measures.html</loc>
-    <lastmod>2025-11-11T09:19:09.797Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.715Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/update_diagramLayout.html</loc>
-    <lastmod>2025-11-11T09:19:40.210Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.568Z</lastmod>
   </url>
   <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/index.html</loc>
-    <lastmod>2025-11-11T09:19:40.300Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_tmdl_dataset.html</loc>
-    <lastmod>2025-11-11T09:19:40.176Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_background_image.html</loc>
-    <lastmod>2025-11-11T09:19:40.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/index.html</loc>
-    <lastmod>2025-11-11T09:19:39.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/worked_examples/index.html</loc>
-    <lastmod>2025-11-11T09:19:40.300Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_local_csv.html</loc>
-    <lastmod>2025-11-11T09:19:40.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_dashboard.html</loc>
-    <lastmod>2025-11-11T09:19:40.187Z</lastmod>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_table.html</loc>
+    <lastmod>2025-11-11T09:22:51.518Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_tmdl.html</loc>
-    <lastmod>2025-11-11T09:19:09.797Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.715Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_dashboard.html</loc>
+    <lastmod>2025-11-11T09:22:51.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_local_csv.html</loc>
+    <lastmod>2025-11-11T09:22:51.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/worked_examples/index.html</loc>
+    <lastmod>2025-11-11T09:22:51.657Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/index.html</loc>
+    <lastmod>2025-11-11T09:22:50.380Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_background_image.html</loc>
+    <lastmod>2025-11-11T09:22:51.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/add_tmdl_dataset.html</loc>
+    <lastmod>2025-11-11T09:22:51.534Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Russell-Shean.github.io/powerbpy/reference/index.html</loc>
+    <lastmod>2025-11-11T09:22:51.657Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_button.html</loc>
-    <lastmod>2025-11-11T09:19:40.100Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.449Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_chart.html</loc>
-    <lastmod>2025-11-11T09:19:09.797Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.715Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_blank_dashboard.html</loc>
-    <lastmod>2025-11-11T09:19:09.797Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.715Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_new_page.html</loc>
-    <lastmod>2025-11-11T09:19:09.797Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.715Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_shape_map.html</loc>
-    <lastmod>2025-11-11T09:19:40.149Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.499Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/generate_bin_ranges.html</loc>
-    <lastmod>2025-11-11T09:19:40.199Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.558Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/create_tmdl.html</loc>
-    <lastmod>2025-11-11T09:19:40.192Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.551Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_card.html</loc>
-    <lastmod>2025-11-11T09:19:40.110Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.459Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_ADLS_csv.html</loc>
-    <lastmod>2025-11-11T09:19:09.797Z</lastmod>
+    <lastmod>2025-11-11T09:22:20.714Z</lastmod>
   </url>
   <url>
     <loc>https://Russell-Shean.github.io/powerbpy/reference/add_chart.html</loc>
-    <lastmod>2025-11-11T09:19:40.120Z</lastmod>
+    <lastmod>2025-11-11T09:22:51.469Z</lastmod>
   </url>
 </urlset>
