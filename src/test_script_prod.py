@@ -122,7 +122,7 @@ pbi.add_shape_map(dashboard_path = dashboard_path,
               page_id = "page3",
               map_id = "bigfoots_by_county_map",
               data_source = "wa_bigfoot_by_county",
-              shape_file_path = "C:/Users/rshea/Downloads/2019_53_WA_Counties9467365124727016.json",
+              shape_file_path = "examples/data/2019_53_WA_Counties9467365124727016.json",
               
               map_title = "Washington State Bigfoot Sightings by County",
               #map_title = "",
