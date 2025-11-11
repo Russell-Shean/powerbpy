@@ -6,9 +6,6 @@ def add_sanky_chart(dashboard_path,
               page_id, 
               chart_id, 
               data_source, 
-              chart_title,
-              x_axis_title,
-              y_axis_title,
               starting_var, 
               ending_var,
               weight_var, 
@@ -16,6 +13,8 @@ def add_sanky_chart(dashboard_path,
               y_position, 
               height, 
               width,
+              chart_title,
+              chart_title_font_size = 17,
               tab_order = -1001,
               z_position = 6000 ):
 
@@ -29,8 +28,7 @@ def add_sanky_chart(dashboard_path,
   :param str data_source: The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. 
   
   :param str chart_title: Give your chart an informative title!:D
-  :param str x_axis_title: Text to display on the x axis
-  :param str y_axis_title: Text to display on the y axis
+  :param int chart_title_font_size: Font Size for chart title
 
   :param str x_axis_var: Column name of a column from data_source that you want to use for the x axis of the chart
   :param str y_axis_var: Column name of a column from data_source that you want to use for the y axis of the chart
@@ -216,10 +214,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -238,10 +236,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -280,10 +278,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -302,10 +300,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -344,10 +342,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -366,10 +364,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -408,10 +406,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -430,10 +428,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -472,10 +470,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -494,10 +492,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -536,10 +534,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -558,10 +556,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -600,10 +598,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -622,10 +620,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -664,10 +662,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -686,10 +684,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -728,10 +726,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Starting Size"
+                        "Property": starting_var
                       }
                     },
                     "Right": {
@@ -750,10 +748,10 @@ def add_sanky_chart(dashboard_path,
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Store"
+                            "Entity": data_source
                           }
                         },
-                        "Property": "Ending Size"
+                        "Property": ending_var
                       }
                     },
                     "Right": {
@@ -850,33 +848,6 @@ def add_sanky_chart(dashboard_path,
       ]
     },
     "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Store Starting Size and Ending Size'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "17D"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
       "general": [
         {
           "properties": {
@@ -891,6 +862,40 @@ def add_sanky_chart(dashboard_path,
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": True
   }
   }
+
+  # If a chart title is provided, add it
+  if chart_title:
+    sanky_json["visual"]["visualContainerObjects"]["title"] = [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": f"'{chart_title}'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": f"{chart_title_font_size}D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+  ]
+      
+
+
+  
