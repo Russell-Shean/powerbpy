@@ -80,7 +80,7 @@ def add_sanky_chart(dashboard_path,
 
 
 
-sanky_json = {
+  sanky_json = {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "eb01a350900582cb1005",
   "position": {
@@ -893,4 +893,4 @@ sanky_json = {
     },
     "drillFilterOtherVisuals": true
   }
-}
+  }
