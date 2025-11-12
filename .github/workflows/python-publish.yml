@@ -152,9 +152,33 @@ jobs:
         with:
         #  create_branch: true
           commit_message: Update version number to ${{ github.event.release.tag_name }}
-          
-        
-     
+
+  # Make sure that the version of the package we just published to pypi 
+  # can still create a dashboard
+  post-publish-test-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download data and script
+        run: |
+          # csv files
+          curl -L -o colony.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/colony.csv
+          curl -L -o sales_final_dataset.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/sales_final_dataset.csv
+          curl -L -o wa_bigfoot_by_county.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/wa_bigfoot_by_county.csv
+
+          # Other data
+          curl -L -o Taipei_skyline_at_sunset_20150607.jpg https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/Taipei_skyline_at_sunset_20150607.jpg
+          curl -L -o 2019_53_WA_Counties9467365124727016.json https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/2019_53_WA_Counties9467365124727016.json
+
+          # download production test script
+          curl -L -o test_script_prod.py https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/src/test_script_prod.py
       
-     
-  
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+    
+      - name: Install Power Bpy from Pypi
+        run: python -m pip install powerbpy
+
+
+      - name: Create dashboard using Pypi version of powerbpy
+        run: python test_script_prod.py
