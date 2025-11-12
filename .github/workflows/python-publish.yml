@@ -33,7 +33,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [windows-latest]
         python-version: ['3.9', '3.10', '3.11', '3.12']
 
     steps:
@@ -158,6 +158,8 @@ jobs:
   # can still create a dashboard
   post-publish-test-dashboard:
     runs-on: ubuntu-latest
+    needs: 
+       - update-toml
     steps:
       - name: Download data and script
         run: |
