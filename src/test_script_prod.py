@@ -1,4 +1,4 @@
-import powerbpy as pbi
+import powerbpy as PBI
 
 import os
 
@@ -13,17 +13,36 @@ dashboard_path = os.path.join(report_location, report_name)
 
 
 # Create a new dashboard -----------------------------------------------------------------------------------------
-pbi.create_new_dashboard(report_location, report_name)
+PBI.create_new_dashboard(report_location, report_name)
+
+# Demo for blank dashboard
+#quit()
+
+# demo of new page
+#PBI.add_new_page(dashboard_path, 
+ #                    page_name = "Gerbils",
+  #                   title= "Gerbils!!",
+   #                  subtitle = "They're everywhere"
+  #)
 
 
+# demo for ADLS
+#PBI.add_csv_from_blob(dashboard_path = dashboard_path,
+ #data_path = "data/wildfires.csv", 
+ #account_url = "https://MY-STORAGE-ACCOUNT.blob.core.windows.net", 
+ #blob_name= "wildfires", 
+ #use_saved_storage_key = True)
+
+# quit()
 
 # add data -------------------------------------------------------------------------------------------------------
 # add locally stored csv files to the new dashboard
-pbi.add_local_csv(dashboard_path, "examples/data/colony.csv")
-pbi.add_local_csv(dashboard_path, "examples/data/wa_bigfoot_by_county.csv")
+PBI.add_local_csv(dashboard_path, "examples/data/colony.csv")
+PBI.add_local_csv(dashboard_path, "examples/data/wa_bigfoot_by_county.csv")
+PBI.add_local_csv(dashboard_path, "examples/data/sales_final_dataset.csv")
 
 # add the default DateTable to the dashboard 
-pbi.add_tmdl_dataset(dashboard_path = dashboard_path, data_path = None, add_default_datetable = True)
+PBI.add_tmdl_dataset(dashboard_path = dashboard_path, data_path = None, add_default_datetable = True)
 
 
 
@@ -31,40 +50,44 @@ pbi.add_tmdl_dataset(dashboard_path = dashboard_path, data_path = None, add_defa
 
 ## page 2 ---------------------------------------------------------------------------------------------------------
 # create a new page
-pbi.add_new_page(dashboard_path, 
+PBI.add_new_page(dashboard_path, 
 	                   page_name = "Bee Colonies",
 	                   title= "The bees are in Trouble!",
 	                   subtitle = "We're losing bee colonies"
 	)
 
+# uncomment for step two of new page demo
+# quit()
 
 # add background image
-pbi.add_background_image(dashboard_path = dashboard_path, 
+PBI.add_background_image(dashboard_path = dashboard_path, 
 	               page_id = "page2", 
-	               img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
+	               img_path = "C:/Users/rshea/Downloads/Taipei_skyline_at_sunset_20150607.jpg", 
 	               alpha = 51,
 	               scaling_method = "Fit")
 
 ## page 3 ------------------------------------------------------------------------------------------------------
-pbi.add_new_page(dashboard_path, 
+PBI.add_new_page(dashboard_path, 
 	                   page_name = "Bigfoot Map",
 	                   title= "Bigfoot sightings",
 	                   subtitle = "By Washington Counties"
 	)
 
 ## page 4 ------------------------------------------------------------------------------------------------------
-pbi.add_new_page(dashboard_path, 
-	                   page_name = "Table Page",
-	                   title= "Table Test",
-	                   subtitle = "Might not work lol"
+PBI.add_new_page(dashboard_path, 
+	                   page_name = "Table Page"
 	) 
 
+# page 5 ----------------------------------------------------------------------------------------------------------
+PBI.add_new_page(dashboard_path, 
+	                   page_name = "Table Page 2"
+	) 
 
 
 # Add visual elements ---------------------------------------------------------------------------------------------------
 
 # add a new column chart on the second page
-pbi.add_chart(dashboard_path = dashboard_path, 
+PBI.add_chart(dashboard_path = dashboard_path, 
 	      page_id = "page2", 
 	      chart_id = "colonies_lost_by_year", 
 	      chart_type = "columnChart",
@@ -81,7 +104,7 @@ pbi.add_chart(dashboard_path = dashboard_path,
 	      width = 603)
 
 # add a text box to the second page
-pbi.add_text_box(text = "Explanatory text in the bottom right corner",
+PBI.add_text_box(text = "Explanatory text in the bottom right corner",
              dashboard_path= dashboard_path,
                page_id = "page2",
                  text_box_id = "page2_explain_box", 
@@ -94,7 +117,7 @@ pbi.add_text_box(text = "Explanatory text in the bottom right corner",
 # add buttons
 
 # download data button (a link to an internet address)
-pbi.add_button(label = "Download Data",
+PBI.add_button(label = "Download Data",
   dashboard_path = dashboard_path,
   page_id = "page2",
   button_id = "page2_download_button",
@@ -105,7 +128,7 @@ pbi.add_button(label = "Download Data",
   url_link = "https://www.google.com/")
 
 # navigate back to page 1 button
-pbi.add_button(label = "Back to page 1",
+PBI.add_button(label = "Back to page 1",
   dashboard_path = dashboard_path,
   page_id = "page2",
   button_id = "page2_back_to_page1_button",
@@ -118,11 +141,11 @@ pbi.add_button(label = "Back to page 1",
 
 ## Add a map to page 3 ----------------------------------------------------------------------
 
-pbi.add_shape_map(dashboard_path = dashboard_path, 
+PBI.add_shape_map(dashboard_path = dashboard_path, 
               page_id = "page3",
               map_id = "bigfoots_by_county_map",
               data_source = "wa_bigfoot_by_county",
-              shape_file_path = "examples/data/2019_53_WA_Counties9467365124727016.json",
+              shape_file_path = "C:/Users/rshea/Downloads/2019_53_WA_Counties9467365124727016.json",
               
               map_title = "Washington State Bigfoot Sightings by County",
               #map_title = "",
@@ -143,17 +166,55 @@ pbi.add_shape_map(dashboard_path = dashboard_path,
 
 
 # Add table to page 4 ---------------------
-pbi.add_table(dashboard_path = dashboard_path,
+PBI.add_table(dashboard_path = dashboard_path,
               page_id = "page4", 
-              table_id = "bigfoots_table", 
-              data_source = "wa_bigfoot_by_county", 
-              variables = ["county","season","count"],
-              x_position = 150, 
-              y_position = 150, 
+              table_id = "sales_table", 
+              data_source = "sales_final_dataset", 
+              variables = ["Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"],
+              x_position = 615, 
+              y_position = 0, 
               height = 800, 
-              width = 800,
+              width = 615,
               add_totals_row = False,
-              table_title = "Table Title!",
-              column_widths = {"county":100,"season":50,"count":200},
+              table_title = "Store Sales Details",
+              #column_widths = {"county":100,"season":50,"count":200},
               tab_order = -1001,
               z_position = 6000 )
+
+
+PBI.add_sanky_chart(dashboard_path = dashboard_path,
+              page_id = "page4", 
+              chart_id = "sales_sanky", 
+              data_source = "sales_final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"], 
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              values_from_var="Name", 
+              x_position=0, 
+              y_position=0, 
+              height = 800, 
+              width = 615,
+)
+
+
+
+PBI.add_sanky_chart(dashboard_path = dashboard_path,
+              page_id = "page5", 
+              chart_id = "sales_sanky", 
+              data_source = "sales_final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"], 
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              link_colors=["#C29BD5","#C29BD5","#C29BD5",
+                           "#F4CB93","#F4CB93","#F4CB93",
+                           "#7CCDF2","#7CCDF2","#7CCDF2"],
+              values_from_var="Name", 
+              x_position=0, 
+              y_position=0, 
+              height = 800, 
+              width = 615
+              )
