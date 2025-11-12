@@ -16,7 +16,7 @@ def add_sanky_chart(dashboard_path,
               height, 
               width,
               chart_title,
-              node_link_colors=None,
+              link_colors=None,
               alt_text="A sankey chart",
               chart_title_font_size = 17,
               label_font_size = 20,
@@ -43,7 +43,7 @@ def add_sanky_chart(dashboard_path,
   :param str alt_text: Alternate text for the visualization can be provided as an argument. This is important for screen readers (accesibility) or if the visualization doesn't load properly.
   :param int chart_title_font_size: Font size for chart title
   :param int label_font_size: Font size for the labels on the various sanky nodes
-  :param list node_link_colors: Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors. 
+  :param list link_colors: Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors. 
 
   :param str x_axis_var: Column name of a column from data_source that you want to use for the x axis of the chart
   :param str y_axis_var: Column name of a column from data_source that you want to use for the y axis of the chart
@@ -393,20 +393,20 @@ def add_sanky_chart(dashboard_path,
         }
       )
 
-  if node_link_colors:
+  if link_colors:
 
     # Check to make sure that the number of colors match the number of links
-    if len(node_link_colors) != len(sanky_json["visual"]["objects"]["links"]):
+    if len(link_colors) != len(sanky_json["visual"]["objects"]["links"]):
       raise ValueError(f'If provided the number of link colors must be equal to the number of links')
 
 
 
-    for i in range(len(node_link_colors)):
+    for i in range(len(link_colors)):
       sanky_json["visual"]["objects"]["links"][i]["properties"]["fill"]["solid"]["color"] =  {
                 
                   "expr": {
                     "Literal": {
-                      "Value": f"'{node_link_colors[i]}'"
+                      "Value": f"'{link_colors[i]}'"
                     }
                   }
                 }
@@ -418,7 +418,7 @@ def add_sanky_chart(dashboard_path,
     default_link_colors = []
 
     for i in range(len(ending_var_values)):
-      default_link_colors.extend([i+1] * len(starting_var_values))
+      default_link_colors.extend([i+2] * len(starting_var_values))
 
     print(default_link_colors)
 
