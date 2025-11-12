@@ -4,7 +4,6 @@ import os
 
 # Define file paths -----------------------------------------------------------------------------------------
 
-# report_name = "test_dashboard"
 report_name = "test_dashboard"
 report_location = os.getcwd()
 
