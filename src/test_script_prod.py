@@ -62,7 +62,7 @@ PBI.add_new_page(dashboard_path,
 # add background image
 PBI.add_background_image(dashboard_path = dashboard_path, 
 	               page_id = "page2", 
-	               img_path = "C:/Users/rshea/Downloads/Taipei_skyline_at_sunset_20150607.jpg", 
+	               img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
 	               alpha = 51,
 	               scaling_method = "Fit")
 
@@ -145,7 +145,7 @@ PBI.add_shape_map(dashboard_path = dashboard_path,
               page_id = "page3",
               map_id = "bigfoots_by_county_map",
               data_source = "wa_bigfoot_by_county",
-              shape_file_path = "C:/Users/rshea/Downloads/2019_53_WA_Counties9467365124727016.json",
+              shape_file_path = "examples/data/2019_53_WA_Counties9467365124727016.json",
               
               map_title = "Washington State Bigfoot Sightings by County",
               #map_title = "",
