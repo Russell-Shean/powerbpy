@@ -198,8 +198,6 @@ def add_table(dashboard_path,
       
   # add a table title if the user asks for it
   if table_title is not None:
-    print("found the table title!")
-    print(table_title)
     table_json["visual"]["visualContainerObjects"]["title"].append(
 
 
