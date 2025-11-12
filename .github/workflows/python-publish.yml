@@ -52,7 +52,8 @@ jobs:
           pip install .
 
       - name: Run test script
-        run: python src/test_script_prod.py
+        run: python test_script_prod.py
+        working-directory: ./src
         
   release-build:
     runs-on: ubuntu-latest
