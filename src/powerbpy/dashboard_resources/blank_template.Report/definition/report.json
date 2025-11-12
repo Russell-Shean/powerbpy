@@ -23,6 +23,9 @@
       }
     ]
   },
+  "publicCustomVisuals": [
+    "sankey02300D1BE6F5427989F3DE31CCA9E0F32020"
+  ],
   "resourcePackages": [
     {
       "name": "SharedResources",

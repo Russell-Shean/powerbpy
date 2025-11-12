@@ -210,7 +210,7 @@ def add_chart(dashboard_path,
     },
     "drillFilterOtherVisuals": True
   }
-}
+  }
 
 	# Write out the new json 
   with open(visual_json_path, "w") as file:

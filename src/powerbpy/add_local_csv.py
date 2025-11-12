@@ -4,12 +4,13 @@ import os, uuid, json, re, shutil
 # Import a custom function to create the date heirarchies
 import powerbpy as PBI
 
-def add_local_csv(dashboard_path, data_path):
+def add_local_csv(dashboard_path, data_path, save_data_copy=True):
 
 	'''Add a locally stored CSV file to a dashboard
 	
 	:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
-	:param str data_path: The path where the csv file is stored. MUST BE A FULL PATH FOR THE M CODE TO WORK. 
+	:param str data_path: The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.  
+	:param bool save_data_copy: Do you want to store a copy of the data in the dashboard's project folder. This is important for some functions such as add_sanky_chart
 
 	:returns: dataset_id: A randomly generated UUID that you can use to reference the datset. 
 
