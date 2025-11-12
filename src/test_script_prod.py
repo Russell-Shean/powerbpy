@@ -15,26 +15,6 @@ dashboard_path = os.path.join(report_location, report_name)
 # Create a new dashboard -----------------------------------------------------------------------------------------
 PBI.create_new_dashboard(report_location, report_name)
 
-# Demo for blank dashboard
-#quit()
-
-# demo of new page
-#PBI.add_new_page(dashboard_path, 
- #                    page_name = "Gerbils",
-  #                   title= "Gerbils!!",
-   #                  subtitle = "They're everywhere"
-  #)
-
-
-# demo for ADLS
-#PBI.add_csv_from_blob(dashboard_path = dashboard_path,
- #data_path = "data/wildfires.csv", 
- #account_url = "https://MY-STORAGE-ACCOUNT.blob.core.windows.net", 
- #blob_name= "wildfires", 
- #use_saved_storage_key = True)
-
-# quit()
-
 # add data -------------------------------------------------------------------------------------------------------
 # add locally stored csv files to the new dashboard
 PBI.add_local_csv(dashboard_path, "examples/data/colony.csv")
