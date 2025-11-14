@@ -36,7 +36,7 @@ og_path = "docs/reference/index.qmd"
 title = "Power Bpy - Function Reference"
 add_html_title(og_path, title)
 
-og_path = "docs/worked_examples/index.qmd"
-title = "Power Bpy - Worked examples"
-add_html_title(og_path, title)
+#og_path = "docs/worked_examples/index.qmd"
+#title = "Power Bpy - Worked examples"
+#add_html_title(og_path, title)
 
