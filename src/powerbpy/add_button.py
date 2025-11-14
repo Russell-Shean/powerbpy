@@ -16,11 +16,12 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
     The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list.         
   button_id: str       
     Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-
-  :param int height: Height of text box on the page
-  :param int width: Width of text box on the page
- 
-  :param int x_position: The x coordinate of where you want to put the text box on the page. Origin is page's top left corner. 
+  height: int    
+    Height of text box on the page     
+  width: int     
+    Width of text box on the page      
+  x_position: int   
+    The x coordinate of where you want to put the text box on the page. Origin is page's top left corner. 
   :param int y_position: The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
   :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
   :param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
