@@ -6,17 +6,16 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
     
   '''Add a button to a page
   
-   Parameters
-    ----------
-    label : str
-        The text you want to display inside the button
-    dashboard_path : str
-        The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).
-
-
-  :param str dashboard_path:  
-  :param str page_id: The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
-  :param str button_id: Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
+  Parameters
+  ----------
+  label : str       
+    The text you want to display inside the button        
+  dashboard_path : str       
+    The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).       
+  page_id: str       
+    The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list.         
+  button_id: str       
+    Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
 
   :param int height: Height of text box on the page
   :param int width: Width of text box on the page
