@@ -36,10 +36,11 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
     Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url       
   page_navigation_link: str      
     Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.  
- 
-
-
-  This function creates a new button on a page. 
+    
+  Notes
+  -----
+  This function creates a new button on a page.
+  
   '''
 
 
