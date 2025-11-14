@@ -2,23 +2,37 @@
   {
     "objectID": "example_dashboards/Sanky Chart and Table/index.html",
     "href": "example_dashboards/Sanky Chart and Table/index.html",
-    "title": "What you’ll learn",
+    "title": "Sanky Chart and Table",
     "section": "",
-    "text": "This blog post shows how I used the PowerBpy python module to recreate an example dashboard from the Workout Wednesday Group. This particular example recreates the dashboard from the 2023 Week 52 | Power BI: Format Bar Charts with Transparency, Borders, and Detail Labels challenge."
+    "text": "I used the PowerBpy python module to recreate an sanky chart and table dashboard from the Workout Wednesday Group challenge. Here’s a screenshot of the original dashboard (left) and the dashboard I recreated using Power Bpy (right). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available here."
   },
   {
     "objectID": "example_dashboards/Sanky Chart and Table/index.html#assumptions",
     "href": "example_dashboards/Sanky Chart and Table/index.html#assumptions",
-    "title": "What you’ll learn",
+    "title": "Sanky Chart and Table",
     "section": "Assumptions",
-    "text": "Assumptions\nThis example assumes that you already have python installed and setup and that you know how to install python modules such as pandas."
+    "text": "Assumptions\nThis example assumes that you already have python installed and setup and that you know how to install python modules such as pandas.If you don’t, please refer to basic setup instructions on this page or find one of the many great resources online that explains how to install python packages."
   },
   {
     "objectID": "example_dashboards/Sanky Chart and Table/index.html#obtain-and-prepare-data",
     "href": "example_dashboards/Sanky Chart and Table/index.html#obtain-and-prepare-data",
-    "title": "What you’ll learn",
+    "title": "Sanky Chart and Table",
     "section": "Obtain and prepare data",
-    "text": "Obtain and prepare data\nOne of the central assumptions built into the PowerBpy package is that you’d prefer to write python code over using Power BI. Therefore this example will use garden variety python including standard modules for data science to load and transform the data. Once the data is ready will use PowerBpy to create the dashboard.\nThe data for this example is provided as a pdf file that you’re supposed to import using a Power BI pdf importer and then manipulate the data using DAX. Instead we’ll use python to read the text from the pdf and then parse and clean the data from the extracted text."
+    "text": "Obtain and prepare data\nOne of the central assumptions built into the PowerBpy package is that you’d prefer to write python code over using Power BI. Therefore this example will avoid writing any M or DAX and will instead use python to extract, load and transform the data. Once the data is ready will use PowerBpy to create the dashboard."
+  },
+  {
+    "objectID": "example_dashboards/Sanky Chart and Table/index.html#download-data",
+    "href": "example_dashboards/Sanky Chart and Table/index.html#download-data",
+    "title": "Sanky Chart and Table",
+    "section": "Download Data",
+    "text": "Download Data\nThe data for this example is stored as an online zip file. The following code downloads the zip file and extracts it into a local directory.\nimport requests\nimport py7zr\nimport os\nimport tempfile\n\n'''\nThis script downloads the data from Github and \nthen extracts the individual datasets from the compressed archive file. \n\n\n\n'''\n\n# step 1: obtain data from github --------------------------------------------------------------\n\n# Define paths\ndataset_url = \"https://github.com/sql-bi/Contoso-Data-Generator-V2-Data/releases/download/ready-to-use-data/csv-10k.7z\" \ndata_destination_dir = \"data\"\n\n\n# make sure the folder exists\nos.makedirs(data_destination_dir, exist_ok=True)\n\n# download the zip file from the internet\nresponse = requests.get(dataset_url, stream=True)\nresponse.raise_for_status()\n\n# write to file\nwith tempfile.NamedTemporaryFile(suffix=\".7z\", delete=False) as tmp_file:\n    with open(tmp_file.name, \"wb\") as f:\n        for chunk in response.iter_content(chunk_size=8192):\n            f.write(chunk)\n\n\n\n# extract the data \nwith py7zr.SevenZipFile(tmp_file.name, mode=\"r\") as z:\n    z.extractall(path=data_destination_dir)"
+  },
+  {
+    "objectID": "example_dashboards/Sanky Chart and Table/index.html#process-data",
+    "href": "example_dashboards/Sanky Chart and Table/index.html#process-data",
+    "title": "Sanky Chart and Table",
+    "section": "Process data",
+    "text": "Process data"
   },
   {
     "objectID": "reference/add_chart.html",
@@ -311,7 +325,7 @@
     "href": "example_dashboards.html",
     "title": "Example Dashboards",
     "section": "",
-    "text": "Here are some examples of Power BI dashboards built using {powerbpy}.\n\n\n\n\n\n\n\n\n\n\n\n\nWhat you’ll learn\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat you’ll learn\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are some examples of Power BI dashboards built using {powerbpy}.\n\n\n\n\n\n\n\n\n\n\n\n\nRecreate my testing dasbhoard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSanky Chart and Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -332,7 +346,7 @@
     "href": "basic_setup.html",
     "title": "basic_setup",
     "section": "",
-    "text": "Make sure python is installed on your computer.\n\n\n\n\nFor this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system 1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following: shell    cd path/to/your/folder 2. Create and activate a virtual environment by running the same: ```shell # create a virtual environment python -m venv venv\n# for windows venv.bat\n# for linux or Mac (remove hashtag first) # source venv/bin/activate ```\n\nInstall the Power Bpy module:\n# install the Power Bpy module\npip install powerbpy\nWrite a script to create a dashboard. (This one’s up to you!)\nWhen you’re ready to create the dashboard, run the script by running the following in the command prompt window.\n\npython name_of_your_script.py"
+    "text": "Make sure python is installed on your computer.\n\n\n\n\nFor this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system 1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following: shell    cd path/to/your/folder 2. Create and activate a virtual environment by running the same: ```shell # create a virtual environment python -m venv venv\n# for windows venv.bat\n# for linux or Mac (remove hashtag first) # source venv/bin/activate ```\n\nInstall the Power Bpy module:\n# install the Power Bpy module\npip install powerbpy\nWrite a script to create a dashboard. (This one’s up to you!)\nWhen you’re ready to create the dashboard, run the script by running the following in the command prompt window.\n\npython name_of_your_script.py\n\n\n\n\nInstall python\nYou’ll need to install python. Here are some instructions\n\nInstall Power Bpy\nThe {powerbpy} package isn’t on pypi yet, so you’ll need to install it from github. Open a terminal and enter the following:\n\npy -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     \nAfter the package is on pypi, you’ll be able to install it using this:\npy -m pip install powerbpy\n\n\n\nThat’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:\npy build_dashboard.py\nThis assumes that you named your script build_dashboard.py and the command prompt’s current directory is the folder storing build_dashboard.py. You can change the current directory of the terminal using the cd command. For example you can use the following to move into C:/Users/:\ncd C:/Users/\nYou can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your %userprofile% (C:/Users/[your username]) and the python script is stored at C:/Users/[your username]/python_projects/build_dashboard.py, you can execute the script with the following:\npy python_projects/build_dashboard.py"
   },
   {
     "objectID": "basic_setup.html#python",
@@ -347,6 +361,20 @@
     "title": "basic_setup",
     "section": "",
     "text": "For this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system 1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following: shell    cd path/to/your/folder 2. Create and activate a virtual environment by running the same: ```shell # create a virtual environment python -m venv venv\n# for windows venv.bat\n# for linux or Mac (remove hashtag first) # source venv/bin/activate ```\n\nInstall the Power Bpy module:\n# install the Power Bpy module\npip install powerbpy\nWrite a script to create a dashboard. (This one’s up to you!)\nWhen you’re ready to create the dashboard, run the script by running the following in the command prompt window.\n\npython name_of_your_script.py"
+  },
+  {
+    "objectID": "basic_setup.html#install-dependencies",
+    "href": "basic_setup.html#install-dependencies",
+    "title": "basic_setup",
+    "section": "",
+    "text": "Install python\nYou’ll need to install python. Here are some instructions\n\nInstall Power Bpy\nThe {powerbpy} package isn’t on pypi yet, so you’ll need to install it from github. Open a terminal and enter the following:\n\npy -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     \nAfter the package is on pypi, you’ll be able to install it using this:\npy -m pip install powerbpy"
+  },
+  {
+    "objectID": "basic_setup.html#executing-python-scripts",
+    "href": "basic_setup.html#executing-python-scripts",
+    "title": "basic_setup",
+    "section": "",
+    "text": "That’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:\npy build_dashboard.py\nThis assumes that you named your script build_dashboard.py and the command prompt’s current directory is the folder storing build_dashboard.py. You can change the current directory of the terminal using the cd command. For example you can use the following to move into C:/Users/:\ncd C:/Users/\nYou can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your %userprofile% (C:/Users/[your username]) and the python script is stored at C:/Users/[your username]/python_projects/build_dashboard.py, you can execute the script with the following:\npy python_projects/build_dashboard.py"
   },
   {
     "objectID": "reference/add_background_image.html",
@@ -651,36 +679,22 @@
   {
     "objectID": "example_dashboards/Test Dashboard/index.html",
     "href": "example_dashboards/Test Dashboard/index.html",
-    "title": "What you’ll learn",
+    "title": "Recreate my testing dasbhoard",
     "section": "",
-    "text": "These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I’ll show how to use {powerbpy} to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you’ll need a copy of Power BI desktop and therfore using Windows."
-  },
-  {
-    "objectID": "example_dashboards/Test Dashboard/index.html#install-dependencies",
-    "href": "example_dashboards/Test Dashboard/index.html#install-dependencies",
-    "title": "What you’ll learn",
-    "section": "Install dependencies",
-    "text": "Install dependencies\n\nInstall python\nYou’ll need to install python. Here are some instructions\n\nInstall Power Bpy\nThe {powerbpy} package isn’t on pypi yet, so you’ll need to install it from github. Open a terminal and enter the following:\n\npy -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     \nAfter the package is on pypi, you’ll be able to install it using this:\npy -m pip install powerbpy"
-  },
-  {
-    "objectID": "example_dashboards/Test Dashboard/index.html#executing-python-scripts",
-    "href": "example_dashboards/Test Dashboard/index.html#executing-python-scripts",
-    "title": "What you’ll learn",
-    "section": "Executing python scripts",
-    "text": "Executing python scripts\nThat’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:\npy build_dashboard.py\nThis assumes that you named your script build_dashboard.py and the command prompt’s current directory is the folder storing build_dashboard.py. You can change the current directory of the terminal using the cd command. For example you can use the following to move into C:/Users/:\ncd C:/Users/\nYou can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your %userprofile% (C:/Users/[your username]) and the python script is stored at C:/Users/[your username]/python_projects/build_dashboard.py, you can execute the script with the following:\npy python_projects/build_dashboard.py"
+    "text": "This example shows how I create the dashboard I use for testing the module. It isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:\n- create a new dashboard\n- add pages to the dashboard\n- add visual elements such as maps and charts to the pages"
   },
   {
     "objectID": "example_dashboards/Test Dashboard/index.html#create-a-new-dashboard",
     "href": "example_dashboards/Test Dashboard/index.html#create-a-new-dashboard",
-    "title": "What you’ll learn",
+    "title": "Recreate my testing dasbhoard",
     "section": "Create a new dashboard",
     "text": "Create a new dashboard\nTo Create a new dashboard, you’ll need to provide two arguments:\n1. parent_dir - This is the folder where you want to store your dashboard\n2. report_name - This is the name you want to give your dashboard project.\nIf you want to create a dashboard called bigfoots in a folder called C:/Users/Russ/PBI_projects, here’s what the code should look like\n# Import the package\nimport powerbpy as PBI\n\n\nPBI.create_new_dashboard(report_location = \"C:/Users/Russ/PBI_projects\", report_name = \"bigfoots\")\n\n\n\n# Create a new dashboard -----------------------------------------------------------------------------------------\nPBI_dash.create_new_dashboard(report_location, report_name)    \nIf everything worked, the function should have created the following files:\n\nYou can open the bigfoots.pbip file in Power BI desktop normally. (Although you will probably need to turn on these preview features. )"
   },
   {
-    "objectID": "example_dashboards/Test Dashboard/index.html#add-a-new-dashboard",
-    "href": "example_dashboards/Test Dashboard/index.html#add-a-new-dashboard",
-    "title": "What you’ll learn",
-    "section": "Add a new dashboard",
-    "text": "Add a new dashboard"
+    "objectID": "example_dashboards/Test Dashboard/index.html#add-a-new-page",
+    "href": "example_dashboards/Test Dashboard/index.html#add-a-new-page",
+    "title": "Recreate my testing dasbhoard",
+    "section": "Add a new page",
+    "text": "Add a new page"
   }
 ]

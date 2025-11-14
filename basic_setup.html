@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -290,6 +325,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
   <li><a href="#create-virtual-environment" id="toc-create-virtual-environment" class="nav-link" data-scroll-target="#create-virtual-environment">Create virtual environment</a></li>
+  <li><a href="#install-dependencies" id="toc-install-dependencies" class="nav-link" data-scroll-target="#install-dependencies">Install dependencies</a></li>
+  <li><a href="#executing-python-scripts" id="toc-executing-python-scripts" class="nav-link" data-scroll-target="#executing-python-scripts">Executing python scripts</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -338,6 +375,28 @@ pip install powerbpy</code></pre></li>
 <li><p>When you’re ready to create the dashboard, run the script by running the following in the command prompt window.</p></li>
 </ol>
 <pre class="shell"><code>python name_of_your_script.py</code></pre>
+</section>
+<section id="install-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="install-dependencies">Install dependencies</h2>
+<ol type="1">
+<li>Install python<br>
+You’ll need to install python. Here are some <a href="https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/">instructions</a><br>
+</li>
+<li>Install Power Bpy<br>
+The <code>{powerbpy}</code> package isn’t on pypi yet, so you’ll need to install it from github. <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089">Open a terminal</a> and enter the following:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After the package is on pypi, you’ll be able to install it using this:</p>
+<pre class="batchfile"><code>py -m pip install powerbpy</code></pre>
+</section>
+<section id="executing-python-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="executing-python-scripts">Executing python scripts</h2>
+<p>That’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>py build_dashboard.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This assumes that you named your script <code>build_dashboard.py</code> and the command prompt’s current directory is the folder storing <code>build_dashboard.py</code>. You can change the current directory of the terminal using the <code>cd</code> command. For example you can use the following to move into <code>C:/Users/</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:<span class="at">/Users</span>/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your <code>%userprofile%</code> (<code>C:/Users/[your username]</code>) and the python script is stored at <code>C:/Users/[your username]/python_projects/build_dashboard.py</code>, you can execute the script with the following:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>py python_projects<span class="at">/build_dashboard</span>.py    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
