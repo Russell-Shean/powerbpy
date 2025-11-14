@@ -1,39 +1,15 @@
 ---
-Title: "Worked examples"
+Title: "Test Dashboard"
 ---
 
-# What you'll learn
-These examples assume you want to interactively build a dashboard using a python script or the terminal. On this page, I'll show how to use `{powerbpy}` to create a new dashboard, add pages to the dashboard, and visual elements such as maps and charts to the pages. To view dashboards you'll need a copy of Power BI desktop and therfore using Windows.    
+# Recreate my testing dasbhoard
+This example shows how I create the dashboard I use for testing the module. It isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:       
+- create a new dashboard      
+- add pages to the dashboard     
+- add visual elements such as maps and charts to the pages  
    
 # Setup    
-## Install dependencies
-1. Install python        
-You'll need to install python. Here are some <a href="https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/">instructions</a>    
-2. Install Power Bpy    
-The `{powerbpy}` package isn't on pypi yet, so you'll need to install it from github. <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089">Open a terminal</a> and enter the following:     
-    
-```dosbat     
-py -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     
-```     
-   
-After the package is on pypi, you'll be able to install it using this: 
-```batchfile
-py -m pip install powerbpy
-```
-   
-## Executing python scripts   
-That's all you need to install! To create the dashboards, you'll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it'll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:     
-```dosbat
-py build_dashboard.py
-```  
-This assumes that you named your script `build_dashboard.py` and the command prompt's current directory is the folder storing `build_dashboard.py`. You can change the current directory of the terminal using the `cd` command. For example you can use the following to move into `C:/Users/`:     
-```dosbat
-cd C:/Users/
-```
-You can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your `%userprofile%` (`C:/Users/[your username]`) and the python script is stored at `C:/Users/[your username]/python_projects/build_dashboard.py`, you can execute the script with the following:     
-```dosbat      
-py python_projects/build_dashboard.py    
-```    
+If you don't already have python and the `{powerbpy}` module installed, please refer to the setup instructions first. 
 
 # Build dashboards   
 ## Create a new dashboard
@@ -59,4 +35,4 @@ If everything worked, the function should have created the following files:
     
 You can open the `bigfoots.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )      
     
-## Add a new dashboard
+## Add a new page
