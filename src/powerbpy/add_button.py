@@ -21,45 +21,27 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
   width: int     
     Width of text box on the page      
   x_position: int   
-    The x coordinate of where you want to put the text box on the page. Origin is page's top left corner. 
-  :param int y_position: The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
-  :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-  :param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-    
-  
-  :param int fill_color: Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
-  :param int alpha: The transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
-
-  :param str url_link: Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
-  :param str page_navigation_link: Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.  
+    The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.       
+  y_position: int       
+    The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.      
+  z_position: int      
+    The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000      
+  tab_order: int      
+    The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)         
+  fill_color: str      
+    Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)      
+  alpha: int      
+    The transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)        
+  url_link: str     
+    Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url       
+  page_navigation_link: str      
+    Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.  
  
 
 
   This function creates a new button on a page. 
   '''
-  
-  """Return a copy of fct, with categories ordered by frequency (largest first)
 
-    Parameters
-    ----------
-    fct : list-like
-        A pandas Series, Categorical, or list-like object
-    ordered : bool
-        Whether to return an ordered categorical. By default a Categorical inputs'
-        ordered setting is respected. Use this to override it.
-
-    See Also
-    --------
-    fct_inorder : Order categories by when they're first observed.
-
-    Examples
-    --------
-
-    >>> fct_infreq(["c", "a", "c", "c", "a", "b"])
-    ['c', 'a', 'c', 'c', 'a', 'b']
-    Categories (3, object): ['c', 'a', 'b']
-
-    """
 
   # checks --------------------------------------------------------------------------------------------------------------
   if type(alpha) is not int:
