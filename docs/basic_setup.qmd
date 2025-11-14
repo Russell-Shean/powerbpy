@@ -1,0 +1,40 @@
+---
+title: "basic_setup"
+format: html
+---
+
+# Setup
+## Python
+1. Make sure [python](https://www.python.org/downloads/) is installed on your computer.
+
+## Create virtual environment
+For this example, we're going to use a virtual environment to keep the package versions separate from what you have installed on your system
+1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following:
+   ```shell
+   cd path/to/your/folder
+   ```
+2. Create and activate a virtual environment by running the same:
+   ```shell
+   # create a virtual environment
+   python -m venv venv
+
+   # for windows
+   venv\Scripts\activate.bat
+
+   # for linux or Mac (remove hashtag first)
+   # source venv/bin/activate
+   ```
+   
+2. Install the Power Bpy module:
+   ```shell
+   # install the Power Bpy module
+   pip install powerbpy
+   ```
+   
+3. Write a script to create a dashboard. (This one's up to you!)
+
+4. When you're ready to create the dashboard, run the script by running the following in the command prompt window.
+
+  ```shell
+  python name_of_your_script.py
+  ```
