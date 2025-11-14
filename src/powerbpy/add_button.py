@@ -5,9 +5,16 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
  fill_color="#3086C3", alpha=0, url_link = None, page_navigation_link = None):
     
   '''Add a button to a page
+  
+   Parameters
+    ----------
+    label : str
+        The text you want to display inside the button
+    dashboard_path : str
+        The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).
 
-  :param str label: The text you want to display inside the button.
-  :param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
+
+  :param str dashboard_path:  
   :param str page_id: The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
   :param str button_id: Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
 
@@ -30,6 +37,29 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
 
   This function creates a new button on a page. 
   '''
+  
+  """Return a copy of fct, with categories ordered by frequency (largest first)
+
+    Parameters
+    ----------
+    fct : list-like
+        A pandas Series, Categorical, or list-like object
+    ordered : bool
+        Whether to return an ordered categorical. By default a Categorical inputs'
+        ordered setting is respected. Use this to override it.
+
+    See Also
+    --------
+    fct_inorder : Order categories by when they're first observed.
+
+    Examples
+    --------
+
+    >>> fct_infreq(["c", "a", "c", "c", "a", "b"])
+    ['c', 'a', 'c', 'c', 'a', 'b']
+    Categories (3, object): ['c', 'a', 'b']
+
+    """
 
   # checks --------------------------------------------------------------------------------------------------------------
   if type(alpha) is not int:
