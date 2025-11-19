@@ -4,12 +4,21 @@ import re, shutil, os
 def update_model_file(dashboard_path, dataset_name):
 
 	'''
+	Parameters
+	----------
+	dashboard_path: str
+	  The path to the top level folder where you store all the report's files.
+	dataset_name: str
+	  The name of the dataset you are adding
+	  
+	Returns
+	-------
+	None
+	
+	Notes
+	-----
 	This is an internal function to add a dataset to the model.tmdl file when a new dataset is added. 
-	It assumes you want the new dataset to be loaded last. 
-
-	:param str dashboard_path The path to the top level folder where you store all the report's files.
-	:param str dataset_name The name of the dataset you are adding
-	return None
+	It assumes you want the new dataset to be loaded last.
 
 
 
