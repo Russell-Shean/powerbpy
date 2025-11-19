@@ -475,7 +475,7 @@
     "href": "reference/update_diagramLayout.html",
     "title": "update_diagramLayout",
     "section": "",
-    "text": "update_diagramLayout\n\n\n\n\n\nName\nDescription\n\n\n\n\nupdate_diagramLayout\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.\n\n\n\n\n\nupdate_diagramLayout.update_diagramLayout(\n    dashboard_path,\n    dataset_name,\n    dataset_id,\n)\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.\ndashboard_path: str The path to the top level folder where you store all the report’s files. dataset_name: str The name of the dataset you are adding dataset_id: str The unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions.\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone",
+    "text": "update_diagramLayout\n\n\n\n\n\nName\nDescription\n\n\n\n\nupdate_diagramLayout\n\n\n\n\n\n\nupdate_diagramLayout.update_diagramLayout(\n    dashboard_path,\n    dataset_name,\n    dataset_id,\n)\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\n\nThe path to the top level folder where you store all the report’s files.\nrequired\n\n\ndataset_name\n\nThe name of the dataset you are adding\nrequired\n\n\ndataset_id\n\nThe unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone\n\n\n\n\n\n\n\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.",
     "crumbs": [
       "Reference",
       "Power Bpy",
@@ -487,7 +487,7 @@
     "href": "reference/update_diagramLayout.html#functions",
     "title": "update_diagramLayout",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nupdate_diagramLayout\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.\n\n\n\n\n\nupdate_diagramLayout.update_diagramLayout(\n    dashboard_path,\n    dataset_name,\n    dataset_id,\n)\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.\ndashboard_path: str The path to the top level folder where you store all the report’s files. dataset_name: str The name of the dataset you are adding dataset_id: str The unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions.\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone",
+    "text": "Name\nDescription\n\n\n\n\nupdate_diagramLayout\n\n\n\n\n\n\nupdate_diagramLayout.update_diagramLayout(\n    dashboard_path,\n    dataset_name,\n    dataset_id,\n)\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\n\nThe path to the top level folder where you store all the report’s files.\nrequired\n\n\ndataset_name\n\nThe name of the dataset you are adding\nrequired\n\n\ndataset_id\n\nThe unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone\n\n\n\n\n\n\n\nThis is an internal function to add a dataset to the diagramLayout file when a new dataset is added.",
     "crumbs": [
       "Reference",
       "Power Bpy",
