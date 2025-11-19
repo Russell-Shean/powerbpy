@@ -525,13 +525,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    warnings<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add a csv file store in a ADLS blob container to a dashboard</p>
+<section id="parameters" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 1%">
+<col style="width: 92%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dashboard_path</td>
+<td></td>
+<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>account_url</td>
+<td></td>
+<td>The url to your Azure storage account. It should be in the format of https://<your storage="" account="" name="">.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field</your></td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>blob_name</td>
+<td></td>
+<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>data_path</td>
+<td></td>
+<td>The relative path to the file you want to load from the blob. It should be relative to blob_name</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>tenant_id</td>
+<td></td>
+<td>The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>use_saved_storage_key</td>
+<td></td>
+<td>This optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.</td>
+<td><code>False</code></td>
+</tr>
+<tr class="odd">
+<td>SAS_url</td>
+<td></td>
+<td>A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>storage_account_key</td>
+<td></td>
+<td>It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notes" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h4>
 <p>DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead.</p>
 <p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
 <p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file. Thanks Microsoft for yet again doing a great job with backward compatibility lol. Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.</p>
-<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str account_url: The url to your Azure storage account. It should be in the format of https://<your storage="" account="" name="">.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field :param str blob_name: The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field. :param str data_path: The relative path to the file you want to load from the blob. It should be relative to blob_name :param str tenant_id: The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default). :param boolean use_saved_storage_key: This optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD. :param str SAS_url: A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature” :param str storage_account_key: Please, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</your></p>
-<p>:returns: None</p>
 
 
+</section>
 </section>
 </section>
 </section>

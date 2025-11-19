@@ -521,10 +521,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    displayOption<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create a new blank dashboard page</p>
-<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str page_name: The display name for the page you just created. This is differnt from the page_id which is only used internally. :param str title: Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead. :param str sub_title: Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead. :param str displayOption: Default way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize</p>
-<p>:returns: new_page_id: The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.</p>
+<section id="parameters" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 82%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dashboard_path</td>
+<td></td>
+<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>page_name</td>
+<td></td>
+<td>The display name for the page you just created. This is differnt from the page_id which is only used internally.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>title</td>
+<td></td>
+<td>Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>subtitle</td>
+<td></td>
+<td>Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>displayOption</td>
+<td></td>
+<td>Default way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize</td>
+<td><code>'FitToPage'</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 93%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>new_page_id</td>
+<td>str</td>
+<td>The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 </section>
 </section>
