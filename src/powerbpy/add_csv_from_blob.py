@@ -57,8 +57,8 @@ def add_csv_from_blob(dashboard_path,
 
     This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
     The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.
-    Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file. 
-    Thanks Microsoft for yet again doing a great job with backward compatibility lol. 
+    Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file.             
+             
     Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. 
     I may eventually add an automatic fix for this.
 
