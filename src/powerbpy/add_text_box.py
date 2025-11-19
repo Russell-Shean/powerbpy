@@ -6,27 +6,44 @@ def add_text_box(text, dashboard_path, page_id, text_box_id, height, width,
   font_weight = "bold", font_size=32, font_color="#000000", background_color = None, parent_group_id = None):
     
   '''Add a text box to a page
-
-  :param str text: The text you want to display in the box
-  :param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
-  :param str page_id: The unique id for the page you want to add the text box to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
-  :param str text_box_id: Please choose a unique id to use to identify the text box. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-
-  :param int height: Height of text box on the page
-  :param int width: Width of text box on the page
- 
-  :param int x_position: The x coordinate of where you want to put the text box on the page. Origin is page's top left corner. 
-  :param int y_position: The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
-  :param int z_position: The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-  :param int tab_order: The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-    
-  :param str text_align: How would you like the text aligned (available options: "left", "right", "center")
-  :param str font_weight: This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
-  :param int font_size: The font size in pts. Must be a whole integer. Defaults to 32 pt
-  :param str font_color: Hex code for the font color you'd like to use. Defaults to black (#000000) 
-  :param str background_color: Hex code for the background color of the text box. Defaults to None (transparent)
-  :param str parent_group_id: This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. 
-
+  
+  Parameters
+  ----------
+  text: str
+    The text you want to display in the box
+  dashboard_path: str
+    The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
+  page_id: str
+    The unique id for the page you want to add the text box to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
+  text_box_id: str
+    Please choose a unique id to use to identify the text box. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
+  height:int
+    Height of text box on the page
+  width: int
+    Width of text box on the page
+  x_position: int
+    The x coordinate of where you want to put the text box on the page. Origin is page's top left corner. 
+  y_position: int
+    The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+  z_position: int
+    The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+  tab_order: int
+    The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+  text_align: str
+    How would you like the text aligned (available options: "left", "right", "center")
+  font_weight: str
+    This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
+  font_size: int
+    The font size in pts. Must be a whole integer. Defaults to 32 pt
+  font_color: str
+    Hex code for the font color you'd like to use. Defaults to black (#000000) 
+  background_color: str
+    Hex code for the background color of the text box. Defaults to None (transparent)
+  parent_group_id: str
+    This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. 
+  
+  Notes
+  -----
   This function creates a new text box on a page. 
   '''
 

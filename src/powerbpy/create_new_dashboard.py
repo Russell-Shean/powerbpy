@@ -9,19 +9,6 @@ from importlib import resources
 def create_new_dashboard(parent_dir, report_name):
 
 	'''Create a new dashboard in the specified folder      
-
-	- This function creates a power BI report in the specified parent directory.          
-	- The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.       
-	- The function creates a folder with the name report_name inside parent_dir with all the dashboard's files.       
-	- The dashboard uses a .pbip/.pbir format with TMDL enabled.        
-	- To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing       
-	- These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.       
-	- (.pbip uses mimified json by default and throws an error when it's given unpacked json).      
-
-	- This dashboard turns off time intelligence and relationship autodection off by default      
-
-	- If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. 
-	Only use this package if you have to :D            
 	          
 	Parameters          
 	----------         
@@ -33,6 +20,22 @@ def create_new_dashboard(parent_dir, report_name):
 	Returns        
 	-------        
 	None
+	
+	Notes
+	-----
+	- This function creates a power BI report in the specified parent directory.          
+	- The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.       
+	- The function creates a folder with the name report_name inside parent_dir with all the dashboard's files.       
+	- The dashboard uses a .pbip/.pbir format with TMDL enabled.        
+	- To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing       
+	- These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.       
+	- (.pbip uses mimified json by default and throws an error when it's given unpacked json).      
+
+	- This dashboard turns off time intelligence and relationship autodection off by default      
+
+	- If you have the option I would recommend looking into a different web development framework (shiny, flask, etc) for building dashboards. 
+	Only use this package if you have to :D  
+	
 
 	'''
 
