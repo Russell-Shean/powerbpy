@@ -8,12 +8,22 @@ def add_local_csv(dashboard_path, data_path, save_data_copy=True):
 
 	'''Add a locally stored CSV file to a dashboard
 	
-	:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
-	:param str data_path: The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.  
-	:param bool save_data_copy: Do you want to store a copy of the data in the dashboard's project folder. This is important for some functions such as add_sanky_chart
+	Parameters
+	----------
+	dashboard_path: str
+	  The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
+	data_path: str
+	  The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.  
+	save_data_copy: str
+	  Do you want to store a copy of the data in the dashboard's project folder. This is important for some functions such as add_sanky_chart
 
-	:returns: dataset_id: A randomly generated UUID that you can use to reference the datset. 
+	Returns
+	-------
+	dataset_id: str
+	  A randomly generated UUID that you can use to reference the datset. 
 
+	Notes
+	-----
 	The dataset path must be full (not relative path.) If using a relative path for the dashboard_path, the path must be within the current working directory. 
 	This function creates custom M code and is therefore more picky than pandas or Power BI desktop. 
 	The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column")

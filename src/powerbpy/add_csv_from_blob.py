@@ -22,7 +22,32 @@ def add_csv_from_blob(dashboard_path,
     warnings = True):
 
     '''Add a csv file store in a ADLS blob container to a dashboard
+    
+    Parameters
+    ----------
+    dashboard_path: str
+      The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).
+    account_url: str
+      The url to your Azure storage account. It should be in the format of https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field
+    blob_name: str
+      The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field. 
+    data_path: str
+      The relative path to the file you want to load from the blob. It should be relative to blob_name
+    tenant_id: str
+      The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
+    use_saved_storage_key: bool
+      This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.
+    SAS_url: str
+      A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature"
+    storage_account_key: str
+      It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
 
+    Returns
+    -------
+    None
+    
+    Notes
+    -----
     DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead.
 
     This function creates custom M code and is therefore more picky than pandas or Power BI desktop. 
@@ -35,18 +60,7 @@ def add_csv_from_blob(dashboard_path,
     Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file. 
     Thanks Microsoft for yet again doing a great job with backward compatibility lol. 
     Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. 
-    I may eventually add an automatic fix for this. 
-
-    :param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).
-    :param str account_url: The url to your Azure storage account. It should be in the format of https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field
-    :param str blob_name: The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field. 
-    :param str data_path: The relative path to the file you want to load from the blob. It should be relative to blob_name
-    :param str tenant_id: The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
-    :param boolean use_saved_storage_key: This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.
-    :param str SAS_url: A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature"
-    :param str storage_account_key: Please, Please, Please do not use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
-
-    :returns: None
+    I may eventually add an automatic fix for this.
 
     '''
 

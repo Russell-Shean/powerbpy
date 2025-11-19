@@ -13,10 +13,7 @@ def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = T
 
 	'''Add a locally stored TMDL file to the dashboard       
 
-	- TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.        
-	- In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale         
-	- Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.       
-
+	
 	Parameters        
 	----------        
 	dashboard_path: str        
@@ -25,6 +22,13 @@ def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = T
 	    The path where the tmdl file is stored.        
 	add_default_datetable: boolean       
 	    Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date heirarchies instead of using time intelligence
+	    
+	Notes
+	-----
+	- TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.        
+	- In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale         
+	- Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.       
+
 
 	
 	'''
