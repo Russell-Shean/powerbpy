@@ -520,10 +520,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Returns a list of DAX measures in the report</p>
-<p>:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). :param str export_type: Export type for the function result: export to a .xlsx file (parameter value ‘xlsx’), to a .csv file (parameter value ‘csv’), or output in markdown format without saving (parameter value ‘markdown’‘) :param str output_file_path: The path for export (if the export_type value is specified as’.xlsx’ or ‘.csv’). Example: “D:/PBI project/blank_template/”, export result will be stored as “D:/PBI project/blank_template/blank_template - measures.xlsx”” :param str starts_with: Technical parameter for measure selection. Default options is ‘formatString:’, for older reports without formatString in the measure definition try using ‘lineageTag:’ instead</p>
-<p>:returns: Returns a list of DAX measures used in the report in the specified format (see param export_type): the measure name, its definition, the table it belongs to, and the description (if available); prints “Measures not found” otherwise</p>
+<section id="parameters" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 83%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dashboard_path</td>
+<td></td>
+<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>export_type</td>
+<td></td>
+<td>Export type for the function result: export to a .xlsx file (parameter value ‘xlsx’), to a .csv file (parameter value ‘csv’), or output in markdown format without saving (parameter value ‘markdown’’)</td>
+<td><code>'markdown'</code></td>
+</tr>
+<tr class="odd">
+<td>output_file_path</td>
+<td></td>
+<td>The path for export (if the export_type value is specified as ‘.xlsx’ or ‘.csv’). Example: “D:/PBI project/blank_template/”, export result will be stored as “D:/PBI project/blank_template/blank_template - measures.xlsx””</td>
+<td><code>''</code></td>
+</tr>
+<tr class="even">
+<td>starts_with</td>
+<td></td>
+<td>Technical parameter for measure selection. Default options is ‘formatString:’, for older reports without formatString in the measure definition try using ‘lineageTag:’ instead</td>
+<td><code>'formatString:'</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 91%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Returns a list of DAX measures used in the report in the specified format (see param export_type): the measure name, its definition, the table it belongs to, and the description (if available); prints "Measures not found" otherwise</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 </section>
 </section>
