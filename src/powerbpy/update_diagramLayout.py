@@ -3,7 +3,10 @@ import json, os
 
 def update_diagramLayout(dashboard_path, dataset_name, dataset_id):
 
-	'''This is an internal function to add a dataset to the diagramLayout file when a new dataset is added. 
+	''' 
+	
+	Parameters
+	----------
 
 	dashboard_path: str
 	  The path to the top level folder where you store all the report's files.
@@ -15,6 +18,10 @@ def update_diagramLayout(dashboard_path, dataset_name, dataset_id):
 	Returns
 	-------
 	None
+	
+	Notes
+	-----
+	This is an internal function to add a dataset to the diagramLayout file when a new dataset is added.
 
 	'''
 
