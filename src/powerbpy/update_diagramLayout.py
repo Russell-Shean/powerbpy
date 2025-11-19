@@ -3,17 +3,18 @@ import json, os
 
 def update_diagramLayout(dashboard_path, dataset_name, dataset_id):
 
-	'''
-	This is an internal function to add a dataset to the diagramLayout file when a new dataset is added. 
+	'''This is an internal function to add a dataset to the diagramLayout file when a new dataset is added. 
 
-	:param str dashboard_path The path to the top level folder where you store all the report's files.
-	:param str dataset_name The name of the dataset you are adding
-	:param str dataset_id The unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions. 
+	dashboard_path: str
+	  The path to the top level folder where you store all the report's files.
+	dataset_name: str
+	  The name of the dataset you are adding
+	dataset_id: str
+	  The unique uuid that microsoft uses for the dataset. This is generated automatically within the add_data functions. 
 	
-	return None
-
-
-
+	Returns
+	-------
+	None
 
 	'''
 

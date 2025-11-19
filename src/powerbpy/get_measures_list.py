@@ -4,13 +4,22 @@ import pandas as pd
 def get_measures_list(dashboard_path, export_type = 'markdown', output_file_path = "", starts_with = 'formatString:'):
 
 	'''Returns a list of DAX measures in the report
+	
+	Parameters
+	----------
+	dashboard_path: str
+	  The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
+	export_type: str
+	  Export type for the function result: export to a .xlsx file (parameter value 'xlsx'), to a .csv file (parameter value 'csv'), or output in markdown format without saving (parameter value 'markdown'')
+	output_file_path: str
+	  The path for export (if the export_type value is specified as '.xlsx' or '.csv'). Example: "D:/PBI project/blank_template/", export result will be stored as "D:/PBI project/blank_template/blank_template - measures.xlsx""
+	starts_with: str
+	  Technical parameter for measure selection. Default options is 'formatString:', for older reports without formatString in the measure definition try using 'lineageTag:' instead
 
-	:param str dashboard_path: The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
-	:param str export_type: Export type for the function result: export to a .xlsx file (parameter value 'xlsx'), to a .csv file (parameter value 'csv'), or output in markdown format without saving (parameter value 'markdown'')
-	:param str output_file_path: The path for export (if the export_type value is specified as '.xlsx' or '.csv'). Example: "D:/PBI project/blank_template/", export result will be stored as "D:/PBI project/blank_template/blank_template - measures.xlsx""
-	:param str starts_with: Technical parameter for measure selection. Default options is 'formatString:', for older reports without formatString in the measure definition try using 'lineageTag:' instead
 
-	:returns: Returns a list of DAX measures used in the report in the specified format (see param export_type): the measure name, its definition, the table it belongs to, and the description (if available); prints "Measures not found" otherwise
+	Returns
+	-------
+	Returns a list of DAX measures used in the report in the specified format (see param export_type): the measure name, its definition, the table it belongs to, and the description (if available); prints "Measures not found" otherwise
 	'''
 
 	# file paths ---------------------------------------------------------------------------
