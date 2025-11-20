@@ -3,77 +3,66 @@ import  os, json, re
 def add_button(label, dashboard_path, page_id, button_id, height, width,
  x_position, y_position, z_position = 6000, tab_order=-1001, 
  fill_color="#3086C3", alpha=0, url_link = None, page_navigation_link = None):
-    
-  '''Add a button to a page
-  
-  Parameters
-  ----------
-  label : str       
-    The text you want to display inside the button        
-  dashboard_path : str       
-    The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).       
-  page_id: str       
-    The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list.         
-  button_id: str       
+   
+   '''Add a button to a page
+   
+   Parameters
+   ----------
+   label : str
+    The text you want to display inside the button
+   dashboard_path : str
+    The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).
+   page_id: str
+    The unique id for the page you want to add the background image to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list.
+   button_id: str
     Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-  height: int    
-    Height of text box on the page     
-  width: int     
-    Width of text box on the page      
-  x_position: int   
-    The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.       
-  y_position: int       
-    The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.      
-  z_position: int      
-    The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000      
-  tab_order: int      
-    The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)         
-  fill_color: str      
-    Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)      
-  alpha: int      
-    The transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)        
-  url_link: str     
-    Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url       
-  page_navigation_link: str      
-    Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.  
-    
-  Notes
-  -----
-  This function creates a new button on a page.
-  
-  '''
-
-
-  # checks --------------------------------------------------------------------------------------------------------------
-  if type(alpha) is not int:
-    raise TypeError("alpha (the transparency value) must be an integer between 1-100")
-
-  if (alpha > 100) or (alpha < 0):
-    raise ValueError("alpha (the transparency value) must be an integer between 1-100")
-
-  # variable type checks
-  for var in [height, width, x_position, y_position, z_position, alpha, tab_order]:
-    
-    # Get the name of the variable from the locals()
-    # dis chatgpt's idea, idk....
-    var_name = [name for name, value in locals().items() if value is var][0]
-
-    if type(var) is not int:
-      raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
-
-  # make sure they're not trying to make the button do two things at once
-  if page_navigation_link is not None and url_link is not None:
-    raise ValueError("Sorry you can only supply a url_link OR a page_navigation_link not both. Decide what you want the button to do and try again")
-
- 
-
-
-  # hex code
-  # source: https://gist.github.com/dmartin4820/a53e18871d9490277b26ce21fd191af5
-  #hex_match = re.search("/^#?([0-9a-f]{6}|[0-9a-f]{3});$/", font_color)
-
-  #if hex_match is None:
-    #raise ValueError("The hex code you provided for the font_color appears to be invalid! Please double check it.")
+   height: int
+    Height of text box on the page
+   width: int
+    Width of text box on the page
+   x_position: int
+    The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+   y_position: int
+    The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+   z_position: int
+    The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+   tab_order: int
+    The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+   fill_color: str
+    Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
+   alpha: int
+    The transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
+   url_link: str
+    Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
+   page_navigation_link: str
+    Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.
+   
+   Notes
+   -----
+   This function creates a new button on a page.
+   '''
+   
+   # checks --------------------------------------------------------------------------------------------------------------
+   if type(alpha) is not int:
+     raise TypeError("alpha (the transparency value) must be an integer between 1-100")
+   
+   if (alpha > 100) or (alpha < 0):
+     raise ValueError("alpha (the transparency value) must be an integer between 1-100")
+   
+   # variable type checks
+   for var in [height, width, x_position, y_position, z_position, alpha, tab_order]:
+     
+     # Get the name of the variable from the locals()
+     # dis chatgpt's idea, idk....
+     var_name = [name for name, value in locals().items() if value is var][0]
+     
+     if type(var) is not int:
+       raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
+     
+     # make sure they're not trying to make the button do two things at once
+     if page_navigation_link is not None and url_link is not None:
+       raise ValueError("Sorry you can only supply a url_link OR a page_navigation_link not both. Decide what you want the button to do and try again")
+     
 
     
   # file paths -------------------------------
