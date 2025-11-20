@@ -3,7 +3,11 @@ import os, json
 import powerbpy as PBI
 
 
-def add_new_page(dashboard_path, page_name, title = None, subtitle = None, displayOption = 'FitToPage'):
+def add_new_page(dashboard_path, 
+                 page_name, 
+                 title = None, 
+                 subtitle = None, 
+                 displayOption = 'FitToPage'):
 
 	'''Create a new blank dashboard page
 	
@@ -12,7 +16,7 @@ def add_new_page(dashboard_path, page_name, title = None, subtitle = None, displ
 	dashboard_path: str
 	  The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
 	page_name: str
-	  The display name for the page you just created. This is differnt from the page_id which is only used internally. 
+	  The display name for the page you just created. This is different from the page_id which is only used internally. 
 	title: str
 	  Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
 	subtitle: str
