@@ -48,9 +48,9 @@ quartodoc:
         - add_csv_from_blob
         - add_local_csv
         - add_new_page
+        - add_sanky_chart
         - add_shape_map
         - add_slicer
-        - add_sanky_chart
         - add_table
         - add_text_box
         - add_tmdl_dataset

@@ -58,6 +58,9 @@ def add_text_box(text, dashboard_path, page_id, text_box_id, height, width,
 
     
   # file paths -------------------------------
+  # Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
   report_name = os.path.basename(dashboard_path)
     
   pages_folder = os.path.join(dashboard_path, f'{report_name}.Report/definition/pages')

@@ -1,7 +1,13 @@
 import os, re, uuid
 import pandas as pd
 
-def _generate_bin_ranges(bin_number, dataset_file_path, percentile_bin_breaks,dataset_name, color_var, location_var, filtering_dax):
+def _generate_bin_ranges(bin_number,
+                         dataset_file_path, 
+                         percentile_bin_breaks,
+                         dataset_name, 
+                         color_var, 
+                         location_var, 
+                         filtering_dax):
 
   '''An internal function for creating bins within the add_bin_measures() function
   

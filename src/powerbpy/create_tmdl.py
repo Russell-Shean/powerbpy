@@ -28,6 +28,9 @@ def create_tmdl(dashboard_path, dataset_name, dataset_id, dataset):
   '''
   
   # file paths ---------------------------------------------------------------------------
+  # Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
   report_name = os.path.basename(dashboard_path)
   
   semantic_model_folder = os.path.join(dashboard_path, f'{report_name}.SemanticModel' )

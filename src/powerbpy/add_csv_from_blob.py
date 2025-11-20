@@ -66,6 +66,9 @@ def add_csv_from_blob(dashboard_path,
 
 
     # file paths
+    # Convert dashboard path to an absolute path if a relative path was provided
+	  dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
     report_name = os.path.basename(dashboard_path)
 
     path_end = os.path.basename(data_path)

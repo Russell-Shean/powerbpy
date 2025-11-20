@@ -27,6 +27,9 @@ def add_background_image(dashboard_path, page_id, img_path, alpha = 100, scaling
 		raise ValueError("alpha (the transparency value) must be an integer between 1-100")
 
 	# file paths
+	# Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
 	report_name = os.path.basename(dashboard_path)
 	img_name = os.path.basename(img_path)
 
