@@ -8,8 +8,7 @@ from importlib import resources
 
 def create_new_dashboard(parent_dir, report_name):
 
-	'''Create a new dashboard in the specified folder      
-	          
+	'''Create a new dashboard in the specified folder
 	Parameters          
 	----------
 	parent_dir: str
