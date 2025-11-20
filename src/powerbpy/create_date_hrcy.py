@@ -14,6 +14,9 @@ def create_date_hrcy(col_name, dataset_name, report_name, dashboard_path):
 
 	# create new table id
 	TABLE_ID = str(uuid.uuid4())
+	
+	# Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
 
 	date_template_path = os.path.join(dashboard_path, "python_resources/LocalDateTable_FILE_ID.tmdl" )
 	date_heirarchy_path = os.path.join(dashboard_path, f"{report_name}.SemanticModel/definition/tables/LocalDateTable_{FILE_ID}.tmdl" )

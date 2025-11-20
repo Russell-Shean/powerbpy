@@ -111,6 +111,9 @@ def add_shape_map(dashboard_path, page_id, map_id, data_source, shape_file_path,
 
     
   # file paths -------------------------------
+  # Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
   report_name = os.path.basename(dashboard_path)
   shape_name = os.path.basename(shape_file_path)
 

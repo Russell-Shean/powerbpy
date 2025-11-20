@@ -33,6 +33,9 @@ def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = T
     raise ValueError("If you are providing a path to a tmdl dataset, the add_default_datetable argument can't be set to True")	
   
   # file paths
+  # Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
   report_name = os.path.basename(dashboard_path)
   
   semantic_model_folder = os.path.join(dashboard_path, f'{report_name}.SemanticModel' )

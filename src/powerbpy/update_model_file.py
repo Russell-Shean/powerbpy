@@ -26,6 +26,9 @@ def update_model_file(dashboard_path, dataset_name):
 
 
 	# file paths
+	# Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
+	
 	report_name = os.path.basename(dashboard_path)
 
 	semantic_model_folder = os.path.join(dashboard_path, f'{report_name}.SemanticModel' )

@@ -37,6 +37,9 @@ def add_local_csv(dashboard_path, data_path, save_data_copy=True):
 
   # generate a random id for the data set
 	dataset_id = str(uuid.uuid4())
+	
+	# Convert dashboard path to an absolute path if a relative path was provided
+	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
 
 
 	# extract bits of names for later
