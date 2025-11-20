@@ -36,4 +36,7 @@ You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Altho
     
 ## Add a new page
 To add a new page, you'll need to provide the following arguments:    
-1. 
+1. `dashboard_path` - This is the file path to the folder where the dashboard is stored. This can be either an absolute or relative path. (This will eventually change when I change to OOP)
+2. `page_name` - This is display name for the page you just created. (This is different from the page_id which is only used internally).     
+    
+You can also provide the following optional arguments:
