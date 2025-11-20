@@ -12,14 +12,12 @@ import powerbpy.update_model_file as PBI_model              # internal function 
 def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = True):
 
 	'''Add a locally stored TMDL file to the dashboard       
-
-	
 	Parameters        
 	----------        
 	dashboard_path: str
-	  The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).        
+	  The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).
 	data_path: str
-	  The path where the tmdl file is stored.        
+	  The path where the tmdl file is stored.
 	add_default_datetable: bool
 	  Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date heirarchies instead of using time intelligence
 	    
