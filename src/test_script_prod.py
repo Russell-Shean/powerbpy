@@ -31,7 +31,7 @@ PBI.add_tmdl_dataset(dashboard_path = dashboard_path, data_path = None, add_defa
 # create a new page
 PBI.add_new_page(dashboard_path, 
 	                   page_name = "Bee Colonies",
-	                   title= "The bees are in Trouble!",
+	                   title= "The bees are in trouble!",
 	                   subtitle = "We're losing bee colonies"
 	)
 
