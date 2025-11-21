@@ -4,10 +4,10 @@ import powerbpy as PBI
 
 
 def add_new_page(dashboard_path, 
-                 page_name, 
-                 title = None, 
-                 subtitle = None, 
-                 displayOption = 'FitToPage'):
+				 page_name, 
+				 title = None, 
+				 subtitle = None, 
+				 displayOption = 'FitToPage'):
 
 	'''Create a new blank dashboard page
 	
@@ -51,7 +51,7 @@ def add_new_page(dashboard_path,
 
 		# add the new page id to the pageOrder list
 		pages_list["pageOrder"].append(new_page_id)
-    
+	
   
 	# write to file
 	with open(pages_json_path,'w') as file:
@@ -65,11 +65,11 @@ def add_new_page(dashboard_path,
 
 	# create a new json file for the new page
 	new_page_json = {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
-	                  "name": new_page_id,
-	                  "displayName": page_name,
-	                  "displayOption": displayOption,
-	                  "height": 720,
-	                  "width": 1280,
+					  "name": new_page_id,
+					  "displayName": page_name,
+					  "displayOption": displayOption,
+					  "height": 720,
+					  "width": 1280,
 					  "objects":{}}
 
 
@@ -81,24 +81,24 @@ def add_new_page(dashboard_path,
 	# Add title and subtitle if requested 
 	if title is not None:
 		PBI.add_text_box(text = title,
-             dashboard_path= dashboard_path,
-               page_id= new_page_id,
-                 text_box_id= f"{new_page_id}_title", 
-                 height=68,
-                   width=545,
-                     x_position = 394, 
-                     y_position = 44)
+			 dashboard_path= dashboard_path,
+			   page_id= new_page_id,
+				 text_box_id= f"{new_page_id}_title", 
+				 height=68,
+				   width=545,
+					 x_position = 394, 
+					 y_position = 44)
 
 	if subtitle is not None:
 		PBI.add_text_box(text = subtitle,
-             dashboard_path= dashboard_path,
-               page_id= new_page_id,
-                 text_box_id= f"{new_page_id}_subtitle", 
-                 height=38,
-                   width=300,
-                     x_position = 500, 
-                     y_position = 93,
-                     font_size = 14)
+			 dashboard_path= dashboard_path,
+			   page_id= new_page_id,
+				 text_box_id= f"{new_page_id}_subtitle", 
+				 height=38,
+				   width=300,
+					 x_position = 500, 
+					 y_position = 93,
+					 font_size = 14)
 
 
 

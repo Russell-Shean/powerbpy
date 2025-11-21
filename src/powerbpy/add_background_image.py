@@ -65,12 +65,12 @@ def add_background_image(dashboard_path, page_id, img_path, alpha = 100, scaling
 	for dict in report_json["resourcePackages"]:
 		if dict["name"] == "RegisteredResources":
 			dict["items"].append(
-				                  {
-                                    "name": img_name,
-                                    "path": img_name,
-                                    "type": "Image"
-                                   }   
-        	                    )
+								  {
+									"name": img_name,
+									"path": img_name,
+									"type": "Image"
+								   }   
+								)
 
 
 
@@ -91,45 +91,45 @@ def add_background_image(dashboard_path, page_id, img_path, alpha = 100, scaling
 
 	# add the image to the page's json
 	page_json["objects"]["background"] = [
-      {
-        "properties": {
-          "image": {
-            "image": {
-              "name": {
-                "expr": {
-                  "Literal": {
-                    "Value": f"'{img_name}'"
-                  }
-                }
-              },
-              "url": {
-                "expr": {
-                  "ResourcePackageItem": {
-                    "PackageName": "RegisteredResources",
-                    "PackageType": 1,
-                    "ItemName": img_name
-                  }
-                }
-              },
-              "scaling": {
-                "expr": {
-                  "Literal": {
-                    "Value": f"'{scaling_method}'"
-                  }
-                }
-              }
-            }
-          },
-          "transparency": {
-            "expr": {
-              "Literal": {
-                "Value": f"{alpha}D"
-              }
-            }
-          }
-        }
-      }
-    ]
+	  {
+		"properties": {
+		  "image": {
+			"image": {
+			  "name": {
+				"expr": {
+				  "Literal": {
+					"Value": f"'{img_name}'"
+				  }
+				}
+			  },
+			  "url": {
+				"expr": {
+				  "ResourcePackageItem": {
+					"PackageName": "RegisteredResources",
+					"PackageType": 1,
+					"ItemName": img_name
+				  }
+				}
+			  },
+			  "scaling": {
+				"expr": {
+				  "Literal": {
+					"Value": f"'{scaling_method}'"
+				  }
+				}
+			  }
+			}
+		  },
+		  "transparency": {
+			"expr": {
+			  "Literal": {
+				"Value": f"{alpha}D"
+			  }
+			}
+		  }
+		}
+	  }
+	]
 
 	
 

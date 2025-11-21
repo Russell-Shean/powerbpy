@@ -47,20 +47,20 @@ def update_diagramLayout(dashboard_path, dataset_name, dataset_id):
 
 	# add all this junk to describe the table's "nodes"
 	diagram_layout["diagrams"][0]["nodes"].append( 
-        {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "nodeIndex": dataset_name,
-          "nodeLineageTag": dataset_id,
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      )
+		{
+		  "location": {
+			"x": 0,
+			"y": 0
+		  },
+		  "nodeIndex": dataset_name,
+		  "nodeLineageTag": dataset_id,
+		  "size": {
+			"height": 300,
+			"width": 234
+		  },
+		  "zIndex": 0
+		}
+	  )
 
    
 	# write to file
