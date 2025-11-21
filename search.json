@@ -325,7 +325,7 @@
     "href": "example_dashboards.html",
     "title": "Example Dashboards",
     "section": "",
-    "text": "Here are some examples of Power BI dashboards built using {powerbpy}.\n\n\n\n\n\n\n\n\n\n\n\n\nRecreate my testing dasbhoard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSanky Chart and Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are some examples of Power BI dashboards built using {powerbpy}.\n\n\n\n\n\n\n\n\n\n\n\n\nRecreate my testing dashboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSanky Chart and Table\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -429,7 +429,7 @@
     "href": "reference/index.html",
     "title": "Function reference",
     "section": "",
-    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_sanky_chart\n\n\n\nadd_table\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
+    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_sanky_chart\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_table\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
     "crumbs": [
       "Reference",
       "Function reference"
@@ -440,7 +440,7 @@
     "href": "reference/index.html#power-bpy",
     "title": "Function reference",
     "section": "",
-    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_sanky_chart\n\n\n\nadd_table\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
+    "text": "Python functions for building Power BI dashboards\n\n\n\nadd_background_image\n\n\n\nadd_button\n\n\n\nadd_card\n\n\n\nadd_chart\n\n\n\nadd_csv_from_blob\n\n\n\nadd_local_csv\n\n\n\nadd_new_page\n\n\n\nadd_sanky_chart\n\n\n\nadd_shape_map\n\n\n\nadd_slicer\n\n\n\nadd_table\n\n\n\nadd_text_box\n\n\n\nadd_tmdl_dataset\n\n\n\ncreate_date_hrcy\n\n\n\ncreate_new_dashboard\n\n\n\ncreate_tmdl\n\n\n\ngenerate_bin_ranges\n\n\n\nget_measures_list\n\n\n\nupdate_diagramLayout\n\n\n\nupdate_model_file",
     "crumbs": [
       "Reference",
       "Function reference"
@@ -513,7 +513,7 @@
     "href": "reference/add_new_page.html",
     "title": "add_new_page",
     "section": "",
-    "text": "add_new_page\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\nadd_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n    displayOption='FitToPage',\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\n\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\n\nThe display name for the page you just created. This is differnt from the page_id which is only used internally.\nrequired\n\n\ntitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsubtitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\ndisplayOption\n\nDefault way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize\n'FitToPage'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nnew_page_id\nstr\nThe unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
+    "text": "add_new_page\n\n\n\n\n\nName\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\nadd_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n    displayOption='FitToPage',\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\n\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\n\nThe display name for the page you just created. This is different from the page_id which is only used internally.\nrequired\n\n\ntitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsubtitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\ndisplayOption\n\nDefault way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize\n'FitToPage'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nnew_page_id\nstr\nThe unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
     "crumbs": [
       "Reference",
       "Power Bpy",
@@ -525,7 +525,7 @@
     "href": "reference/add_new_page.html#functions",
     "title": "add_new_page",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\nadd_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n    displayOption='FitToPage',\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\n\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\n\nThe display name for the page you just created. This is differnt from the page_id which is only used internally.\nrequired\n\n\ntitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsubtitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\ndisplayOption\n\nDefault way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize\n'FitToPage'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nnew_page_id\nstr\nThe unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
+    "text": "Name\nDescription\n\n\n\n\nadd_new_page\nCreate a new blank dashboard page\n\n\n\n\n\nadd_new_page.add_new_page(\n    dashboard_path,\n    page_name,\n    title=None,\n    subtitle=None,\n    displayOption='FitToPage',\n)\nCreate a new blank dashboard page\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndashboard_path\n\nThe path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).\nrequired\n\n\npage_name\n\nThe display name for the page you just created. This is different from the page_id which is only used internally.\nrequired\n\n\ntitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\nsubtitle\n\nTitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.\nNone\n\n\ndisplayOption\n\nDefault way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize\n'FitToPage'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nnew_page_id\nstr\nThe unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.",
     "crumbs": [
       "Reference",
       "Power Bpy",
@@ -679,22 +679,22 @@
   {
     "objectID": "example_dashboards/Test Dashboard/index.html",
     "href": "example_dashboards/Test Dashboard/index.html",
-    "title": "Recreate my testing dasbhoard",
+    "title": "Recreate my testing dashboard",
     "section": "",
     "text": "This example shows how I create the dashboard I use for testing the module. It isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:\n- create a new dashboard\n- add pages to the dashboard\n- add visual elements such as maps and charts to the pages"
   },
   {
     "objectID": "example_dashboards/Test Dashboard/index.html#create-a-new-dashboard",
     "href": "example_dashboards/Test Dashboard/index.html#create-a-new-dashboard",
-    "title": "Recreate my testing dasbhoard",
+    "title": "Recreate my testing dashboard",
     "section": "Create a new dashboard",
-    "text": "Create a new dashboard\nTo Create a new dashboard, you’ll need to provide two arguments:\n1. parent_dir - This is the folder where you want to store your dashboard\n2. report_name - This is the name you want to give your dashboard project.\nIf you want to create a dashboard called bigfoots in a folder called C:/Users/Russ/PBI_projects, here’s what the code should look like\n# Import the package\nimport powerbpy as PBI\n\n\nPBI.create_new_dashboard(report_location = \"C:/Users/Russ/PBI_projects\", report_name = \"bigfoots\")\n\n\n\n# Create a new dashboard -----------------------------------------------------------------------------------------\nPBI_dash.create_new_dashboard(report_location, report_name)    \nIf everything worked, the function should have created the following files:\n\nYou can open the bigfoots.pbip file in Power BI desktop normally. (Although you will probably need to turn on these preview features. )"
+    "text": "Create a new dashboard\nTo create a new dashboard, you’ll need to provide two arguments:\n1. parent_dir - This is the folder where you want to store your dashboard\n2. report_name - This is the name you want to give your dashboard project.\nIf you want to create a dashboard called bigfoots in a folder called C:/Users/Russ/PBI_projects, here’s what the code should look like\n# Import the package\nimport powerbpy as PBI\n\n\nPBI.create_new_dashboard(report_location = \"C:/Users/Russ/PBI_projects\", report_name = \"test_dashboard\")\nIf everything worked, the function should have created the following files:\n\nYou can open the test_dashboard.pbip file in Power BI desktop normally. (Although you will probably need to turn on these preview features. )"
   },
   {
     "objectID": "example_dashboards/Test Dashboard/index.html#add-a-new-page",
     "href": "example_dashboards/Test Dashboard/index.html#add-a-new-page",
-    "title": "Recreate my testing dasbhoard",
+    "title": "Recreate my testing dashboard",
     "section": "Add a new page",
-    "text": "Add a new page"
+    "text": "Add a new page\nTo add a new page, you’ll need to provide the following arguments:\n1. dashboard_path - This is the file path to the folder where the dashboard is stored. This can be either an absolute or relative path. (This will eventually change when I change to OOP) 2. page_name - This is display name for the page you just created. (This is different from the page_id which is only used internally).\nYou can also provide the following optional arguments:"
   }
 ]

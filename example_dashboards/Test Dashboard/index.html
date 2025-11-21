@@ -321,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#recreate-my-testing-dasbhoard" id="toc-recreate-my-testing-dasbhoard" class="nav-link active" data-scroll-target="#recreate-my-testing-dasbhoard">Recreate my testing dasbhoard</a></li>
+  <li><a href="#recreate-my-testing-dashboard" id="toc-recreate-my-testing-dashboard" class="nav-link active" data-scroll-target="#recreate-my-testing-dashboard">Recreate my testing dashboard</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#build-dashboards" id="toc-build-dashboards" class="nav-link" data-scroll-target="#build-dashboards">Build dashboards</a>
   <ul class="collapse">
@@ -338,8 +338,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="recreate-my-testing-dasbhoard" class="level1">
-<h1>Recreate my testing dasbhoard</h1>
+<section id="recreate-my-testing-dashboard" class="level1">
+<h1>Recreate my testing dashboard</h1>
+<p><img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"><br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"></p>
 <p>This example shows how I create the dashboard I use for testing the module. It isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:<br>
 - create a new dashboard<br>
 - add pages to the dashboard<br>
@@ -353,26 +355,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Build dashboards</h1>
 <section id="create-a-new-dashboard" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-new-dashboard">Create a new dashboard</h2>
-<p>To Create a new dashboard, you’ll need to provide two arguments:<br>
-1. parent_dir - This is the folder where you want to store your dashboard<br>
-2. report_name - This is the name you want to give your dashboard project.</p>
+<p>To create a new dashboard, you’ll need to provide two arguments:<br>
+1. <code>parent_dir</code> - This is the folder where you want to store your dashboard<br>
+2. <code>report_name</code> - This is the name you want to give your dashboard project.</p>
 <p>If you want to create a dashboard called <code>bigfoots</code> in a folder called <code>C:/Users/Russ/PBI_projects</code>, here’s what the code should look like</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> powerbpy <span class="im">as</span> PBI</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>PBI.create_new_dashboard(report_location <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects"</span>, report_name <span class="op">=</span> <span class="st">"bigfoots"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new dashboard -----------------------------------------------------------------------------------------</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>PBI_dash.create_new_dashboard(report_location, report_name)    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>PBI.create_new_dashboard(report_location <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects"</span>, report_name <span class="op">=</span> <span class="st">"test_dashboard"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If everything worked, the function should have created the following files:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true" class="img-fluid" alt="image"></p>
-<p>You can open the <code>bigfoots.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )</p>
+<p>You can open the <code>test_dashboard.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )</p>
 </section>
 <section id="add-a-new-page" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-new-page">Add a new page</h2>
+<p>To add a new page, you’ll need to provide the following arguments:<br>
+1. <code>dashboard_path</code> - This is the file path to the folder where the dashboard is stored. This can be either an absolute or relative path. (This will eventually change when I change to OOP) 2. <code>page_name</code> - This is display name for the page you just created. (This is different from the page_id which is only used internally).</p>
+<p>You can also provide the following optional arguments:</p>
 
 
 </section>
