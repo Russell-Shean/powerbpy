@@ -88,4 +88,6 @@ PBI.add_background_image(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashb
     
 And here's what the dashboard looks like, now that we've added a background image:      
      
-![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
+![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")      
+      
+## 
