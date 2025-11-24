@@ -28,7 +28,24 @@ def add_new_page(dashboard_path,
 	-------
 	new_page_id: str
 	  The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
-  
+	
+	Notes
+	----     
+	In order to reference the page to add visuals to it later, you'll need to remember what order you created the pages in. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc. (I'm going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).        
+	
+	In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.      
+	Here's the code to create a new (mostly blank) page:     
+	
+	```python
+	PBI.add_new_page(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
+					   page_name = "Bee Colonies",
+					   title= "The bees are in trouble!",
+					   subtitle = "We're losing bee colonies")
+					   
+	```
+	Here's what the new page looks like in Power BI Desktop       
+	![New Page Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true "Example Page")
+	
 	'''
 
 	# file paths
