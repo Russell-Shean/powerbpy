@@ -521,31 +521,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    scaling_method<span class="op">=</span><span class="st">'Fit'</span>,</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add a background image to a dashboard page</p>
-<section id="parameters" class="level4 doc-section doc-section-------parameters">
-<h4 class="doc-section doc-section-------parameters anchored" data-anchor-id="parameters">Parameters</h4>
-<pre><code>  dashboard_path: str
-    The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
-  page_id: str
-    The unique id for the page you want to add the chart to. If you used this package's functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page's page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list. 
-  img_path: str
-    The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png
-  alpha: int
-    The transparency of the background image. Must be a whole integer between 1 and 100. 
-  scaling_method: str
-    The method used to scale the image available options include ["Fit", ]</code></pre>
+<section id="parameters" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 90%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dashboard_path</td>
+<td></td>
+<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>page_id</td>
+<td></td>
+<td>The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>img_path</td>
+<td></td>
+<td>The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>alpha</td>
+<td></td>
+<td>The transparency of the background image. Must be a whole integer between 1 and 100.</td>
+<td><code>100</code></td>
+</tr>
+<tr class="odd">
+<td>scaling_method</td>
+<td></td>
+<td>The method used to scale the image available options include [“Fit”, ]</td>
+<td><code>'Fit'</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="notes" class="level4 doc-section doc-section-------notes">
-<h4 class="doc-section doc-section-------notes anchored" data-anchor-id="notes">Notes</h4>
-<pre><code>  Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:       
-    1. `dashboard_path` - This is the path (relative or full) to the dashboard's project folder       
-    2. `page_id` - This is the identifier for the page you want to put the background image on. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc.        
-    3. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       </code></pre>
+<section id="notes" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h4>
+<p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required arguments:<br>
+1. <code>dashboard_path</code> - This is the path (relative or full) to the dashboard’s project folder<br>
+2. <code>page_id</code> - This is the identifier for the page you want to put the background image on. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc.<br>
+3. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
 <p>The first two arguments will be replaced by something like <code>myDashboard.page1.add_background_image()</code> when I convert the package to OOP.</p>
 <p>There are two additional optional arguments:<br>
 4. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
 5. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
-<p><code>python    PBI.add_background_image(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard",                       page_id = "page2",                       img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",                       alpha = 51,                      scaling_method = "Fit")</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PBI.add_background_image(dashboard_path <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                           page_id <span class="op">=</span> <span class="st">"page2"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                           img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                           alpha <span class="op">=</span> <span class="dv">51</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                           scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And here’s what the dashboard looks like, now that we’ve added a background image:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true" title="Background Image Example" class="img-fluid" alt="Background Image Example"></p>
 
