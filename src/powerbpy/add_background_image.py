@@ -24,25 +24,25 @@ def add_background_image(dashboard_path, page_id, img_path, alpha = 100, scaling
 	  1. `dashboard_path` - This is the path (relative or full) to the dashboard's project folder       
 	  2. `page_id` - This is the identifier for the page you want to put the background image on. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc.        
 	  3. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       
-  
-  The first two arguments will be replaced by something like `myDashboard.page1.add_background_image()` when I convert the package to OOP.      
-  
-  There are two additional optional arguments:     
-    4. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )    
-    5. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)      
-    
-  Here's some example code that adds a new background image to the Bee Colonies page:     
-    
-  ```python
-     PBI.add_background_image(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
-	               page_id = "page2", 
-	               img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
-	               alpha = 51,
-	               scaling_method = "Fit")
+	  
+	The first two arguments will be replaced by something like `myDashboard.page1.add_background_image()` when I convert the package to OOP.      
+	
+	There are two additional optional arguments:     
+	  4. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )    
+	  5. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)      
+	
+	Here's some example code that adds a new background image to the Bee Colonies page:     
+	
+	```python
+	PBI.add_background_image(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
+				   page_id = "page2", 
+				   img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
+				   alpha = 51,
+				   scaling_method = "Fit")
 	```       
-  
-  And here's what the dashboard looks like, now that we've added a background image:      
-  ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")   
+	
+	And here's what the dashboard looks like, now that we've added a background image:      
+	![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")   
 
 	'''
 
