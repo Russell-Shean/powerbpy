@@ -99,7 +99,9 @@ Here's how you can add a bar chart to your dashboard. To add the chart you'll ne
   2. `page_id` - This is the identifier for the page you want to put the background image on. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc.        
   3. `chart_id` - Give your chart a unique id that you'll remember. (Power BI's default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id's in the dashboard. It will also be the name of the file inside the Power BI project folder. )      
   4. `chart_type` - This is the type of chart to build on the page. I've only ever tried this with the `columnCart` option, the options I currently know about include: : `["columnChart","barChart", "clusteredBarChart"]`        
-  5. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. 
+  5. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.     
+  6. `chart_title` - Give your chart an informative title! This will display on the dashboard as part of the chart.    
+  7. `x_axis_title` - 
   
 
 ```python
