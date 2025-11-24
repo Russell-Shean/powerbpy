@@ -328,7 +328,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#create-a-new-dashboard" id="toc-create-a-new-dashboard" class="nav-link" data-scroll-target="#create-a-new-dashboard">Create a new dashboard</a></li>
   <li><a href="#add-a-new-page" id="toc-add-a-new-page" class="nav-link" data-scroll-target="#add-a-new-page">Add a new page</a></li>
   <li><a href="#add-background-image" id="toc-add-background-image" class="nav-link" data-scroll-target="#add-background-image">Add background image</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#add-a-dataset" id="toc-add-a-dataset" class="nav-link" data-scroll-target="#add-a-dataset">Add a dataset</a></li>
+  <li><a href="#add-a-chart" id="toc-add-a-chart" class="nav-link" data-scroll-target="#add-a-chart">Add a chart</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -415,8 +416,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="add-a-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-dataset">Add a dataset</h2>
+<p>For most dashboards, you’ll want to add visuals that help users visualize the data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard.</p>
+</section>
+<section id="add-a-chart" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-chart">Add a chart</h2>
+<p>Here’s how you can add a bar chart to your dashboard. To add the chart you’ll need to provide the following required arguments:<br>
+1. <code>dashboard_path</code> - This is the path (relative or full) to the dashboard’s project folder<br>
+2. <code>page_id</code> - This is the identifier for the page you want to put the background image on. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc. 3. <code>chart_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder. )</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>PBI.add_chart(dashboard_path <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>          page_id <span class="op">=</span> <span class="st">"page2"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>          chart_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>          chart_type <span class="op">=</span> <span class="st">"columnChart"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>          data_source <span class="op">=</span> <span class="st">"colony"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>          chart_title <span class="op">=</span> <span class="st">"Number of Bee Colonies Lost per Year"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>          x_axis_title <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>          y_axis_title <span class="op">=</span> <span class="st">"Number of Colonies"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>          x_axis_var <span class="op">=</span> <span class="st">"year"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>          y_axis_var <span class="op">=</span> <span class="st">"colony_lost"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>          y_axis_var_aggregation_type <span class="op">=</span> <span class="st">"Sum"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>          x_position <span class="op">=</span> <span class="dv">23</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>          y_position <span class="op">=</span> <span class="dv">158</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>          height <span class="op">=</span> <span class="dv">524</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>          width <span class="op">=</span> <span class="dv">603</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
