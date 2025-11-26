@@ -5,14 +5,25 @@ import  os, json, re, shutil, uuid
 
 import powerbpy as PBI
 
-def add_shape_map(dashboard_path, page_id, map_id, data_source, shape_file_path,
- map_title, location_var, color_var, color_palette, 
- height, width,
- x_position, y_position, 
- add_legend = True, static_bin_breaks = None, percentile_bin_breaks = None, 
- filtering_var = None,
-
- z_position = 6000, tab_order=-1001):
+def add_shape_map(dashboard_path, 
+                  page_id, 
+				  map_id, 
+				  data_source, 
+				  shape_file_path,
+				  map_title, 
+				  location_var, 
+				  color_var,
+				  color_palette, 
+				  height, 
+				  width,
+				  x_position, 
+				  y_position, 
+				  add_legend = True, 
+				  static_bin_breaks = None, 
+				  percentile_bin_breaks = None, 
+				  filtering_var = None,
+				  z_position = 6000, 
+				  tab_order=-1001):
 		
 	'''Add a map to a page
 	![Example of a shape map created by the function](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true "Example Shape Map")

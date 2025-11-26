@@ -1,10 +1,23 @@
 import  os, json, re
 
-def add_card(data_source, measure_name, dashboard_path, page_id, card_id, height, width,
- x_position, y_position, z_position = 6000, tab_order=-1001,
- title = None,
- text_align = "left", 
-	font_weight = "bold", font_size=32, font_color="#000000", background_color = None, parent_group_id = None):
+def add_card(data_source, 
+             measure_name, 
+			 dashboard_path, 
+			 page_id, 
+			 card_id, 
+			 height, 
+			 width,
+			 x_position, 
+			 y_position, 
+			 z_position = 6000, 
+			 tab_order=-1001,
+			 title = None,
+			 text_align = "left", 
+			 font_weight = "bold", 
+			 font_size=32, 
+			 font_color="#000000", 
+			 background_color = None, 
+			 parent_group_id = None):
 		
 	'''Add a card to a page
 	
