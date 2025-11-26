@@ -1,3 +1,8 @@
+from .dashboard import *
+from .page import *
+
+#__all__ = ["Dashboard", "Page"]
+
 from .add_background_image import *
 from .add_button import *
 from .add_card import *
