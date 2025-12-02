@@ -78,7 +78,7 @@ def add_shape_map(dashboard_path,
 
 	# checks --------------------------------------------------------------------------------------------------------------
 	if type(color_palette) is not list: 
-				raise TypeError("color_palette should be a list! Please pass a list of hex codes")
+		raise TypeError("color_palette should be a list! Please pass a list of hex codes")
 
 
 	if percentile_bin_breaks is not None and filtering_var is None:
@@ -90,7 +90,7 @@ def add_shape_map(dashboard_path,
 
 
 	if percentile_bin_breaks is None and static_bin_breaks is None:
-			raise ValueError("You'll need to provide either static_bin_breaks or percentile_bin_breaks. Otherwise Power BI won't know how to color the map")
+		raise ValueError("You'll need to provide either static_bin_breaks or percentile_bin_breaks. Otherwise Power BI won't know how to color the map")
 
 
 	if percentile_bin_breaks is not None and static_bin_breaks is not None:

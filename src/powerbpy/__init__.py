@@ -1,7 +1,8 @@
 from .dashboard import *
 from .page import *
+from .background_image import *
 
-__all__ = ["Dashboard", "Page"]
+__all__ = ["Dashboard", "Page", "BackgroundImage"]
 
 from .add_background_image import *
 from .add_button import *

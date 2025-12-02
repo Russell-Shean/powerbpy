@@ -71,9 +71,17 @@ class Dashboard:
 		self.report_folder_path = os.path.join(self.project_folder_path, f'{self.report_name}.Report')
 		self.platform_file_path = os.path.join(self.report_folder_path,  ".platform")
 		self.pbir_file_path = os.path.join(self.report_folder_path, 'definition.pbir')
+
+		self.registered_resources_folder = os.path.join(self.report_folder_path, "StaticResources/RegisteredResources")
+		
+		
+		
+	
 		
 		### definition folder -------------------------------------------------------------------------------------
 		self.report_definition_folder = os.path.join(self.report_folder_path, 'definition')
+
+		self.report_json_path = os.path.join(self.report_definition_folder, "report.json")
 		
 		self.pages_folder = os.path.join(self.report_definition_folder, 'pages')
 		self.pages_file_path = os.path.join(self.pages_folder, "pages.json")
