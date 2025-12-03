@@ -59,7 +59,7 @@ class Page:
 		os.makedirs(self.page_folder)
 
 		# Add subfolders for visuals and stuff
-		self.visuals_folder = os.path.join(self.page_folder_path, "visuals")
+		self.visuals_folder = os.path.join(self.page_folder, "visuals")
 
 		
 		# create a new json file for the new page

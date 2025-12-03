@@ -11,42 +11,43 @@ class _DataSet:
 	# Attribute delegation (inherit parent instance attributes)
 
 	def __init__(self,
+				 dashboard,
 				 data_path):
 
 		if not isinstance(dashboard, Dashboard):
 			raise TypeError("Datasets must be attached to a Dashboard instance")
 
 
-			self.dashboard = dashboard
-			self.data_path = os.path.abspath(os.path.expanduser(data_path))
+		self.dashboard = dashboard
+		self.data_path = os.path.abspath(os.path.expanduser(data_path))
 
-			# generate a random id for the data set
-			self.dataset_id = str(uuid.uuid4())
+		# generate a random id for the data set
+		self.dataset_id = str(uuid.uuid4())
 
-			# extract bits of names for later
-			self.path_end = os.path.basename(self.data_path)
-			self.split_end = os.path.splitext(self.path_end)
+		# extract bits of names for later
+		self.path_end = os.path.basename(self.data_path)
+		self.split_end = os.path.splitext(self.path_end)
 			
-			self.dataset_name = self.split_end[0]
-			self.dataset_extension = self.split_end[1]
+		self.dataset_name = self.split_end[0]
+		self.dataset_extension = self.split_end[1]
 
-			# Reverse slash directions bc windows
-			self.data_path_reversed = self.data_path.replace('/', '\\')
+		# Reverse slash directions bc windows
+		self.data_path_reversed = self.data_path.replace('/', '\\')
 			
-			# file paths
-			self.dataset_file_path = os.path.join(self.dashboard.tables_folder, f'{self.dataset_name}.tmdl')
+		# file paths
+		self.dataset_file_path = os.path.join(self.dashboard.tables_folder, f'{self.dataset_name}.tmdl')
 			
-			# create a tables folder if it doesn't already exist
-			if not os.path.exists(self.dashboard.tables_folder):
-				os.makedirs(self.dashboard.tables_folder)
+		# create a tables folder if it doesn't already exist
+		if not os.path.exists(self.dashboard.tables_folder):
+			os.makedirs(self.dashboard.tables_folder)
 				
 			
-			# add dataset to diagramLayout file ---------------------------------------------------------------------
-			with open(self.dashboard.diagram_layout_path,'r') as file:
-				self.diagram_layout = json.load(file)
+		# add dataset to diagramLayout file ---------------------------------------------------------------------
+		with open(self.dashboard.diagram_layout_path,'r') as file:
+			self.diagram_layout = json.load(file)
 				
-			# add all this junk to describe the table's "nodes"
-			self.diagram_layout["diagrams"][0]["nodes"].append( 
+		# add all this junk to describe the table's "nodes"
+		self.diagram_layout["diagrams"][0]["nodes"].append( 
 				{
 					"location": {
 						"x": 0,
@@ -62,41 +63,41 @@ class _DataSet:
 					}
 					)
 					
-			# write to file
-			with open(self.dashboard.diagram_layout_path,'w') as file:
-				json.dump(self.diagram_layout, file, indent = 2)
+		# write to file
+		with open(self.dashboard.diagram_layout_path,'w') as file:
+			json.dump(self.diagram_layout, file, indent = 2)
 							 
-			# update the model file with the dataset--------------------------------------------------------------------
-			# loop through all the lines in the model file
-			# to find that part that lists the order of the datasets
-			with open(self.dashboard.temp_model_path, 'w') as tmp:
-				with open(self.dashboard.model_path, "r") as file:
-					for line in file.readlines():
+		# update the model file with the dataset--------------------------------------------------------------------
+		# loop through all the lines in the model file
+		# to find that part that lists the order of the datasets
+		with open(self.dashboard.temp_model_path, 'w') as tmp:
+			with open(self.dashboard.model_path, "r") as file:
+				for line in file.readlines():
 						
-						# check to see if the line is the one we want
-						m = re.search("(?<=annotation PBI_QueryOrder = ).*", line)
+					# check to see if the line is the one we want
+					m = re.search("(?<=annotation PBI_QueryOrder = ).*", line)
 						
-						# if it is, read the list of datasets and append a new one in
-						if m is not None:
+					# if it is, read the list of datasets and append a new one in
+					if m is not None:
 							
-							# execute the tmdl code to make a python list
+						# execute the tmdl code to make a python list
 							
-							# execute the code (including local and global scopes)
-							# source: https://stackoverflow.com/questions/41100196/exec-not-working-inside-function-python3-x
-							exec(f'query_order_list = {m.group(0)}', locals(), globals())
+						# execute the code (including local and global scopes)
+						# source: https://stackoverflow.com/questions/41100196/exec-not-working-inside-function-python3-x
+						exec(f'query_order_list = {m.group(0)}', locals(), globals())
 							
-							# add the dataset using python method then write back  to line
-							query_order_list.append(self.dataset_name)
-							line = f'annotation PBI_QueryOrder = {query_order_list}\n'
+						# add the dataset using python method then write back  to line
+						query_order_list.append(self.dataset_name)
+						line = f'annotation PBI_QueryOrder = {query_order_list}\n'
 							
-							# write back the line to a temporary file
-							tmp.write(line)
+						# write back the line to a temporary file
+						tmp.write(line)
 							
-					# append the dataset name at the end of the file
-					tmp.write(f"\n\nref table {self.dataset_name}")
+				# append the dataset name at the end of the file
+				tmp.write(f"\n\nref table {self.dataset_name}")
 					
-			# Replace the model file with the temp file we created
-			shutil.move(self.dashboard.temp_model_path, self.dashboard.model_path)
+		# Replace the model file with the temp file we created
+		shutil.move(self.dashboard.temp_model_path, self.dashboard.model_path)
 			
 						  
 	# Data model file --------------------------------------------------------------------------
@@ -240,17 +241,7 @@ class _DataSet:
 
 
 
-		
-		
-
 	
-	
-	
-	
-	col_attributes = PBI.create_tmdl(dashboard_path = dashboard_path, 
-									 dataset_name = dataset_name, 
-									 dataset_id = dataset_id, 
-									 dataset = dataset)
 
 
 

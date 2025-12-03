@@ -12,9 +12,10 @@ import keyring, getpass, re, os, uuid, warnings
 
 class LocalCsv(_DataSet):
 	def __init__(self,
+				 dashboard,
 				 data_path):
 
-		super().__init__(data_path)
+		super().__init__(dashboard,data_path)
 
 		# load the dataset as a pandas dataframe
 		self.dataset = pd.read_csv(self.data_path)
@@ -45,9 +46,6 @@ class LocalCsv(_DataSet):
 			file.write('\t\t\t\tin\n\t\t\t\t\t#"Changed Type"\n\n')
 			file.write('\tannotation PBI_ResultType = Table\n\n\tannotation PBI_NavigationStepName = Navigation\n\n')
 			
-		# return the dataset_id in case we need it later
-		return self.dataset_id
-
 
 class BlobCsv(_DataSet):
 
