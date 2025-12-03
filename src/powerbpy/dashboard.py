@@ -281,7 +281,7 @@ class Dashboard:
 				 use_saved_storage_key = False,  
 				 SAS_url = None,
 				 storage_account_key = None, 
-				 warnings = True)：
+				 warnings = True):
 
 		from powerbpy.dataset_csv import BlobCsv
 
