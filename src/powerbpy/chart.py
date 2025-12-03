@@ -3,7 +3,7 @@ import  os, json, re
 from powerbpy.dashboard import Dashboard
 from powerbpy.page import Page
 
-class Chart(Visual):
+class Chart(_Visual):
     """A subset of the visual class, this class represents charts"""
 
     def __init__(self,
@@ -68,9 +68,7 @@ class Chart(Visual):
 
         super().__init__(page, 
 				  visual_id, 
-
-				  data_source, 
-				  visual_title, 
+				  visual_title=chart_title, 
 				  
 				  height, 
 				  width,
@@ -81,6 +79,115 @@ class Chart(Visual):
 				  tab_order=-1001, 
 			      parent_group_id = None,
 				  alt_text="A chart"):
+
+            # Update the visual type
+            self.visual_json["visual"]["visualType"] = chart_type
+
+            # add chart specific sections to the json ------------------------------------------------
             
+            ## query -----
+            self.visual_json["visual"]["query"] =  {
+			"queryState": {
+				"Category": {
+					"projections": [
+						{
+							"field": {
+								"Column": {
+									"Expression": {
+										"SourceRef": {
+											"Entity": data_source
+										}
+									},
+									"Property": x_axis_var
+								}
+							},
+							"queryRef": f"{data_source}.{x_axis_var}",
+							"nativeQueryRef": x_axis_var,
+							"active": True
+						}
+					]
+				},
+				"Y": {
+					"projections": [
+						{
+							"field": {
+								"Aggregation": {
+									"Expression": {
+										"Column": {
+											"Expression": {
+												"SourceRef": {
+													"Entity": data_source
+												}
+											},
+											"Property": y_axis_var
+										}
+									},
+									"Function": 0
+								}
+							},
+							"queryRef": f"{y_axis_var_aggregation_type}({data_source}.{y_axis_var})",
+							"nativeQueryRef": f"{y_axis_var_aggregation_type} of {y_axis_var}"
+						}
+					]
+				}
+			},
+			"sortDefinition": {
+				"sort": [
+					{
+						"field": {
+							"Aggregation": {
+								"Expression": {
+									"Column": {
+										"Expression": {
+											"SourceRef": {
+												"Entity": data_source
+											}
+										},
+										"Property": y_axis_var
+									}
+								},
+								"Function": 0
+							}
+						},
+						"direction": "Descending"
+					}
+				],
+				"isDefaultSort": True
+			}
+            }
+            ## objects
+            self.visual_json["visual"]["objects"]["categoryAxis"] = [
+				{
+					"properties": {
+						"titleText": {
+							"expr": {
+								"Literal": {
+									"Value": f"'{x_axis_title}'"
+								}
+							}
+						}
+					}
+				}
+			]
             
-         
+            self.visual_json["visual"]["objects"]["valueAxis"] = [
+				{
+					"properties": {
+						"titleText": {
+							"expr": {
+								"Literal": {
+									"Value": f"'{y_axis_title}'"
+								}
+							}
+						}
+					}
+				}
+			]
+
+            # Write out the new json 
+            with open(self.visual_json_path, "w") as file:
+                json.dump(self.visual_json, file, indent = 2)
+
+
+            
+        
