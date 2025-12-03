@@ -92,7 +92,7 @@ def add_table(dashboard_path,
 
 	"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
 
-	"name": "e6a4d73607f586bd2f8b",
+	"name": table_id,
 
 	"position": {
 
