@@ -4,7 +4,7 @@ from powerbpy.page import Page
 
 class _Visual:
 	def __init__(page, 
-                #  page_id, 
+				#  page_id, 
 				  visual_id, 
 				  
 				  height, 
@@ -15,7 +15,7 @@ class _Visual:
 				
 				  z_position = 6000, 
 				  tab_order=-1001, 
-			      parent_group_id = None,
+				  parent_group_id = None,
 				  alt_text="A generic visual"):
 
 		
@@ -71,6 +71,18 @@ class _Visual:
 				"visualType": self.visual_type,
 				"objects": {},
 				"visualContainerObjects": {
+					"general": [
+						{
+							"properties": {
+								"altText": {
+									"expr": {
+										"Literal": {
+											"Value": f"'{self.alt_text}'"
+											}
+										}
+									}}
+									}
+								]
 					"title": []
 					},
 				"drillFilterOtherVisuals": True
@@ -106,9 +118,4 @@ class _Visual:
 					}
 
 				}
-
-
-
-		
-
-
+				
