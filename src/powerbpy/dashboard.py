@@ -14,7 +14,9 @@ class Dashboard:
 
 	'''
 
-	def __init__(self,parent_dir,report_name):
+	def __init__(self,
+			     parent_dir,
+				 report_name):
 		'''A python class used to model a power BI dashboard project
 		Parameters
 		----------
