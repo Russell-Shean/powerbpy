@@ -4,7 +4,9 @@ import os, uuid, json, re, shutil
 # Import a custom function to create the date heirarchies
 import powerbpy as PBI
 
-def add_local_csv(dashboard_path, data_path, save_data_copy=True):
+def add_local_csv(dashboard_path, 
+                  data_path, 
+				  save_data_copy=True):
 
 	'''Add a locally stored CSV file to a dashboard
 	
@@ -41,6 +43,10 @@ def add_local_csv(dashboard_path, data_path, save_data_copy=True):
 	# Convert dashboard path to an absolute path if a relative path was provided
 	dashboard_path = os.path.abspath(os.path.expanduser(dashboard_path))
 
+	# Convert the user provided data_path to a relative path
+	# because Power BI requires it...
+	data_path = os.path.abspath(os.path.expanduser(data_path))
+
 
 	# extract bits of names for later
 	path_end = os.path.basename(data_path)
@@ -53,9 +59,7 @@ def add_local_csv(dashboard_path, data_path, save_data_copy=True):
 	report_name = os.path.basename(dashboard_path)
 
 
-	# Convert the user provided data_path to a relative path
-	# because Power BI requires it...
-	data_path = os.path.abspath(os.path.expanduser(data_path))
+	
 
 
 
@@ -90,15 +94,21 @@ def add_local_csv(dashboard_path, data_path, save_data_copy=True):
 
 
 	# add dataset to diagramLayout file ---------------------------------------------------------------------
-	PBI.update_diagramLayout(dashboard_path = dashboard_path, dataset_name = dataset_name, dataset_id = dataset_id)
+	PBI.update_diagramLayout(dashboard_path = dashboard_path, 
+	                         dataset_name = dataset_name, 
+							 dataset_id = dataset_id)
 
 
   # Call a function to update the model file with the dataset
-	PBI.update_model_file(dashboard_path = dashboard_path, dataset_name = dataset_name)
+	PBI.update_model_file(dashboard_path = dashboard_path, 
+	                      dataset_name = dataset_name)
 
 
 	# Data model file --------------------------------------------------------------------------
-	col_attributes = PBI.create_tmdl(dashboard_path = dashboard_path, dataset_name = dataset_name, dataset_id = dataset_id, dataset = dataset)
+	col_attributes = PBI.create_tmdl(dashboard_path = dashboard_path, 
+	                                 dataset_name = dataset_name, 
+									 dataset_id = dataset_id, 
+									 dataset = dataset)
 
 
 

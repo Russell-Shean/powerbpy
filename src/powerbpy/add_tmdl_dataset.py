@@ -9,7 +9,9 @@ import powerbpy.update_model_file as PBI_model              # internal function 
 
 
 
-def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = True):
+def add_tmdl_dataset(dashboard_path, 
+                     data_path = None, 
+					 add_default_datetable = True):
 	
 	'''Add a locally stored TMDL file to the dashboard
 	Parameters
@@ -103,7 +105,10 @@ def add_tmdl_dataset(dashboard_path, data_path = None, add_default_datetable = T
 	
 	
 	# update the diagramLayout file to include the new date table\
-	PBI_DL.update_diagramLayout(dashboard_path = dashboard_path, dataset_name = dataset_name, dataset_id = dataset_id)
+	PBI_DL.update_diagramLayout(dashboard_path = dashboard_path, 
+	                            dataset_name = dataset_name, 
+								dataset_id = dataset_id)
 	
 	# update the model.tmdl file to include the new datetable
-	PBI_model.update_model_file(dashboard_path = dashboard_path, dataset_name = dataset_name)
+	PBI_model.update_model_file(dashboard_path = dashboard_path, 
+	                            dataset_name = dataset_name)

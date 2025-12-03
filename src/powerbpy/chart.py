@@ -2,6 +2,7 @@ import  os, json, re
 
 from powerbpy.dashboard import Dashboard
 from powerbpy.page import Page
+from powerbpy.visual import _Visual
 
 class Chart(_Visual):
     """A subset of the visual class, this class represents charts"""
@@ -78,15 +79,15 @@ class Chart(_Visual):
 				  z_position = 6000, 
 				  tab_order=-1001, 
 			      parent_group_id = None,
-				  alt_text="A chart"):
+				  alt_text="A chart")
 
-            # Update the visual type
-            self.visual_json["visual"]["visualType"] = chart_type
+        # Update the visual type
+        self.visual_json["visual"]["visualType"] = chart_type
 
-            # add chart specific sections to the json ------------------------------------------------
+        # add chart specific sections to the json ------------------------------------------------
             
-            ## query -----
-            self.visual_json["visual"]["query"] =  {
+        ## query -----
+        self.visual_json["visual"]["query"] =  {
 			"queryState": {
 				"Category": {
 					"projections": [
@@ -154,9 +155,10 @@ class Chart(_Visual):
 				],
 				"isDefaultSort": True
 			}
-            }
-            ## objects
-            self.visual_json["visual"]["objects"]["categoryAxis"] = [
+        }
+        
+		## objects
+        self.visual_json["visual"]["objects"]["categoryAxis"] = [
 				{
 					"properties": {
 						"titleText": {
@@ -168,9 +170,9 @@ class Chart(_Visual):
 						}
 					}
 				}
-			]
+		]
             
-            self.visual_json["visual"]["objects"]["valueAxis"] = [
+        self.visual_json["visual"]["objects"]["valueAxis"] = [
 				{
 					"properties": {
 						"titleText": {
@@ -182,11 +184,11 @@ class Chart(_Visual):
 						}
 					}
 				}
-			]
+		]
 
-            # Write out the new json 
-            with open(self.visual_json_path, "w") as file:
-                json.dump(self.visual_json, file, indent = 2)
+        # Write out the new json 
+        with open(self.visual_json_path, "w") as file:
+            json.dump(self.visual_json, file, indent = 2)
 
 
             
