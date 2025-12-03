@@ -6,22 +6,26 @@ import os
 my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
 
 # Try to add datasets
-my_dashboard.add_local_csv(data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv")
+my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
+                              data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
+
+
+)
 
 page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
                               title= "Bigfoot sightings", 
                               subtitle = "By Washington Counties")
 
-page2.add_background_image(img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+page2.add_background_image(
+                   #img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+                   img_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
 	               alpha = 51,
 	               scaling_method = "Fit")
 
-page2.add_chart( 
-	      page_id = "page2", 
-	      chart_id = "colonies_lost_by_year", 
+page2.add_chart(visual_id = "colonies_lost_by_year", 
 	      chart_type = "columnChart",
 	      data_source = "colony",
-	      chart_title = "Number of Bee Colonies Lost per Year",
+	      visual_title = "Number of Bee Colonies Lost per Year",
 	      x_axis_title = "Year",
 	      y_axis_title = "Number of Colonies",
 	      x_axis_var = "year",
