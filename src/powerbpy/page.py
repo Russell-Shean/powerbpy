@@ -79,7 +79,7 @@ class Page:
 		# Add title and subtitle if requested 
 		if self.title is not None:
 			PBI.add_text_box(text = self.title,
-			 dashboard_path= dashboard_path,
+			 dashboard_path= self.dashboard.project_folder_path,
 			   page_id= self.page_id,
 				 text_box_id= f"{self.page_id}_title", 
 				 height=68,
@@ -90,7 +90,7 @@ class Page:
 					 
 		if subtitle is not None:
 			PBI.add_text_box(text = self.subtitle,
-			 dashboard_path= dashboard_path,
+			 dashboard_path= self.dashboard.project_folder_path,
 			   page_id= self.page_id,
 				 text_box_id= f"{self.page_id}_subtitle", 
 				 height=38,
