@@ -102,8 +102,8 @@ class Page:
 
 	def add_background_image(self,
 							 img_path, 
-						 alpha = 100, 
-						 scaling_method = "Fit"):
+							 alpha = 51, 
+							 scaling_method = "Fit"):
 						 
 						 
 		'''Add a background image to a dashboard page
@@ -153,8 +153,8 @@ class Page:
 		
 		background_image = BackgroundImage(self,
 						 img_path, 
-						 alpha = 100, 
-						 scaling_method = "Fit")
+						 alpha, 
+						 scaling_method)
 
 		self.background_images.append(background_image)
 		return background_image

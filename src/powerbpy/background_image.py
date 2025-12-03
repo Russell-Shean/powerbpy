@@ -11,11 +11,10 @@ from powerbpy.page import Page
 
 class BackgroundImage:
 
-
 	def __init__(self,
 				 page,
 				 img_path, 
-				 alpha = 100, 
+				 alpha = 51, 
 				 scaling_method = "Fit"):
 
 		self.page = page
@@ -38,6 +37,8 @@ class BackgroundImage:
 		
 		# This is the location of the image within the dashboard
 		registered_img_path = os.path.join(self.dashboard.registered_resources_folder, img_name)
+
+		print(registered_img_path)
 		
 		
 		# Upload image to dashboard's registered resources ---------------------------------------------------
