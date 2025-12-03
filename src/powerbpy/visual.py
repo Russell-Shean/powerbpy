@@ -5,8 +5,7 @@ from powerbpy.page import Page
 class _Visual:
 	def __init__(self,
 	             page, 
-				#  page_id, 
-				  visual_id, 
+				 visual_id, 
 				  
 				  height, 
 				  width,
@@ -112,7 +111,7 @@ class _Visual:
 						"text": {
 							"expr": {
 								"Literal": {
-									"Value": f"'{visual_title}'"
+									"Value": f"'{self.visual_title}'"
 								}
 							}
 						}
