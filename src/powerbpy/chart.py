@@ -10,6 +10,7 @@ class Chart(_Visual):
     def __init__(self,
                  page,
                  visual_id,
+                 
                  chart_type,
                  data_source,
                  visual_title,
@@ -62,20 +63,21 @@ class Chart(_Visual):
         z_position: int
 		    The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         '''
+        
 
-        super().__init__(page, 
-				  visual_id, 
-				  visual_title, 
+        super().__init__(page=page, 
+				  visual_id=visual_id, 
+				  visual_title=visual_title, 
 				  
-				  height, 
-				  width,
-				  x_position, 
-				  y_position, 
+				  height=height, 
+				  width=width,
+				  x_position=x_position, 
+				  y_position=y_position, 
 				
-				  z_position, 
-				  tab_order, 
-			      parent_group_id,
-				  alt_text)
+				  z_position=z_position, 
+				  tab_order=tab_order, 
+			      parent_group_id=parent_group_id,
+				  alt_text=alt_text)
 
         # Update the visual type
         self.visual_json["visual"]["visualType"] = chart_type
