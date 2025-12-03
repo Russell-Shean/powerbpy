@@ -6,7 +6,7 @@ import os
 my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
 
 # Try to add datasets
-#my_dashboard.add_local_csv(data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv")
+my_dashboard.add_local_csv(data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv")
 
 page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
                               title= "Bigfoot sightings", 

@@ -90,8 +90,8 @@ class _DataSet:
 						query_order_list.append(self.dataset_name)
 						line = f'annotation PBI_QueryOrder = {query_order_list}\n'
 							
-						# write back the line to a temporary file
-						tmp.write(line)
+					# write back the line to a temporary file
+					tmp.write(line)
 							
 				# append the dataset name at the end of the file
 				tmp.write(f"\n\nref table {self.dataset_name}")
