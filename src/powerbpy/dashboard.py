@@ -43,6 +43,8 @@ class Dashboard:
 		# Define pages as a list of instances of the page class
 		self.pages = []
 
+		self.datasets = []
+
 
 
 		# The parent directory should be converted to a full path
@@ -259,4 +261,46 @@ class Dashboard:
 
 		self.pages.append(page)
 		return page
+
+	def add_local_csv(self,
+	                  data_path):
+
+		from powerbpy.dataset_csv import LocalCsv
+
+		dataset = LocalCsv(self,
+		                   data_path)
+		
+		self.datasets.append(dataset)
+		return dataset
+
+	def add_blob_csv(self,
+				 data_path,
+				 account_url, 
+				 blob_name, 
+				 tenant_id = None, 
+				 use_saved_storage_key = False,  
+				 SAS_url = None,
+				 storage_account_key = None, 
+				 warnings = True)：
+
+		from powerbpy.dataset_csv import BlobCsv
+
+		dataset = BlobCsv(self,
+				 data_path,
+				 account_url, 
+				 blob_name, 
+				 tenant_id = None, 
+				 use_saved_storage_key = False,  
+				 SAS_url = None,
+				 storage_account_key = None, 
+				 warnings = True)
+		
+		self.datasets.append(dataset)
+		return dataset
+
+
+
+		
+
+
 
