@@ -57,6 +57,10 @@ class Page:
 		self.page_json_path = os.path.join(self.page_folder, "page.json")
 
 		os.makedirs(self.page_folder)
+
+		# Add subfolders for visuals and stuff
+		self.visuals_folder = os.path.join(self.page_folder_path, "visuals")
+
 		
 		# create a new json file for the new page
 		page_json = {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
