@@ -94,6 +94,14 @@ class Dashboard:
 		self.semantic_model_folder_path = os.path.join(self.project_folder_path, f'{self.report_name}.SemanticModel')
 		self.sm_platform_file_path = os.path.join(self.semantic_model_folder_path, ".platform")
 
+		self.sm_definition_folder = os.path.join(self.semantic_model_folder_path, "definition")
+
+		self.model_path = os.path.join(self.sm_definition_folder, 'model.tmdl')
+		self.temp_model_path = os.path.join(self.project_folder_path, 'model2.tmdl')
+
+		self.diagram_layout_path = os.path.join(self.semantic_model_folder_path, 'diagramLayout.json')
+		self.tables_folder = os.path.join(self.sm_definition_folder, 'tables')
+
 		# Start creating a new dashboard not just defining file paths ----------------------------
 		# check to make sure parent directory exists
 		if not os.path.exists(self.parent_dir):
@@ -208,8 +216,6 @@ class Dashboard:
 		
 		Parameters
 		----------
-		dashboard_path: str
-			The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders). 
 		page_name: str
 			The display name for the page you just created. This is different from the page_id which is only used internally. 
 		title: str
