@@ -3,7 +3,8 @@ import  os, json, re
 from powerbpy.page import Page
 
 class _Visual:
-	def __init__(page, 
+	def __init__(self,
+	             page, 
 				#  page_id, 
 				  visual_id, 
 				  
@@ -27,10 +28,11 @@ class _Visual:
 		self.visual_title = visual_title
 		self.height = height
 		self.width = width
-		self.x_position = position
+		self.x_position = x_position
+		self.y_position = y_position
 		self.z_position = z_position
 		self.tab_order = tab_order
-		self.parent_group_id
+		self.parent_group_id = parent_group_id
 		self.alt_text = alt_text
 
 		# Define generic properties
@@ -82,17 +84,18 @@ class _Visual:
 										}
 									}}
 									}
-								]
+								],
 					"title": []
 					},
 				"drillFilterOtherVisuals": True
 				
 				}
-	}
-
-	# Add a title to the visual if the user provides one
-	if self.visual_title is not None:
-		visual_json["visual"]["visualContainerObjects"]["title"].append(
+				
+		}
+		
+		# Add a title to the visual if the user provides one
+		if self.visual_title is not None:
+			self.visual_json["visual"]["visualContainerObjects"]["title"].append(
 
 
 				{
@@ -118,4 +121,6 @@ class _Visual:
 					}
 
 				}
+				
+			)
 				

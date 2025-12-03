@@ -159,21 +159,50 @@ class Page:
 		self.background_images.append(background_image)
 		return background_image
 	
-	def add_chart( 
-	      page_id = "page2", 
-	      chart_id = "colonies_lost_by_year", 
-	      chart_type = "columnChart",
-	      data_source = "colony",
-	      chart_title = "Number of Bee Colonies Lost per Year",
-	      x_axis_title = "Year",
-	      y_axis_title = "Number of Colonies",
-	      x_axis_var = "year",
-	      y_axis_var = "colony_lost",
-	      y_axis_var_aggregation_type = "Sum",
-	      x_position = 23,
-	      y_position = 158,
-	      height = 524,
-	      width = 603)
+	def add_chart(self,
+	              visual_id,
+	             chart_type,
+                 data_source,
+                 visual_title,
+                 x_axis_title,
+                 y_axis_title,
+                 x_axis_var,
+                 y_axis_var,
+                 y_axis_var_aggregation_type,
+                 x_position,
+                 y_position,
+                 height,
+                 width,
+                 tab_order = -1001,
+                 z_position = 6000, 
+			     parent_group_id = None,
+				 alt_text="A chart"):
+
+		from powerbpy.chart import Chart
+
+		chart = Chart(self,
+		              visual_id,
+	                  chart_type,
+                 data_source,
+                 visual_title,
+                 x_axis_title,
+                 y_axis_title,
+                 x_axis_var,
+                 y_axis_var,
+                 y_axis_var_aggregation_type,
+                 x_position,
+                 y_position,
+                 height,
+                 width,
+                 tab_order,
+                 z_position, 
+			     parent_group_id,
+				 alt_text)
+
+		self.visuals.append(chart)
+		return chart
+		
+
 		
 		
 
