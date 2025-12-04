@@ -264,6 +264,19 @@ class Dashboard:
 		self.pages.append(page)
 		return page
 
+	def add_tmdl(self,
+				 data_path = None, 
+				 add_default_datetable = True):
+		
+		from powerbpy.dataset_tmdl  import Tmdl
+
+		tmdl = Tmdl(self,
+		            data_path, 
+				    add_default_datetable)
+
+		self.datasets.append(tmdl)
+		return tmdl
+
 	def add_local_csv(self,
 	                  data_path):
 

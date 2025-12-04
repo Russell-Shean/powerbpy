@@ -12,7 +12,8 @@ class _DataSet:
 
 	def __init__(self,
 				 dashboard,
-				 data_path):
+				 data_path,
+				 dataset_id=None):
 
 		if not isinstance(dashboard, Dashboard):
 			raise TypeError("Datasets must be attached to a Dashboard instance")
@@ -22,7 +23,10 @@ class _DataSet:
 		self.data_path = os.path.abspath(os.path.expanduser(data_path))
 
 		# generate a random id for the data set
-		self.dataset_id = str(uuid.uuid4())
+		if dataset_id is None:
+			self.dataset_id = str(uuid.uuid4())
+		else:
+			self.dataset_id = dataset_id
 
 		# extract bits of names for later
 		self.path_end = os.path.basename(self.data_path)

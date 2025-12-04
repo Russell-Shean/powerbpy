@@ -1,4 +1,3 @@
-
 from powerbpy.dashboard import Dashboard
 
 from powerbpy.data_set import _DataSet
