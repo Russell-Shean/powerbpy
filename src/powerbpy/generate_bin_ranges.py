@@ -65,7 +65,14 @@ def _generate_bin_ranges(bin_number,
 		file.write(f'\t\tlineageTag: {str(uuid.uuid4())}\n')
 
 
-def add_bin_measures(dashboard_path, dataset_name, color_var, percentile_bin_breaks, color_palette, filtering_var,location_var, data_filtering_condition = None):
+def add_bin_measures(dashboard_path, 
+                     dataset_name, 
+					 color_var, 
+					 percentile_bin_breaks, 
+					 color_palette, 
+					 filtering_var,
+					 location_var, 
+					 data_filtering_condition = None):
 
 	'''An internally called function that adds bin measures to a TMDL file
 	

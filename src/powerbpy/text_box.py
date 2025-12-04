@@ -25,7 +25,8 @@ class TextBox(_Visual):
 				 font_weight = "bold", 
 				 font_size=32, 
 				 font_color="#000000", 
-				 background_color = None 
+				 background_color = None,
+				 background_color_alpha=None
 				 ):
 
         '''Add a text box to a page
@@ -77,7 +78,10 @@ class TextBox(_Visual):
 				  z_position=z_position, 
 				  tab_order=tab_order, 
 			      parent_group_id=parent_group_id,
-				  alt_text=alt_text)
+				  alt_text=alt_text, 
+			 background_color=background_color, 
+             background_color_alpha=background_color_alpha,
+)
 
         # checks --------------------------------------------------------------------------------------------------------------
 

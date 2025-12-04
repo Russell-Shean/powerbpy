@@ -12,9 +12,20 @@ my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerb
 
 )
 
-page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
-                              title= "Bigfoot sightings", 
-                              subtitle = "By Washington Counties")
+
+my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
+                              data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv")
+
+# add pages
+
+page2 = my_dashboard.new_page(page_name = "Bee Colonies",
+	                   title= "The bees are in trouble!",
+	                   subtitle = "We're losing bee colonies")
+
+
+page3 = my_dashboard.new_page(page_name = "Bigfoot Map",
+	                   title= "Bigfoot sightings",
+	                   subtitle = "By Washington Counties")
 
 page2.add_background_image(
                    #img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
@@ -65,4 +76,28 @@ page2.add_button(label = "Back to page 1",
   x_position = 1000,
   y_position = 490,
   page_navigation_link = "page1")
+
+## Add a map to page 3 ----------------------------------------------------------------------
+
+page3.add_shape_map(
+              visual_id = "bigfoots_by_county_map",
+              data_source = "wa_bigfoot_by_county",
+              shape_file_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
+              
+              map_title = "Washington State Bigfoot Sightings by County",
+              #map_title = "",
+              location_var = "county",
+              color_var = "count",
+              filtering_var = "season",
+              #static_bin_breaks = [0, 15.4, 30.8, 46.2, 61.6, 77.0],
+              percentile_bin_breaks = [0,0.2,0.4,0.6,0.8,1],
+              color_palette = ["#efb5b9",  "#e68f96","#de6a73","#a1343c", "#6b2328"],
+              height = 534,
+              width = 816,
+              x_position = 75,
+              y_position = 132,
+              z_position = 2000,
+              add_legend = True
+              #add_legend = False
+              )
 
