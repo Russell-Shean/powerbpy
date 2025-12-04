@@ -256,10 +256,10 @@ class Dashboard:
 		from powerbpy.page import Page
 		
 		page = Page(self,
-				 page_name, 
-				 title = None, 
-				 subtitle = None, 
-				 displayOption = 'FitToPage')
+				 page_name=page_name, 
+				 title =title, 
+				 subtitle = subtitle, 
+				 displayOption = displayOption)
 
 		self.pages.append(page)
 		return page
