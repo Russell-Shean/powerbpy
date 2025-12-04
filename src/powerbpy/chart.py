@@ -23,9 +23,9 @@ class Chart(_Visual):
                  y_position,
                  height,
                  width,
-                 tab_order = -1001,
-                 z_position = 6000, 
-			     parent_group_id = None,
+                 tab_order,
+                 z_position, 
+			     parent_group_id,
 				 alt_text="A chart"):
 
         '''This function adds a new chart to a page in a power BI dashboard report. 

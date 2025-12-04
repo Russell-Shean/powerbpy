@@ -122,4 +122,8 @@ class _Visual:
 				}
 				
 			)
+
+		# add the parent group id if the user supplies one
+		if self.parent_group_id is not None:
+			self.visual_json["parentGroupName"] = self.parent_group_id
 				
