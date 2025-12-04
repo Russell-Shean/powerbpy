@@ -33,6 +33,10 @@ def create_new_dashboard(parent_dir, report_name):
 	- This dashboard turns off time intelligence and relationship autodection off by default
 	'''
 	
+	# The parent directory should be converted to a full path
+	# Because Power BI gets weird with relative paths
+	parent_dir = os.path.abspath(os.path.expanduser(parent_dir))
+	
 	#create a new logical id field
 	# see this for explanation of what a UUID is: https://stackoverflow.com/a/534847
 	report_logical_id = str(uuid.uuid4())
