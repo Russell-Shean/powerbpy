@@ -52,6 +52,13 @@ class _Visual:
 			
 		else: 
 			os.makedirs(self.new_visual_folder)
+			
+		# variable type checks
+		for var in [self.height, self.width, self.x_position, self.y_position, self.z_position, self.tab_order]:
+			# Get the name of the variable from the locals()var_name = [name for name, value in locals().items() if value is var][0]
+			
+			if type(var) is not int:
+				raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
 
 
 		# Define the generic json for the visual

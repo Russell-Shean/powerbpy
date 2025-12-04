@@ -6,8 +6,8 @@ import os
 my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
 
 # Try to add datasets
-my_dashboard.add_local_csv(data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
-                             # data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
+my_dashboard.add_local_csv( data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
+                            #  data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
 
 
 )
@@ -44,4 +44,25 @@ page2.add_text_box(text = "Explanatory text in the bottom right corner",
                      x_position = 1000, 
                      y_position = 600, 
                      font_size = 15)
+
+
+# add buttons
+
+# download data button (a link to an internet address)
+page2.add_button(label = "Download Data",
+  visual_id = "page2_download_button",
+  height = 40,
+  width = 131,
+  x_position = 1000,
+  y_position = 540,
+  url_link = "https://www.google.com/")
+
+# navigate back to page 1 button
+page2.add_button(label = "Back to page 1",
+  visual_id = "page2_back_to_page1_button",
+  height = 40,
+  width = 131,
+  x_position = 1000,
+  y_position = 490,
+  page_navigation_link = "page1")
 

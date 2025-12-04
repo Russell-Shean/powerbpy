@@ -69,9 +69,9 @@ def add_button(label,
 		 if type(var) is not int:
 			 raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
 		 
-		 # make sure they're not trying to make the button do two things at once
-		 if page_navigation_link is not None and url_link is not None:
-			 raise ValueError("Sorry you can only supply a url_link OR a page_navigation_link not both. Decide what you want the button to do and try again")
+	 # make sure they're not trying to make the button do two things at once
+	 if page_navigation_link is not None and url_link is not None:
+		 raise ValueError("Sorry you can only supply a url_link OR a page_navigation_link not both. Decide what you want the button to do and try again")
 		 
 		 
 	 # file paths -------------------------------

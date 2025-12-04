@@ -236,6 +236,39 @@ class Page:
 
 		self.visuals.append(text_box)
 		return text_box
+
+	def add_button(self,
+                 label, 
+                 visual_id, 
+                 height, 
+                 width,
+                 x_position, 
+                 y_position, 
+                 z_position = 6000, 
+                 tab_order=-1001, 
+                 fill_color="#3086C3", 
+                 alpha=0, 
+                 url_link = None, 
+                 page_navigation_link = None):
+
+		from powerbpy.button import Button
+
+		button = Button(self,
+                 label=label, 
+                 visual_id=visual_id, 
+                 height=height, 
+                 width=width,
+                 x_position=x_position, 
+                 y_position=y_position, 
+                 z_position =z_position, 
+                 tab_order=tab_order, 
+                 fill_color=fill_color, 
+                 alpha=alpha, 
+                 url_link = url_link, 
+                 page_navigation_link = page_navigation_link)
+
+		self.visuals.append(button)
+		return(button)
 		
 
 		
