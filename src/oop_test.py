@@ -6,7 +6,7 @@ import os
 my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
 
 # Try to add datasets
-my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
+my_dashboard.add_local_csv(data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
                              # data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
 
 
@@ -35,4 +35,13 @@ page2.add_chart(visual_id = "colonies_lost_by_year",
 	      y_position = 158,
 	      height = 524,
 	      width = 603)
+
+# add a text box to the second page
+page2.add_text_box(text = "Explanatory text in the bottom right corner",
+                 visual_id = "page2_explain_box", 
+                 height = 200,
+                   width= 300,
+                     x_position = 1000, 
+                     y_position = 600, 
+                     font_size = 15)
 

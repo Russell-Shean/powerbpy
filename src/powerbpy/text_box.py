@@ -17,10 +17,10 @@ class TextBox(_Visual):
 				 width,
 				 x_position, 
 				 y_position, 
-				 z_position, 
-				 tab_order,
-                 parent_group_id,
-                 alt_text,
+				 z_position=6000, 
+				 tab_order=-1001,
+                 parent_group_id=None,
+                 alt_text="A text box",
 				 text_align = "left", 
 				 font_weight = "bold", 
 				 font_size=32, 
@@ -66,9 +66,8 @@ class TextBox(_Visual):
         This function creates a new text box on a page. 
         '''
 
-        super.__init__(page=page, 
+        super().__init__(page=page, 
 				  visual_id=visual_id, 
-				  visual_title=visual_title, 
 				  
 				  height=height, 
 				  width=width,

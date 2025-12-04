@@ -79,7 +79,7 @@ class Page:
 		# Add title and subtitle if requested 
 		if self.title is not None:
 			self.add_text_box(text = self.title,
-				 text_box_id= f"{self.page_id}_title", 
+				            visual_id= f"{self.page_id}_title", 
 				 height=68,
 				   width=545,
 					 x_position = 394, 
@@ -88,7 +88,7 @@ class Page:
 					 
 		if subtitle is not None:
 			self.add_text_box(text = self.subtitle,
-			 text_box_id= f"{self.page_id}_subtitle", 
+			                  visual_id= f"{self.page_id}_subtitle", 
 				 height=38,
 				   width=300,
 					 x_position = 500, 
@@ -177,23 +177,23 @@ class Page:
 		from powerbpy.chart import Chart
 
 		chart = Chart(self,
-		              visual_id,
-	                  chart_type,
-                 data_source,
-                 visual_title,
-                 x_axis_title,
-                 y_axis_title,
-                 x_axis_var,
-                 y_axis_var,
-                 y_axis_var_aggregation_type,
-                 x_position,
-                 y_position,
-                 height,
-                 width,
-                 tab_order,
-                 z_position, 
-			     parent_group_id,
-				 alt_text)
+		              visual_id=visual_id,
+	                  chart_type=chart_type,
+                 data_source=data_source,
+                 visual_title=visual_title,
+                 x_axis_title=x_axis_title,
+                 y_axis_title=y_axis_title,
+                 x_axis_var=x_axis_var,
+                 y_axis_var=y_axis_var,
+                 y_axis_var_aggregation_type=y_axis_var_aggregation_type,
+                 x_position=x_position,
+                 y_position=y_position,
+                 height=height,
+                 width=width,
+                 tab_order=tab_order,
+                 z_position=z_position, 
+			     parent_group_id=parent_group_id,
+				 alt_text=alt_text)
 
 		self.visuals.append(chart)
 		return chart
@@ -205,9 +205,9 @@ class Page:
 				 width,
 				 x_position, 
 				 y_position, 
-				 z_position, 
-				 tab_order,
-                 parent_group_id,
+				 z_position=6000, 
+				 tab_order=-1001,
+                 parent_group_id=None,
 				 alt_text="A text box",
 				 text_align = "left", 
 				 font_weight = "bold", 
@@ -218,21 +218,21 @@ class Page:
 		from powerbpy.text_box import TextBox
 
 		text_box = TextBox(self,
-                 text, 
-				 visual_id, 
-				 height, 
-				 width,
-				 x_position, 
-				 y_position, 
-				 z_position, 
-				 tab_order,
-                 parent_group_id,
-				 alt_text,
-				 text_align, 
-				 font_weight, 
-				 font_size, 
-				 font_color, 
-				 background_color)
+                 text=text, 
+				 visual_id=visual_id, 
+				 height=height, 
+				 width=width,
+				 x_position=x_position, 
+				 y_position=y_position, 
+				 z_position=z_position, 
+				 tab_order=tab_order,
+                 parent_group_id=parent_group_id,
+				 alt_text=alt_text,
+				 text_align=text_align, 
+				 font_weight=font_weight, 
+				 font_size=font_size, 
+				 font_color=font_color, 
+				 background_color=background_color)
 
 		self.visuals.append(text_box)
 		return text_box
