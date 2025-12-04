@@ -78,7 +78,7 @@ class Table(_Visual):
 
 		# Create the json that defines the visual --------------------------------------------------------------  
 		# Update the visual type
-		self.visual_json["visual"]["visualType"] = "sankey02300D1BE6F5427989F3DE31CCA9E0F32020"
+		self.visual_json["visual"]["visualType"] =  "tableEx"
 		self.visual_json["$schema"] = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json"
 
 		## query -----

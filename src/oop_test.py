@@ -11,11 +11,10 @@ my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbp
 )
 
 my_dashboard.add_local_csv( data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
-                             # data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
+                            #  data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
                             )
 
 my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/sales_final_dataset.csv"
-                            
                             # data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/sales_final_dataset.csv"
                             )
 
