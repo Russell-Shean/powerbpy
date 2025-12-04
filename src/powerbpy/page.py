@@ -78,9 +78,7 @@ class Page:
 			
 		# Add title and subtitle if requested 
 		if self.title is not None:
-			PBI.add_text_box(text = self.title,
-			 dashboard_path= self.dashboard.project_folder_path,
-			   page_id= self.page_id,
+			self.add_text_box(text = self.title,
 				 text_box_id= f"{self.page_id}_title", 
 				 height=68,
 				   width=545,
@@ -89,10 +87,8 @@ class Page:
 					 
 					 
 		if subtitle is not None:
-			PBI.add_text_box(text = self.subtitle,
-			 dashboard_path= self.dashboard.project_folder_path,
-			   page_id= self.page_id,
-				 text_box_id= f"{self.page_id}_subtitle", 
+			self.add_text_box(text = self.subtitle,
+			 text_box_id= f"{self.page_id}_subtitle", 
 				 height=38,
 				   width=300,
 					 x_position = 500, 
@@ -201,6 +197,45 @@ class Page:
 
 		self.visuals.append(chart)
 		return chart
+
+	def add_text_box(self,
+                 text, 
+				 visual_id, 
+				 height, 
+				 width,
+				 x_position, 
+				 y_position, 
+				 z_position, 
+				 tab_order,
+                 parent_group_id,
+				 alt_text="A text box",
+				 text_align = "left", 
+				 font_weight = "bold", 
+				 font_size=32, 
+				 font_color="#000000", 
+				 background_color = None):
+
+		from powerbpy.text_box import TextBox
+
+		text_box = TextBox(self,
+                 text, 
+				 visual_id, 
+				 height, 
+				 width,
+				 x_position, 
+				 y_position, 
+				 z_position, 
+				 tab_order,
+                 parent_group_id,
+				 alt_text,
+				 text_align, 
+				 font_weight, 
+				 font_size, 
+				 font_color, 
+				 background_color)
+
+		self.visuals.append(text_box)
+		return text_box
 		
 
 		
