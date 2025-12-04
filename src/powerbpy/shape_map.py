@@ -531,7 +531,7 @@ class ShapeMap(_Visual):
 									 # Soooo... this is relative to the outer group
 									 # NOT the page!
 									 # so needs to be y = 0 and x + n box widths
-									 self.x_position = 0 + box_width * i,
+									 x_position = 0 + box_width * i,
 									 y_position = 0,
 
 									 # Make sure that the z index is more than the map's z_index
@@ -555,7 +555,7 @@ class ShapeMap(_Visual):
 									 visual_id = f"{visual_id}_legend_box{i + 1}", 
 									 height = 34, 
 									 width = box_width,
-									 self.x_position = 0 + box_width * i,
+									 x_position = 0 + box_width * i,
 									 y_position = 0,
 									 tab_order = -1,
 
