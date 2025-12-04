@@ -33,12 +33,10 @@ class BackgroundImage:
 		# Convert dashboard path to an absolute path if a relative path was provided
 		img_name = os.path.basename(img_path)
 
-		print(img_name)
 		
 		# This is the location of the image within the dashboard
 		registered_img_path = os.path.join(self.dashboard.registered_resources_folder, img_name)
 
-		print(registered_img_path)
 		
 		
 		# Upload image to dashboard's registered resources ---------------------------------------------------
