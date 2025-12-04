@@ -316,10 +316,6 @@ class Page:
 			   parent_group_id=parent_group_id, 
                alt_text = "A slicer")
 
-
-
-
-
 		self.visuals.append(slicer)
 		return(slicer)
 
@@ -417,6 +413,100 @@ class Page:
 		self.visuals.append(shape_map)
 		return shape_map
 
+	def add_sanky_chart(self,
+	                     visual_id, 
+							data_source, 
+							starting_var,
+							starting_var_values, 
+							ending_var,
+							ending_var_values,
+							values_from_var, 
+							x_position, 
+							y_position, 
+							height, 
+							width,
+							chart_title,
+							link_colors=None,
+							alt_text="A sankey chart",
+							parent_group_id=None,
+							background_color="#FFFFFF",
+							background_color_alpha=None,
+							chart_title_font_size = 17,
+							label_font_size = 20,
+							tab_order = -1001,
+							z_position = 6000):
+
+		from powerbpy.sanky_chart import SankyChart
+
+		sanky_chart = SankyChart(self,
+                            visual_id=visual_id, 
+							data_source=data_source, 
+							starting_var=starting_var,
+							starting_var_values=starting_var_values, 
+							ending_var=ending_var,
+							ending_var_values=ending_var_values,
+							values_from_var=values_from_var, 
+							x_position=x_position, 
+							y_position=y_position, 
+							height=height, 
+							width=width,
+							chart_title=chart_title,
+							link_colors=link_colors,
+							alt_text=alt_text,
+							parent_group_id=parent_group_id,
+							background_color=background_color,
+							background_color_alpha=background_color_alpha,
+							chart_title_font_size = chart_title_font_size,
+							label_font_size = label_font_size,
+							tab_order = tab_order,
+							z_position = z_position)
+
+		self.visuals.append(sanky_chart)
+		return(sanky_chart)		
+
+
+	def add_table(self,
+	                   visual_id, 
+							data_source, 
+							variables,
+							x_position, 
+							y_position, 
+							height, 
+							width,
+							add_totals_row = False,
+							table_title = None,
+							table_title_font_size=None,
+							column_widths = None,
+							tab_order = -1001,
+							z_position = 6000,
+							alt_text="A table",
+							parent_group_id=None,
+							background_color="#FFFFFF",
+							background_color_alpha=None ):
+
+		from powerbpy.table import Table
+
+		table = Table(self,
+                        visual_id=visual_id, 
+							data_source=data_source, 
+							variables=variables,
+							x_position=x_position, 
+							y_position=y_position, 
+							height=height, 
+							width=width,
+							add_totals_row = add_totals_row,
+							table_title=table_title,
+							table_title_font_size=table_title_font_size,
+							column_widths=column_widths,
+							alt_text=alt_text,
+							parent_group_id=parent_group_id,
+							background_color=background_color,
+							background_color_alpha=background_color_alpha,
+							tab_order = tab_order,
+							z_position = z_position)
+
+		self.visuals.append(table)
+		return(table)
 
 		
 
