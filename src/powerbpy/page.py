@@ -213,7 +213,8 @@ class Page:
 				 font_weight = "bold", 
 				 font_size=32, 
 				 font_color="#000000", 
-				 background_color = None):
+				 background_color = None,
+				 background_color_alpha=None):
 
 		from powerbpy.text_box import TextBox
 
@@ -232,7 +233,8 @@ class Page:
 				 font_weight=font_weight, 
 				 font_size=font_size, 
 				 font_color=font_color, 
-				 background_color=background_color)
+				 background_color=background_color,
+				 background_color_alpha=background_color_alpha)
 
 		self.visuals.append(text_box)
 		return text_box
@@ -249,7 +251,8 @@ class Page:
                  fill_color="#3086C3", 
                  alpha=0, 
                  url_link = None, 
-                 page_navigation_link = None):
+                 page_navigation_link = None,
+				 alt_text="A button"):
 
 		from powerbpy.button import Button
 
@@ -265,10 +268,154 @@ class Page:
                  fill_color=fill_color, 
                  alpha=alpha, 
                  url_link = url_link, 
-                 page_navigation_link = page_navigation_link)
+                 page_navigation_link = page_navigation_link,
+				 alt_text=alt_text)
 
 		self.visuals.append(button)
 		return(button)
+
+	def add_slicer(self,
+	              data_source, 
+               column_name,    
+			   visual_id, 
+			   height, 
+			   width,
+			   x_position, 
+			   y_position, 
+			   z_position = 6000, 
+			   tab_order=-1001,
+			   title = None,
+			   text_align = "left", 
+			   font_weight = "bold", 
+			   font_size=32, 
+			   font_color="#000000", 
+			   background_color = None, 
+			   parent_group_id = None,
+			   alt_text= "A slicer"):
+
+		from powerbpy.slicer import Slicer
+
+		slicer = Slicer(self,
+		        data_source=data_source, 
+               column_name=column_name,  
+			   visual_id=visual_id, 
+			   height=height, 
+			   width=width,
+			   x_position=x_position, 
+			   y_position=y_position, 
+			   z_position=z_position, 
+			   tab_order=tab_order,
+			   visual_title=title,
+			   text_align=text_align, 
+			   font_weight=font_weight, 
+			   font_size=font_size, 
+			   font_color=font_color, 
+			   background_color=background_color, 
+			   parent_group_id=parent_group_id, 
+               alt_text = "A slicer")
+
+
+
+
+
+		self.visuals.append(slicer)
+		return(slicer)
+
+	def add_card(self,
+	             data_source, 
+             measure_name, 
+
+			 visual_id, 
+			 height, 
+			 width,
+			 x_position, 
+			 y_position, 
+			 z_position = 6000, 
+			 tab_order=-1001,
+			 card_title = None,
+			 text_align = "left", 
+			 font_weight = "bold", 
+			 font_size=32, 
+			 font_color="#000000", 
+			 background_color = None, 
+			 background_color_alpha = None,
+			 parent_group_id = None,
+			 alt_text="A card"):
+			 
+		from powerbpy.card import Card
+		
+		card = Card(self,
+	             data_source=data_source, 
+             measure_name=measure_name, 
+
+			 visual_id=visual_id, 
+			 height=height, 
+			 width=width,
+			 x_position=x_position, 
+			 y_position=y_position, 
+			 z_position = z_position, 
+			 tab_order=tab_order,
+			 visual_title = card_title,
+			 text_align = text_align, 
+			 font_weight = font_weight, 
+			 font_size=font_size, 
+			 font_color=font_color, 
+			 background_color = background_color,
+			 background_color_alpha=background_color_alpha, 
+			 parent_group_id = parent_group_id,
+			 alt_text=alt_text)
+
+		self.visuals.append(card)
+		return card
+
+	def add_shape_map(self,
+	               visual_id, 
+				  data_source, 
+				  shape_file_path,
+				  map_title, 
+				  location_var, 
+				  color_var,
+				  color_palette, 
+				  height, 
+				  width,
+				  x_position, 
+				  y_position, 
+				  add_legend = True, 
+				  static_bin_breaks = None, 
+				  percentile_bin_breaks = None, 
+				  filtering_var = None,
+				  z_position = 6000, 
+				  tab_order=-1001,
+                  parent_group_id = None,
+                 alt_text = "A shape map"):
+
+		from powerbpy.shape_map import ShapeMap
+
+		shape_map = ShapeMap(self,
+	               visual_id=visual_id, 
+				  data_source=data_source, 
+				  shape_file_path=shape_file_path,
+				  map_title=map_title, 
+				  location_var=location_var, 
+				  color_var=color_var,
+				  color_palette=color_palette, 
+				  height=height, 
+				  width=width,
+				  x_position=x_position, 
+				  y_position=y_position, 
+				  add_legend = add_legend, 
+				  static_bin_breaks = static_bin_breaks, 
+				  percentile_bin_breaks = percentile_bin_breaks, 
+				  filtering_var = filtering_var,
+				  z_position = z_position, 
+				  tab_order=tab_order,
+                  parent_group_id = parent_group_id,
+                 alt_text = alt_text)
+
+		self.visuals.append(shape_map)
+		return shape_map
+
+
 		
 
 		

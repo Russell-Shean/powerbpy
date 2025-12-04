@@ -16,7 +16,9 @@ class _Visual:
 				  z_position = 6000, 
 				  tab_order=-1001, 
 				  parent_group_id = None,
-				  alt_text="A generic visual"):
+				  alt_text="A generic visual",
+				  background_color=None,
+				  background_color_alpha=None):
 
 		
 
@@ -33,6 +35,8 @@ class _Visual:
 		self.tab_order = tab_order
 		self.parent_group_id = parent_group_id
 		self.alt_text = alt_text
+		self.background_color = background_color
+		self.background_color_alpha = background_color_alpha
 
 		# Define generic properties
 		self.powerbi_schema = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json"
@@ -54,15 +58,15 @@ class _Visual:
 			os.makedirs(self.new_visual_folder)
 			
 		# variable type checks
-		for var in [self.height, self.width, self.x_position, self.y_position, self.z_position, self.tab_order]:
+		for var in [self.height, self.width, self.x_position, self.y_position, self.z_position, self.tab_order, self.background_color_alpha]:
 			# Get the name of the variable from the locals()var_name = [name for name, value in locals().items() if value is var][0]
-			
-			if type(var) is not int:
-				raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
+
+			if var is not None:
+				if type(var) is not int:
+					raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
 
 
 		# Define the generic json for the visual
-		# define the json for the new chart
 		self.visual_json = {
 			"$schema": self.powerbi_schema,
 			"name": self.visual_id,
@@ -91,7 +95,21 @@ class _Visual:
 									}}
 									}
 								],
-					"title": []
+					"title": [],
+					"background": [
+			 {
+					"properties": {
+					"show": {
+						"expr": {
+							"Literal": {
+								"Value": "false"
+							}
+						}
+					}
+				}
+				}
+				
+			]
 					},
 				"drillFilterOtherVisuals": True
 				
@@ -129,6 +147,49 @@ class _Visual:
 				}
 				
 			)
+
+		# add a background color if the user provided one
+		if self.background_color is not None:
+			self.visual_json["visual"]["visualContainerObjects"]["background"].append( {
+					"properties": {
+						"show": {
+							"expr": {
+								"Literal": {
+									"Value": "true"
+								}
+							}
+						}
+					}
+				})
+				
+			self.visual_json["visual"]["visualContainerObjects"]["background"].append( {
+					"properties": {
+						"color": {
+							"solid": {
+								"color": {
+									"expr": {
+										"Literal": {
+											"Value": f"'{self.background_color}'"
+										}
+									}
+								}
+							}
+						},
+						"transparency": {
+							"expr": {
+								"Literal": {
+									"Value": "0D"
+								}
+							}
+						}
+					}
+				})
+
+		if self.background_color_alpha is not None:
+			self.visual_json["visual"]["visualContainerObjects"]["background"]["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{background_color_alpha}D"
+
+
+
 
 		# add the parent group id if the user supplies one
 		if self.parent_group_id is not None:
