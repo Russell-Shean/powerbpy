@@ -26,6 +26,7 @@ class Chart(_Visual):
                  tab_order,
                  z_position, 
 			     parent_group_id,
+				 background_color,
 				 alt_text="A chart"):
 
         '''This function adds a new chart to a page in a power BI dashboard report. 
@@ -77,7 +78,8 @@ class Chart(_Visual):
 				  z_position=z_position, 
 				  tab_order=tab_order, 
 			      parent_group_id=parent_group_id,
-				  alt_text=alt_text)
+				  alt_text=alt_text,
+				  background_color=background_color)
 
         # Update the visual type
         self.visual_json["visual"]["visualType"] = chart_type

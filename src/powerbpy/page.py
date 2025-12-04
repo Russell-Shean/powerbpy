@@ -169,6 +169,7 @@ class Page:
                  y_position,
                  height,
                  width,
+				 background_color="#FFFFFF",
                  tab_order = -1001,
                  z_position = 6000, 
 			     parent_group_id = None,
@@ -193,7 +194,8 @@ class Page:
                  tab_order=tab_order,
                  z_position=z_position, 
 			     parent_group_id=parent_group_id,
-				 alt_text=alt_text)
+				 alt_text=alt_text,
+				 background_color=background_color)
 
 		self.visuals.append(chart)
 		return chart
