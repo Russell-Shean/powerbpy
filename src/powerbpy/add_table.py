@@ -19,7 +19,7 @@ def add_table(dashboard_path,
 							tab_order = -1001,
 							z_position = 6000 ):
 
-	'''This function adds a new chart to a page in a power BI dashboard report. 
+	'''This function adds a new table to a page in a power BI dashboard report. 
 	
 	Parameters
 	----------

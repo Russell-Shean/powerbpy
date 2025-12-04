@@ -12,6 +12,7 @@ class _Visual:
 				  x_position, 
 				  y_position, 
 				  visual_title=None,
+				  visual_title_font_size=None,
 				
 				  z_position = 6000, 
 				  tab_order=-1001, 
@@ -27,6 +28,7 @@ class _Visual:
 
 		self.visual_id = visual_id
 		self.visual_title = visual_title
+		self.visual_title_font_size = visual_title_font_size
 		self.height = height
 		self.width = width
 		self.x_position = x_position
@@ -147,6 +149,15 @@ class _Visual:
 				}
 				
 			)
+
+			if self.visual_title_font_size is not None:
+				self.visual_json["visual"]["visualContainerObjects"]["title"][0]["properties"]["fontSize"] = {
+							"expr": {
+								"Literal": {
+									"Value": f"{self.visual_title_font_size}D"
+								}
+							}
+						}
 
 		# add a background color if the user provided one
 		if self.background_color is not None:

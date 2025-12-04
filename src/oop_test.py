@@ -6,15 +6,16 @@ import os
 my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
 
 # Try to add datasets
-my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
-                            #  data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
-
-
+my_dashboard.add_local_csv(  #data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
+                             data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
 )
 
+my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
+                              data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
+                            )
 
-my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
-                            #  data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
+my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/sales_final_dataset.csv"
+                             data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/sales_final_dataset.csv"
                             )
 
 # add pages
@@ -28,9 +29,18 @@ page3 = my_dashboard.new_page(page_name = "Bigfoot Map",
 	                   title= "Bigfoot sightings",
 	                   subtitle = "By Washington Counties")
 
+## page 4 ------------------------------------------------------------------------------------------------------
+page4 = my_dashboard.new_page(page_name = "Table Page"
+	) 
+
+# page 5 ----------------------------------------------------------------------------------------------------------
+page5 = my_dashboard.new_page(page_name = "Table Page 2"
+	) 
+
+
 page2.add_background_image(
-                   img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
-                   #img_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+                   #img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+                   img_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
 	               alpha = 51,
 	               scaling_method = "Fit")
 
@@ -83,8 +93,8 @@ page2.add_button(label = "Back to page 1",
 page3.add_shape_map(
               visual_id = "bigfoots_by_county_map",
               data_source = "wa_bigfoot_by_county",
-              #shape_file_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
-              shape_file_path= "C:/Users/rshea/coding_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
+              shape_file_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
+              #shape_file_path= "C:/Users/rshea/coding_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
               map_title = "Washington State Bigfoot Sightings by County",
               #map_title = "",
               location_var = "county",
@@ -100,5 +110,56 @@ page3.add_shape_map(
               z_position = 2000,
               add_legend = True
               #add_legend = False
+              )
+
+# Add table to page 4 ---------------------
+page4.add_table( 
+              visual_id = "sales_table", 
+              data_source = "sales_final_dataset", 
+              variables = ["Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"],
+              x_position = 615, 
+              y_position = 0, 
+              height = 800, 
+              width = 615,
+              add_totals_row = False,
+              table_title = "Store Sales Details",
+              #column_widths = {"county":100,"season":50,"count":200},
+              tab_order = -1001,
+              z_position = 6000 )
+
+
+page4.add_sanky_chart(
+              visual_id = "sales_sanky", 
+              data_source = "sales_final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"], 
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              values_from_var="Name", 
+              x_position=0, 
+              y_position=0, 
+              height = 800, 
+              width = 615,
+)
+
+
+
+page5.add_sanky_chart(
+              visual_id = "sales_sanky", 
+              data_source = "sales_final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"], 
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              link_colors=["#C29BD5","#C29BD5","#C29BD5",
+                           "#F4CB93","#F4CB93","#F4CB93",
+                           "#7CCDF2","#7CCDF2","#7CCDF2"],
+              values_from_var="Name", 
+              x_position=0, 
+              y_position=0, 
+              height = 800, 
+              width = 615
               )
 
