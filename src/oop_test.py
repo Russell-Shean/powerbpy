@@ -6,15 +6,16 @@ import os
 my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
 
 # Try to add datasets
-my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
-                              data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
+my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
+                            #  data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/colony.csv"
 
 
 )
 
 
-my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
-                              data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv")
+my_dashboard.add_local_csv(  data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
+                            #  data_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/wa_bigfoot_by_county.csv"
+                            )
 
 # add pages
 
@@ -28,8 +29,8 @@ page3 = my_dashboard.new_page(page_name = "Bigfoot Map",
 	                   subtitle = "By Washington Counties")
 
 page2.add_background_image(
-                   #img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
-                   img_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+                   img_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+                   #img_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/Taipei_skyline_at_sunset_20150607.jpg",
 	               alpha = 51,
 	               scaling_method = "Fit")
 
@@ -82,8 +83,8 @@ page2.add_button(label = "Back to page 1",
 page3.add_shape_map(
               visual_id = "bigfoots_by_county_map",
               data_source = "wa_bigfoot_by_county",
-              shape_file_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
-              
+              #shape_file_path = "/home/russ/Documents/coding_projects/portfolio_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
+              shape_file_path= "C:/Users/rshea/coding_projects/powerbpy/examples/data/2019_53_WA_Counties9467365124727016.json",
               map_title = "Washington State Bigfoot Sightings by County",
               #map_title = "",
               location_var = "county",
