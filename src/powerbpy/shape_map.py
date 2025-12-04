@@ -79,6 +79,7 @@ class ShapeMap(_Visual):
 
 		#self.dashboard = dashboard
 		self.page = page
+		self.x_position = x_position
 
 
 		# checks --------------------------------------------------------------------------------------------------------------
@@ -122,7 +123,7 @@ class ShapeMap(_Visual):
 				  
 				  height=height, 
 				  width=width,
-				  x_position=x_position, 
+				  x_position=self.x_position, 
 				  y_position=y_position, 
 				
 				  z_position=z_position, 
@@ -183,7 +184,9 @@ class ShapeMap(_Visual):
 									
 			# shift x position to the right the width of the slicer
 			# to make room for the slicer
-			x_position += 160
+			self.x_position += 160
+
+			self.visual_json["position"]["x"] = self.x_position
 			
 		# Create the json that defines the map --------------------------------------------------------------  
 		# Update the visual type
@@ -465,7 +468,7 @@ class ShapeMap(_Visual):
 							 width = 160,
 
 							 # subtract this back from the 160 we added at the beginning
-							 x_position = x_position - 160,
+							 x_position = self.x_position - 160,
 							 y_position = y_position,
 							 alt_text = f"Map legend for the {visual_id} map")
 							 
@@ -481,7 +484,7 @@ class ShapeMap(_Visual):
 			box_width = round(legend_width / len(color_palette))
 			
 			# find the x position to put the first box
-			legend_x_position =  x_position + (width - legend_width) /2 
+			legend_x_position =  self.x_position + (width - legend_width) /2 
 			
 			legend_y_position = y_position + height - 17
 			
@@ -528,7 +531,7 @@ class ShapeMap(_Visual):
 									 # Soooo... this is relative to the outer group
 									 # NOT the page!
 									 # so needs to be y = 0 and x + n box widths
-									 x_position = 0 + box_width * i,
+									 self.x_position = 0 + box_width * i,
 									 y_position = 0,
 
 									 # Make sure that the z index is more than the map's z_index
@@ -552,7 +555,7 @@ class ShapeMap(_Visual):
 									 visual_id = f"{visual_id}_legend_box{i + 1}", 
 									 height = 34, 
 									 width = box_width,
-									 x_position = 0 + box_width * i,
+									 self.x_position = 0 + box_width * i,
 									 y_position = 0,
 									 tab_order = -1,
 
