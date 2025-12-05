@@ -280,15 +280,94 @@ class Dashboard:
 		'''
 		# Local import avoids circular import at module load
 		from powerbpy.page import Page
+
+		# Assign a page_id based on the number of current pages
+
+		# determine number of pages
+		with open(self.pages_file_path,'r') as file:
+			pages_list = json.load(file)
+
+		# determine number of pages
+		n_pages = len(pages_list["pageOrder"])
+
+		# create a new page id based on existing number of pages
+		page_id = f"page{n_pages + 1}"
+
+		# add the new page id to the pageOrder list
+		pages_list["pageOrder"].append(page_id)
 		
+		# write to file
+		with open(self.pages_file_path,'w') as file:
+			json.dump(pages_list, file, indent = 2)
+
+		
+		# Create a new instance of a page
 		page = Page(self,
-				 page_name=page_name, 
-				 title =title, 
-				 subtitle = subtitle, 
-				 displayOption = displayOption)
+				 #page_name=page_name, 
+				 page_id=page_id,
+				 #title =title, 
+				 #subtitle = subtitle, 
+				 #displayOption = displayOption
+				 )
+
+		# create a new json file for the new page
+		page_json = {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
+					  "name": page_id,
+					  "displayName": page_name,
+					  "displayOption": displayOption,
+					  "height": 720,
+					  "width": 1280,
+					  "objects":{}}
+					  
+		# write to file
+		with open(page.page_json_path, "w") as file:
+			json.dump(page_json, file, indent = 2)
+			
+			
+		# Add title and subtitle if requested 
+		if title is not None:
+			page.add_text_box(text = title,
+				            visual_id= f"{page.page_id}_title", 
+				 height=68,
+				   width=545,
+					 x_position = 394, 
+					 y_position = 44)
+					 
+					 
+		if subtitle is not None:
+			page.add_text_box(text = subtitle,
+			                  visual_id= f"{page.page_id}_subtitle", 
+				 height=38,
+				   width=300,
+					 x_position = 500, 
+					 y_position = 93,
+					 font_size = 14)
+		
+		
 
 		self.pages.append(page)
 		return page
+
+	def load_page(self,
+	              page_id):
+		'''Load an existing page'''
+		# Local import avoids circular import at module load
+		from powerbpy.page import Page
+
+		# Get the page name from the page_id
+		#current_page_path = os.path.join(self.pages_file_path, page_id)
+		#current_page_json = os.path.join(current_page_path, "page.json")
+
+		# Load the page.json and extract the display name
+
+
+		page = Page(self,
+		            page_id=page_id)
+
+		self.pages.append(page)
+		return page
+
+
 
 	def add_tmdl(self,
 				 data_path = None, 
