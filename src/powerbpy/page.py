@@ -314,7 +314,7 @@ class Page:
 			   font_color=font_color, 
 			   background_color=background_color, 
 			   parent_group_id=parent_group_id, 
-               alt_text = "A slicer")
+               alt_text = alt_text)
 
 		self.visuals.append(slicer)
 		return(slicer)
