@@ -3,13 +3,11 @@ Title: "WOW Power BI 2025 week 13 demonstration"
 ---
 
 # Sanky Chart and Table
-I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (left) and the dashboard I recreated using Power Bpy (right). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available <a href="">here</a>.
-
-# Setup   
+I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (left) and the dashboard I recreated using Power Bpy (right). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).
+  
 ## Assumptions
 This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas.If you don't, please refer to basic setup instructions on this page or find one of the many great resources online that explains how to install python packages.  
 
-## Obtain and prepare data
 One of the central assumptions built into the PowerBpy package is that you'd prefer to write python code over using Power BI. Therefore this example will avoid writing any M or DAX and will instead use python to extract, load and transform the data. Once the data is ready will use PowerBpy to create the dashboard. 
 
  
@@ -61,7 +59,6 @@ The original example from WoW included creating measures in Power BI using DAX a
 For this example we need to calculate sales totals by stores time period and classify the sales as low, medium or high. Here's the python code I used:
 
 ```python
-
 import pandas as pd
 import numpy as np
 
@@ -115,8 +112,6 @@ sales_by_store_and_date = (
              # Define a default for if neither condition is matched
              default="middle_period"
 
-
-
         )
     ) 
 
@@ -129,8 +124,6 @@ sales_by_store_and_date = (
     .assign(
 
         sales_size = lambda df: np.select(
-
-
 
             [
                 df["store_total_sales"] < 1000,
@@ -149,9 +142,7 @@ sales_by_store_and_date = (
             ],
         default="Unknown" 
 
-
         ) 
-
 
     )
 
@@ -208,8 +199,79 @@ sales_by_store_and_date = (
 
 # write to file
 sales_by_store_and_date.to_csv("data/final_dataset.csv", index=False)   
-
-
 ```         
 It's of course also possible to do this type of data processing in other languages too. Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/02-process_data.R) to an R script I wrote that does the exact same data processing. 
 
+## Create Dashboard
+Now that we've obtained and prepped the data, we can create the dashboard!      
+
+### Create dashboard    
+First we create a new dashboard      
+```python
+from powerbpy import Dashboard
+import os
+
+# Define the path to the dashboard
+dashboard_path = os.path.join(os.getcwd(), "sanky_demo")
+
+
+# Create a new blank dashboard
+my_dashboard = Dashboard.create(dashboard_path)
+```
+
+### Add data
+Next we add the dataset we prepared to the dashboard      
+
+```python
+# add the data from step 2
+my_dashboard.add_local_csv(data_path = "data/final_dataset.csv" )
+```     
+
+### Add new page
+Next we add a new page to the dashboard
+
+```python
+# Add a new page to the dashboard
+page1 = my_dashboard.new_page(page_name="A demonstration sanky chart")
+```
+
+### Add a table
+Now that we have a dashboard, data and a page, we can start adding visuals. Here's how to add a table:
+
+```python
+
+# add a table
+page1.add_table(visual_id = "sales_table", 
+              data_source = "final_dataset", 
+              variables = ["Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"],
+              x_position = 615, 
+              y_position = 0, 
+              height = 800, 
+              width = 615,
+              add_totals_row = False,
+              table_title = "Store Sales Details")
+```   
+
+### Add a sanky chart
+Next we can add a sanky chart next to the table
+
+```python
+
+page1.add_sanky_chart(visual_id = "sales_sanky", 
+              data_source = "final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"], 
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              values_from_var="Name", 
+              x_position=0, 
+              y_position=0, 
+              height = 800, 
+              width = 615)
+
+
+```    
+
+Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/03-create_dashboard.py) to the dashboard creation script.   
+And heres a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/complete_process.py) to the script for the entire process including data processing.
