@@ -62,6 +62,10 @@ For this example we need to calculate sales totals by stores time period and cla
 import pandas as pd
 import numpy as np
 
+'''
+This script proccess the data we downloaded 
+'''
+
 # Read in the datasets
 # Assuming you used the download code above and didn't change the current directory,
 # the data should already be at this location
@@ -147,12 +151,10 @@ sales_by_store_and_date = (
     )
 
     # Merge the store names onto the dataframe
-    .merge(
-        
+    .merge(  
         store_names, 
         on = "StoreKey",
         how = "left"
-
     )
 
     # pivot the dataframe to expand the time period and sales size columns wider
@@ -214,7 +216,6 @@ import os
 # Define the path to the dashboard
 dashboard_path = os.path.join(os.getcwd(), "sanky_demo")
 
-
 # Create a new blank dashboard
 my_dashboard = Dashboard.create(dashboard_path)
 ```
@@ -239,7 +240,6 @@ page1 = my_dashboard.new_page(page_name="A demonstration sanky chart")
 Now that we have a dashboard, data and a page, we can start adding visuals. Here's how to add a table:
 
 ```python
-
 # add a table
 page1.add_table(visual_id = "sales_table", 
               data_source = "final_dataset", 
@@ -256,7 +256,6 @@ page1.add_table(visual_id = "sales_table",
 Next we can add a sanky chart next to the table
 
 ```python
-
 page1.add_sanky_chart(visual_id = "sales_sanky", 
               data_source = "final_dataset",
               chart_title="Store Starting and Ending Size",
@@ -269,8 +268,6 @@ page1.add_sanky_chart(visual_id = "sales_sanky",
               y_position=0, 
               height = 800, 
               width = 615)
-
-
 ```    
 
 Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/03-create_dashboard.py) to the dashboard creation script.   
