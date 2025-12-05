@@ -33,7 +33,7 @@ If everything worked, the function should have created the following files:
 You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )      
     
 ## Add a new page
-To add a new page, you'll need to provide the following arguments:          
+Dashboards don't start with any pages until you add them. To add a new page, you'll need to provide the following arguments:          
   1. `page_name` - This is display name for the page. (This is different from the page_id).      
       
 You can also provide the following optional arguments:       
