@@ -15,15 +15,12 @@ class Dashboard:
 	'''
 
 	def __init__(self,
-			     parent_dir,
-				 report_name):
+			     file_path):
 		'''A python class used to model a power BI dashboard project
 		Parameters
 		----------
 		parent_dir: str
-			The path to the directory where you want to store the new dashboard.
-		report_name: str
-			Name of the report.
+			The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
 		
 		Returns
 		-------
@@ -47,27 +44,22 @@ class Dashboard:
 
 		self.datasets = []
 
-
-
-		# The parent directory should be converted to a full path
-		# Because Power BI gets weird with relative paths
-
-		# attributes provided by the user
-		self.parent_dir = os.path.abspath(os.path.expanduser(parent_dir))
-		self.report_name = report_name
-		
 		# Attributes calculated from what the user provides
 		# create a new logical id field
 		# see this for explanation of what a UUID is: https://stackoverflow.com/a/534847
 		self.report_logical_id = str(uuid.uuid4())
 		self.sm_logical_id = str(uuid.uuid4())
-		
-		# define page name
-		#self.page1_name = "page1"
-		
+
+
+
+		# The parent directory should be converted to a full path
+		# Because Power BI gets weird with relative paths
+
 		# Define file paths ------------------------------------------------------------------------------------
 		# Outer level directory --------------------------------------------------------------------------------
-		self.project_folder_path = os.path.join(self.parent_dir, self.report_name)
+		self.project_folder_path = os.path.abspath(os.path.expanduser(file_path))
+		self.report_name = os.path.basename(self.project_folder_path)
+		self.parent_dir = os.path.dirname(self.project_folder_path)
 		
 		self.pbip_file_path = os.path.join(self.project_folder_path, f'{self.report_name}.pbip')
 		
@@ -105,6 +97,11 @@ class Dashboard:
 
 		self.diagram_layout_path = os.path.join(self.semantic_model_folder_path, 'diagramLayout.json')
 		self.tables_folder = os.path.join(self.sm_definition_folder, 'tables')
+
+	@classmethod
+	def create(cls, file_path):
+		
+		self = cls(file_path)
 
 		# Start creating a new dashboard not just defining file paths ----------------------------
 		# check to make sure parent directory exists
@@ -217,6 +214,29 @@ class Dashboard:
 		with open(self.platform_file_path,'w') as file:
 			json.dump(platform_file, file, indent = 2)
 
+		return self
+
+
+	@classmethod
+	def load(cls,
+	         file_path):
+
+		'''Load an existing dashboard from a file path'''
+		self = cls(file_path)
+
+		# check to make sure that the dashboard seems to be an actual power BI dashboard
+		for path in [self.report_folder_path,
+		             self.semantic_model_folder_path,
+					 self.pbip_file_path]:
+			if not os.path.exists(path):
+				raise ValueError("path doesn't exist! Confirm that the file path you provided is to a valid Power BI project folder")
+
+
+		return self
+
+		
+	
+	
 	def new_page(self,
 				 page_name, 
 				 title = None, 
