@@ -9,16 +9,16 @@ class SankyChart(_Visual):
 
     def __init__(self,
                  page,
-                         visual_id, 
-                            data_source, 
+                         visual_id,
+                            data_source,
                             starting_var,
-                            starting_var_values, 
+                            starting_var_values,
                             ending_var,
                             ending_var_values,
-                            values_from_var, 
-                            x_position, 
-                            y_position, 
-                            height, 
+                            values_from_var,
+                            x_position,
+                            y_position,
+                            height,
                             width,
                             chart_title,
                             link_colors,
@@ -32,7 +32,7 @@ class SankyChart(_Visual):
                             alt_text="A sankey chart"):
 
         '''This function adds a new chart to a page in a power BI dashboard report.
-        
+
         Parameters
         ----------
         chart_id: str
@@ -40,7 +40,7 @@ class SankyChart(_Visual):
         chart_type: str
             The type of chart to build on the page. Known available types include: ["columnChart","barChart", "clusteredBarChart", ]
         data_source: str
-            The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard. 
+            The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         starting_var: str
             Which variable from the data_source, do you want to use for the left side of the sanky chart?
         starting_var_values: list
@@ -60,7 +60,7 @@ class SankyChart(_Visual):
         label_font_size: int
             Font size for the labels on the various sanky nodes
         link_colors: list
-            Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors. 
+            Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.
         x_axis_var: str
             Column name of a column from data_source that you want to use for the x axis of the chart
         y_axis_var: str
@@ -79,32 +79,32 @@ class SankyChart(_Visual):
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position: int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-        
+
         '''
 
 
         self.page = page
         self.x_position = x_position
 
-        super().__init__(page=page, 
-                  visual_id=visual_id, 
+        super().__init__(page=page,
+                  visual_id=visual_id,
                   visual_title=chart_title,
                   visual_title_font_size=chart_title_font_size,
-                  
-                  height=height, 
+
+                  height=height,
                   width=width,
-                  x_position=self.x_position, 
-                  y_position=y_position, 
-                
-                  z_position=z_position, 
-                  tab_order=tab_order, 
+                  x_position=self.x_position,
+                  y_position=y_position,
+
+                  z_position=z_position,
+                  tab_order=tab_order,
                   parent_group_id=parent_group_id,
-                  alt_text=alt_text, 
+                  alt_text=alt_text,
                   background_color=background_color,
                   background_color_alpha=background_color_alpha)
 
 
-        # Create the json that defines the visual --------------------------------------------------------------  
+        # Create the json that defines the visual --------------------------------------------------------------
         # Update the visual type
         self.visual_json["visual"]["visualType"] = "sankey02300D1BE6F5427989F3DE31CCA9E0F32020"
         self.visual_json["$schema"] = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json"
@@ -247,8 +247,8 @@ class SankyChart(_Visual):
                     }
                 }
             ]
-            
-        
+
+
         # Create the links between the user provided values
         # It may be possible with Power BI to specify complicated charts (ie not all the possible nodes link together)
         # But for now we're just going to link all the provided nodes together
@@ -324,35 +324,35 @@ class SankyChart(_Visual):
                     }
                 }
             )
-            
+
         if link_colors:
             # Check to make sure that the number of colors match the number of links
             if len(link_colors) != len(self.visual_json["visual"]["objects"]["links"]):
                 raise ValueError(f'If provided the number of link colors must be equal to the number of links')
-                
-                
+
+
             for i in range(len(link_colors)):
                 self.visual_json["visual"]["objects"]["links"][i]["properties"]["fill"]["solid"]["color"] =  {
-                                
+
                                     "expr": {
                                         "Literal": {
                                             "Value": f"'{link_colors[i]}'"
                                         }
                                     }
                                 }
-                                
-                                
+
+
         else:
             # Provide some random default colors
             default_link_colors = []
-            
+
             for i in range(len(ending_var_values)):
                 default_link_colors.extend([i+2] * len(starting_var_values))
-                
-            
+
+
             for i in range(len(default_link_colors)):
                 self.visual_json["visual"]["objects"]["links"][i]["properties"]["fill"]["solid"]["color"] =  {
-                                
+
                                     "expr": {
                                         "ThemeDataColor": {
                                             "ColorId": default_link_colors[i],
@@ -361,7 +361,7 @@ class SankyChart(_Visual):
 
                                 }
             }
-            
-        # Write out the new json 
+
+        # Write out the new json
         with open(self.visual_json_path, "w") as file:
             json.dump(self.visual_json, file, indent = 2)

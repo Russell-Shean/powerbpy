@@ -65,7 +65,7 @@ class Card(_Visual):
         background_color: str
             Hex code for the background color of the card. Defaults to None (transparent)
         parent_group_id: str
-            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. 
+            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
 
         Notes
         -----
@@ -163,7 +163,7 @@ class Card(_Visual):
                                     "expr": {
                                         "Literal": {
                                             "Value": f"'{font_color}'"
-                                     
+
                                         }
                                     }
                                 }
@@ -186,7 +186,7 @@ class Card(_Visual):
                     }
                 }
             ]
-            
+
         # Write out the new json
         with open(self.visual_json_path, "w", encoding="utf-8") as file:
             json.dump(self.visual_json, file, indent = 2)

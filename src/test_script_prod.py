@@ -15,7 +15,7 @@ my_dashboard.add_local_csv(data_path = "examples/data/wa_bigfoot_by_county.csv")
 
 my_dashboard.add_local_csv(data_path = "examples/data/sales_final_dataset.csv")
 
-# add the default DateTable to the dashboard 
+# add the default DateTable to the dashboard
 my_dashboard.add_tmdl(data_path = None, add_default_datetable = True)
 
 # add pages
@@ -30,10 +30,10 @@ page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
 	                   subtitle = "By Washington Counties")
 
 ## page 3 ------------------------------------------------------------------------------------------------------
-page3 = my_dashboard.new_page(page_name = "Table Page") 
+page3 = my_dashboard.new_page(page_name = "Table Page")
 
 # page 4 ----------------------------------------------------------------------------------------------------------
-page4 = my_dashboard.new_page(page_name = "Table Page 2") 
+page4 = my_dashboard.new_page(page_name = "Table Page 2")
 
 
 page1.add_background_image(
@@ -41,7 +41,7 @@ page1.add_background_image(
 	               alpha = 51,
 	               scaling_method = "Fit")
 
-page1.add_chart(visual_id = "colonies_lost_by_year", 
+page1.add_chart(visual_id = "colonies_lost_by_year",
 	      chart_type = "columnChart",
 	      data_source = "colony",
 	      chart_title = "Number of Bee Colonies Lost per Year",
@@ -57,11 +57,11 @@ page1.add_chart(visual_id = "colonies_lost_by_year",
 
 # add a text box to the second page
 page1.add_text_box(text = "Explanatory text in the bottom right corner",
-                 visual_id = "page2_explain_box", 
+                 visual_id = "page2_explain_box",
                  height = 200,
                    width= 300,
-                     x_position = 1000, 
-                     y_position = 600, 
+                     x_position = 1000,
+                     y_position = 600,
                      font_size = 15)
 
 
@@ -109,13 +109,13 @@ page2.add_shape_map(
               )
 
 # Add table to page 4 ---------------------
-page3.add_table( 
-              visual_id = "sales_table", 
-              data_source = "sales_final_dataset", 
+page3.add_table(
+              visual_id = "sales_table",
+              data_source = "sales_final_dataset",
               variables = ["Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"],
-              x_position = 615, 
-              y_position = 0, 
-              height = 800, 
+              x_position = 615,
+              y_position = 0,
+              height = 800,
               width = 615,
               add_totals_row = False,
               table_title = "Store Sales Details",
@@ -125,37 +125,37 @@ page3.add_table(
 
 
 page3.add_sanky_chart(
-              visual_id = "sales_sanky", 
+              visual_id = "sales_sanky",
               data_source = "sales_final_dataset",
               chart_title="Store Starting and Ending Size",
               starting_var="Starting Size",
-              starting_var_values=["Large", "Medium", "Small"], 
+              starting_var_values=["Large", "Medium", "Small"],
               ending_var="Ending Size",
               ending_var_values=["Large", "Medium", "Small"],
-              values_from_var="Name", 
-              x_position=0, 
-              y_position=0, 
-              height = 800, 
+              values_from_var="Name",
+              x_position=0,
+              y_position=0,
+              height = 800,
               width = 615,
 )
 
 
 
 page4.add_sanky_chart(
-              visual_id = "sales_sanky", 
+              visual_id = "sales_sanky",
               data_source = "sales_final_dataset",
               chart_title="Store Starting and Ending Size",
               starting_var="Starting Size",
-              starting_var_values=["Large", "Medium", "Small"], 
+              starting_var_values=["Large", "Medium", "Small"],
               ending_var="Ending Size",
               ending_var_values=["Large", "Medium", "Small"],
               link_colors=["#C29BD5","#C29BD5","#C29BD5",
                            "#F4CB93","#F4CB93","#F4CB93",
                            "#7CCDF2","#7CCDF2","#7CCDF2"],
-              values_from_var="Name", 
-              x_position=0, 
-              y_position=0, 
-              height = 800, 
+              values_from_var="Name",
+              x_position=0,
+              y_position=0,
+              height = 800,
               width = 615
               )
 
@@ -170,18 +170,18 @@ page5 = my_dashboard2.new_page("Page 5?")
 
 page4 = my_dashboard2.load_page("page4")
 
-page4.add_text_box(text= "A test text box", 
-				 visual_id="test_box", 
-				 height= 200, 
+page4.add_text_box(text= "A test text box",
+				 visual_id="test_box",
+				 height= 200,
 				 width=300,
-				 x_position= 900, 
+				 x_position= 900,
 				 y_position= 300)
 
 # Get a list of pages
 pages = my_dashboard2.list_pages()
 
 for page_id in pages:
-  
+
   if page_id != "page1":
     page = my_dashboard2.load_page(page_id)
     page.add_background_image(

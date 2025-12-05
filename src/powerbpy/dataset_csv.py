@@ -21,20 +21,20 @@ class LocalCsv(_DataSet):
 
         # Build the tmdl file based on the method defined on the parent class
         self._create_tmdl()
-        
-        # write out M code 
-        
+
+        # write out M code
+
         # for debugging:
         #print(f"column attributes:\n {col_attributes}\n\n")
-        
+
         # define tricky bits of code
-        replacement_values =  '", "'.join(self.col_attributes["col_names"]) 
+        replacement_values =  '", "'.join(self.col_attributes["col_names"])
         formatted_column_details = ', '.join(map(str, self.col_attributes["col_deets"]))
-        
+
         # for debugging:
         #print(f"Replacement values:\n {replacement_values}\n\n")
         #print(f"formatted_column_details values:\n {formatted_column_details}\n\n")
-        
+
         with open(self.dataset_file_path, 'a') as file:
             file.write(f'\tpartition {self.dataset_name} = m\n')
             file.write('\t\tmode: import\n\t\tsource =\n\t\t\t\tlet\n')
@@ -44,18 +44,18 @@ class LocalCsv(_DataSet):
             file.write(f'\t\t\t\t\t#"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{  {  formatted_column_details  }   }})\n')
             file.write('\t\t\t\tin\n\t\t\t\t\t#"Changed Type"\n\n')
             file.write('\tannotation PBI_ResultType = Table\n\n\tannotation PBI_NavigationStepName = Navigation\n\n')
-            
+
 
 class BlobCsv(_DataSet):
 
     '''Add a csv file store in a ADLS blob container to a dashboard
-        
+
     Parameters
     ----------
     account_url: str
         The url to your Azure storage account. It should be in the format of https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field
     blob_name: str
-        The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field. 
+        The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field.
     data_path: str
         The relative path to the file you want to load from the blob. It should be relative to blob_name
     tenant_id: str
@@ -70,21 +70,21 @@ class BlobCsv(_DataSet):
     Returns
     -------
     None
-        
+
     Notes
     -----
     DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead.
 
-    This function creates custom M code and is therefore more picky than pandas or Power BI desktop. 
+    This function creates custom M code and is therefore more picky than pandas or Power BI desktop.
     The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column")
-    NA values must display as "NA" or "null" not as N/A. 
-    If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. 
+    NA values must display as "NA" or "null" not as N/A.
+    If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.
 
     This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
     The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.
-    Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file.             
-                         
-    Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. 
+    Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file.
+
+    Dashboards created with the create_blank_dashboard() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards.
     I may eventually add an automatic fix for this.
 
     '''
@@ -189,14 +189,14 @@ class BlobCsv(_DataSet):
 
             download = file_handle.download_file()
             self.dataset = pd.read_csv(download)
-            
+
         # Build the tmdl file based on the method defined on the parent class
         self._create_tmdl()
 
-        # write out M code 
+        # write out M code
         # define tricky bits
         formatted_column_details = ', '.join(map(str, self.col_attributes["col_deets"]))
-        
+
         with open(self.dataset_file_path, 'a') as file:
             file.write(f'\tpartition {self.dataset_name} = m\n')
             file.write('\t\tmode: import\n\t\tsource =\n\t\t\t\tlet\n')

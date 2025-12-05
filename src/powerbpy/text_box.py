@@ -12,27 +12,27 @@ class TextBox(_Visual):
 
     def __init__(self,
                  page,
-                 text, 
+                 text,
 
-                 visual_id, 
-                 height, 
+                 visual_id,
+                 height,
                  width,
-                 x_position, 
-                 y_position, 
-                 z_position=6000, 
+                 x_position,
+                 y_position,
+                 z_position=6000,
                  tab_order=-1001,
                  parent_group_id=None,
                  alt_text="A text box",
-                 text_align = "left", 
-                 font_weight = "bold", 
-                 font_size=32, 
-                 font_color="#000000", 
+                 text_align = "left",
+                 font_weight = "bold",
+                 font_size=32,
+                 font_color="#000000",
                  background_color = None,
                  background_color_alpha=None
                  ):
 
         '''Add a text box to a page
-        
+
         Parameters
         ----------
         text: str
@@ -44,7 +44,7 @@ class TextBox(_Visual):
         width: int
             Width of text box on the page
         x_position: int
-            The x coordinate of where you want to put the text box on the page. Origin is page's top left corner. 
+            The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.
         y_position: int
             The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
         z_position: int
@@ -58,30 +58,30 @@ class TextBox(_Visual):
         font_size: int
             The font size in pts. Must be a whole integer. Defaults to 32 pt
         font_color: str
-            Hex code for the font color you'd like to use. Defaults to black (#000000) 
+            Hex code for the font color you'd like to use. Defaults to black (#000000)
         background_color: str
             Hex code for the background color of the text box. Defaults to None (transparent)
         parent_group_id: str
-            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. 
-    
+            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
+
         Notes
         -----
-        This function creates a new text box on a page. 
+        This function creates a new text box on a page.
         '''
 
-        super().__init__(page=page, 
-                  visual_id=visual_id, 
-                  
-                  height=height, 
+        super().__init__(page=page,
+                  visual_id=visual_id,
+
+                  height=height,
                   width=width,
-                  x_position=x_position, 
-                  y_position=y_position, 
-                
-                  z_position=z_position, 
-                  tab_order=tab_order, 
+                  x_position=x_position,
+                  y_position=y_position,
+
+                  z_position=z_position,
+                  tab_order=tab_order,
                   parent_group_id=parent_group_id,
-                  alt_text=alt_text, 
-             background_color=background_color, 
+                  alt_text=alt_text,
+             background_color=background_color,
              background_color_alpha=background_color_alpha,
 )
 
@@ -114,7 +114,7 @@ class TextBox(_Visual):
                 }
             ]
 
-        
+
 
         # add a background color if the user provided one
         if background_color is not None:
@@ -152,9 +152,9 @@ class TextBox(_Visual):
                         }
                     }
                 }
-                
+
             ]
-            
+
         else:
             self.visual_json["visual"]["visualContainerObjects"]["background"] = [
                 {
@@ -169,9 +169,9 @@ class TextBox(_Visual):
                 }
                 }
             ]
-            
-            
-            
-        # Write out the new json 
+
+
+
+        # Write out the new json
         with open(self.visual_json_path, "w") as file:
             json.dump(self.visual_json, file, indent = 2)
