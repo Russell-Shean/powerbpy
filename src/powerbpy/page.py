@@ -8,6 +8,9 @@ from importlib import resources
 from powerbpy.dashboard import Dashboard
 
 class Page:
+	'''A python class used to model a power BI dashboard page
+
+	'''
 	
 	# Get everything else from the dashboard
 	# Attribute delegation (inherit parent instance attributes)
@@ -19,6 +22,8 @@ class Page:
 				 #subtitle = None, 
 				 #displayOption = 'FitToPage'
 				 ):
+
+		''' Filler Doc string'''
 
 		if not isinstance(dashboard, Dashboard):
 			raise TypeError("Pages must be attached to a Dashboard instance")
