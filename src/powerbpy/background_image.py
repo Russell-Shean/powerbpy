@@ -46,7 +46,7 @@ class BackgroundImage:
 		shutil.copy(img_path, registered_img_path)
 
 		# add new registered resource (the image) to report.json ----------------------------------------------
-		with open(self.dashboard.report_json_path,'r') as file:
+		with open(self.dashboard.report_json_path,'r', encoding="utf-8") as file:
 			report_json = json.load(file)
 
 		# add the image as an item to the registered resources items list
@@ -61,11 +61,11 @@ class BackgroundImage:
 								)
 								
 		# write to file
-		with open(self.dashboard.report_json_path,'w') as file:
+		with open(self.dashboard.report_json_path,'w', encoding="utf-8") as file:
 			json.dump(report_json, file, indent = 2)
 
 		# Add image to page -------------------------------------------------------------------------------
-		with open(self.page.page_json_path,'r') as file:
+		with open(self.page.page_json_path,'r', encoding="utf-8") as file:
 			page_json = json.load(file)
 
 		# add the image to the page's json
@@ -114,5 +114,5 @@ class BackgroundImage:
 	]
 
 		# write to file
-		with open(self.page.page_json_path,'w') as file:
+		with open(self.page.page_json_path,'w', encoding="utf-8") as file:
 			json.dump(page_json, file, indent = 2)

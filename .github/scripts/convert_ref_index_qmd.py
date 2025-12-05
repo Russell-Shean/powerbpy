@@ -11,7 +11,7 @@ def add_html_title(og_path, title):
 
 	temp_path = "this_is_stupid.qmd"
 
-	with open(temp_path, "w") as new_file:
+	with open(temp_path, "w", encoding="utf-8") as new_file:
 		new_file.write("---\n")
 		new_file.write('Title: "Power Bpy - Function Reference"\n')
 
@@ -22,7 +22,7 @@ def add_html_title(og_path, title):
 		new_file.write("---\n\n")
 
 
-		with open(og_path, "r") as old_file:
+		with open(og_path, "r", encoding="utf-8") as old_file:
 			for line in old_file.readlines():
 				new_file.write(line)
 

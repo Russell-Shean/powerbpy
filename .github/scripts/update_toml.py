@@ -10,8 +10,8 @@ args = parser.parse_args()
 
 
 
-with open("./pyproject3.toml", "w") as tmp:
-	with open("./pyproject.toml", "r") as file:
+with open("./pyproject3.toml", "w", encoding="utf-8") as tmp:
+	with open("./pyproject.toml", "r", encoding="utf-8") as file:
 		for line in file.readlines():
 
 			# look for the version line and extract version

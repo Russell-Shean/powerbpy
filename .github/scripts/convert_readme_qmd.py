@@ -12,7 +12,7 @@ og_readme_path = "README.md"
 index_qmd_path = "docs/index.qmd"
 
 
-with open(index_qmd_path, "w") as new_file:
+with open(index_qmd_path, "w", encoding="utf-8") as new_file:
 	new_file.write("---\n")
 	new_file.write('Title: "Power Bpy"\n')
 
@@ -43,7 +43,7 @@ with open(index_qmd_path, "w") as new_file:
 
 	# write the old file to the new file
 	# after all the title stuff above
-	with open(og_readme_path, "r") as old_file:
+	with open(og_readme_path, "r", encoding="utf-8") as old_file:
 		for line in old_file.readlines():
 
 			# Replace the code highlighting language

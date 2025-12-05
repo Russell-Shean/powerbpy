@@ -135,19 +135,19 @@ class Dashboard:
 		# Modify files --------------------------------------------------------------------
 		## top level -----------------------------------------------------------------------
 		# .pbip file
-		with open(self.pbip_file_path,'r') as file:
+		with open(self.pbip_file_path,'r', encoding="utf-8") as file:
 			pbip_file = json.load(file)
 
 		# modify the report path
 		pbip_file["artifacts"][0]["report"]["path"] = f'{self.report_name}.Report'
 
 		# write to file
-		with open(self.pbip_file_path,'w') as file:
+		with open(self.pbip_file_path,'w', encoding="utf-8") as file:
 			json.dump(pbip_file, file, indent = 2)
 
 		## report folder -----------------------------------------------------------------
 		# .platform file
-		with open(self.platform_file_path,'r') as file:
+		with open(self.platform_file_path,'r', encoding="utf-8") as file:
 			platform_file = json.load(file)
 
 		# modify the display name
@@ -157,35 +157,35 @@ class Dashboard:
 		platform_file["config"]["logicalId"] = self.report_logical_id
 
 		# write to file
-		with open(self.platform_file_path,'w') as file:
+		with open(self.platform_file_path,'w', encoding="utf-8") as file:
 			json.dump(platform_file, file, indent = 2)
 
 		#.pbir file
-		with open(self.pbir_file_path,'r') as file:
+		with open(self.pbir_file_path,'r', encoding="utf-8") as file:
 			pbir_file = json.load(file)
 
 		# modify the display name
 		pbir_file["datasetReference"]["byPath"]["path"] = f'../{self.report_name}.SemanticModel'
 
 		# write to file
-		with open(self.pbir_file_path,'w') as file:
+		with open(self.pbir_file_path,'w', encoding="utf-8") as file:
 			json.dump(pbir_file, file, indent = 2)
 
 		### definition folder --------------------------------------------------------
 		# pages.json
-		with open(self.pages_file_path,'r') as file:
+		with open(self.pages_file_path,'r', encoding="utf-8") as file:
 			pages_file = json.load(file)
 
 		pages_file["pageOrder"] = []
 		pages_file["activePageName"] = "page1"
 
 		# write to file
-		with open(self.pages_file_path,'w') as file:
+		with open(self.pages_file_path,'w', encoding="utf-8") as file:
 			json.dump(pages_file, file, indent = 2)
 	
 		## Semantic model folder ----------------------------------------------------------------
 		# .platform file
-		with open(self.platform_file_path,'r') as file:
+		with open(self.platform_file_path,'r', encoding="utf-8") as file:
 			platform_file = json.load(file)
 
 		# modify the display name
@@ -195,7 +195,7 @@ class Dashboard:
 		platform_file["config"]["logicalId"] = self.sm_logical_id
 
 		# write to file
-		with open(self.platform_file_path,'w') as file:
+		with open(self.platform_file_path,'w', encoding="utf-8") as file:
 			json.dump(platform_file, file, indent = 2)
 
 		return self
@@ -279,7 +279,7 @@ class Dashboard:
 		# Assign a page_id based on the number of current pages
 
 		# determine number of pages
-		with open(self.pages_file_path,'r') as file:
+		with open(self.pages_file_path,'r', encoding="utf-8") as file:
 			pages_list = json.load(file)
 
 		# determine number of pages
@@ -292,7 +292,7 @@ class Dashboard:
 		pages_list["pageOrder"].append(page_id)
 
 		# write to file
-		with open(self.pages_file_path,'w') as file:
+		with open(self.pages_file_path,'w', encoding="utf-8") as file:
 			json.dump(pages_list, file, indent = 2)
 
 		# Create a new instance of a page
@@ -309,7 +309,7 @@ class Dashboard:
 					  "objects":{}}
 
 		# write to file
-		with open(page.page_json_path, "w") as file:
+		with open(page.page_json_path, "w", encoding="utf-8") as file:
 			json.dump(page_json, file, indent = 2)
 
 		# Add title and subtitle if requested
@@ -380,7 +380,7 @@ class Dashboard:
 		This assumes that page_ids listed in the page.json match the folder names.
 		'''
 
-		with open(self.pages_file_path,'r') as file:
+		with open(self.pages_file_path,'r', encoding="utf-8") as file:
 			pages_file = json.load(file)
 
 		return pages_file["pageOrder"]
