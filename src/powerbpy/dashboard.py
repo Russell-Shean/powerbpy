@@ -367,6 +367,12 @@ class Dashboard:
 		self.pages.append(page)
 		return page
 
+	def list_pages(self):
+		with open(self.pages_file_path,'r') as file:
+			pages_file = json.load(file)
+
+		return pages_file["pageOrder"]
+
 
 
 	def add_tmdl(self,
