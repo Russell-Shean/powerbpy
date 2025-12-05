@@ -4,11 +4,10 @@ It'd be awesome if quarto provided a title argument so I didn't have to do all t
 hacky stuff messing with the html after it's rendered...
 '''
 
+import shutil
 
 import bs4
 from bs4 import BeautifulSoup as bs
-
-import shutil
 
 old_home_page = "docs/docs/index.html"
 new_home_page = "output1.html"
@@ -26,7 +25,7 @@ with open(old_home_page, "r", encoding="utf-8") as file:
 
 # write the new file out
 with open(new_home_page, "w", encoding="utf-8") as file:
-    file.write(str(soup))
+	file.write(str(soup))
 
 # overwrite the old file with the new file
 shutil.move(new_home_page, old_home_page)

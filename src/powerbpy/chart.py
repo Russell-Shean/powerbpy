@@ -1,4 +1,6 @@
-import  os, json, re
+import os
+import json
+import re
 
 from powerbpy.dashboard import Dashboard
 from powerbpy.page import Page
@@ -10,7 +12,6 @@ class Chart(_Visual):
 	def __init__(self,
 				 page,
 				 visual_id,
-				 
 				 chart_type,
 				 data_source,
 				 visual_title,
@@ -24,16 +25,16 @@ class Chart(_Visual):
 				 height,
 				 width,
 				 tab_order,
-				 z_position, 
+				 z_position,
 				 parent_group_id,
 				 background_color,
 				 background_color_alpha,
 				 alt_text="A chart"):
 
-		'''This function adds a new chart to a page in a power BI dashboard report. 
+		'''This function adds a new chart to a page in a power BI dashboard report.
 		Parameters
 		----------
-		
+
 		visual_id: str
 			Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
 		chart_type: str
@@ -65,19 +66,16 @@ class Chart(_Visual):
 		z_position: int
 			The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 		'''
-		
 
-		super().__init__(page=page, 
-				  visual_id=visual_id, 
-				  visual_title=visual_title, 
-				  
-				  height=height, 
+		super().__init__(page=page,
+				  visual_id=visual_id,
+				  visual_title=visual_title,
+				  height=height,
 				  width=width,
-				  x_position=x_position, 
-				  y_position=y_position, 
-				
-				  z_position=z_position, 
-				  tab_order=tab_order, 
+				  x_position=x_position,
+				  y_position=y_position,
+				  z_position=z_position,
+				  tab_order=tab_order,
 				  parent_group_id=parent_group_id,
 				  alt_text=alt_text,
 				  background_color=background_color,
@@ -87,7 +85,7 @@ class Chart(_Visual):
 		self.visual_json["visual"]["visualType"] = chart_type
 
 		# add chart specific sections to the json ------------------------------------------------
-			
+
 		## query -----
 		self.visual_json["visual"]["query"] =  {
 			"queryState": {
@@ -158,7 +156,7 @@ class Chart(_Visual):
 				"isDefaultSort": True
 			}
 		}
-		
+
 		## objects
 		self.visual_json["visual"]["objects"]["categoryAxis"] = [
 				{
@@ -173,7 +171,7 @@ class Chart(_Visual):
 					}
 				}
 		]
-			
+
 		self.visual_json["visual"]["objects"]["valueAxis"] = [
 				{
 					"properties": {
@@ -188,10 +186,6 @@ class Chart(_Visual):
 				}
 		]
 
-		# Write out the new json 
+		# Write out the new json
 		with open(self.visual_json_path, "w") as file:
 			json.dump(self.visual_json, file, indent = 2)
-
-
-			
-		

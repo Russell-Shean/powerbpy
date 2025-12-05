@@ -1,9 +1,10 @@
-import os, uuid, shutil, json
+import os
+import uuid
+import shutil
+import json
 
 from pathlib import Path
 from importlib import resources
-
-#import powerbpy
 
 from powerbpy.dashboard import Dashboard
 
@@ -17,11 +18,7 @@ class Page:
 
 	def __init__(self,
 				 dashboard,
-				 page_id=None,
-				 #title = None, 
-				 #subtitle = None, 
-				 #displayOption = 'FitToPage'
-				 ):
+				 page_id=None):
 
 
 
@@ -33,32 +30,11 @@ class Page:
 		self.background_images = []
 		self.visuals = []
 
-		
+
 
 		self.dashboard = dashboard
-		#self.page_name = page_name
-		#self.title = title
-		#self.subtitle = subtitle
-		#self.displayOption = displayOption
 		self.page_id = page_id
-		
-		# determine number of pages
-		#with open(self.dashboard.pages_file_path,'r') as file:
-		#	pages_list = json.load(file)
 
-		# determine number of pages
-		#n_pages = len(pages_list["pageOrder"])
-
-		# create a new page id based on existing number of pages
-		#self.page_id = f"page{n_pages + 1}"
-
-		# add the new page id to the pageOrder list
-		#pages_list["pageOrder"].append(self.page_id)
-		
-		# write to file
-		#with open(self.dashboard.pages_file_path,'w') as file:
-		#	json.dump(pages_list, file, indent = 2)
-			
 		# create a folder for the new page
 		self.page_folder = os.path.join(self.dashboard.pages_folder, self.page_id)
 		self.page_json_path = os.path.join(self.page_folder, "page.json")
@@ -69,47 +45,11 @@ class Page:
 		# Add subfolders for visuals and stuff
 		self.visuals_folder = os.path.join(self.page_folder, "visuals")
 
-		
-		# create a new json file for the new page
-		#self.page_json = {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
-		#			  "name": self.page_id,
-		#			  "displayName": self.page_name,
-		#			  "displayOption": self.displayOption,
-		#			  "height": 720,
-		#			  "width": 1280,
-		#			  "objects":{}}
-					  
-		# write to file
-		#with open(self.page_json_path, "w") as file:
-		#	json.dump(page_json, file, indent = 2)
-			
-			
-		# Add title and subtitle if requested 
-		#if self.title is not None:
-		#	self.add_text_box(text = self.title,
-		#		            visual_id= f"{self.page_id}_title", 
-		#		 height=68,
-		#		   width=545,
-		#			 x_position = 394, 
-		#			 y_position = 44)
-					 
-					 
-		#if subtitle is not None:
-		#	self.add_text_box(text = self.subtitle,
-		#	                  visual_id= f"{self.page_id}_subtitle", 
-		#		 height=38,
-		#		   width=300,
-		#			 x_position = 500, 
-		#			 y_position = 93,
-		#			 font_size = 14)
-
-
 	def add_background_image(self,
-							 img_path, 
-							 alpha = 51, 
+							 img_path,
+							 alpha = 51,
 							 scaling_method = "Fit"):
-						 
-						 
+
 		'''Add a background image to a dashboard page
 		Parameters
 		----------
@@ -119,40 +59,38 @@ class Page:
 			The transparency of the background image. Must be a whole integer between 1 and 100. 
 		scaling_method: str
 			The method used to scale the image available options include ["Fit", ]
-		
+
 		Notes
 		----
 		Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:       
 			1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       
-					
+
 		There are two additional optional arguments:     
 			2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )    
-			3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)     
-			
+			3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
+
 		Here's some example code that adds a new background image to the Bee Colonies page:     
-		
+
 		```python
-			page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
+			page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
 	               alpha = 51,
 	               scaling_method = "Fit")
-				   
-		```       
-		And here's what the dashboard looks like, now that we've added a background image:      
-		![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")   
-		
+		```
+		And here's what the dashboard looks like, now that we've added a background image:
+		![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
 		'''
 
 		# Local import avoids circular import at module load
 		from powerbpy.background_image import BackgroundImage
-		
+
 		background_image = BackgroundImage(self,
-						 img_path, 
-						 alpha, 
+						 img_path,
+						 alpha,
 						 scaling_method)
 
 		self.background_images.append(background_image)
 		return background_image
-	
+
 	def add_chart(self,
 				  visual_id,
 				 chart_type,
@@ -170,7 +108,7 @@ class Page:
 				 background_color="#FFFFFF",
 				 background_color_alpha=None,
 				 tab_order = -1001,
-				 z_position = 6000, 
+				 z_position = 6000,
 				 parent_group_id = None,
 				 alt_text="A chart"):
 
@@ -237,25 +175,25 @@ class Page:
 		return chart
 
 	def add_text_box(self,
-				 text, 
-				 visual_id, 
-				 height, 
+				 text,
+				 visual_id,
+				 height,
 				 width,
-				 x_position, 
-				 y_position, 
-				 z_position=6000, 
+				 x_position,
+				 y_position,
+				 z_position=6000,
 				 tab_order=-1001,
 				 parent_group_id=None,
 				 alt_text="A text box",
-				 text_align = "left", 
-				 font_weight = "bold", 
-				 font_size=32, 
-				 font_color="#000000", 
+				 text_align = "left",
+				 font_weight = "bold",
+				 font_size=32,
+				 font_color="#000000",
 				 background_color = None,
 				 background_color_alpha=None):
 
 		'''Add a text box to a page
-		
+
 		Parameters
 		----------
 		text: str
@@ -286,29 +224,29 @@ class Page:
 			Hex code for the background color of the text box. Defaults to None (transparent)
 		parent_group_id: str
 			This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group. 
-	
+
 		Notes
 		-----
-		This function creates a new text box on a page. 
+		This function creates a new text box on a page.
 		'''
 
 		from powerbpy.text_box import TextBox
 
 		text_box = TextBox(self,
-				 text=text, 
-				 visual_id=visual_id, 
-				 height=height, 
+				 text=text,
+				 visual_id=visual_id,
+				 height=height,
 				 width=width,
-				 x_position=x_position, 
-				 y_position=y_position, 
-				 z_position=z_position, 
+				 x_position=x_position,
+				 y_position=y_position,
+				 z_position=z_position,
 				 tab_order=tab_order,
 				 parent_group_id=parent_group_id,
 				 alt_text=alt_text,
-				 text_align=text_align, 
-				 font_weight=font_weight, 
-				 font_size=font_size, 
-				 font_color=font_color, 
+				 text_align=text_align,
+				 font_weight=font_weight,
+				 font_size=font_size,
+				 font_color=font_color,
 				 background_color=background_color,
 				 background_color_alpha=background_color_alpha)
 
@@ -316,24 +254,24 @@ class Page:
 		return text_box
 
 	def add_button(self,
-				 label, 
-				 visual_id, 
-				 height, 
+				 label,
+				 visual_id,
+				 height,
 				 width,
-				 x_position, 
-				 y_position, 
-				 z_position = 6000, 
-				 tab_order=-1001, 
-				 fill_color="#3086C3", 
-				 alpha=0, 
-				 url_link = None, 
+				 x_position,
+				 y_position,
+				 z_position = 6000,
+				 tab_order=-1001,
+				 fill_color="#3086C3",
+				 alpha=0,
+				 url_link = None,
 				 page_navigation_link = None,
-				 alt_text="A button", 
+				 alt_text="A button",
 				 background_color = None,
 				 background_color_alpha=None):
 
 		'''Add a button to a page
-		
+
 		Parameters
 		----------
 		label : str
@@ -369,17 +307,17 @@ class Page:
 		from powerbpy.button import Button
 
 		button = Button(self,
-				 label=label, 
-				 visual_id=visual_id, 
-				 height=height, 
+				 label=label,
+				 visual_id=visual_id,
+				 height=height,
 				 width=width,
-				 x_position=x_position, 
-				 y_position=y_position, 
-				 z_position =z_position, 
-				 tab_order=tab_order, 
-				 fill_color=fill_color, 
-				 alpha=alpha, 
-				 url_link = url_link, 
+				 x_position=x_position,
+				 y_position=y_position,
+				 z_position =z_position,
+				 tab_order=tab_order,
+				 fill_color=fill_color,
+				 alpha=alpha,
+				 url_link = url_link,
 				 page_navigation_link = page_navigation_link,
 				 alt_text=alt_text,
 				 background_color=background_color,
@@ -389,27 +327,27 @@ class Page:
 		return(button)
 
 	def add_slicer(self,
-				  data_source, 
-			   column_name,    
-			   visual_id, 
-			   height, 
+				  data_source,
+			   column_name,
+			   visual_id,
+			   height,
 			   width,
-			   x_position, 
-			   y_position, 
-			   z_position = 6000, 
+			   x_position,
+			   y_position,
+			   z_position = 6000,
 			   tab_order=-1001,
 			   title = None,
-			   text_align = "left", 
-			   font_weight = "bold", 
-			   font_size=32, 
-			   font_color="#000000", 
-			   background_color = None, 
+			   text_align = "left",
+			   font_weight = "bold",
+			   font_size=32,
+			   font_color="#000000",
+			   background_color = None,
 			   parent_group_id = None,
-			   alt_text= "A slicer", 
+			   alt_text= "A slicer",
 				 background_color_alpha=None):
 
 		'''Add a slicer to a page
-		
+
 		Parameters
 		----------
 		data_source: str
@@ -453,21 +391,21 @@ class Page:
 		from powerbpy.slicer import Slicer
 
 		slicer = Slicer(self,
-				data_source=data_source, 
-			   column_name=column_name,  
-			   visual_id=visual_id, 
-			   height=height, 
+				data_source=data_source,
+			   column_name=column_name,
+			   visual_id=visual_id,
+			   height=height,
 			   width=width,
-			   x_position=x_position, 
-			   y_position=y_position, 
-			   z_position=z_position, 
+			   x_position=x_position,
+			   y_position=y_position,
+			   z_position=z_position,
 			   tab_order=tab_order,
 			   visual_title=title,
-			   text_align=text_align, 
-			   font_weight=font_weight, 
-			   font_size=font_size, 
-			   font_color=font_color, 
-			   parent_group_id=parent_group_id, 
+			   text_align=text_align,
+			   font_weight=font_weight,
+			   font_size=font_size,
+			   font_color=font_color,
+			   parent_group_id=parent_group_id,
 			   alt_text = alt_text,
 				 background_color=background_color,
 				 background_color_alpha=background_color_alpha)
@@ -476,22 +414,21 @@ class Page:
 		return(slicer)
 
 	def add_card(self,
-				 data_source, 
-			 measure_name, 
-
-			 visual_id, 
-			 height, 
+				 data_source,
+			 measure_name,
+			 visual_id,
+			 height,
 			 width,
-			 x_position, 
-			 y_position, 
-			 z_position = 6000, 
+			 x_position,
+			 y_position,
+			 z_position = 6000,
 			 tab_order=-1001,
 			 card_title = None,
-			 text_align = "left", 
-			 font_weight = "bold", 
-			 font_size=32, 
-			 font_color="#000000", 
-			 background_color = None, 
+			 text_align = "left",
+			 font_weight = "bold",
+			 font_size=32,
+			 font_color="#000000",
+			 background_color = None,
 			 background_color_alpha = None,
 			 parent_group_id = None,
 			 alt_text="A card"):
