@@ -12,8 +12,8 @@ class Dashboard:
     Parameters
     ----------
     file_path: str
-        The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
-    
+        The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
+
     Returns
     -------
     None
@@ -25,8 +25,8 @@ class Dashboard:
     - To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing
     - These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.
     - (.pbip uses mimified json by default and throws an error when it's given unpacked json).
-        
-    - Time intelligence and relationship autodection are turned off by default	
+
+    - Time intelligence and relationship autodection are turned off by default
 
     '''
 
@@ -71,7 +71,7 @@ class Dashboard:
 
         self.pages_folder = os.path.join(self.report_definition_folder, 'pages')
         self.pages_file_path = os.path.join(self.pages_folder, "pages.json")
-        
+
         ## report_name.SemanticModel folder ----------------------------------------------------------------------------
         self.semantic_model_folder_path = os.path.join(self.project_folder_path, f'{self.report_name}.SemanticModel')
         self.sm_platform_file_path = os.path.join(self.semantic_model_folder_path, ".platform")
@@ -92,7 +92,7 @@ class Dashboard:
         Parameters
         ----------
         file_path: str
-        The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
+        The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
 
         Returns
         -------
@@ -100,7 +100,7 @@ class Dashboard:
 
         Notes
         -----
-        - To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)`          
+        - To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)`
         - To load an existing dashboard use `Dashboard.load(dashboard_path)`
         '''
 
@@ -182,7 +182,7 @@ class Dashboard:
         # write to file
         with open(self.pages_file_path,'w', encoding="utf-8") as file:
             json.dump(pages_file, file, indent = 2)
-    
+
         ## Semantic model folder ----------------------------------------------------------------
         # .platform file
         with open(self.platform_file_path,'r', encoding="utf-8") as file:
@@ -210,7 +210,7 @@ class Dashboard:
         Parameters
         ----------
         file_path: str
-        The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
+        The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
 
         Returns
         -------
@@ -218,7 +218,7 @@ class Dashboard:
 
         Notes
         -----
-        - To load an existing dashboard, use this function `Dashboard.load(dashboard_path)`         
+        - To load an existing dashboard, use this function `Dashboard.load(dashboard_path)`
         - To create a new dashboard instance use `Dashboard.create(dashboard_path)`
         '''
 
@@ -244,7 +244,7 @@ class Dashboard:
         Parameters
         ----------
         page_name: str
-            The display name for the page you just created. This is different from the page_id which is only used internally. 
+            The display name for the page you just created. This is different from the page_id which is only used internally.
         title: str
             Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
         subtitle: str
@@ -255,13 +255,13 @@ class Dashboard:
         Returns
         -------
         new_page_id: str
-            The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list. 
+            The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list.
 
         Notes
         ----
-        In order to reference the page to add visuals to it later, you'll need to remember what order you created the pages in. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc. (I'm going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).        
+        In order to reference the page to add visuals to it later, you'll need to remember what order you created the pages in. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc. (I'm going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).
 
-        In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.      
+        In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.
         Here's the code to create a new (mostly blank) page:
 
         ```python
@@ -270,7 +270,7 @@ class Dashboard:
                        subtitle = "We're losing bee colonies")
         ```
 
-        Here's what the new page looks like in Power BI Desktop    
+        Here's what the new page looks like in Power BI Desktop
         ![New Page Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true "Example Page")
         '''
         # Local import avoids circular import at module load
@@ -329,7 +329,7 @@ class Dashboard:
                      x_position = 500,
                      y_position = 93,
                      font_size = 14)
-        
+
         self.pages.append(page)
         return page
 
@@ -345,12 +345,12 @@ class Dashboard:
         Returns
         -------
         Page: class
-            This returns an instance of the Page class corresponding to the page you just loaded.  
+            This returns an instance of the Page class corresponding to the page you just loaded.
 
         Notes
         ----
-        You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals.     
-        To list all page ids you can use `Dashboard.list_pages()`. You can also check the .pbip folder structure to find the page ids     
+        You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals.
+        To list all page ids you can use `Dashboard.list_pages()`. You can also check the .pbip folder structure to find the page ids
         '''
         # Local import avoids circular import at module load
         from powerbpy.page import Page
@@ -372,7 +372,7 @@ class Dashboard:
         Returns
         -------
         pages: list
-            This returns a list of all the page_ids in the dashboard  
+            This returns a list of all the page_ids in the dashboard
 
         Notes
         ----
@@ -422,7 +422,7 @@ class Dashboard:
         Parameters
         ----------
         data_path: str
-            The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.  
+            The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.
 
         Returns
         -------
@@ -431,7 +431,7 @@ class Dashboard:
 
         Notes
         -----
-        This function creates custom M code and is therefore more picky than pandas or Power BI desktop. 
+        This function creates custom M code and is therefore more picky than pandas or Power BI desktop.
         The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column")
         NA values must display as "NA" or "null" not as N/A.
         If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.
@@ -465,7 +465,7 @@ class Dashboard:
         account_url: str
             The url to your Azure storage account. It should be in the format of https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field
         blob_name: str
-            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field. 
+            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field.
         data_path: str
             The relative path to the file you want to load from the blob. It should be relative to blob_name
         tenant_id: str
@@ -492,9 +492,9 @@ class Dashboard:
 
         This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
         The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.
-        Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file.             
+        Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file.
 
-        Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. 
+        Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards.
         I may eventually add an automatic fix for this.
         '''
 

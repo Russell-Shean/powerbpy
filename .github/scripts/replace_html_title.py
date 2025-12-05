@@ -11,21 +11,21 @@ from bs4 import BeautifulSoup as bs
 
 old_home_page = "docs/docs/index.html"
 new_home_page = "output1.html"
- 
+
 # open the newly rendered home page
 with open(old_home_page, "r", encoding="utf-8") as file:
 
-	# parse the html
-	soup = bs(file.read(), "html.parser")
+    # parse the html
+    soup = bs(file.read(), "html.parser")
 
-	# find and replace the title
-	title = soup.find("title")
-	title.string = "Power Bpy"
- 
+    # find and replace the title
+    title = soup.find("title")
+    title.string = "Power Bpy"
+
 
 # write the new file out
 with open(new_home_page, "w", encoding="utf-8") as file:
-	file.write(str(soup))
+    file.write(str(soup))
 
 # overwrite the old file with the new file
 shutil.move(new_home_page, old_home_page)
