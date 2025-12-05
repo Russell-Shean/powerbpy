@@ -191,15 +191,21 @@ def add_csv_from_blob(dashboard_path,
 
 		# Add the dataset to dashboard
 		# add dataset to diagramLayout file ---------------------------------------------------------------------
-		PBI_DL.update_diagramLayout(dashboard_path = dashboard_path, dataset_name = dataset_name, dataset_id = dataset_id)
+		PBI_DL.update_diagramLayout(dashboard_path = dashboard_path, 
+		                            dataset_name = dataset_name, 
+									dataset_id = dataset_id)
 
 
 		# Call a function to update the model file with the dataset
-		PBI_model.update_model_file(dashboard_path = dashboard_path, dataset_name = dataset_name)
+		PBI_model.update_model_file(dashboard_path = dashboard_path, 
+		                            dataset_name = dataset_name)
 
 
 		# Data model file --------------------------------------------------------------------------
-		col_attributes = PBI_TMDL.create_tmdl(dashboard_path = dashboard_path, dataset_name = dataset_name, dataset_id = dataset_id, dataset = dataset)
+		col_attributes = PBI_TMDL.create_tmdl(dashboard_path = dashboard_path, 
+		                                      dataset_name = dataset_name, 
+											  dataset_id = dataset_id, 
+											  dataset = dataset)
 
 		#print(col_attributes)
 

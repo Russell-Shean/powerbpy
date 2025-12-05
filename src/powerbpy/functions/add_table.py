@@ -19,7 +19,7 @@ def add_table(dashboard_path,
 							tab_order = -1001,
 							z_position = 6000 ):
 
-	'''This function adds a new chart to a page in a power BI dashboard report. 
+	'''This function adds a new table to a page in a power BI dashboard report. 
 	
 	Parameters
 	----------
@@ -92,7 +92,7 @@ def add_table(dashboard_path,
 
 	"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
 
-	"name": "e6a4d73607f586bd2f8b",
+	"name": table_id,
 
 	"position": {
 
