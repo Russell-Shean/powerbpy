@@ -770,8 +770,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes-4" class="level6 doc-section doc-section-notes">
 <h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-4">Notes</h6>
 <ul>
-<li>To create a new dashboard instance, use this function <code>Dashboard.create(dashboard_path)</code><br>
-</li>
+<li>To create a new dashboard instance, use this function <code>Dashboard.create(dashboard_path)</code></li>
 <li>To load an existing dashboard use <code>Dashboard.load(dashboard_path)</code></li>
 </ul>
 </section>
@@ -956,8 +955,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes-6" class="level6 doc-section doc-section-notes">
 <h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-6">Notes</h6>
 <ul>
-<li>To load an existing dashboard, use this function <code>Dashboard.load(dashboard_path)</code><br>
-</li>
+<li>To load an existing dashboard, use this function <code>Dashboard.load(dashboard_path)</code></li>
 <li>To create a new dashboard instance use <code>Dashboard.create(dashboard_path)</code></li>
 </ul>
 </section>
@@ -1019,8 +1017,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="notes-7" class="level6 doc-section doc-section-notes">
 <h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-7">Notes</h6>
-<p>You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals.<br>
-To list all page ids you can use <code>Dashboard.list_pages()</code>. You can also check the .pbip folder structure to find the page ids</p>
+<p>You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals. To list all page ids you can use <code>Dashboard.list_pages()</code>. You can also check the .pbip folder structure to find the page ids</p>
 </section>
 </section>
 <section id="powerbpy.dashboard.Dashboard.new_page" class="level5">
@@ -1104,13 +1101,11 @@ To list all page ids you can use <code>Dashboard.list_pages()</code>. You can al
 <section id="notes-8" class="level6 doc-section doc-section-notes">
 <h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-8">Notes</h6>
 <p>In order to reference the page to add visuals to it later, you’ll need to remember what order you created the pages in. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc. (I’m going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).</p>
-<p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function.<br>
-Here’s the code to create a new (mostly blank) page:</p>
+<p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function. Here’s the code to create a new (mostly blank) page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>               title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here’s what the new page looks like in Power BI Desktop<br>
-<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true" title="Example Page" class="img-fluid" alt="New Page Example"></p>
+<p>Here’s what the new page looks like in Power BI Desktop <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true" title="Example Page" class="img-fluid" alt="New Page Example"></p>
 
 
 </section>
