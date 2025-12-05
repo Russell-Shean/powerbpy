@@ -8,7 +8,7 @@ class SankyChart(_Visual):
 	"""A class representing table visuals"""
 
 	def __init__(self,
-	             page,
+				 page,
 						 visual_id, 
 							data_source, 
 							starting_var,

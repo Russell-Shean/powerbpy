@@ -2,26 +2,3 @@ from .dashboard import *
 from .page import *
 from .background_image import *
 
-#__all__ = ["Dashboard", "Page", "BackgroundImage"]
-'''
-from .add_background_image import *
-from .add_button import *
-from .add_card import *
-from .add_chart import *
-from .add_csv_from_blob import *
-from .add_local_csv import *
-from .add_new_page import *
-from .add_sanky_chart import *
-from .add_shape_map import *
-from .add_slicer import *
-from .add_table import *
-from .add_text_box import *
-from .add_tmdl_dataset import *
-from .create_date_hrcy import *
-from .create_new_dashboard import *
-from .create_tmdl import *
-from .generate_bin_ranges import *
-from .get_measures_list import *
-from .update_diagramLayout import *
-from .update_model_file import *
-'''

@@ -12,31 +12,31 @@ from importlib import resources
 class Dashboard:
 	'''A python class used to model a power BI dashboard project
 
+	Parameters
+	----------
+	file_path: str
+		The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
+		
+	Returns
+	-------
+	None
+		
+	Notes
+	-----
+	- To create a new dashboard instance, use either Dashboard.create(dashboard_path) to create a new dashboard or Dashboard.create(dashboard_path) to load an existing dashboard.
+	- The dashboard uses a .pbip/.pbir format with TMDL enabled.
+	- To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing
+	- These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.
+	- (.pbip uses mimified json by default and throws an error when it's given unpacked json).
+		
+	- Time intelligence and relationship autodection are turned off by default	
+
 	'''
 
 	def __init__(self,
-			     file_path):
+				 file_path):
 		'''A python class used to model a power BI dashboard project
-		Parameters
-		----------
-		parent_dir: str
-			The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
 		
-		Returns
-		-------
-		None
-		
-		Notes
-		-----
-		- This function creates a power BI report in the specified parent directory.
-		- The dashboard can be opened and edited in Power BI desktop like normal, or be further modified progromatically using other functions in this package.
-		- The function creates a folder with the name report_name inside parent_dir with all the dashboard's files.
-		- The dashboard uses a .pbip/.pbir format with TMDL enabled.
-		- To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing
-		- These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.
-		- (.pbip uses mimified json by default and throws an error when it's given unpacked json).
-		
-		- This dashboard turns off time intelligence and relationship autodection off by default
 		'''
 
 		# Define pages as a list of instances of the page class
@@ -100,6 +100,24 @@ class Dashboard:
 
 	@classmethod
 	def create(cls, file_path):
+
+		'''A python class used to model a power BI dashboard project
+		
+		Parameters
+		----------
+		file_path: str
+		The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
+		
+		Returns
+		-------
+		None
+		
+		Notes
+		-----
+		- To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)` 
+		- To load an existing dashboard use `Dashboard.load(dashboard_path)`
+		
+		'''
 		
 		self = cls(file_path)
 
@@ -131,7 +149,7 @@ class Dashboard:
 
 		# Delete the first page so that we can create a new page one with the new_page() method
 		default_first_page = os.path.join(self.project_folder_path, 
-		                                  f'{self.report_name}.Report/definition/pages/915e09e5204515bccac2')
+										  f'{self.report_name}.Report/definition/pages/915e09e5204515bccac2')
 		
 		shutil.rmtree(default_first_page)
 			
@@ -219,14 +237,32 @@ class Dashboard:
 
 	@classmethod
 	def load(cls,
-	         file_path):
+			 file_path):
 
-		'''Load an existing dashboard from a file path'''
+		'''Load an existing dashboard from a file path
+		
+		Parameters
+		----------
+		file_path: str
+		The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name. 
+		
+		Returns
+		-------
+		None
+		
+		Notes
+		-----
+		- To load an existing dashboard, use this function `Dashboard.load(dashboard_path)`
+		- To create a new dashboard instance use `Dashboard.create(dashboard_path)` 
+		- 
+		
+		'''
+
 		self = cls(file_path)
 
 		# check to make sure that the dashboard seems to be an actual power BI dashboard
 		for path in [self.report_folder_path,
-		             self.semantic_model_folder_path,
+					 self.semantic_model_folder_path,
 					 self.pbip_file_path]:
 			if not os.path.exists(path):
 				raise ValueError("path doesn't exist! Confirm that the file path you provided is to a valid Power BI project folder")
@@ -268,8 +304,7 @@ class Dashboard:
 		Here's the code to create a new (mostly blank) page:     
 		
 		```python
-			PBI.add_new_page(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
-					   page_name = "Bee Colonies",
+			my_dashboard.new_page(page_name = "Bee Colonies",
 					   title= "The bees are in trouble!",
 					   subtitle = "We're losing bee colonies")
 		```
@@ -327,7 +362,7 @@ class Dashboard:
 		# Add title and subtitle if requested 
 		if title is not None:
 			page.add_text_box(text = title,
-				            visual_id= f"{page.page_id}_title", 
+							visual_id= f"{page.page_id}_title", 
 				 height=68,
 				   width=545,
 					 x_position = 394, 
@@ -336,7 +371,7 @@ class Dashboard:
 					 
 		if subtitle is not None:
 			page.add_text_box(text = subtitle,
-			                  visual_id= f"{page.page_id}_subtitle", 
+							  visual_id= f"{page.page_id}_subtitle", 
 				 height=38,
 				   width=300,
 					 x_position = 500, 
@@ -349,8 +384,26 @@ class Dashboard:
 		return page
 
 	def load_page(self,
-	              page_id):
-		'''Load an existing page'''
+				  page_id):
+		'''Load an existing page
+
+		Parameters
+		----------
+		page_id: str
+			The page_id of the page you'd like to load.  
+
+		Returns
+		-------
+		Page: class
+			This returns an instance of the Page class corresponding to the page you just loaded.  
+			
+		Notes
+		---- 
+		You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals.     
+		To list all page ids you can use `Dashboard.list_pages()`. You can also check the .pbip folder structure to find the page ids     
+		
+		
+		'''
 		# Local import avoids circular import at module load
 		from powerbpy.page import Page
 
@@ -362,12 +415,30 @@ class Dashboard:
 
 
 		page = Page(self,
-		            page_id=page_id)
+					page_id=page_id)
 
 		self.pages.append(page)
 		return page
 
 	def list_pages(self):
+
+		'''List all pages associated with a dashboard
+
+		Parameters
+		----------
+		None 
+
+		Returns
+		-------
+		pages: list
+			This returns a list of all the page_ids in the dashboard  
+			
+		Notes
+		---- 
+		Use this function to get a list of all the page_ids associated with a dashboard. The list of page_ids is determined from reading the "test_dashboard/test_dashboard.Report/definition/pages/pages.json" file.
+		This assumes that page_ids listed in the page.json match the folder names. 
+		
+		'''
 		with open(self.pages_file_path,'r') as file:
 			pages_file = json.load(file)
 
@@ -378,23 +449,63 @@ class Dashboard:
 	def add_tmdl(self,
 				 data_path = None, 
 				 add_default_datetable = True):
+
+		'''Add a locally stored TMDL file to the dashboard
+		
+		Parameters
+		----------
+		data_path: str
+			The path where the tmdl file is stored.
+		add_default_datetable: bool
+			Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date heirarchies instead of using time intelligence
+		
+		Notes
+		-----
+		- TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.
+		- In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale
+		- Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.
+		
+		'''
 		
 		from powerbpy.dataset_tmdl  import Tmdl
 
 		tmdl = Tmdl(self,
-		            data_path, 
-				    add_default_datetable)
+					data_path, 
+					add_default_datetable)
 
 		self.datasets.append(tmdl)
 		return tmdl
 
 	def add_local_csv(self,
-	                  data_path):
+					  data_path):
+
+		'''Add a locally stored CSV file to a dashboard
+		
+		Parameters
+		----------
+		data_path: str
+			The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.  
+			
+		Returns
+		-------
+		dataset: class
+			An instantce of the LocalCsv dataset class
+			
+		Notes
+		-----
+		This function creates custom M code and is therefore more picky than pandas or Power BI desktop. 
+		The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column")
+		NA values must display as "NA" or "null" not as N/A. 
+		If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. 
+		
+		This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
+		The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. 
+		'''
 
 		from powerbpy.dataset_csv import LocalCsv
 
 		dataset = LocalCsv(self,
-		                   data_path)
+						   data_path)
 		
 		self.datasets.append(dataset)
 		return dataset
@@ -408,6 +519,49 @@ class Dashboard:
 				 SAS_url = None,
 				 storage_account_key = None, 
 				 warnings = True):
+
+		'''Add a csv file store in a ADLS blob container to a dashboard
+		
+		Parameters
+		----------
+		account_url: str
+			The url to your Azure storage account. It should be in the format of https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field
+		blob_name: str
+			The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field. 
+		data_path: str
+			The relative path to the file you want to load from the blob. It should be relative to blob_name
+		tenant_id: str
+			The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
+		use_saved_storage_key: bool
+			This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.
+		SAS_url: str
+			A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature"
+		storage_account_key: str
+			It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
+
+		Returns
+		-------
+		None
+		
+		Notes
+		-----
+		DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead.
+
+		This function creates custom M code and is therefore more picky than pandas or Power BI desktop. 
+		The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column")
+		NA values must display as "NA" or "null" not as N/A. 
+		If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function. 
+
+		This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
+		The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.
+		Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel > definition > database.tmdl file.             
+						 
+		Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. 
+		I may eventually add an automatic fix for this.
+		
+		'''
+
+			
 
 		from powerbpy.dataset_csv import BlobCsv
 
@@ -425,7 +579,7 @@ class Dashboard:
 		return dataset
 
 	def get_measures_list(dashboard_path, 
-                      export_type = 'markdown', 
+					  export_type = 'markdown', 
 					  output_file_path = "", 
 					  starts_with = 'formatString:'):
 					  
