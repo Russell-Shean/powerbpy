@@ -355,84 +355,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">page</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/background_image.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">background_image</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/button.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">button</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/card.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">card</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/chart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chart</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/dataset_csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">dataset_csv</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/dataset_tmdl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">dataset_tmdl</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/sanky_chart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">sanky_chart</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/shape_map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">shape_map</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/slicer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">slicer</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">table</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/text_box.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">text_box</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">visual</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/data_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">data_set</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -541,10 +463,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h6>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 4%">
-<col style="width: 2%">
-<col style="width: 90%">
+<col style="width: 6%">
 <col style="width: 3%">
+<col style="width: 84%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -555,18 +477,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>dashboard_path</td>
-<td></td>
-<td>The path where the dashboard files are stored. (This is the top level directory containing the .pbip file and Report and SemanticModel folders).</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>page_id</td>
-<td></td>
-<td>The unique id for the page you want to add the chart to. If you used this package’s functions it will be in the format page1, page2, page3, page4, etc. If you manually created the page it will be a randomly generated UUID. To find a page’s page id, consult the report &gt; definition&gt; pages &gt; page.json file and look in the page order list.</td>
-<td><em>required</em></td>
-</tr>
 <tr class="odd">
 <td>img_path</td>
 <td></td>
@@ -591,20 +501,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes" class="level6 doc-section doc-section-notes">
 <h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h6>
 <p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required arguments:<br>
-1. <code>dashboard_path</code> - This is the path (relative or full) to the dashboard’s project folder<br>
-2. <code>page_id</code> - This is the identifier for the page you want to put the background image on. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc.<br>
-3. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
-<p>The first two arguments will be replaced by something like <code>myDashboard.page1.add_background_image()</code> when I convert the package to OOP.</p>
+1. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
 <p>There are two additional optional arguments:<br>
-4. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
-5. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
+2. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
+3. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>        PBI.add_background_image(dashboard_path <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                   page_id <span class="op">=</span> <span class="st">"page2"</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                   img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                   alpha <span class="op">=</span> <span class="dv">51</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                   scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>        page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       alpha <span class="op">=</span> <span class="dv">51</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And here’s what the dashboard looks like, now that we’ve added a background image:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true" title="Background Image Example" class="img-fluid" alt="Background Image Example"></p>
 </section>

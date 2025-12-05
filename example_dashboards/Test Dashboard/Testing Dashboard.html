@@ -420,7 +420,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2. <code>chart_type</code> - This is the type of chart to build on the page. I’ve only ever tried this with the <code>columnCart</code> option, the options I currently know about include: : <code>["columnChart","barChart", "clusteredBarChart"]</code><br>
 3. <code>data_source</code> - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.<br>
 4. <code>chart_title</code> - Give your chart an informative title! This will display on the dashboard as part of the chart.<br>
-5. <code>x_axis_title</code> - This is the text that will label the x axis 6. <code>y_axis_title</code> - This is the text that will label the y axis 7. <code>x_axis_var</code> - This is the variable to use for the x axis 8. <code>y_axis_var</code> - This is the variable to use for the y axis 9. <code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x) 10. <code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner. 11. <code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner. 12. <code>height</code> - Height of chart on the page 13. <code>width</code> - Width of chart on the page</p>
+5. <code>x_axis_title</code> - This is the text that will label the x axis<br>
+6. <code>y_axis_title</code> - This is the text that will label the y axis<br>
+7. <code>x_axis_var</code> - This is the variable to use for the x axis<br>
+8. <code>y_axis_var</code> - This is the variable to use for the y axis<br>
+9. <code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)<br>
+10. <code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+11. <code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+12. <code>height</code> - Height of chart on the page<br>
+13. <code>width</code> - Width of chart on the page</p>
 <p>Here’s some example code that adds a bar chart showing bee colonies lost per year:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>page1.add_chart(visual_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          chart_type <span class="op">=</span> <span class="st">"columnChart"</span>,</span>
