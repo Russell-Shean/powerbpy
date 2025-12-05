@@ -41,26 +41,21 @@ quartodoc:
       contents:
         # the functions being documented in the package.
         # you can refer to anything: class methods, modules, etc..
-        - add_background_image
-        - add_button
-        - add_card
-        - add_chart
-        - add_csv_from_blob
-        - add_local_csv
-        - add_new_page
-        - add_sanky_chart
-        - add_shape_map
-        - add_slicer
-        - add_table
-        - add_text_box
-        - add_tmdl_dataset
-        - create_date_hrcy
-        - create_new_dashboard
-        - create_tmdl
-        - generate_bin_ranges
-        - get_measures_list
-        - update_diagramLayout
-        - update_model_file
+        - dashboard
+        - page
+        - background_image
+        - button
+        - card
+        - chart
+        - dataset_csv
+        - dataset_tmdl
+        - sanky_chart
+        - shape_map
+        - slicer
+        - table
+        - text_box
+        - visual
+        - data_set
 
 
 format:

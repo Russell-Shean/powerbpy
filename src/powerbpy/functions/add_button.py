@@ -1,8 +1,19 @@
 import  os, json, re
 
-def add_button(label, dashboard_path, page_id, button_id, height, width,
- x_position, y_position, z_position = 6000, tab_order=-1001, 
- fill_color="#3086C3", alpha=0, url_link = None, page_navigation_link = None):
+def add_button(label, 
+               dashboard_path, 
+			   page_id,  
+			   button_id, 
+			   height, 
+			   width,
+			   x_position, 
+			   y_position, 
+			   z_position = 6000, 
+			   tab_order=-1001, 
+			   fill_color="#3086C3", 
+			   alpha=0, 
+			   url_link = None, 
+			   page_navigation_link = None):
 	 
 	 '''Add a button to a page
 	 
@@ -31,7 +42,7 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
 	 fill_color: str
 		Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
 	 alpha: int
-		The transparency of the background image. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
+		The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
 	 url_link: str
 		Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
 	 page_navigation_link: str
@@ -58,9 +69,9 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
 		 if type(var) is not int:
 			 raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
 		 
-		 # make sure they're not trying to make the button do two things at once
-		 if page_navigation_link is not None and url_link is not None:
-			 raise ValueError("Sorry you can only supply a url_link OR a page_navigation_link not both. Decide what you want the button to do and try again")
+	 # make sure they're not trying to make the button do two things at once
+	 if page_navigation_link is not None and url_link is not None:
+		 raise ValueError("Sorry you can only supply a url_link OR a page_navigation_link not both. Decide what you want the button to do and try again")
 		 
 		 
 	 # file paths -------------------------------
@@ -102,7 +113,8 @@ def add_button(label, dashboard_path, page_id, button_id, height, width,
 	     "z": z_position,
 	     "height": height,
 	     "width": width,
-	     "tabOrder": tab_order},
+	     "tabOrder": tab_order
+		 },
 	     
 	     "visual": {
 	       "visualType": "actionButton",

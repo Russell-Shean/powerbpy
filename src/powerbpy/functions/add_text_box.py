@@ -1,9 +1,21 @@
 import  os, json, re
 
-def add_text_box(text, dashboard_path, page_id, text_box_id, height, width,
- x_position, y_position, z_position = 6000, tab_order=-1001,
- text_align = "left", 
-	font_weight = "bold", font_size=32, font_color="#000000", background_color = None, parent_group_id = None):
+def add_text_box(text, 
+                 dashboard_path, 
+				 page_id, 
+				 text_box_id, 
+				 height, 
+				 width,
+				 x_position, 
+				 y_position, 
+				 z_position = 6000, 
+				 tab_order=-1001,
+				 text_align = "left", 
+				 font_weight = "bold", 
+				 font_size=32, 
+				 font_color="#000000", 
+				 background_color = None, 
+				 parent_group_id = None):
 		
 	'''Add a text box to a page
 	

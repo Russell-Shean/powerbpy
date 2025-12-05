@@ -1,3 +1,9 @@
+from .dashboard import *
+from .page import *
+from .background_image import *
+
+#__all__ = ["Dashboard", "Page", "BackgroundImage"]
+'''
 from .add_background_image import *
 from .add_button import *
 from .add_card import *
@@ -18,4 +24,4 @@ from .generate_bin_ranges import *
 from .get_measures_list import *
 from .update_diagramLayout import *
 from .update_model_file import *
-
+'''
