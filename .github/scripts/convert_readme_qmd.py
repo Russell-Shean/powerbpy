@@ -1,10 +1,10 @@
 '''
-This file switches out the code highlighting blocks because Github and pandoc use different code highlighting services. 
+This file switches out the code highlighting blocks because Github and pandoc use different code highlighting services.
 Github recognizes batch scripts. Pandoc doesn't so we're going to call dosbat close enough for the quarto site.
 
-We're also going to append some Javascript to: 
-	1. Change the page title 
-	2. Resize the smaller image and change its css float property to none 
+We're also going to append some Javascript to:
+	1. Change the page title
+	2. Resize the smaller image and change its css float property to none
 	3. Remove quarto figure captions
 '''
 
@@ -20,7 +20,7 @@ with open(index_qmd_path, "w") as new_file:
 	new_file.write("include-after-body:\n")
 	new_file.write(" text: |\n")
 
-	#  js~ Yay~~ 
+	#  js~ Yay~~
 	# change document title
 	new_file.write('  <script>document.title = "Power Bpy";')
 
