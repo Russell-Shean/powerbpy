@@ -114,7 +114,7 @@ class Dashboard:
 		
 		Notes
 		-----
-		- To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)` 
+		- To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)`           
 		- To load an existing dashboard use `Dashboard.load(dashboard_path)`
 		
 		'''
@@ -252,9 +252,8 @@ class Dashboard:
 		
 		Notes
 		-----
-		- To load an existing dashboard, use this function `Dashboard.load(dashboard_path)`
-		- To create a new dashboard instance use `Dashboard.create(dashboard_path)` 
-		- 
+		- To load an existing dashboard, use this function `Dashboard.load(dashboard_path)`           
+		- To create a new dashboard instance use `Dashboard.create(dashboard_path)`  
 		
 		'''
 
