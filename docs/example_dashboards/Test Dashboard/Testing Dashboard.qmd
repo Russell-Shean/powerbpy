@@ -25,7 +25,6 @@ If you want to create a dashboard called `test_dashboard` in a folder called `C:
 from powerbpy import Dashboard
 
 my_dashboard = Dashboard.create("C:/Users/Russ/PBI_projects/test_dashboard")
-
 ```     
 If everything worked, the function should have created the following files:     
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true)       
@@ -47,7 +46,6 @@ In our example, I'll create a new page called "Bee Colonies" and then we'll add 
 Here's the code to create a new (mostly blank) page:     
 
 ```python
-
 page1 = my_dashboard.new_page(page_name = "Bee Colonies",
 	                   title= "The bees are in trouble!",
 	                   subtitle = "We're losing bee colonies")
@@ -68,11 +66,9 @@ There are two additional optional arguments:
 Here's some example code that adds a new background image to the Bee Colonies page:     
    
 ```python
-     
 page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
 	               alpha = 51,
-	               scaling_method = "Fit")
-	               
+	               scaling_method = "Fit")            
 ```       
     
 And here's what the dashboard looks like, now that we've added a background image:      
@@ -87,7 +83,6 @@ Here's some example code:
 
 ```python
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
-
 ```
       
 ## Add a chart
