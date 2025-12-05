@@ -23,7 +23,8 @@ class Slicer(_Visual):
 			   font_weight, 
 			   font_size, 
 			   font_color, 
-			   background_color, 
+			   background_color,
+			   background_color_alpha, 
 			   parent_group_id, 
 			   alt_text = "A slicer"):
 
@@ -81,7 +82,9 @@ class Slicer(_Visual):
 				  z_position=z_position, 
 				  tab_order=tab_order, 
 				  parent_group_id=parent_group_id,
-				  alt_text=alt_text)
+				  alt_text=alt_text, 
+				  background_color=background_color,
+				  background_color_alpha=background_color_alpha)
 
 
 		# Update the visual type

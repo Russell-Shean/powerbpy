@@ -173,6 +173,7 @@ class Page:
                  height,
                  width,
 				 background_color="#FFFFFF",
+				 background_color_alpha=None,
                  tab_order = -1001,
                  z_position = 6000, 
 			     parent_group_id = None,
@@ -198,7 +199,8 @@ class Page:
                  z_position=z_position, 
 			     parent_group_id=parent_group_id,
 				 alt_text=alt_text,
-				 background_color=background_color)
+				 background_color=background_color,
+				 background_color_alpha=background_color_alpha)
 
 		self.visuals.append(chart)
 		return chart
@@ -257,7 +259,9 @@ class Page:
                  alpha=0, 
                  url_link = None, 
                  page_navigation_link = None,
-				 alt_text="A button"):
+				 alt_text="A button", 
+				 background_color = None,
+				 background_color_alpha=None):
 
 		from powerbpy.button import Button
 
@@ -274,7 +278,9 @@ class Page:
                  alpha=alpha, 
                  url_link = url_link, 
                  page_navigation_link = page_navigation_link,
-				 alt_text=alt_text)
+				 alt_text=alt_text,
+				 background_color=background_color,
+				 background_color_alpha=background_color_alpha)
 
 		self.visuals.append(button)
 		return(button)
@@ -296,7 +302,8 @@ class Page:
 			   font_color="#000000", 
 			   background_color = None, 
 			   parent_group_id = None,
-			   alt_text= "A slicer"):
+			   alt_text= "A slicer", 
+				 background_color_alpha=None):
 
 		from powerbpy.slicer import Slicer
 
@@ -315,9 +322,10 @@ class Page:
 			   font_weight=font_weight, 
 			   font_size=font_size, 
 			   font_color=font_color, 
-			   background_color=background_color, 
 			   parent_group_id=parent_group_id, 
-               alt_text = alt_text)
+               alt_text = alt_text,
+				 background_color=background_color,
+				 background_color_alpha=background_color_alpha)
 
 		self.visuals.append(slicer)
 		return(slicer)
@@ -388,7 +396,9 @@ class Page:
 				  z_position = 6000, 
 				  tab_order=-1001,
                   parent_group_id = None,
-                 alt_text = "A shape map"):
+                 alt_text = "A shape map", 
+				 background_color = None,
+				 background_color_alpha=None):
 
 		from powerbpy.shape_map import ShapeMap
 
@@ -411,7 +421,9 @@ class Page:
 				  z_position = z_position, 
 				  tab_order=tab_order,
                   parent_group_id = parent_group_id,
-                 alt_text = alt_text)
+                 alt_text = alt_text,
+				 background_color=background_color,
+				 background_color_alpha=background_color_alpha)
 
 		self.visuals.append(shape_map)
 		return shape_map
