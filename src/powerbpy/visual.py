@@ -48,7 +48,7 @@ class _Visual:
         self.visual_json_path = os.path.join(self.new_visual_folder, "visual.json")
 
         if os.path.isdir(self.new_visual_folder) is True:
-            raise ValueError(f'A visual with that visual_id already exists! Try using a different visual_id')
+            raise ValueError('A visual with that visual_id already exists! Try using a different visual_id')
 
         else:
             os.makedirs(self.new_visual_folder)
@@ -139,7 +139,7 @@ class _Visual:
                     }
 
                 }
-                
+
             )
 
             if self.visual_title_font_size is not None:
