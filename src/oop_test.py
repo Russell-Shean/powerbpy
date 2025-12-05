@@ -1,4 +1,4 @@
-from powerbpy import *
+from powerbpy import Dashboard
 
 import os
 
