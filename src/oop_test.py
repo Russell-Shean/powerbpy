@@ -182,7 +182,7 @@ page4 = my_dashboard2.load_page("page4")
 
 page4.add_text_box(text= "A test text box", 
 				 visual_id="test_box", 
-				 height= 100, 
-				 width=100,
+				 height= 200, 
+				 width=300,
 				 x_position= 900, 
-				 y_position= 600)
+				 y_position= 300)
