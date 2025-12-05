@@ -2,8 +2,7 @@ name: Create dashboard using current version of code
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main", "dev-*"]
     paths:
       - 'src/**'
 
