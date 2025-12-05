@@ -27,7 +27,9 @@ class ShapeMap(_Visual):
 				  z_position = 6000, 
 				  tab_order=-1001,
 				  parent_group_id = None,
-				 alt_text = "A shape map"):
+				 alt_text = "A shape map", 
+				 background_color=None,
+				 background_color_alpha=None):
 
 
 		'''Add a map to a page
@@ -129,7 +131,9 @@ class ShapeMap(_Visual):
 				  z_position=z_position, 
 				  tab_order=tab_order, 
 				  parent_group_id=parent_group_id,
-				  alt_text=alt_text)
+				  alt_text=alt_text, 
+				  background_color=background_color,
+				  background_color_alpha=background_color_alpha)
 
 	
 		# Upload shape file to dashboard's registered resources ---------------------------------------------------
