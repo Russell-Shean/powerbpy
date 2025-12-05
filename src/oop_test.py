@@ -175,3 +175,14 @@ my_dashboard2 = Dashboard.load(dashboard_path)
 
 
 page5 = my_dashboard2.new_page("Page 5?")
+
+# Try loading a page and adding a text box
+
+page4 = my_dashboard2.load_page("page4")
+
+page4.add_text_box(text= "A test text box", 
+				 visual_id="test_box", 
+				 height= 100, 
+				 width=100,
+				 x_position= 900, 
+				 y_position= 600)
