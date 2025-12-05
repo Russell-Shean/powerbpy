@@ -17,17 +17,14 @@ If you don't already have python and the `{powerbpy}` module installed, please r
 
 # Build dashboards   
 ## Create a new dashboard
-To create a new dashboard, you'll need to provide two arguments:      
-1. `parent_dir` - This is the folder where you want to store your dashboard     
-2. `report_name` - This is the name you want to give your dashboard project.       
-     
-If you want to create a dashboard called `bigfoots` in a folder called `C:/Users/Russ/PBI_projects`,  here's what the code should look like    
+To create a new dashboard, you'll need to provide a file path to a folder as argument:      
+        
+If you want to create a dashboard called `test_dashboard` in a folder called `C:/Users/Russ/PBI_projects`,  here's what the code should look like    
 ```python    
 # Import the package
-import powerbpy as PBI
+from powerbpy import Dashboard
 
-
-PBI.create_new_dashboard(report_location = "C:/Users/Russ/PBI_projects", report_name = "test_dashboard")
+my_dashboard = Dashboard.create("C:/Users/Russ/PBI_projects/test_dashboard")
 
 ```     
 If everything worked, the function should have created the following files:     
@@ -37,24 +34,21 @@ You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Altho
     
 ## Add a new page
 To add a new page, you'll need to provide the following arguments:          
-  1. `dashboard_path` - This is the file path to the folder where the dashboard is stored. This can be either an absolute or relative path. (This will eventually change when I change to OOP)       
-  2. `page_name` - This is display name for the page you just created. (This is different from the page_id which is only used internally).      
+  1. `page_name` - This is display name for the page. (This is different from the page_id).      
       
 You can also provide the following optional arguments:       
-  3. `title` - Title to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.        
-  4. `subtitle` - This is similar to the title, but it goes below the title. If you would like more control use the `add_text_box()` function       
-  5. `displayOption` - I'm honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to `FitToPage` and other options include `FitToWidth` and `ActualSize`.
-
-
-In order to reference the page to add visuals to it later, you'll need to remember what order you created the pages in. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc. (I'm going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).        
+  2. `title` - Title to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.        
+  3. `subtitle` - This is similar to the title, but it goes below the title. If you would like more control use the `add_text_box()` function       
+  4. `displayOption` - I'm honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to `FitToPage` and other options include `FitToWidth` and `ActualSize`.
+       
      
 In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.      
    
 Here's the code to create a new (mostly blank) page:     
 
 ```python
-PBI.add_new_page(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
-	                   page_name = "Bee Colonies",
+
+page1 = my_dashboard.new_page(page_name = "Bee Colonies",
 	                   title= "The bees are in trouble!",
 	                   subtitle = "We're losing bee colonies")
 ```
@@ -64,23 +58,18 @@ Here's what the new page looks like in Power BI Desktop
    
 ## Add background image
 Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:     
-  1. `dashboard_path` - This is the path (relative or full) to the dashboard's project folder       
-  2. `page_id` - This is the identifier for the page you want to put the background image on. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc.        
-  3. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       
-       
-The first two arguments will be replaced by something like `myDashboard.page1.add_background_image()` when I convert the package to OOP.      
+  1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       
+           
     
 There are two additional optional arguments:     
-  4. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )    
-  5. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)      
+  2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )    
+  3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)      
       
 Here's some example code that adds a new background image to the Bee Colonies page:     
    
 ```python
      
-PBI.add_background_image(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
-	               page_id = "page2", 
-	               img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
+page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg", 
 	               alpha = 51,
 	               scaling_method = "Fit")
 	               
@@ -91,23 +80,36 @@ And here's what the dashboard looks like, now that we've added a background imag
 ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")      
 
 ## Add a dataset
-For most dashboards, you'll want to add visuals that help users visualize the data. Before you can start adding visuals, you'll need to add datasets. Here's how you can add a dataset locally stored on your computer as a csv file to your dashboard. 
+For most dashboards, you'll want to add visuals that help users visualize the data. Before you can start adding visuals, you'll need to add datasets. Here's how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You'll need to provide the following arguments:        
+  1. `data_path` = The location of the csv file that you want to add. Can be a relative or full path
+
+Here's some example code:    
+
+```python
+my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
+
+```
       
 ## Add a chart
 Here's how you can add a bar chart to your dashboard. To add the chart you'll need to provide the following required arguments:      
-  1. `dashboard_path` - This is the path (relative or full) to the dashboard's project folder       
-  2. `page_id` - This is the identifier for the page you want to put the background image on. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc.        
-  3. `chart_id` - Give your chart a unique id that you'll remember. (Power BI's default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id's in the dashboard. It will also be the name of the file inside the Power BI project folder. )      
-  4. `chart_type` - This is the type of chart to build on the page. I've only ever tried this with the `columnCart` option, the options I currently know about include: : `["columnChart","barChart", "clusteredBarChart"]`        
-  5. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.     
-  6. `chart_title` - Give your chart an informative title! This will display on the dashboard as part of the chart.    
-  7. `x_axis_title` - 
-  
+  1. `visual_id` - Give your chart a unique id that you'll remember. (Power BI's default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id's in the dashboard. It will also be the name of the file inside the Power BI project folder. )      
+  2. `chart_type` - This is the type of chart to build on the page. I've only ever tried this with the `columnCart` option, the options I currently know about include: : `["columnChart","barChart", "clusteredBarChart"]`        
+  3. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.     
+  4. `chart_title` - Give your chart an informative title! This will display on the dashboard as part of the chart.    
+  5. `x_axis_title` - This is the text that will label the x axis
+  6. `y_axis_title` - This is the text that will label the y axis
+  7. `x_axis_var` - This is the variable to use for the x axis
+  8. `y_axis_var` - This is the variable to use for the y axis
+  9. `y_axis_var_aggregation_type` - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)
+  10. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.
+  11. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.
+  12. `height` - Height of chart on the page
+  13. `width` - Width of chart on the page
+
+Here's some example code that adds a bar chart showing bee colonies lost per year: 
 
 ```python
-PBI.add_chart(dashboard_path = "C:/Users/Russ/PBI_projects/test_dashboard", 
-	      page_id = "page2", 
-	      chart_id = "colonies_lost_by_year", 
+page1.add_chart(visual_id = "colonies_lost_by_year", 
 	      chart_type = "columnChart",
 	      data_source = "colony",
 	      chart_title = "Number of Bee Colonies Lost per Year",
