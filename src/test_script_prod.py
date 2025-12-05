@@ -11,7 +11,7 @@ my_dashboard = Dashboard.create(dashboard_path)
 # Try to add datasets
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
 
-my_dashboard.add_local_csv(ata_path = "examples/data/wa_bigfoot_by_county.csv")
+my_dashboard.add_local_csv(data_path = "examples/data/wa_bigfoot_by_county.csv")
 
 my_dashboard.add_local_csv(data_path = "examples/data/sales_final_dataset.csv")
 
