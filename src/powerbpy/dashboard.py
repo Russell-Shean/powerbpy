@@ -63,7 +63,7 @@ class Dashboard:
 		self.sm_logical_id = str(uuid.uuid4())
 		
 		# define page name
-		self.page1_name = "page1"
+		#self.page1_name = "page1"
 		
 		# Define file paths ------------------------------------------------------------------------------------
 		# Outer level directory --------------------------------------------------------------------------------
@@ -91,8 +91,8 @@ class Dashboard:
 		self.pages_file_path = os.path.join(self.pages_folder, "pages.json")
 
 		
-		self.page1_folder = os.path.join(self.pages_folder, self.page1_name)
-		self.page1_json_path = os.path.join(self.page1_folder, "page.json")
+		#self.page1_folder = os.path.join(self.pages_folder, self.page1_name)
+		#self.page1_json_path = os.path.join(self.page1_folder, "page.json")
 		
 		## report_name.SemanticModel folder ----------------------------------------------------------------------------
 		self.semantic_model_folder_path = os.path.join(self.project_folder_path, f'{self.report_name}.SemanticModel')
@@ -126,11 +126,17 @@ class Dashboard:
 		os.rename(os.path.join(self.project_folder_path, "blank_template.SemanticModel"), os.path.join(self.project_folder_path, f'{self.report_name}.SemanticModel'))
 		os.rename(os.path.join(self.project_folder_path, "blank_template.pbip"), self.pbip_file_path)
 		
-		os.rename(
-			os.path.join(self.project_folder_path, 
-			f'{self.report_name}.Report/definition/pages/915e09e5204515bccac2'), 
-			os.path.join(self. project_folder_path, 
-			f'{self.report_name}.Report/definition/pages/{self.page1_name}'))
+		#os.rename(
+		#	os.path.join(self.project_folder_path, 
+		#	f'{self.report_name}.Report/definition/pages/915e09e5204515bccac2'), 
+		#	os.path.join(self. project_folder_path, 
+		#	f'{self.report_name}.Report/definition/pages/{self.page1_name}'))
+
+		# Delete the first page so that we can create a new page one with the new_page() method
+		default_first_page = os.path.join(self.project_folder_path, 
+		                                  f'{self.report_name}.Report/definition/pages/915e09e5204515bccac2')
+		
+		shutil.rmtree(default_first_page)
 			
 		# Modify files --------------------------------------------------------------------
 		## top level -----------------------------------------------------------------------
@@ -178,23 +184,23 @@ class Dashboard:
 		with open(self.pages_file_path,'r') as file:
 			pages_file = json.load(file)
 		
-		pages_file["pageOrder"] = [self.page1_name]
-		pages_file["activePageName"] = self.page1_name
+		pages_file["pageOrder"] = []
+		pages_file["activePageName"] = "page1"
 		
 		# write to file
 		with open(self.pages_file_path,'w') as file:
 			json.dump(pages_file, file, indent = 2)
 		
 		#### page 1 folder
-		with open(self.page1_json_path,'r') as file:
-			page1_json = json.load(file)
+		#with open(self.page1_json_path,'r') as file:
+		#	page1_json = json.load(file)
 		
 		
-		page1_json["name"] = self.page1_name
+		#page1_json["name"] = self.page1_name
 		
 		# write to file
-		with open(self.page1_json_path,'w') as file:
-			json.dump(page1_json, file, indent = 2)
+		#with open(self.page1_json_path,'w') as file:
+		#	json.dump(page1_json, file, indent = 2)
 		
 		## Semantic model folder ----------------------------------------------------------------
 		# .platform file
@@ -348,49 +354,50 @@ class Dashboard:
 				try:
 					with open(item_path, 'r', encoding='utf-8') as file:
 						lines = file.readlines()
-
-				in_measure = False
-				buffer = []
-
-				for line in lines:
-					stripped = line.strip()
-
-					# Capture description
-					if stripped.startswith("///"):
-						description_text = stripped.lstrip("/ ").strip()
-						capture_description = True
-
-					if stripped.startswith("measure ") and "=" in stripped:
-						# Start of new measure
-						in_measure = True
-						buffer = [stripped]
-						continue
-
-					if in_measure:
-						if stripped.startswith(starts_with):
-							# End of measure expression, get flattened version
-							join_buffer = ' '.join(buffer)
-
-							current_measure = {}
-
-							parts = join_buffer.split("=", 1)
-							current_measure["name"] = parts[0].strip()
-							current_measure["expression"] = parts[1].strip()
-							current_measure["table"] = table_name
-
-							# If description was just seen before measure
-							if capture_description:
-								current_measure["description"] = description_text
-							else:
-								current_measure["description"] = ""
-							capture_description = False
-
-							measures.append(current_measure)
+						
+					in_measure = False
+					buffer = []
+						
+					for line in lines:
+						stripped = line.strip()
+						
+						# Capture description
+						if stripped.startswith("///"):
+							description_text = stripped.lstrip("/ ").strip()
+							capture_description = True
 							
-							in_measure = False
-						else:
-							if stripped:
-								buffer.append(stripped)
+						if stripped.startswith("measure ") and "=" in stripped:
+							# Start of new measure
+							in_measure = True
+							buffer = [stripped]
+							continue
+							
+						if in_measure:
+							if stripped.startswith(starts_with):
+								# End of measure expression, get flattened version
+								join_buffer = ' '.join(buffer)
+								
+								current_measure = {}
+								
+								parts = join_buffer.split("=", 1)
+								current_measure["name"] = parts[0].strip()
+								current_measure["expression"] = parts[1].strip()
+								current_measure["table"] = table_name
+								
+								# If description was just seen before measure
+								if capture_description:
+									current_measure["description"] = description_text
+								else:
+									current_measure["description"] = ""
+								capture_description = False
+								
+								measures.append(current_measure)
+								
+								in_measure = False
+
+							else:
+								if stripped:
+									buffer.append(stripped)
 								
 								
 				except Exception as e:
