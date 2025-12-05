@@ -2,8 +2,11 @@ from powerbpy import Dashboard
 
 import os
 
+dashboard_path = os.path.join(os.getcwd(), "test_dashboard")
 
-my_dashboard = Dashboard(os.getcwd(), "test_dashboard")
+
+my_dashboard = Dashboard.create(dashboard_path)
+
 
 # Try to add datasets
 my_dashboard.add_local_csv( # data_path = "C:/Users/rshea/coding_projects/powerbpy/examples/data/colony.csv"
@@ -166,3 +169,9 @@ page4.add_sanky_chart(
               width = 615
               )
 
+
+# try loading the dashboard and adding a new page....
+my_dashboard2 = Dashboard.load(dashboard_path)
+
+
+page5 = my_dashboard2.new_page("Page 5?")
