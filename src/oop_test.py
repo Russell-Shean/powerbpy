@@ -83,13 +83,13 @@ page1.add_button(label = "Download Data",
   url_link = "https://www.google.com/")
 
 # navigate back to page 1 button
-page1.add_button(label = "Back to page 1",
-  visual_id = "page2_back_to_page1_button",
+page1.add_button(label = "Move to page 2",
+  visual_id = "page1_move_to_page1_button",
   height = 40,
   width = 131,
   x_position = 1000,
   y_position = 490,
-  page_navigation_link = "page1")
+  page_navigation_link = "page2")
 
 ## Add a map to page 3 ----------------------------------------------------------------------
 
