@@ -36,12 +36,10 @@ page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
 	                   subtitle = "By Washington Counties")
 
 ## page 3 ------------------------------------------------------------------------------------------------------
-page3 = my_dashboard.new_page(page_name = "Table Page"
-	) 
+page3 = my_dashboard.new_page(page_name = "Table Page") 
 
 # page 4 ----------------------------------------------------------------------------------------------------------
-page4 = my_dashboard.new_page(page_name = "Table Page 2"
-	) 
+page4 = my_dashboard.new_page(page_name = "Table Page 2") 
 
 
 page1.add_background_image(
