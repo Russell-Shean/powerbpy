@@ -358,15 +358,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Build dashboards</h1>
 <section id="create-a-new-dashboard" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-new-dashboard">Create a new dashboard</h2>
-<p>To create a new dashboard, you’ll need to provide two arguments:<br>
-1. <code>parent_dir</code> - This is the folder where you want to store your dashboard<br>
-2. <code>report_name</code> - This is the name you want to give your dashboard project.</p>
-<p>If you want to create a dashboard called <code>bigfoots</code> in a folder called <code>C:/Users/Russ/PBI_projects</code>, here’s what the code should look like</p>
+<p>To create a new dashboard, you’ll need to provide a file path to a folder as argument:</p>
+<p>If you want to create a dashboard called <code>test_dashboard</code> in a folder called <code>C:/Users/Russ/PBI_projects</code>, here’s what the code should look like</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the package</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> powerbpy <span class="im">as</span> PBI</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> powerbpy <span class="im">import</span> Dashboard</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>PBI.create_new_dashboard(report_location <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects"</span>, report_name <span class="op">=</span> <span class="st">"test_dashboard"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>my_dashboard <span class="op">=</span> Dashboard.create(<span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If everything worked, the function should have created the following files:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true" class="img-fluid" alt="image"></p>
 <p>You can open the <code>test_dashboard.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )</p>
@@ -374,17 +371,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="add-a-new-page" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-new-page">Add a new page</h2>
 <p>To add a new page, you’ll need to provide the following arguments:<br>
-1. <code>dashboard_path</code> - This is the file path to the folder where the dashboard is stored. This can be either an absolute or relative path. (This will eventually change when I change to OOP)<br>
-2. <code>page_name</code> - This is display name for the page you just created. (This is different from the page_id which is only used internally).</p>
+1. <code>page_name</code> - This is display name for the page. (This is different from the page_id).</p>
 <p>You can also provide the following optional arguments:<br>
-3. <code>title</code> - Title to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.<br>
-4. <code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function<br>
-5. <code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</p>
-<p>In order to reference the page to add visuals to it later, you’ll need to remember what order you created the pages in. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc. (I’m going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).</p>
+2. <code>title</code> - Title to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.<br>
+3. <code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function<br>
+4. <code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</p>
 <p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function.</p>
 <p>Here’s the code to create a new (mostly blank) page:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PBI.add_new_page(dashboard_path <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                       page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>page1 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                       title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                       subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here’s what the new page looks like in Power BI Desktop<br>
@@ -393,21 +388,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="add-background-image" class="level2">
 <h2 class="anchored" data-anchor-id="add-background-image">Add background image</h2>
 <p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required arguments:<br>
-1. <code>dashboard_path</code> - This is the path (relative or full) to the dashboard’s project folder<br>
-2. <code>page_id</code> - This is the identifier for the page you want to put the background image on. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc.<br>
-3. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
-<p>The first two arguments will be replaced by something like <code>myDashboard.page1.add_background_image()</code> when I convert the package to OOP.</p>
+1. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
 <p>There are two additional optional arguments:<br>
-4. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
-5. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
+2. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
+3. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PBI.add_background_image(dashboard_path <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                   page_id <span class="op">=</span> <span class="st">"page2"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                   img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                   alpha <span class="op">=</span> <span class="dv">51</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                   scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                   alpha <span class="op">=</span> <span class="dv">51</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                   scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And here’s what the dashboard looks like, now that we’ve added a background image:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -418,33 +408,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-dataset">Add a dataset</h2>
-<p>For most dashboards, you’ll want to add visuals that help users visualize the data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard.</p>
+<p>For most dashboards, you’ll want to add visuals that help users visualize the data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You’ll need to provide the following arguments:<br>
+1. <code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path</p>
+<p>Here’s some example code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/colony.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="add-a-chart" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-chart">Add a chart</h2>
 <p>Here’s how you can add a bar chart to your dashboard. To add the chart you’ll need to provide the following required arguments:<br>
-1. <code>dashboard_path</code> - This is the path (relative or full) to the dashboard’s project folder<br>
-2. <code>page_id</code> - This is the identifier for the page you want to put the background image on. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc.<br>
-3. <code>chart_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder. )<br>
-4. <code>chart_type</code> - This is the type of chart to build on the page. I’ve only ever tried this with the <code>columnCart</code> option, the options I currently know about include: : <code>["columnChart","barChart", "clusteredBarChart"]</code><br>
-5. <code>data_source</code> - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.<br>
-6. <code>chart_title</code> - Give your chart an informative title! This will display on the dashboard as part of the chart.<br>
-7. <code>x_axis_title</code> -</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PBI.add_chart(dashboard_path <span class="op">=</span> <span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>          page_id <span class="op">=</span> <span class="st">"page2"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>          chart_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>          chart_type <span class="op">=</span> <span class="st">"columnChart"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>          data_source <span class="op">=</span> <span class="st">"colony"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>          chart_title <span class="op">=</span> <span class="st">"Number of Bee Colonies Lost per Year"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>          x_axis_title <span class="op">=</span> <span class="st">"Year"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>          y_axis_title <span class="op">=</span> <span class="st">"Number of Colonies"</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>          x_axis_var <span class="op">=</span> <span class="st">"year"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>          y_axis_var <span class="op">=</span> <span class="st">"colony_lost"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>          y_axis_var_aggregation_type <span class="op">=</span> <span class="st">"Sum"</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>          x_position <span class="op">=</span> <span class="dv">23</span>,</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>          y_position <span class="op">=</span> <span class="dv">158</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>          height <span class="op">=</span> <span class="dv">524</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>          width <span class="op">=</span> <span class="dv">603</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+1. <code>visual_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder. )<br>
+2. <code>chart_type</code> - This is the type of chart to build on the page. I’ve only ever tried this with the <code>columnCart</code> option, the options I currently know about include: : <code>["columnChart","barChart", "clusteredBarChart"]</code><br>
+3. <code>data_source</code> - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.<br>
+4. <code>chart_title</code> - Give your chart an informative title! This will display on the dashboard as part of the chart.<br>
+5. <code>x_axis_title</code> - This is the text that will label the x axis 6. <code>y_axis_title</code> - This is the text that will label the y axis 7. <code>x_axis_var</code> - This is the variable to use for the x axis 8. <code>y_axis_var</code> - This is the variable to use for the y axis 9. <code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x) 10. <code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner. 11. <code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner. 12. <code>height</code> - Height of chart on the page 13. <code>width</code> - Width of chart on the page</p>
+<p>Here’s some example code that adds a bar chart showing bee colonies lost per year:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>page1.add_chart(visual_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          chart_type <span class="op">=</span> <span class="st">"columnChart"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          data_source <span class="op">=</span> <span class="st">"colony"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          chart_title <span class="op">=</span> <span class="st">"Number of Bee Colonies Lost per Year"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>          x_axis_title <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>          y_axis_title <span class="op">=</span> <span class="st">"Number of Colonies"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>          x_axis_var <span class="op">=</span> <span class="st">"year"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>          y_axis_var <span class="op">=</span> <span class="st">"colony_lost"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          y_axis_var_aggregation_type <span class="op">=</span> <span class="st">"Sum"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>          x_position <span class="op">=</span> <span class="dv">23</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          y_position <span class="op">=</span> <span class="dv">158</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>          height <span class="op">=</span> <span class="dv">524</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>          width <span class="op">=</span> <span class="dv">603</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
