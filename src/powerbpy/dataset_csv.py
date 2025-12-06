@@ -4,11 +4,8 @@ import keyring
 
 from azure.storage.filedatalake import DataLakeFileClient
 from azure.identity import InteractiveBrowserCredential
-from azure.storage.blob import BlobClient
 
 import pandas as pd
-
-from powerbpy.dashboard import Dashboard
 
 from powerbpy.data_set import _DataSet
 
@@ -103,7 +100,7 @@ class BlobCsv(_DataSet):
                  storage_account_key = None,
                  warnings = True):
 
-        super().__init__(data_path)
+        super().__init__(dashboard,data_path)
 
         # get the account name from the url
         m = re.search("(?<=https://).*(?=\\.blob)", account_url)

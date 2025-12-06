@@ -639,7 +639,7 @@ class ShapeMap(_Visual):
                     file.write(f'\t\t\tVAR bin{i +1}_LB = bin{i}_UB + 0.01\n' )
                     file.write(f'\t\t\tVAR bin{i+1}_UB = IF ( perc_{round(percentile_bin_breaks[i] * 100)} == perc_{round(percentile_bin_breaks[i + 1] * 100)} || perc_{round(percentile_bin_breaks[i + 1] * 100)} <= bin{i + 1}_LB, bin{i+1}_LB + 0.01, ROUND( perc_{round(percentile_bin_breaks[i + 1] * 100)}, 2) )\n')
 
-            file.write(f"\t\t\tRETURN\n")
+            file.write("\t\t\tRETURN\n")
             file.write(f'\t\t\tbin{bin_number}_LB & "-" & bin{bin_number}_UB\n')
             file.write(f'\t\tlineageTag: {str(uuid.uuid4())}\n')
 

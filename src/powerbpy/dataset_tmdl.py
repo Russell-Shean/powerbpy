@@ -4,7 +4,6 @@ import os
 
 import json
 
-from pathlib import Path
 from importlib import resources
 
 from powerbpy.data_set import _DataSet
