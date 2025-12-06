@@ -1,8 +1,5 @@
 import os
 
-from pathlib import Path
-from importlib import resources
-
 from powerbpy.dashboard import Dashboard
 
 class Page:

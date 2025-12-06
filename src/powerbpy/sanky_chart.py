@@ -326,7 +326,7 @@ class SankyChart(_Visual):
         if link_colors:
             # Check to make sure that the number of colors match the number of links
             if len(link_colors) != len(self.visual_json["visual"]["objects"]["links"]):
-                raise ValueError(f'If provided the number of link colors must be equal to the number of links')
+                raise ValueError('If provided the number of link colors must be equal to the number of links')
 
 
             for i in range(len(link_colors)):

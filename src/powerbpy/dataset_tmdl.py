@@ -7,10 +7,6 @@ import json
 from pathlib import Path
 from importlib import resources
 
-import pandas as pd
-
-from powerbpy.dashboard import Dashboard
-
 from powerbpy.data_set import _DataSet
 
 

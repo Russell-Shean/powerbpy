@@ -1,6 +1,6 @@
-from powerbpy import Dashboard
-
 import os
+
+from powerbpy import Dashboard
 
 dashboard_path = os.path.join(os.getcwd(), "test_dashboard")
 
@@ -21,13 +21,13 @@ my_dashboard.add_tmdl(data_path = None, add_default_datetable = True)
 # add pages
 
 page1 = my_dashboard.new_page(page_name = "Bee Colonies",
-	                   title= "The bees are in trouble!",
-	                   subtitle = "We're losing bee colonies")
+                     title= "The bees are in trouble!",
+                     subtitle = "We're losing bee colonies")
 
 
 page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
-	                   title= "Bigfoot sightings",
-	                   subtitle = "By Washington Counties")
+                     title= "Bigfoot sightings",
+                     subtitle = "By Washington Counties")
 
 ## page 3 ------------------------------------------------------------------------------------------------------
 page3 = my_dashboard.new_page(page_name = "Table Page")
@@ -38,22 +38,22 @@ page4 = my_dashboard.new_page(page_name = "Table Page 2")
 
 page1.add_background_image(
                    img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
-	               alpha = 51,
-	               scaling_method = "Fit")
+                 alpha = 51,
+                 scaling_method = "Fit")
 
 page1.add_chart(visual_id = "colonies_lost_by_year",
-	      chart_type = "columnChart",
-	      data_source = "colony",
-	      chart_title = "Number of Bee Colonies Lost per Year",
-	      x_axis_title = "Year",
-	      y_axis_title = "Number of Colonies",
-	      x_axis_var = "year",
-	      y_axis_var = "colony_lost",
-	      y_axis_var_aggregation_type = "Sum",
-	      x_position = 23,
-	      y_position = 158,
-	      height = 524,
-	      width = 603)
+        chart_type = "columnChart",
+        data_source = "colony",
+        chart_title = "Number of Bee Colonies Lost per Year",
+        x_axis_title = "Year",
+        y_axis_title = "Number of Colonies",
+        x_axis_var = "year",
+        y_axis_var = "colony_lost",
+        y_axis_var_aggregation_type = "Sum",
+        x_position = 23,
+        y_position = 158,
+        height = 524,
+        width = 603)
 
 # add a text box to the second page
 page1.add_text_box(text = "Explanatory text in the bottom right corner",
@@ -171,11 +171,11 @@ page5 = my_dashboard2.new_page("Page 5?")
 page4 = my_dashboard2.load_page("page4")
 
 page4.add_text_box(text= "A test text box",
-				 visual_id="test_box",
-				 height= 200,
-				 width=300,
-				 x_position= 900,
-				 y_position= 300)
+         visual_id="test_box",
+         height= 200,
+         width=300,
+         x_position= 900,
+         y_position= 300)
 
 # Get a list of pages
 pages = my_dashboard2.list_pages()
@@ -186,7 +186,7 @@ for page_id in pages:
     page = my_dashboard2.load_page(page_id)
     page.add_background_image(
                    img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
-	               alpha = 51,
-	               scaling_method = "Fit")
+                 alpha = 51,
+                 scaling_method = "Fit")
 
 print(pages)
