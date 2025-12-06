@@ -1,7 +1,8 @@
-import  os, json, re, shutil, uuid
+import os
+import json
+import shutil
+import uuid
 
-from powerbpy.dashboard import Dashboard
-from powerbpy.page import Page
 from powerbpy.visual import _Visual
 
 class ShapeMap(_Visual):
@@ -151,7 +152,7 @@ class ShapeMap(_Visual):
         shutil.copy(shape_file_path, registered_shape_path)
 
         # add new registered resource (the shape file) to report.json ----------------------------------------------
-        with open(self.dashboard.report_json_path,'r') as file:
+        with open(self.dashboard.report_json_path,'r', encoding="utf-8") as file:
             report_json = json.load(file)
 
 
@@ -168,7 +169,7 @@ class ShapeMap(_Visual):
 
 
         # write to file
-        with open(self.dashboard.report_json_path,'w') as file:
+        with open(self.dashboard.report_json_path,'w', encoding="utf-8") as file:
             json.dump(report_json, file, indent = 2)
 
 
@@ -518,7 +519,7 @@ class ShapeMap(_Visual):
                         "groupMode": "ScaleMode"
                         }}
 
-            with open(legend_box_path, "w") as file:
+            with open(legend_box_path, "w", encoding="utf-8") as file:
                 json.dump(legend_box_json, file, indent = 2)
 
             # Add a text box for each bin and make a legend that way
@@ -574,7 +575,7 @@ class ShapeMap(_Visual):
 
 
         # Write out the new json
-        with open(self.visual_json_path, "w") as file:
+        with open(self.visual_json_path, "w", encoding="utf-8") as file:
             json.dump(self.visual_json, file, indent = 2)
 
 
@@ -616,7 +617,7 @@ class ShapeMap(_Visual):
         */
 
         '''
-        with open(dataset_file_path, 'a') as file:
+        with open(dataset_file_path, 'a', encoding="utf-8") as file:
             file.write(f"\tmeasure 'Bin {bin_number} Range' =\n")
 
             for i in range(0, bin_number):
@@ -713,7 +714,7 @@ class ShapeMap(_Visual):
 
 
         # append a new measure for the total to the dataset
-        with open(dataset_file_path, 'a') as file:
+        with open(dataset_file_path, 'a', encoding="utf-8") as file:
             #file.write("\n\n --------------   Begin auto generated stuff -------------------\n\n")
             file.write(f"\tmeasure 'Measure Value' = CALCULATE ( SUM ( {dataset_name}[{color_var}]{filtering_dax} ))\n")
             file.write(f'\t\tlineageTag: {str(uuid.uuid4())}\n')
@@ -843,5 +844,3 @@ class ShapeMap(_Visual):
                 file.write(f'\t\t\t\tCALCULATE ( PERCENTILE.INC ({dataset_name}[{color_var}], {percentile_bin_breaks[i]} ), REMOVEFILTERS({dataset_name}[{location_var}]){filtering_dax}  )\n\t\t\t```\n')
                 file.write(f"\t\tlineageTag: {str(uuid.uuid4())}\n\n")
                 file.write('\t\tannotation PBI_FormatHint = {"isGeneralNumber":true}\n\n')
-
-

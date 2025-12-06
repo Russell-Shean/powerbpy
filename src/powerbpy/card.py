@@ -1,9 +1,5 @@
-import os
 import json
-import re
 
-from powerbpy.dashboard import Dashboard
-from powerbpy.page import Page
 from powerbpy.visual import _Visual
 
 class Card(_Visual):
@@ -21,7 +17,6 @@ class Card(_Visual):
              z_position,
              tab_order,
              visual_title,
-             text_align,
              font_weight,
              font_size,
              font_color,
@@ -54,8 +49,6 @@ class Card(_Visual):
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         visual_title: int
             An optional title to add to the card.
-        text_align: str
-            How would you like the text aligned (available options: "left", "right", "center")
         font_weight: str
             This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
         font_size: int

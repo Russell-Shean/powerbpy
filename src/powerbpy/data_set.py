@@ -1,7 +1,10 @@
-import pandas as pd
-import os, uuid, json, re, shutil
+import os
+import uuid
+import json
+import re
+import shutil
 
-#import powerbpy
+import pandas as pd
 
 from powerbpy.dashboard import Dashboard
 
@@ -47,7 +50,7 @@ class _DataSet:
 
 
         # add dataset to diagramLayout file ---------------------------------------------------------------------
-        with open(self.dashboard.diagram_layout_path,'r') as file:
+        with open(self.dashboard.diagram_layout_path,'r', encoding="utf-8") as file:
             self.diagram_layout = json.load(file)
 
         # add all this junk to describe the table's "nodes"
@@ -68,14 +71,14 @@ class _DataSet:
                     )
 
         # write to file
-        with open(self.dashboard.diagram_layout_path,'w') as file:
+        with open(self.dashboard.diagram_layout_path,'w', encoding="utf-8") as file:
             json.dump(self.diagram_layout, file, indent = 2)
 
         # update the model file with the dataset--------------------------------------------------------------------
         # loop through all the lines in the model file
         # to find that part that lists the order of the datasets
-        with open(self.dashboard.temp_model_path, 'w') as tmp:
-            with open(self.dashboard.model_path, "r") as file:
+        with open(self.dashboard.temp_model_path, 'w', encoding="utf-8") as tmp:
+            with open(self.dashboard.model_path, "r", encoding="utf-8") as file:
                 for line in file.readlines():
 
                     # check to see if the line is the one we want
@@ -131,7 +134,7 @@ class _DataSet:
         self.dataset.rename( columns={'Unnamed: 0':'probably_an_index_column'}, inplace=True )
 
         # sink inital header stuff about dataset
-        with open(self.dataset_file_path, 'w') as file:
+        with open(self.dataset_file_path, 'w', encoding="utf-8") as file:
             file.write(f'table {self.dataset_name}\n\tlineageTag: {self.dataset_id}\n\n')
 
         # read in the dataset
@@ -190,7 +193,7 @@ class _DataSet:
                 # record more details in a different set
                 self.col_deets.append(f'{{"{col_for_m}", type number}}')
 
-                with open(self.dataset_file_path, 'a') as file:
+                with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
                     file.write(f"\tcolumn '{col}'\n")
                     file.write('\t\tdataType: double\n')
                     file.write(f'\t\tlineageTag: {col_id}\n')
@@ -207,7 +210,7 @@ class _DataSet:
                 self.col_deets.append(f'{{"{col_for_m}", type text}}')
 
 
-                with open(self.dataset_file_path, 'a') as file:
+                with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
                     file.write(f"\tcolumn '{col}'\n")
                     file.write('\t\tdataType: string\n')
                     file.write(f'\t\tlineageTag: {col_id}\n')
@@ -224,7 +227,7 @@ class _DataSet:
                 # record more details in a different set
                 self.col_deets.append(f'{{"{col_for_m}", type date}}')
 
-                with open(self.dataset_file_path, 'a') as file:
+                with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
                     file.write(f"\tcolumn '{col}'\n")
                     file.write(f'\t\tdataType: dateTime\n')
                     file.write(f'\t\tformatString: Long Date\n')
@@ -239,4 +242,3 @@ class _DataSet:
         # create a dictionary containing col_deets and col_names
         self.col_attributes = {"col_deets":self.col_deets, "col_names": self.col_names}
         return self.col_attributes
-

@@ -6,14 +6,13 @@ hacky stuff messing with the html after it's rendered...
 
 import shutil
 
-import bs4
 from bs4 import BeautifulSoup as bs
 
-old_home_page = "docs/docs/index.html"
-new_home_page = "output1.html"
+OLD_HOME_PAGE = "docs/docs/index.html"
+NEW_HOME_PAGE = "output1.html"
 
 # open the newly rendered home page
-with open(old_home_page, "r", encoding="utf-8") as file:
+with open(OLD_HOME_PAGE, "r", encoding="utf-8") as file:
 
     # parse the html
     soup = bs(file.read(), "html.parser")
@@ -24,12 +23,8 @@ with open(old_home_page, "r", encoding="utf-8") as file:
 
 
 # write the new file out
-with open(new_home_page, "w", encoding="utf-8") as file:
+with open(NEW_HOME_PAGE, "w", encoding="utf-8") as file:
     file.write(str(soup))
 
 # overwrite the old file with the new file
-shutil.move(new_home_page, old_home_page)
-
-
-
-
+shutil.move(NEW_HOME_PAGE, OLD_HOME_PAGE)
