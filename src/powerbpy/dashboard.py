@@ -5,6 +5,8 @@ import json
 
 from importlib import resources
 
+import pandas as pd
+
 class Dashboard:
     '''A python class used to model a power BI dashboard project
 

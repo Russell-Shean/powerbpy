@@ -1,6 +1,6 @@
-import keyring
 import getpass
 import re
+import keyring
 
 from azure.storage.filedatalake import DataLakeFileClient
 from azure.identity import InteractiveBrowserCredential
@@ -208,7 +208,7 @@ class BlobCsv(_DataSet):
             file.write(f'\t\t\t\t\t#"{blob_name}1" = Source{{[Name="{blob_name}"]}}[Data],\n')
             file.write(f'\t\t\t\t\t#"https://{account_name} blob core windows net/{blob_name}/_{data_path.replace(".csv", "")} csv" = #"{blob_name}1"{{[#"Folder Path"="{account_url}/{blob_name}/",Name="{self.data_path}"]}}[Content],\n')
             file.write(f'\t\t\t\t\t#"Imported CSV" = Csv.Document(#"https://{account_name} blob core windows net/{blob_name}/_{data_path.replace(".csv", "")} csv",[Delimiter=",", Columns={len(self.dataset.columns)}, Encoding=1252, QuoteStyle=QuoteStyle.None]),\n')
-            file.write(f'\t\t\t\t\t#"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),\n')
+            file.write('\t\t\t\t\t#"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),\n')
             file.write(f'\t\t\t\t\t#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{{ formatted_column_details }}})\n')
             file.write('\t\t\t\tin\n\t\t\t\t\t#"Changed Type"\n\n')
             file.write('\tchangedProperty = Name\n\n\tannotation PBI_ResultType = Table\n\n\tannotation PBI_NavigationStepName = Navigation\n\n')

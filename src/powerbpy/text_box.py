@@ -1,9 +1,5 @@
-import os
 import json
-import re
 
-from powerbpy.dashboard import Dashboard
-from powerbpy.page import Page
 from powerbpy.visual import _Visual
 
 
