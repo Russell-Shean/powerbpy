@@ -1,13 +1,17 @@
-from powerbpy.dashboard import Dashboard
-
-from powerbpy.data_set import _DataSet
+import keyring
+import getpass
+import re
 
 from azure.storage.filedatalake import DataLakeFileClient
 from azure.identity import InteractiveBrowserCredential
 from azure.storage.blob import BlobClient
 
 import pandas as pd
-import keyring, getpass, re, os, uuid, warnings
+
+from powerbpy.dashboard import Dashboard
+
+from powerbpy.data_set import _DataSet
+
 
 class LocalCsv(_DataSet):
     def __init__(self,
@@ -35,7 +39,7 @@ class LocalCsv(_DataSet):
         #print(f"Replacement values:\n {replacement_values}\n\n")
         #print(f"formatted_column_details values:\n {formatted_column_details}\n\n")
 
-        with open(self.dataset_file_path, 'a') as file:
+        with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
             file.write(f'\tpartition {self.dataset_name} = m\n')
             file.write('\t\tmode: import\n\t\tsource =\n\t\t\t\tlet\n')
             file.write(f'\t\t\t\t\tSource = Csv.Document(File.Contents("{self.data_path_reversed}"),[Delimiter=",", Columns={len(self.dataset.columns)}, Encoding=1252, QuoteStyle=QuoteStyle.None]),\n')
@@ -197,7 +201,7 @@ class BlobCsv(_DataSet):
         # define tricky bits
         formatted_column_details = ', '.join(map(str, self.col_attributes["col_deets"]))
 
-        with open(self.dataset_file_path, 'a') as file:
+        with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
             file.write(f'\tpartition {self.dataset_name} = m\n')
             file.write('\t\tmode: import\n\t\tsource =\n\t\t\t\tlet\n')
             file.write(f'\t\t\t\t\tSource = AzureStorage.Blobs("{account_url}"),\n')
@@ -208,10 +212,3 @@ class BlobCsv(_DataSet):
             file.write(f'\t\t\t\t\t#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{{ formatted_column_details }}})\n')
             file.write('\t\t\t\tin\n\t\t\t\t\t#"Changed Type"\n\n')
             file.write('\tchangedProperty = Name\n\n\tannotation PBI_ResultType = Table\n\n\tannotation PBI_NavigationStepName = Navigation\n\n')
-
-
-
-
-
-
-

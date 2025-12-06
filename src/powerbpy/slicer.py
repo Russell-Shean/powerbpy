@@ -1,9 +1,5 @@
-import os
 import json
-import re
 
-from powerbpy.dashboard import Dashboard
-from powerbpy.page import Page
 from powerbpy.visual import _Visual
 
 class Slicer(_Visual):
@@ -215,5 +211,5 @@ class Slicer(_Visual):
             ]
 
         # Write out the new json
-        with open(self.visual_json_path, "w") as file:
+        with open(self.visual_json_path, "w", encoding="utf-8") as file:
             json.dump(self.visual_json, file, indent = 2)

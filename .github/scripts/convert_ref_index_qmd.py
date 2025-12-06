@@ -1,5 +1,8 @@
 import shutil
 
+OG_PATH = "docs/reference/index.qmd"
+TITLE = "Power Bpy - Function Reference"
+
 def add_html_title(og_path, title):
     '''
     This file switches out the code highlighting blocks because Github and pandoc use different code highlighting services.
@@ -30,6 +33,4 @@ def add_html_title(og_path, title):
     shutil.move(temp_path, og_path)
 
 # Change titles
-og_path = "docs/reference/index.qmd"
-title = "Power Bpy - Function Reference"
-add_html_title(og_path, title)
+add_html_title(og_path=OG_PATH, title=TITLE)

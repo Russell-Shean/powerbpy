@@ -1,12 +1,6 @@
 import os
-import uuid
 import shutil
 import json
-
-from pathlib import Path
-from importlib import resources
-
-from powerbpy.page import Page
 
 class BackgroundImage:
 
@@ -59,7 +53,7 @@ class BackgroundImage:
                                     "type": "Image"
                                    }
                                 )
-                                
+
         # write to file
         with open(self.dashboard.report_json_path,'w', encoding="utf-8") as file:
             json.dump(report_json, file, indent = 2)

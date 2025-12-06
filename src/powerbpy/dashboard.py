@@ -3,7 +3,6 @@ import uuid
 import shutil
 import json
 
-from pathlib import Path
 from importlib import resources
 
 class Dashboard:
@@ -238,7 +237,7 @@ class Dashboard:
                  page_name,
                  title = None,
                  subtitle = None,
-                 displayOption = 'FitToPage'):
+                 display_option = 'FitToPage'):
         '''Create a new blank dashboard page
 
         Parameters
@@ -249,7 +248,7 @@ class Dashboard:
             Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
         subtitle: str
             Subtitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
-        displayOption: str
+        display_option: str
             Default way to display the page for end users (View -> Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize
 
         Returns
@@ -303,7 +302,7 @@ class Dashboard:
         page_json = {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
                       "name": page_id,
                       "displayName": page_name,
-                      "displayOption": displayOption,
+                      "displayOption": display_option,
                       "height": 720,
                       "width": 1280,
                       "objects":{}}
@@ -513,7 +512,7 @@ class Dashboard:
         self.datasets.append(dataset)
         return dataset
 
-    def get_measures_list(dashboard_path,
+    def get_measures_list(self,
                       export_type = 'markdown',
                       output_file_path = "",
                       starts_with = 'formatString:'):

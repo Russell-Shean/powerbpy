@@ -8,11 +8,11 @@ We're also going to append some Javascript to:
     3. Remove quarto figure captions
 '''
 
-og_readme_path = "README.md"
-index_qmd_path = "docs/index.qmd"
+OG_REAMDE_PATH = "README.md"
+INDEX_QMD_PATH = "docs/index.qmd"
 
 
-with open(index_qmd_path, "w", encoding="utf-8") as new_file:
+with open(INDEX_QMD_PATH, "w", encoding="utf-8") as new_file:
     new_file.write("---\n")
     new_file.write('Title: "Power Bpy"\n')
 
@@ -43,11 +43,9 @@ with open(index_qmd_path, "w", encoding="utf-8") as new_file:
 
     # write the old file to the new file
     # after all the title stuff above
-    with open(og_readme_path, "r", encoding="utf-8") as old_file:
+    with open(OG_REAMDE_PATH, "r", encoding="utf-8") as old_file:
         for line in old_file.readlines():
 
             # Replace the code highlighting language
             line = line.replace("batchfile", "dosbat")
             new_file.write(line)
-
-

@@ -1,13 +1,18 @@
+import shutil
+import re
+import os
 
-from powerbpy.dashboard import Dashboard
-
-from powerbpy.data_set import _DataSet
+import json
 
 from pathlib import Path
 from importlib import resources
 
 import pandas as pd
-import keyring, getpass, shutil, re, os, uuid, warnings, json
+
+from powerbpy.dashboard import Dashboard
+
+from powerbpy.data_set import _DataSet
+
 
 class Tmdl(_DataSet):
     def __init__(self,
@@ -78,7 +83,7 @@ class Tmdl(_DataSet):
         # read the whole table.tmdl file in andmake it a giant blob for regex
         file_content = ""
 
-        with open(data_path) as file:
+        with open(data_path, encoding="utf-8") as file:
             # list comprehension
             # all lines have all the white spaces and \n and \t striped
             # They're then joined together using the .join function and ~ as a seperator
@@ -92,7 +97,7 @@ class Tmdl(_DataSet):
 
 
         # add dataset to diagramLayout file ---------------------------------------------------------------------
-        with open(self.dashboard.diagram_layout_path,'r') as file:
+        with open(self.dashboard.diagram_layout_path,'r', encoding="utf-8") as file:
             self.diagram_layout = json.load(file)
 
         # add all this junk to describe the table's "nodes"
@@ -113,14 +118,14 @@ class Tmdl(_DataSet):
                     )
 
         # write to file
-        with open(self.dashboard.diagram_layout_path,'w') as file:
+        with open(self.dashboard.diagram_layout_path,'w', encoding="utf-8") as file:
             json.dump(self.diagram_layout, file, indent = 2)
 
         # update the model file with the dataset--------------------------------------------------------------------
         # loop through all the lines in the model file
         # to find that part that lists the order of the datasets
-        with open(self.dashboard.temp_model_path, 'w') as tmp:
-            with open(self.dashboard.model_path, "r") as file:
+        with open(self.dashboard.temp_model_path, 'w', encoding="utf-8") as tmp:
+            with open(self.dashboard.model_path, "r", encoding="utf-8") as file:
                 for line in file.readlines():
 
                     # check to see if the line is the one we want

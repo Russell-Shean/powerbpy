@@ -8,8 +8,6 @@ parser = argparse.ArgumentParser("Update semantic version in pyproject.toml file
 parser.add_argument("release_tag", help="This should be the release tag provided by githb actions as: ${{ github.event.release.tag_name }}.", type=str)
 args = parser.parse_args()
 
-
-
 with open("./pyproject3.toml", "w", encoding="utf-8") as tmp:
   with open("./pyproject.toml", "r", encoding="utf-8") as file:
     for line in file.readlines():
@@ -40,5 +38,3 @@ with open("./pyproject3.toml", "w", encoding="utf-8") as tmp:
       tmp.write(line)
 
 shutil.move("./pyproject3.toml", "./pyproject.toml")
-
-
