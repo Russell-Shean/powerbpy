@@ -59,7 +59,7 @@ class _Visual:
 
             if var is not None:
                 if type(var) is not int:
-                    raise ValueError(f"Sorry! The {var_name} variable must be an integer. Please confirm you didn't put quotes around a number")
+                    raise ValueError(f"Sorry! The {var} variable must be an integer. Please confirm you didn't put quotes around a number")
 
 
         # Define the generic json for the visual

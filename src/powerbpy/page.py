@@ -179,7 +179,6 @@ class Page:
                  tab_order=-1001,
                  parent_group_id=None,
                  alt_text="A text box",
-                 text_align = "left",
                  font_weight = "bold",
                  font_size=32,
                  font_color="#000000",
@@ -206,8 +205,6 @@ class Page:
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order: int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        text_align: str
-            How would you like the text aligned (available options: "left", "right", "center")
         font_weight: str
             This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
         font_size: int
@@ -237,7 +234,6 @@ class Page:
                  tab_order=tab_order,
                  parent_group_id=parent_group_id,
                  alt_text=alt_text,
-                 text_align=text_align,
                  font_weight=font_weight,
                  font_size=font_size,
                  font_color=font_color,

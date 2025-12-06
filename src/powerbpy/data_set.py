@@ -229,8 +229,8 @@ class _DataSet:
 
                 with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
                     file.write(f"\tcolumn '{col}'\n")
-                    file.write(f'\t\tdataType: dateTime\n')
-                    file.write(f'\t\tformatString: Long Date\n')
+                    file.write('\t\tdataType: dateTime\n')
+                    file.write('\t\tformatString: Long Date\n')
                     file.write(f'\t\tlineageTag: {col_id}\n')
                     file.write('\t\tsummarizeBy: none\n')
                     file.write(f'\t\tsourceColumn: {col}\n\n')
