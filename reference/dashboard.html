@@ -778,11 +778,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="powerbpy.dashboard.Dashboard.get_measures_list" class="level5">
 <h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</h5>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.get_measures_list(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    dashboard_path,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    export_type<span class="op">=</span><span class="st">'markdown'</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    output_file_path<span class="op">=</span><span class="st">''</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    export_type<span class="op">=</span><span class="st">'markdown'</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    output_file_path<span class="op">=</span><span class="st">''</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Returns a list of DAX measures in the report</p>
 <section id="parameters-5" class="level6 doc-section doc-section-parameters">
 <h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-5">Parameters</h6>
@@ -1026,14 +1025,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    page_name,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    displayOption<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    display_option<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create a new blank dashboard page</p>
 <section id="parameters-9" class="level6 doc-section doc-section-parameters">
 <h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-9">Parameters</h6>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 6%">
+<col style="width: 7%">
 <col style="width: 3%">
 <col style="width: 82%">
 <col style="width: 6%">
@@ -1066,7 +1065,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>None</code></td>
 </tr>
 <tr class="even">
-<td>displayOption</td>
+<td>display_option</td>
 <td></td>
 <td>Default way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize</td>
 <td><code>'FitToPage'</code></td>
