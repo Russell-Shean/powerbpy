@@ -1,3 +1,2 @@
-from .dashboard import *
-from .page import *
-from .background_image import *
+from .dashboard import Dashboard, 
+from .page import Page

@@ -480,7 +480,6 @@ class Page:
              z_position = z_position,
              tab_order=tab_order,
              visual_title = card_title,
-             text_align = text_align,
              font_weight = font_weight,
              font_size=font_size,
              font_color=font_color,
