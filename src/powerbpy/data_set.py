@@ -221,9 +221,6 @@ class _DataSet:
             # dates ----------------------------------------------
             if self.dataset[col].dtype == "datetime64[ns]":
 
-                # create a relationship id
-                relationship_id = str(uuid.uuid4())
-
                 # record more details in a different set
                 self.col_deets.append(f'{{"{col_for_m}", type date}}')
 
