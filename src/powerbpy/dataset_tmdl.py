@@ -9,7 +9,7 @@ from importlib import resources
 from powerbpy.data_set import _DataSet
 
 
-class Tmdl(_DataSet):
+class Tmdl:
     def __init__(self,
                  dashboard,
                  data_path = None,
