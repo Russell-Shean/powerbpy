@@ -8,6 +8,7 @@ class TextBox(_Visual):
 
     def __init__(self,
                  page,
+                 *,
                  text,
 
                  visual_id,

@@ -7,6 +7,7 @@ class Chart(_Visual):
 
     def __init__(self,
                  page,
+                 *,
                  visual_id,
                  chart_type,
                  data_source,
