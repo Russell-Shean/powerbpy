@@ -7,6 +7,7 @@ class Card(_Visual):
 
     def __init__(self,
                  page,
+                 *,
                  data_source,
              measure_name,
              visual_id,

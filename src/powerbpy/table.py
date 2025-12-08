@@ -7,6 +7,7 @@ class Table(_Visual):
 
     def __init__(self,
                  page,
+                 *,
                        visual_id,
                             data_source,
                             variables,

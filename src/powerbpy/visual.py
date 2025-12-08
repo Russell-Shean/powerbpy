@@ -5,6 +5,7 @@ from powerbpy.page import Page
 class _Visual:
     def __init__(self,
                  page,
+                 *,
                  visual_id,
                   height,
                   width,

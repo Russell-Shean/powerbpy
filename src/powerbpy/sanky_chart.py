@@ -7,6 +7,7 @@ class SankyChart(_Visual):
 
     def __init__(self,
                  page,
+                 *,
                          visual_id,
                             data_source,
                             starting_var,
