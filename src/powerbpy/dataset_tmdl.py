@@ -129,7 +129,7 @@ class Tmdl:
 
                         # execute the code (including local and global scopes)
                         # source: https://stackoverflow.com/questions/41100196/exec-not-working-inside-function-python3-x
-                        query_order_list = ast.literal_eval(m.group(0))  
+                        query_order_list = ast.literal_eval(m.group(0))
 
                         # add the dataset using python method then write back  to line
                         query_order_list.append(self.dataset_name)

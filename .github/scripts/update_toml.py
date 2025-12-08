@@ -9,32 +9,32 @@ parser.add_argument("release_tag", help="This should be the release tag provided
 args = parser.parse_args()
 
 with open("./pyproject3.toml", "w", encoding="utf-8") as tmp:
-  with open("./pyproject.toml", "r", encoding="utf-8") as file:
-    for line in file.readlines():
+    with open("./pyproject.toml", "r", encoding="utf-8") as file:
+      for line in file.readlines():
 
-      # look for the version line and extract version
-      version_match = re.search('(?<=version = ").*(?=")', line)
+        # look for the version line and extract version
+        version_match = re.search('(?<=version = ").*(?=")', line)
 
-      # if a version was found
-      if version_match is not None:
-        print(line)
-        print(version_match.group(0))
+        # if a version was found
+        if version_match is not None:
+          print(line)
+          print(version_match.group(0))
 
-        # add one to the old version
-        print(version_match.group(0))
-        ending_number = re.search("\\d+$" , version_match.group(0))
-        print(ending_number.group(0))
+          # add one to the old version
+          print(version_match.group(0))
+          ending_number = re.search("\\d+$" , version_match.group(0))
+          print(ending_number.group(0))
 
-        new_ending_number = int(ending_number.group(0)) + 1
-        print(new_ending_number)
+          new_ending_number = int(ending_number.group(0)) + 1
+          print(new_ending_number)
 
-        release_tag = args.release_tag
-        release_tag = release_tag.replace("v", "")
+          release_tag = args.release_tag
+          release_tag = release_tag.replace("v", "")
 
-        line = line.replace(version_match.group(0), release_tag)
-        print(line)
+          line = line.replace(version_match.group(0), release_tag)
+          print(line)
 
 
-      tmp.write(line)
+        tmp.write(line)
 
 shutil.move("./pyproject3.toml", "./pyproject.toml")

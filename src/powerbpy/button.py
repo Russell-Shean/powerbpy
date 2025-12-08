@@ -74,11 +74,8 @@ class Button(_Visual):
                   background_color_alpha=background_color_alpha)
 
         # checks --------------------------------------------------------------------------------------------------------------
-        if type(alpha) is not int:
-            raise TypeError("alpha (the transparency value) must be an integer between 1-100")
-
-        if (alpha > 100) or (alpha < 0):
-            raise ValueError("alpha (the transparency value) must be an integer between 1-100")
+        if not isinstance(alpha, int) or not (1 <= alpha <= 100):
+            raise ValueError("alpha must be an integer between 1–100")
 
         # make sure they're not trying to make the button do two things at once
         if page_navigation_link is not None and url_link is not None:

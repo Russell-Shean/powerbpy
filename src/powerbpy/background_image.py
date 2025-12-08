@@ -14,12 +14,8 @@ class BackgroundImage:
         self.dashboard = page.dashboard
 
 
-
-        if type(alpha) is not int:
-            raise TypeError("alpha (the transparency value) must be an integer between 1-100")
-
-        if (alpha > 100) or (alpha < 0):
-            raise ValueError("alpha (the transparency value) must be an integer between 1-100")
+        if not isinstance(alpha, int) or not (1 <= alpha <= 100):
+            raise ValueError("alpha must be an integer between 1–100")
 
         # file paths
         # Convert dashboard path to an absolute path if a relative path was provided
