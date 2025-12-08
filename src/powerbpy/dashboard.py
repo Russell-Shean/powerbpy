@@ -30,6 +30,8 @@ class Dashboard:
     - Time intelligence and relationship autodection are turned off by default
 
     '''
+    # pylint: disable=too-many-instance-attributes
+    # pylint: disable=import-outside-toplevel
 
     def __init__(self,
                  file_path):
@@ -450,6 +452,7 @@ class Dashboard:
         return dataset
 
     def add_blob_csv(self,
+                *,
                  data_path,
                  account_url,
                  blob_name,
@@ -514,6 +517,7 @@ class Dashboard:
         self.datasets.append(dataset)
         return dataset
 
+    
     def get_measures_list(self,
                       export_type = 'markdown',
                       output_file_path = "",
@@ -533,10 +537,16 @@ class Dashboard:
         -------
         Returns a list of DAX measures used in the report in the specified format (see param export_type): the measure name, its definition, the table it belongs to, and the description (if available); prints "Measures not found" otherwise
         '''
+        # pylint: disable=too-many-locals
+        # pylint: disable=broad-exception-caught
+        # pylint: disable=too-many-nested-blocks
+        # pylint: disable=too-many-branches, too-many-statements
 
         items = os.listdir(self.tables_folder)
 
         measures = []
+
+        description_text = ""
         capture_description = False
 
         for item in items:
