@@ -517,7 +517,7 @@ class Dashboard:
         self.datasets.append(dataset)
         return dataset
 
-    
+
     def get_measures_list(self,
                       export_type = 'markdown',
                       output_file_path = "",

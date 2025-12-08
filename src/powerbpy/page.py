@@ -6,6 +6,7 @@ class Page:
     '''A python class used to model a power BI dashboard page
 
     '''
+    # pylint: disable=import-outside-toplevel
 
     # Get everything else from the dashboard
     # Attribute delegation (inherit parent instance attributes)
