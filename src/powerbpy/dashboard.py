@@ -455,7 +455,7 @@ class Dashboard:
                  blob_name,
                  tenant_id = None,
                  use_saved_storage_key = False,
-                 SAS_url = None,
+                 sas_url = None,
                  storage_account_key = None,
                  warnings = True):
 
@@ -473,7 +473,7 @@ class Dashboard:
             The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
         use_saved_storage_key: bool
             This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.
-        SAS_url: str
+        sas_url: str
             A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature"
         storage_account_key: str
             It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
@@ -502,14 +502,14 @@ class Dashboard:
         from powerbpy.dataset_csv import BlobCsv
 
         dataset = BlobCsv(self,
-                 data_path,
-                 account_url,
-                 blob_name,
-                 tenant_id = None,
-                 use_saved_storage_key = False,
-                 SAS_url = None,
-                 storage_account_key = None,
-                 warnings = True)
+                 data_path = data_path,
+                 account_url = account_url,
+                 blob_name = blob_name,
+                 tenant_id = tenant_id,
+                 use_saved_storage_key = use_saved_storage_key,
+                 sas_url = sas_url,
+                 storage_account_key = storage_account_key,
+                 warnings = warnings)
 
         self.datasets.append(dataset)
         return dataset
