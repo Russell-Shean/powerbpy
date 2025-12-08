@@ -63,7 +63,7 @@ class BlobCsv(_DataSet):
         The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
     use_saved_storage_key: bool
         This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.
-    SAS_url: str
+    sas_url: str
         A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature"
     storage_account_key: str
         It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
@@ -113,8 +113,8 @@ class BlobCsv(_DataSet):
             if storage_account_key is not None:
                 warnings.warn("DO NOT HARD CODE CREDENTIALS!! Only provide a storage_account_key argument if you're securely retreiving it from something like azure key vault. If this code is running locally set use_saved_storage_key to true instead. Set warnings = False to disable this warning. ")
 
-        if SAS_url is not None and use_saved_storage_key is True:
-            raise ValueError("You can't save an azure storage key to your system's credential manager when providing an SAS_url. Try changing use_saved_storage_key to False and try again")
+        if sas_url is not None and use_saved_storage_key is True:
+            raise ValueError("You can't save an azure storage key to your system's credential manager when providing an sas_url. Try changing use_saved_storage_key to False and try again")
 
 
         if use_saved_storage_key is False:
@@ -137,10 +137,10 @@ class BlobCsv(_DataSet):
             download = file_handle.download_file()
             self.dataset = pd.read_csv(download)
 
-        elif SAS_url is not None:
+        elif sas_url is not None:
 
             print("You provided an SAS url!")
-            self.dataset = pd.read_csv(SAS_url)
+            self.dataset = pd.read_csv(sas_url)
 
 
         else:
@@ -157,7 +157,7 @@ class BlobCsv(_DataSet):
                     add_key = input("Would you like to add an Azure Storage Container Key to your operating system's default credential manager?(y/n): ")
 
                     if add_key == "n":
-                        raise ValueError("Loading files from azure requires using either an account_key, a SAS_url, or an interactive browser login.\nPlease change use_saved_storage_key to 'True', allow the system to store an azure_account_key, or provide an SAS_url")
+                        raise ValueError("Loading files from azure requires using either an account_key, a sas_url, or an interactive browser login.\nPlease change use_saved_storage_key to 'True', allow the system to store an azure_account_key, or provide an sas_url")
 
                     if add_key == "y":
                         user_provided_key =  getpass.getpass(prompt="Please provide an Azure Storage Account Key: ", stream=None)
