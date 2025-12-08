@@ -41,6 +41,7 @@ class Page:
 
     def add_background_image(self,
                              img_path,
+                             *,
                              alpha = 51,
                              scaling_method = "Fit"):
 
@@ -86,6 +87,7 @@ class Page:
         return background_image
 
     def add_chart(self,
+                  *,
                   visual_id,
                  chart_type,
                  data_source,
@@ -169,6 +171,7 @@ class Page:
         return chart
 
     def add_text_box(self,
+                     *,
                  text,
                  visual_id,
                  height,
@@ -244,6 +247,7 @@ class Page:
         return text_box
 
     def add_button(self,
+                    *,
                  label,
                  visual_id,
                  height,
@@ -317,6 +321,7 @@ class Page:
         return button
 
     def add_slicer(self,
+                   *,
                   data_source,
                column_name,
                visual_id,
@@ -404,6 +409,7 @@ class Page:
         return slicer
 
     def add_card(self,
+                  *,
                  data_source,
              measure_name,
              visual_id,
@@ -492,6 +498,7 @@ class Page:
         return card
 
     def add_shape_map(self,
+                      *,
                    visual_id,
                   data_source,
                   shape_file_path,
@@ -590,6 +597,7 @@ class Page:
         return shape_map
 
     def add_sanky_chart(self,
+                        *,
                          visual_id,
                             data_source,
                             starting_var,
@@ -696,6 +704,7 @@ class Page:
 
 
     def add_table(self,
+                  *,
                        visual_id,
                             data_source,
                             variables,

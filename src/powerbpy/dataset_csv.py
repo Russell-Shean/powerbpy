@@ -97,7 +97,7 @@ class BlobCsv(_DataSet):
                  blob_name,
                  tenant_id = None,
                  use_saved_storage_key = False,
-                 SAS_url = None,
+                 sas_url = None,
                  storage_account_key = None,
                  warnings = True):
 
