@@ -126,11 +126,9 @@ class Tmdl:
                     # if it is, read the list of datasets and append a new one in
                     if m is not None:
 
-                        # execute the tmdl code to make a python list
-
                         # execute the code (including local and global scopes)
                         # source: https://stackoverflow.com/questions/41100196/exec-not-working-inside-function-python3-x
-                        exec(f'query_order_list = {m.group(0)}', locals(), globals())
+                        query_order_list = ast.literal_eval(m.group(0))  
 
                         # add the dataset using python method then write back  to line
                         query_order_list.append(self.dataset_name)

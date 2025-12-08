@@ -91,6 +91,7 @@ class BlobCsv(_DataSet):
     '''
 
     def __init__(self,
+                 dashboard,
                  data_path,
                  account_url,
                  blob_name,
