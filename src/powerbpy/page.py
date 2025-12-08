@@ -314,7 +314,7 @@ class Page:
                  background_color_alpha=background_color_alpha)
 
         self.visuals.append(button)
-        return(button)
+        return button
 
     def add_slicer(self,
                   data_source,
@@ -401,7 +401,7 @@ class Page:
                  background_color_alpha=background_color_alpha)
 
         self.visuals.append(slicer)
-        return(slicer)
+        return slicer
 
     def add_card(self,
                  data_source,
@@ -692,7 +692,7 @@ class Page:
                             z_position = z_position)
 
         self.visuals.append(sanky_chart)
-        return(sanky_chart)
+        return sanky_chart
 
 
     def add_table(self,
@@ -765,5 +765,4 @@ class Page:
                             z_position = z_position)
 
         self.visuals.append(table)
-        return(table)
-
+        return table

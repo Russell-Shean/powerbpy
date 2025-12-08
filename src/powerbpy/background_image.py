@@ -44,9 +44,9 @@ class BackgroundImage:
             report_json = json.load(file)
 
         # add the image as an item to the registered resources items list
-        for dict in report_json["resourcePackages"]:
-            if dict["name"] == "RegisteredResources":
-                dict["items"].append(
+        for pack in report_json["resourcePackages"]:
+            if pack["name"] == "RegisteredResources":
+                pack["items"].append(
                                   {
                                     "name": img_name,
                                     "path": img_name,
