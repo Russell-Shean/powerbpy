@@ -46,5 +46,5 @@ docs = { script = "sphinx-build clean && sphinx-build -b html docs/ build/" }
 minversion = "0.1.7"
 addopts = "-ra -q"
 testpaths = [
-    "tests/blank_tests.py"
+    "src"
 ]

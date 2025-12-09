@@ -10,7 +10,6 @@ class TextBox(_Visual):
                  page,
                  *,
                  text,
-
                  visual_id,
                  height,
                  width,
