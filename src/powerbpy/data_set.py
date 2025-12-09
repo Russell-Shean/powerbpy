@@ -37,6 +37,9 @@ class _DataSet:
 
         self.dashboard = dashboard
         self.data_path = os.path.abspath(os.path.expanduser(data_path))
+        self.col_names = None
+        self.col_deets = None
+        self.col_attributes = None
 
         # generate a random id for the data set
         if dataset_id is None:
