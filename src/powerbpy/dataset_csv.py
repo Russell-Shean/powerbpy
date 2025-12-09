@@ -177,7 +177,7 @@ class _BlobCsv(_DataSet):
 
                 add_key = "No key has been added yet..."
 
-                while add_key not in ("y", "n")::
+                while add_key not in ("y", "n"):
                     add_key = input("Would you like to add an Azure Storage Container Key to your operating system's default credential manager?(y/n): ")
 
                     if add_key == "n":
