@@ -55,7 +55,7 @@ class _Visual:
         self.powerbi_schema = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json"
         self.visual_type = "GENERIC_VISUAL"
 
-        
+
 
         # visual id unique?
         self.new_visual_folder = os.path.join(self.page.visuals_folder, self.visual_id)
