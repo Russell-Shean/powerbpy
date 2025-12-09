@@ -1,5 +1,6 @@
 ---
 Title: "Test Dashboard"
+image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true"
 ---
 
 # Recreate my testing dashboard      
