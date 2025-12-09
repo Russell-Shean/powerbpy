@@ -186,11 +186,11 @@ pages = my_dashboard2.list_pages()
 
 for page_id in pages:
 
-  if page_id != "page1":
-    page = my_dashboard2.load_page(page_id)
-    page.add_background_image(
+    if page_id != "page1":
+        page = my_dashboard2.load_page(page_id)
+        page.add_background_image(
                    img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
-                 alpha = 51,
-                 scaling_method = "Fit")
+                   alpha = 51,
+                   scaling_method = "Fit")
 
 print(pages)
