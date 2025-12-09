@@ -22,12 +22,10 @@ class _Page:
                  dashboard,
                  page_id=None):
 
-        from powerbpy.dashboard import Dashboard
+        #from powerbpy.dashboard import Dashboard
 
-
-
-        if not isinstance(dashboard, Dashboard):
-            raise TypeError("Pages must be attached to a Dashboard instance")
+        #if not isinstance(dashboard, Dashboard):
+        #    raise TypeError("Pages must be attached to a Dashboard instance")
 
 
         # Define lists of objects that can be associated with a page
