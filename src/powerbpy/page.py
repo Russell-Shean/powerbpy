@@ -7,6 +7,8 @@ class _Page:
 
     '''
     # pylint: disable=import-outside-toplevel
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
 
     # Get everything else from the dashboard
     # Attribute delegation (inherit parent instance attributes)

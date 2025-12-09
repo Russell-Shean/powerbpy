@@ -19,6 +19,13 @@ class _DataSet:
                  data_path,
                  dataset_id=None):
 
+
+        ''' A generic class representing datasets. Currently it is called by local and blob csv files, but not TMDL datasets
+        '''
+        
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
+
         if not isinstance(dashboard, Dashboard):
             raise TypeError("Datasets must be attached to a Dashboard instance")
 

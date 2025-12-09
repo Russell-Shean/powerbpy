@@ -80,6 +80,8 @@ class _ShapeMap(_Visual):
         -----
         This function creates a new cloropleth map on a page.
         '''
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
 
         #self.dashboard = dashboard
         self.page = page
