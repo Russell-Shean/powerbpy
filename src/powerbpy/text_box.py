@@ -6,6 +6,9 @@ from powerbpy.visual import _Visual
 class _TextBox(_Visual):
     """ A subset of the Visual class. This represents text boxes"""
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+
     def __init__(self,
                  page,
                  *,
@@ -64,8 +67,6 @@ class _TextBox(_Visual):
         -----
         This function creates a new text box on a page.
         '''
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
 
         super().__init__(page=page,
                   visual_id=visual_id,

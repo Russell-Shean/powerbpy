@@ -13,12 +13,17 @@ class _BackgroundImage:
     You should never call this class directly, instead use the add_background_image() method attached to the Page class.
     See add_background_image() for more details.
     '''
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
 
     def __init__(self,
                  page,
                  img_path,
                  alpha = 51,
                  scaling_method = "Fit"):
+
+
+        
 
         '''Add a background image to a dashboard page
         Parameters
@@ -50,14 +55,12 @@ class _BackgroundImage:
         ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
         '''
 
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
-
+    
         self.page = page
         self.dashboard = page.dashboard
 
 
-        if not isinstance(alpha, int) or not (1 <= alpha <= 100):
+        if not isinstance(alpha, int) or not 1 <= alpha <= 100:
             raise ValueError("alpha must be an integer between 1–100")
 
         # file paths
