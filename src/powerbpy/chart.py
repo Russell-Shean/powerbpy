@@ -1,3 +1,9 @@
+'''This class is used to represent charts that can be added to pages.
+    You should never call this class directly, instead use the add_cchart() method attached to the _Page class.
+    See add_chart() for more details.
+'''
+
+
 import json
 
 from powerbpy.visual import _Visual

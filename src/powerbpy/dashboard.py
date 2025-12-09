@@ -450,7 +450,8 @@ class Dashboard:
 
         self.datasets.append(dataset)
         return dataset
-
+        
+    # pylint: disable=too-many-arguments
     def add_blob_csv(self,
                 *,
                  data_path,

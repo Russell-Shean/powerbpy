@@ -1,3 +1,5 @@
+"""A generic class for slicers"""
+
 import json
 
 from powerbpy.visual import _Visual

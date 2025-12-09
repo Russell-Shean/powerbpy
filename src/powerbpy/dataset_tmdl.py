@@ -1,3 +1,7 @@
+'''This class is used to represent TMDL datasets that can be added to dashboards.
+    You should never call this class directly, instead use the add_tmdl() method attached to the Dashboard class.
+'''
+
 import shutil
 import re
 import os

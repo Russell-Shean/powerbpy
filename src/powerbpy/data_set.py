@@ -11,6 +11,10 @@ from powerbpy.dashboard import Dashboard
 
 class _DataSet:
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+    # pylint: disable=too-many-instance-attributes
+
     # Get everything else from the dashboard
     # Attribute delegation (inherit parent instance attributes)
 
@@ -22,9 +26,8 @@ class _DataSet:
 
         ''' A generic class representing datasets. Currently it is called by local and blob csv files, but not TMDL datasets
         '''
-        
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
+
+
 
         if not isinstance(dashboard, Dashboard):
             raise TypeError("Datasets must be attached to a Dashboard instance")
