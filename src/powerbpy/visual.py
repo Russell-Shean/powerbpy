@@ -29,7 +29,7 @@ class _Visual:
                   background_color=None,
                   background_color_alpha=None):
 
-        from powerbpy.page import _Page
+        #from powerbpy.page import _Page
 
         # checks ---------------------------------------------------------
         if not isinstance(page, _Page):
