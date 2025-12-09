@@ -3,7 +3,7 @@
     "listing": "/example_dashboards.html",
     "items": [
       "/example_dashboards/Test Dashboard/Testing Dashboard.html",
-      "/example_dashboards/Sanky Chart and Table/index.html"
+      "/example_dashboards/Sanky Chart and Table/chart_and_table.html"
     ]
   }
 ]

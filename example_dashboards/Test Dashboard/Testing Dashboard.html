@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.">
 
-<title>testing-dashboard</title>
+<title>Test Dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -335,10 +336,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Test Dashboard</h1>
+</div>
 
+<div>
+  <div class="description">
+    This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="recreate-my-testing-dashboard" class="level1">
@@ -409,6 +431,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1. <code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path</p>
 <p>Here’s some example code:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/colony.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code worked, you should see the new dataset when you open the new dashboard. Unfortunately, you’ll see a warning that looks like this about how the dashboard needs to be refreshed:</p>
+<p>To solve the problem, click <code>Refresh now</code> and then the dataset should display normally. If you save the file, it should open normally next time. (Frustratingly, Power BI still requires that datasets to be opened in Power BI desktop to display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called **/.pbi/cache.abf. The file isn’t directly readable and I haven’t figured out a way to recreate whatever Power BI desktop does and stores in the file).</p>
 </section>
 <section id="add-a-chart" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-chart">Add a chart</h2>
@@ -440,6 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          y_position <span class="op">=</span> <span class="dv">158</span>,</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>          height <span class="op">=</span> <span class="dv">524</span>,</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>          width <span class="op">=</span> <span class="dv">603</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here’s what the chart that we added looks like:</p>
 
 
 </section>
