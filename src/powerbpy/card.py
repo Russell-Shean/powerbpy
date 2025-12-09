@@ -2,7 +2,7 @@ import json
 
 from powerbpy.visual import _Visual
 
-class Card(_Visual):
+class _Card(_Visual):
     """A generic class for cards"""
 
     def __init__(self,

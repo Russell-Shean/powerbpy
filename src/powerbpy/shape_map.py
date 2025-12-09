@@ -5,7 +5,7 @@ import uuid
 
 from powerbpy.visual import _Visual
 
-class ShapeMap(_Visual):
+class _ShapeMap(_Visual):
     """ A subclass of the visual class, this represents a shapemap"""
 
     def __init__(self,
@@ -178,7 +178,7 @@ class ShapeMap(_Visual):
         if percentile_bin_breaks is not None:
 
             # add bin measures to the dataset
-            self.add_bin_measures(dataset_name = data_source,
+            self._add_bin_measures(dataset_name = data_source,
                                     color_var = color_var,
                                     percentile_bin_breaks = percentile_bin_breaks,
                                     color_palette = color_palette,
@@ -591,7 +591,7 @@ class ShapeMap(_Visual):
                                                  location_var,
                                                  filtering_dax):
 
-        '''An internal function for creating bins within the add_bin_measures() function
+        '''An internal function for creating bins within the _add_bin_measures() function
 
         Parameters
         ----------
@@ -645,7 +645,7 @@ class ShapeMap(_Visual):
             file.write(f'\t\t\tbin{bin_number}_LB & "-" & bin{bin_number}_UB\n')
             file.write(f'\t\tlineageTag: {str(uuid.uuid4())}\n')
 
-    def add_bin_measures(self,
+    def _add_bin_measures(self,
                          *,
                      dataset_name,
                      color_var,

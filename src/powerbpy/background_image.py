@@ -7,7 +7,7 @@ import os
 import shutil
 import json
 
-class BackgroundImage:
+class _BackgroundImage:
 
     '''This class is used to represent background images that can be added to pages.
     You should never call this class directly, instead use the add_background_image() method attached to the Page class.
