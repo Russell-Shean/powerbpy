@@ -31,6 +31,10 @@ class _Visual:
 
         from powerbpy.page import _Page
 
+        # checks ---------------------------------------------------------
+        if not isinstance(page, _Page):
+            raise TypeError("Visuals must be added to a specific page")
+
         self.page = page
         self.dashboard = page.dashboard
         self.visual_id = visual_id
@@ -51,9 +55,7 @@ class _Visual:
         self.powerbi_schema = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json"
         self.visual_type = "GENERIC_VISUAL"
 
-        # checks ---------------------------------------------------------
-        if not isinstance(page, _Page):
-            raise TypeError("Visuals must be added to a specific page")
+        
 
         # visual id unique?
         self.new_visual_folder = os.path.join(self.page.visuals_folder, self.visual_id)
