@@ -6,9 +6,9 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/pa
 
 # Recreate my testing dashboard      
 This example shows how I create the dashboard I use for testing the module. It isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:       
-  - create a new dashboard      
-  - add pages to the dashboard     
-  - add visual elements such as maps and charts to the pages       
+- create a new dashboard      
+- add pages to the dashboard     
+- add visual elements such as maps and charts to the pages       
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true "Example Dashboard")     
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true "Example Dashboard")
 
