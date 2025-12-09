@@ -532,7 +532,8 @@ class _ShapeMap(_Visual):
 
             # Add a text box for each bin and make a legend that way
             # There has got to be a better way to do this ....lol
-            for i in enumerate(color_palette):
+            #for i in enumerate(color_palette):
+            for i in range(0, len(color_palette)):
 
                 # add text box legends for static maps
                 if static_bin_breaks is not None:
@@ -553,7 +554,7 @@ class _ShapeMap(_Visual):
                                      font_weight = "bold",
                                         font_size=12,
                                         font_color="#ffffff" ,
-                                        background_color = color,
+                                        background_color = color_palette[i],
                                         #parent_group_id = None
                                         parent_group_id = f"{visual_id}_legend_box"
                                         # parent_group_id = legend_box_uuid
