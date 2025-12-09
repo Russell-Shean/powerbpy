@@ -7,6 +7,8 @@
 import shutil
 from pathlib import Path
 
+from powerbpy import Dashboard
+
 
 def test_full_dashboard_flow(tmp_path):
     """
@@ -15,7 +17,6 @@ def test_full_dashboard_flow(tmp_path):
 
     This test should raise **no exceptions**.
     """
-    from powerbpy import Dashboard
 
     # -----------------------------------------------------------
     # Setup test environment
