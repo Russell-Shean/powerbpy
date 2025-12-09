@@ -67,7 +67,7 @@ class _Button(_Visual):
         -----
         This function creates a new button on a page.
         '''
-        
+
 
 
         super().__init__(page=page,
