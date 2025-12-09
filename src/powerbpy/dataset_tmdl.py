@@ -9,7 +9,12 @@ import ast
 
 import json
 
-from importlib import resources
+try:
+    # Python 3.9+
+    from importlib.resources import files
+except ImportError:
+    # Python 3.8 or older
+    from importlib_resources import files
 
 class _Tmdl:
 
