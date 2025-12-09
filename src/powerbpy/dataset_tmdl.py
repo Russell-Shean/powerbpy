@@ -9,12 +9,8 @@ import ast
 
 import json
 
-try:
-    # Python 3.9+
-    from importlib.resources import files
-except ImportError:
-    # Python 3.8 or older
-    from importlib_resources import files
+from importlib import resources
+
 
 class _Tmdl:
 
@@ -61,7 +57,7 @@ class _Tmdl:
             tmdl_dataset_path = os.path.join(self.dashboard.tables_folder, "DateTable.tmdl")
             self.dataset_name = "DataTable"
 
-            data_path = str(files("powerbpy.dashboard_resources.python_resources").joinpath("DateTable.tmdl"))
+            data_path = str(resources.files("powerbpy.dashboard_resources.python_resources").joinpath("DateTable.tmdl"))
 
             # copy date table from package resources to table folder
             shutil.copy(data_path, tmdl_dataset_path)
