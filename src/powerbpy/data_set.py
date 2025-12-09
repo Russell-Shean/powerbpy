@@ -125,6 +125,7 @@ class _DataSet:
     # Data model file --------------------------------------------------------------------------
     def _create_tmdl(self):
         # pylint: disable=no-member
+        # pylint: disable=too-many-branches, too-many-statements
 
         '''An internally called function that creates a TMDL file from a pandas dataframe
         Parameters
