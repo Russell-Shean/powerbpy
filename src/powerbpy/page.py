@@ -79,7 +79,7 @@ class _Page:
         # Local import avoids circular import at module load
         from powerbpy.background_image import _BackgroundImage
 
-        background_image = BackgroundImage(self,
+        background_image = _BackgroundImage(self,
                          img_path,
                          alpha,
                          scaling_method)
