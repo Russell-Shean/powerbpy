@@ -43,6 +43,8 @@ quartodoc:
         # you can refer to anything: class methods, modules, etc..
         - dashboard
         - page
+          members: true
+          private-members: true
 
 
 format:
