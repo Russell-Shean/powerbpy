@@ -582,6 +582,7 @@ class ShapeMap(_Visual):
 
 
     def _generate_bin_ranges(self,
+                             *,
                              bin_number,
                                                  dataset_file_path,
                                                  percentile_bin_breaks,
@@ -645,6 +646,7 @@ class ShapeMap(_Visual):
             file.write(f'\t\tlineageTag: {str(uuid.uuid4())}\n')
 
     def add_bin_measures(self,
+                         *,
                      dataset_name,
                      color_var,
                      percentile_bin_breaks,

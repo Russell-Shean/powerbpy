@@ -59,7 +59,7 @@ class _Visual:
             # Get the name of the variable from the locals()var_name = [name for name, value in locals().items() if value is var][0]
 
             if var is not None:
-                if type(var) is not int:
+                if not isinstance(var, int):
                     raise ValueError(f"Sorry! The {var} variable must be an integer. Please confirm you didn't put quotes around a number")
 
 

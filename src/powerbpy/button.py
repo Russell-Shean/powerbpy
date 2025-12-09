@@ -75,7 +75,7 @@ class Button(_Visual):
 
         # checks --------------------------------------------------------------------------------------------------------------
         if alpha is not None:
-            if not isinstance(alpha, int) or not (1 <= alpha <= 100):
+            if not isinstance(alpha, int) or not (0 <= alpha <= 100):
                 raise ValueError("alpha must be an integer between 1–100")
 
         # make sure they're not trying to make the button do two things at once
