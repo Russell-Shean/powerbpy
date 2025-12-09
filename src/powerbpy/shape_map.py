@@ -15,6 +15,7 @@ class _ShapeMap(_Visual):
     # pylint: disable=too-many-branches, too-many-statements
     # pylint: disable=too-many-arguments, pointless-string-statement
     # pylint: disable=duplicate-code
+    # pylint: disable=consider-using-enumerate
 
     def __init__(self,
                  page,
@@ -534,7 +535,7 @@ class _ShapeMap(_Visual):
             # Add a text box for each bin and make a legend that way
             # There has got to be a better way to do this ....lol
             #for i in enumerate(color_palette):
-            
+
             # pylint: disable=consider-using-enumerate
             for i in range(0, len(color_palette)):
 
@@ -808,7 +809,7 @@ class _ShapeMap(_Visual):
                     file.write(f'\t\t\tVAR bin{i + 1}_UB = IF ( perc_{round(percentile_bin_breaks[i] * 100)} == perc_{round(percentile_bin_breaks[i + 1] * 100)} || perc_{round(percentile_bin_breaks[i + 1] * 100)} <= bin{i+1}_LB, bin{i+1}_LB + 0.01, perc_{round(percentile_bin_breaks[i + 1] * 100)} )\n')
 
             file.write("\t\t\tRETURN\n\n")
-            # pylint: enable=consider-using-enumerate
+
 
             '''From the original DAX
 

@@ -2,8 +2,6 @@
 
 import os
 
-from powerbpy.page import _Page
-
 class _Visual:
 
     '''A generic class for Power BI visuals. Used as a base class for all subtypes of visuals'''
@@ -29,6 +27,8 @@ class _Visual:
                   alt_text="A generic visual",
                   background_color=None,
                   background_color_alpha=None):
+
+        from powerbpy.page import _Page
 
         self.page = page
         self.dashboard = page.dashboard
