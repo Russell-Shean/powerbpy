@@ -119,7 +119,7 @@ class _ShapeMap(_Visual):
 
         if percentile_bin_breaks is not None:
 
-            if not isinstance(static_bin_breaks, list):
+            if not isinstance(percentile_bin_breaks, list):
                 raise TypeError("percentile_bin_breaks should be a list! Please pass a list of numbers")
 
             if len(percentile_bin_breaks) - len(color_palette) != 1:
