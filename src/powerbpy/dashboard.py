@@ -277,7 +277,7 @@ class Dashboard:
         ![New Page Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true "Example Page")
         '''
         # Local import avoids circular import at module load
-        from powerbpy.page import Page
+        from powerbpy.page import _Page
 
         # Assign a page_id based on the number of current pages
 
@@ -299,7 +299,7 @@ class Dashboard:
             json.dump(pages_list, file, indent = 2)
 
         # Create a new instance of a page
-        page = Page(self,
+        page = _Page(self,
                  page_id=page_id)
 
         # create a new json file for the new page
@@ -347,7 +347,7 @@ class Dashboard:
 
         Returns
         -------
-        Page: class
+        _Page: class
             This returns an instance of the Page class corresponding to the page you just loaded.
 
         Notes
@@ -356,9 +356,9 @@ class Dashboard:
         To list all page ids you can use `Dashboard.list_pages()`. You can also check the .pbip folder structure to find the page ids
         '''
         # Local import avoids circular import at module load
-        from powerbpy.page import Page
+        from powerbpy.page import _Page
 
-        page = Page(self,
+        page = _Page(self,
                     page_id=page_id)
 
         self.pages.append(page)
@@ -408,9 +408,9 @@ class Dashboard:
         - Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.
         '''
 
-        from powerbpy.dataset_tmdl  import Tmdl
+        from powerbpy.dataset_tmdl  import _Tmdl
 
-        tmdl = Tmdl(self,
+        tmdl = _Tmdl(self,
                     data_path,
                     add_default_datetable)
 
@@ -443,9 +443,9 @@ class Dashboard:
         The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.
         '''
 
-        from powerbpy.dataset_csv import LocalCsv
+        from powerbpy.dataset_csv import _LocalCsv
 
-        dataset = LocalCsv(self,
+        dataset = _LocalCsv(self,
                            data_path)
 
         self.datasets.append(dataset)
@@ -502,9 +502,9 @@ class Dashboard:
         I may eventually add an automatic fix for this.
         '''
 
-        from powerbpy.dataset_csv import BlobCsv
+        from powerbpy.dataset_csv import _BlobCsv
 
-        dataset = BlobCsv(self,
+        dataset = _BlobCsv(self,
                  data_path = data_path,
                  account_url = account_url,
                  blob_name = blob_name,

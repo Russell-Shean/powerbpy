@@ -10,7 +10,7 @@ import pandas as pd
 from powerbpy.data_set import _DataSet
 
 
-class LocalCsv(_DataSet):
+class _LocalCsv(_DataSet):
     def __init__(self,
                  dashboard,
                  data_path):
@@ -47,7 +47,7 @@ class LocalCsv(_DataSet):
             file.write('\tannotation PBI_ResultType = Table\n\n\tannotation PBI_NavigationStepName = Navigation\n\n')
 
 
-class BlobCsv(_DataSet):
+class _BlobCsv(_DataSet):
 
     '''Add a csv file store in a ADLS blob container to a dashboard
 

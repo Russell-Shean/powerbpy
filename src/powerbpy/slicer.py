@@ -2,7 +2,7 @@ import json
 
 from powerbpy.visual import _Visual
 
-class Slicer(_Visual):
+class _Slicer(_Visual):
     """A generic class for slicers"""
 
     def __init__(self,

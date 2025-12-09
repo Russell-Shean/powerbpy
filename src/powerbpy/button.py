@@ -5,7 +5,7 @@ import json
 
 from powerbpy.visual import _Visual
 
-class Button(_Visual):
+class _Button(_Visual):
     """ A subset of the Visual class. This represents buttons"""
 
     def __init__(self,

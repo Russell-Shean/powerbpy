@@ -1,6 +1,6 @@
 import os
 
-from powerbpy.page import Page
+from powerbpy.page import _Page
 
 class _Visual:
     def __init__(self,

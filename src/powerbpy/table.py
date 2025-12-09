@@ -2,7 +2,7 @@ import json
 
 from powerbpy.visual import _Visual
 
-class Table(_Visual):
+class _Table(_Visual):
     """A class representing table visuals"""
 
     def __init__(self,

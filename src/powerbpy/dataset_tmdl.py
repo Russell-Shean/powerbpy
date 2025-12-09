@@ -7,7 +7,7 @@ import json
 
 from importlib import resources
 
-class Tmdl:
+class _Tmdl:
     def __init__(self,
                  dashboard,
                  data_path = None,

@@ -2,7 +2,7 @@ import json
 
 from powerbpy.visual import _Visual
 
-class Chart(_Visual):
+class _Chart(_Visual):
     """A subset of the visual class, this class represents charts"""
 
     def __init__(self,

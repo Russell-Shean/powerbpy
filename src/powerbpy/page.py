@@ -2,7 +2,7 @@ import os
 
 from powerbpy.dashboard import Dashboard
 
-class Page:
+class _Page:
     '''A python class used to model a power BI dashboard page
 
     '''
@@ -77,7 +77,7 @@ class Page:
         '''
 
         # Local import avoids circular import at module load
-        from powerbpy.background_image import BackgroundImage
+        from powerbpy.background_image import _BackgroundImage
 
         background_image = BackgroundImage(self,
                          img_path,
@@ -145,9 +145,9 @@ class Page:
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         '''
 
-        from powerbpy.chart import Chart
+        from powerbpy.chart import _Chart
 
-        chart = Chart(self,
+        chart = _Chart(self,
                       visual_id=visual_id,
                       chart_type=chart_type,
                  data_source=data_source,
@@ -225,9 +225,9 @@ class Page:
         This function creates a new text box on a page.
         '''
 
-        from powerbpy.text_box import TextBox
+        from powerbpy.text_box import _TextBox
 
-        text_box = TextBox(self,
+        text_box = _TextBox(self,
                  text=text,
                  visual_id=visual_id,
                  height=height,
@@ -299,9 +299,9 @@ class Page:
         This function creates a new button on a page.
         '''
 
-        from powerbpy.button import Button
+        from powerbpy.button import _Button
 
-        button = Button(self,
+        button = _Button(self,
                  label=label,
                  visual_id=visual_id,
                  height=height,
@@ -384,9 +384,9 @@ class Page:
         This function creates a new slicer on a page.
         '''
 
-        from powerbpy.slicer import Slicer
+        from powerbpy.slicer import _Slicer
 
-        slicer = Slicer(self,
+        slicer = _Slicer(self,
                 data_source=data_source,
                column_name=column_name,
                visual_id=visual_id,
@@ -474,9 +474,9 @@ class Page:
 
 
 
-        from powerbpy.card import Card
+        from powerbpy.card import _Card
 
-        card = Card(self,
+        card = _Card(self,
                  data_source=data_source,
              measure_name=measure_name,
              visual_id=visual_id,
@@ -569,9 +569,9 @@ class Page:
         This function creates a new cloropleth map on a page.
         '''
 
-        from powerbpy.shape_map import ShapeMap
+        from powerbpy.shape_map import _ShapeMap
 
-        shape_map = ShapeMap(self,
+        shape_map = _ShapeMap(self,
                    visual_id=visual_id,
                   data_source=data_source,
                   shape_file_path=shape_file_path,
@@ -675,9 +675,9 @@ class Page:
 
 
 
-        from powerbpy.sanky_chart import SankyChart
+        from powerbpy.sanky_chart import _SankyChart
 
-        sanky_chart = SankyChart(self,
+        sanky_chart = _SankyChart(self,
                             visual_id=visual_id,
                             data_source=data_source,
                             starting_var=starting_var,
@@ -753,9 +753,9 @@ class Page:
 
         '''
 
-        from powerbpy.table import Table
+        from powerbpy.table import _Table
 
-        table = Table(self,
+        table = _Table(self,
                         visual_id=visual_id,
                             data_source=data_source,
                             variables=variables,
