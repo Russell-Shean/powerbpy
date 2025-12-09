@@ -32,8 +32,8 @@ class _Visual:
         #from powerbpy.page import _Page
 
         # checks ---------------------------------------------------------
-        if not isinstance(page, _Page):
-            raise TypeError("Visuals must be added to a specific page")
+        #if not isinstance(page, _Page):
+        #    raise TypeError("Visuals must be added to a specific page")
 
         self.page = page
         self.dashboard = page.dashboard
