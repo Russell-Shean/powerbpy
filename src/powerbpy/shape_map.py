@@ -165,9 +165,9 @@ class _ShapeMap(_Visual):
 
 
         # add the shape file as an item to the registered resources items list
-        for dict in report_json["resourcePackages"]:
-            if dict["name"] == "RegisteredResources":
-                dict["items"].append(
+        for resource_package in report_json["resourcePackages"]:
+            if resource_package["name"] == "RegisteredResources":
+                resource_package["items"].append(
                                                     {
                                                                         "name": shape_name,
                                                                         "path": shape_name,
@@ -342,7 +342,7 @@ class _ShapeMap(_Visual):
         if static_bin_breaks is not None:
             # add each individual color rule
             # loop through the color_palette and static_bin_breaks to create separate dictionaries for each color bin
-            for i in range(0,len(color_palette)):
+            for i, color in enumerate(color_palette):
                 color_scheme["properties"]["fill"]["solid"]["color"]["expr"]["Conditional"]["Cases"].append(
 
                     {
@@ -402,7 +402,7 @@ class _ShapeMap(_Visual):
                     },
                     "Value": {
                         "Literal": {
-                            "Value": f"'{color_palette[i]}'"
+                            "Value": f"'{color}'"
                             }}
                 })
 
@@ -410,7 +410,7 @@ class _ShapeMap(_Visual):
         if percentile_bin_breaks is not None:
             # add each individual color rule
             # loop through the color_palette and static_bin_breaks to create separate dictionaries for each color bin
-            for i in range(0,len(color_palette)):
+            for i, color in enumerate(color_palette):
                 color_scheme["properties"]["fill"]["solid"]["color"]["expr"]["Conditional"]["Cases"].append(
                     {
                                         "Condition": {
@@ -435,7 +435,7 @@ class _ShapeMap(_Visual):
                                         },
                                         "Value": {
                                             "Literal": {
-                                                "Value": f"'{color_palette[i]}'"
+                                                "Value": f"'{color}'"
                                             }
                                         }
                                     },)
@@ -532,7 +532,7 @@ class _ShapeMap(_Visual):
 
             # Add a text box for each bin and make a legend that way
             # There has got to be a better way to do this ....lol
-            for i in range(0, len(color_palette)):
+            for i in enumerate(color_palette):
 
                 # add text box legends for static maps
                 if static_bin_breaks is not None:
@@ -553,7 +553,7 @@ class _ShapeMap(_Visual):
                                      font_weight = "bold",
                                         font_size=12,
                                         font_color="#ffffff" ,
-                                        background_color = color_palette[i],
+                                        background_color = color,
                                         #parent_group_id = None
                                         parent_group_id = f"{visual_id}_legend_box"
                                         # parent_group_id = legend_box_uuid
