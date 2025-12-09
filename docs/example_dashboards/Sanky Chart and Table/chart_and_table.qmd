@@ -14,28 +14,27 @@ One of the central assumptions built into the PowerBpy package is that you'd pre
 ## Download Data
 The data for this example is stored as an online zip file. The following code downloads the zip file and extracts it into a local directory. 
 ```python
-import requests
-import py7zr
+'''
+This script downloads the data from Github and
+then extracts the individual datasets from the compressed archive file.
+'''
 import os
 import tempfile
-
-'''
-This script downloads the data from Github and 
-then extracts the individual datasets from the compressed archive file. 
-'''
+import requests
+import py7zr
 
 # step 1: obtain data from github --------------------------------------------------------------
 
 # Define paths
-dataset_url = "https://github.com/sql-bi/Contoso-Data-Generator-V2-Data/releases/download/ready-to-use-data/csv-10k.7z" 
-data_destination_dir = "data"
+DATASET_URL = "https://github.com/sql-bi/Contoso-Data-Generator-V2-Data/releases/download/ready-to-use-data/csv-10k.7z"
+DATA_DESTINATION_DIR = "data"
 
 
 # make sure the folder exists
-os.makedirs(data_destination_dir, exist_ok=True)
+os.makedirs(DATA_DESTINATION_DIR, exist_ok=True)
 
 # download the zip file from the internet
-response = requests.get(dataset_url, stream=True)
+response = requests.get(DATASET_URL, stream=True)
 response.raise_for_status()
 
 # write to file
@@ -46,10 +45,9 @@ with tempfile.NamedTemporaryFile(suffix=".7z", delete=False) as tmp_file:
 
 
 
-# extract the data 
+# extract the data
 with py7zr.SevenZipFile(tmp_file.name, mode="r") as z:
-    z.extractall(path=data_destination_dir)
-
+    z.extractall(path=DATA_DESTINATION_DIR)
 
 ```    
 
@@ -59,16 +57,13 @@ The original example from WoW included creating measures in Power BI using DAX a
 For this example we need to calculate sales totals by stores time period and classify the sales as low, medium or high. Here's the python code I used:
 
 ```python
+'''
+This script proccesses the data we downloaded
+'''
 import pandas as pd
 import numpy as np
 
-'''
-This script proccess the data we downloaded 
-'''
-
 # Read in the datasets
-# Assuming you used the download code above and didn't change the current directory,
-# the data should already be at this location
 store = pd.read_csv("data/store.csv")
 sales = pd.read_csv("data/sales.csv")
 
@@ -86,6 +81,7 @@ sales["OrderDate"] = pd.to_datetime(sales["OrderDate"])
 
 # Create a new dataframe with aggregate sales total
 # By date periods and store
+
 sales_by_store_and_date = (
     sales
 
@@ -100,12 +96,12 @@ sales_by_store_and_date = (
             [
                 df["OrderDate"] <= df
                                    .groupby("StoreKey")["OrderDate"]
-                                   .transform("min") 
+                                   .transform("min")
                                    + pd.Timedelta(days=180),
 
                 df["OrderDate"] >= df
                                    .groupby("StoreKey")["OrderDate"]
-                                   .transform("max") 
+                                   .transform("max")
                                    - pd.Timedelta(days=180)
             ],
 
@@ -116,8 +112,10 @@ sales_by_store_and_date = (
              # Define a default for if neither condition is matched
              default="middle_period"
 
+
+
         )
-    ) 
+    )
 
     # calculate grouped sales totals by time period and store
     .groupby(["StoreKey", "time_period"], as_index=False)
@@ -129,6 +127,8 @@ sales_by_store_and_date = (
 
         sales_size = lambda df: np.select(
 
+
+
             [
                 df["store_total_sales"] < 1000,
 
@@ -136,25 +136,29 @@ sales_by_store_and_date = (
                 (df["store_total_sales"] < 5000),
 
                 df["store_total_sales"] >= 5000
- 
+
             ],
 
-            [ 
+            [
                 "Small",
                 "Medium",
                 "Large"
             ],
-        default="Unknown" 
+        default="Unknown"
 
-        ) 
+
+        )
+
 
     )
 
     # Merge the store names onto the dataframe
-    .merge(  
-        store_names, 
+    .merge(
+
+        store_names,
         on = "StoreKey",
         how = "left"
+
     )
 
     # pivot the dataframe to expand the time period and sales size columns wider
@@ -167,8 +171,8 @@ sales_by_store_and_date = (
 )
 
 
-# undo the multi indexing of column names 
-# (I don't even want to try to imagine how Power BI would try to handle that lol)
+# undo the multi indexing of column names
+# (I don't even want to try to imagine how Power BI would try to handle multi-indexed columns lol)
 sales_by_store_and_date.columns = [
     f"{val}_{col}" for val, col in sales_by_store_and_date.columns
 ]
@@ -182,7 +186,7 @@ sales_by_store_and_date = (
     .reset_index()
 
     # select the columns we want
-    .loc[:, ["Description", 
+    .loc[:, ["Description",
              "store_total_sales_first_180",
              "store_total_sales_last_180",
              "sales_size_first_180",
@@ -200,7 +204,8 @@ sales_by_store_and_date = (
 )
 
 # write to file
-sales_by_store_and_date.to_csv("data/final_dataset.csv", index=False)   
+sales_by_store_and_date.to_csv("data/final_dataset.csv", index=False)
+
 ```         
 It's of course also possible to do this type of data processing in other languages too. Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/02-process_data.R) to an R script I wrote that does the exact same data processing. 
 
@@ -210,64 +215,59 @@ Now that we've obtained and prepped the data, we can create the dashboard!
 ### Create dashboard    
 First we create a new dashboard      
 ```python
-from powerbpy import Dashboard
+'''
+This script creates a new dashboard using the data we downloaded and processesd
+'''
+# pylint: disable=import-error
+# pylint: disable=invalid-name
+
 import os
+
+from powerbpy import Dashboard
 
 # Define the path to the dashboard
 dashboard_path = os.path.join(os.getcwd(), "sanky_demo")
 
+
 # Create a new blank dashboard
 my_dashboard = Dashboard.create(dashboard_path)
-```
 
-### Add data
-Next we add the dataset we prepared to the dashboard      
-
-```python
 # add the data from step 2
 my_dashboard.add_local_csv(data_path = "data/final_dataset.csv" )
-```     
 
-### Add new page
-Next we add a new page to the dashboard
-
-```python
 # Add a new page to the dashboard
 page1 = my_dashboard.new_page(page_name="A demonstration sanky chart")
-```
 
-### Add a table
-Now that we have a dashboard, data and a page, we can start adding visuals. Here's how to add a table:
 
-```python
 # add a table
-page1.add_table(visual_id = "sales_table", 
-              data_source = "final_dataset", 
-              variables = ["Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"],
-              x_position = 615, 
-              y_position = 0, 
-              height = 800, 
+page1.add_table(visual_id = "sales_table",
+              data_source = "final_dataset",
+              variables = ["Name",
+                           "Sales First 180 Days",
+                           "Sales Last 180 Days",
+                           "Starting Size",
+                           "Ending Size"],
+              x_position = 615,
+              y_position = 0,
+              height = 800,
               width = 615,
               add_totals_row = False,
               table_title = "Store Sales Details")
-```   
 
-### Add a sanky chart
-Next we can add a sanky chart next to the table
 
-```python
-page1.add_sanky_chart(visual_id = "sales_sanky", 
+page1.add_sanky_chart(visual_id = "sales_sanky",
               data_source = "final_dataset",
               chart_title="Store Starting and Ending Size",
               starting_var="Starting Size",
-              starting_var_values=["Large", "Medium", "Small"], 
+              starting_var_values=["Large", "Medium", "Small"],
               ending_var="Ending Size",
               ending_var_values=["Large", "Medium", "Small"],
-              values_from_var="Name", 
-              x_position=0, 
-              y_position=0, 
-              height = 800, 
+              values_from_var="Name",
+              x_position=0,
+              y_position=0,
+              height = 800,
               width = 615)
+
 ```    
 
 Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/03-create_dashboard.py) to the dashboard creation script.   

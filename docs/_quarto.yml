@@ -42,7 +42,7 @@ quartodoc:
         # the functions being documented in the package.
         # you can refer to anything: class methods, modules, etc..
         - dashboard
-        - page
+        - name: page
           members: true
           private-members: true
 
