@@ -17,6 +17,7 @@ class _Page:
 
     # Get everything else from the dashboard
     # Attribute delegation (inherit parent instance attributes)
+    # pylint: disable=duplicate-code
 
     def __init__(self,
                  dashboard,

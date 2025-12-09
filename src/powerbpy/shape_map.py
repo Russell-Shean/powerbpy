@@ -14,6 +14,7 @@ class _ShapeMap(_Visual):
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches, too-many-statements
     # pylint: disable=too-many-arguments, pointless-string-statement
+    # pylint: disable=duplicate-code
 
     def __init__(self,
                  page,
