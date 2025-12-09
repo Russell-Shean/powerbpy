@@ -10,6 +10,7 @@ class _Slicer(_Visual):
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-arguments
+    # pylint: disable=duplicate-code
 
     def __init__(self,
                 page,
