@@ -5,7 +5,6 @@
 
 import os
 
-from powerbpy.dashboard import Dashboard
 
 class _Page:
     '''A python class used to model a power BI dashboard page
@@ -22,6 +21,8 @@ class _Page:
     def __init__(self,
                  dashboard,
                  page_id=None):
+
+        from powerbpy.dashboard import Dashboard
 
 
 
