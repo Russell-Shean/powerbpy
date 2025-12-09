@@ -2,8 +2,6 @@
 
 import json
 
-from powerbpy.visual import _Visual
-
 class _Table(_Visual):
     """A class representing table visuals"""
 
@@ -61,6 +59,7 @@ class _Table(_Visual):
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 
         '''
+        from powerbpy.visual import _Visual
 
         self.page = page
         self.x_position = x_position

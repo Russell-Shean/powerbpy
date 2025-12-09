@@ -6,7 +6,6 @@
 
 import json
 
-from powerbpy.visual import _Visual
 
 class _Chart(_Visual):
     """A subset of the visual class, this class represents charts"""
@@ -74,6 +73,7 @@ class _Chart(_Visual):
         z_position: int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         '''
+        from powerbpy.visual import _Visual
 
 
 

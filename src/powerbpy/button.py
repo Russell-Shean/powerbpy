@@ -3,7 +3,7 @@
 import os
 import json
 
-from powerbpy.visual import _Visual
+
 
 class _Button(_Visual):
     """ A subset of the Visual class. This represents buttons"""
@@ -67,6 +67,7 @@ class _Button(_Visual):
         -----
         This function creates a new button on a page.
         '''
+        from powerbpy.visual import _Visual
 
 
         super().__init__(page=page,
