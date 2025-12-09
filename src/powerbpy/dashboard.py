@@ -1,3 +1,5 @@
+'''A python class used to model a power BI dashboard project'''
+
 import os
 import uuid
 import shutil
@@ -450,7 +452,7 @@ class Dashboard:
 
         self.datasets.append(dataset)
         return dataset
-        
+
     # pylint: disable=too-many-arguments
     def add_blob_csv(self,
                 *,

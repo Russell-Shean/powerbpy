@@ -1,3 +1,7 @@
+'''This script attempts to create a test dashboard to confirm the code doesn't raise python errors.
+   This script does not attempt to check if the resulting dashboard is correct.
+'''
+
 import shutil
 from pathlib import Path
 

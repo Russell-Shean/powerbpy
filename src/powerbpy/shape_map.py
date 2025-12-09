@@ -574,7 +574,7 @@ class _ShapeMap(_Visual):
 
                                      # Make sure that the z index is more than the map's z_index
                                      z_position = 0,         #z_position + 1,
-                                     text_align = "center",
+                                     #text_align = "center",
                                      font_weight = "bold",
                                         font_size=12,
                                         font_color="#ffffff" ,

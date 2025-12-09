@@ -1,3 +1,5 @@
+''' A generic class representing datasets. Currently it is called by local and blob csv files, but not TMDL datasets'''
+
 import os
 import uuid
 import json
