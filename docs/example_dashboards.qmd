@@ -5,7 +5,6 @@ listing:
   type: grid 
   sort: "date desc" 
   categories: true 
-  image: true 
 format:
   html: 
     comments: false
