@@ -336,16 +336,14 @@ class _SankyChart(_Visual):
             if len(link_colors) != len(self.visual_json["visual"]["objects"]["links"]):
                 raise ValueError('If provided the number of link colors must be equal to the number of links')
 
-
-            for i in range(len(link_colors)):
-                self.visual_json["visual"]["objects"]["links"][i]["properties"]["fill"]["solid"]["color"] =  {
-
-                                    "expr": {
-                                        "Literal": {
-                                            "Value": f"'{link_colors[i]}'"
-                                        }
-                                    }
-                                }
+            for i, color in enumerate(link_colors):
+                self.visual_json["visual"]["objects"]["links"][i]["properties"]["fill"]["solid"]["color"] = {
+                    "expr": {
+                        "Literal": {
+                            "Value": f"'{color}'"
+                            }
+                        }
+                    }
 
 
         else:
@@ -356,12 +354,12 @@ class _SankyChart(_Visual):
                 default_link_colors.extend([i+2] * len(starting_var_values))
 
 
-            for i in range(len(default_link_colors)):
+            for i, color in enumerate(default_link_colors):
                 self.visual_json["visual"]["objects"]["links"][i]["properties"]["fill"]["solid"]["color"] =  {
 
                                     "expr": {
                                         "ThemeDataColor": {
-                                            "ColorId": default_link_colors[i],
+                                            "ColorId": color,
                                             "Percent": 0.4
                                         }
 
