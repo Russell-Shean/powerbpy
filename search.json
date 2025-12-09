@@ -81,7 +81,7 @@
     "href": "reference/page.html",
     "title": "page",
     "section": "",
-    "text": "page\npage",
+    "text": "page\npage\nA python class used to model a power BI dashboard page",
     "crumbs": [
       "Reference",
       "Power Bpy",
@@ -240,7 +240,7 @@
     "href": "reference/index.html",
     "title": "Function reference",
     "section": "",
-    "text": "Python functions for building Power BI dashboards\n\n\n\ndashboard\n\n\n\npage",
+    "text": "Python functions for building Power BI dashboards\n\n\n\ndashboard\n\n\n\npage\nA python class used to model a power BI dashboard page",
     "crumbs": [
       "Reference",
       "Function reference"
@@ -251,7 +251,7 @@
     "href": "reference/index.html#power-bpy",
     "title": "Function reference",
     "section": "",
-    "text": "Python functions for building Power BI dashboards\n\n\n\ndashboard\n\n\n\npage",
+    "text": "Python functions for building Power BI dashboards\n\n\n\ndashboard\n\n\n\npage\nA python class used to model a power BI dashboard page",
     "crumbs": [
       "Reference",
       "Function reference"
