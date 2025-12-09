@@ -1,3 +1,8 @@
+'''This class is used to represent csv datasets that can be added to dashboards.
+    You should never call this class directly, instead use the add_local_csv() or add_blob_csv() methods attached to the Dashboard class.
+'''
+
+
 import getpass
 import re
 import keyring

@@ -1,9 +1,11 @@
+"""A class representing sanky chart visuals"""
+
 import json
 
 from powerbpy.visual import _Visual
 
 class _SankyChart(_Visual):
-    """A class representing table visuals"""
+    """A class representing sanky chart visuals"""
 
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
@@ -29,7 +31,7 @@ class _SankyChart(_Visual):
                             background_color,
                             background_color_alpha,
                             chart_title_font_size,
-                            label_font_size,
+                            #label_font_size,
                             tab_order,
                             z_position,
                             alt_text="A sankey chart"):

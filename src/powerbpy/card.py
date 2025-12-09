@@ -1,3 +1,9 @@
+'''This class is used to represent cards that can be added to pages.
+    You should never call this class directly, instead use the add_card() method attached to the _Page class.
+    See add_card() for more details.
+'''
+
+
 import json
 
 from powerbpy.visual import _Visual

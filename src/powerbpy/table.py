@@ -1,3 +1,5 @@
+"""A class representing table visuals"""
+
 import json
 
 from powerbpy.visual import _Visual

@@ -1,3 +1,5 @@
+""" A subset of the Visual class. This represents text boxes"""
+
 import json
 
 from powerbpy.visual import _Visual

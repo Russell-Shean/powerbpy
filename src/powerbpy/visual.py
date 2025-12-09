@@ -1,8 +1,12 @@
+'''A generic class for Power BI visuals. Used as a base class for all subtypes of visuals'''
+
 import os
 
 from powerbpy.page import _Page
 
 class _Visual:
+
+    '''A generic class for Power BI visuals. Used as a base class for all subtypes of visuals'''
 
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals

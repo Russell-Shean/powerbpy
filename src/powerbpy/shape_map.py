@@ -1,3 +1,5 @@
+""" A subclass of the visual class, this represents a shapemap"""
+
 import os
 import json
 import shutil
@@ -11,6 +13,7 @@ class _ShapeMap(_Visual):
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches, too-many-statements
+    # pylint: disable=too-many-arguments
 
     def __init__(self,
                  page,
@@ -91,7 +94,7 @@ class _ShapeMap(_Visual):
 
 
         # checks --------------------------------------------------------------------------------------------------------------
-        if type(color_palette) is not list:
+        if not isinstance(color_palette, list):
             raise TypeError("color_palette should be a list! Please pass a list of hex codes")
 
         if percentile_bin_breaks is not None and filtering_var is None:
@@ -108,7 +111,7 @@ class _ShapeMap(_Visual):
 
         if static_bin_breaks is not None:
 
-            if type(static_bin_breaks) is not list:
+            if not isinstance(static_bin_breaks, list):
                 raise TypeError("static_bin_breaks should be a list! Please pass a list of numbers")
 
             if len(static_bin_breaks) - len(color_palette) != 1:
@@ -116,7 +119,7 @@ class _ShapeMap(_Visual):
 
         if percentile_bin_breaks is not None:
 
-            if type(percentile_bin_breaks) is not list:
+            if not isinstance(static_bin_breaks, list):
                 raise TypeError("percentile_bin_breaks should be a list! Please pass a list of numbers")
 
             if len(percentile_bin_breaks) - len(color_palette) != 1:

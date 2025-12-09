@@ -1,3 +1,8 @@
+'''A python class used to model a power BI dashboard page
+
+'''
+
+
 import os
 
 from powerbpy.dashboard import Dashboard
@@ -431,7 +436,7 @@ class _Page:
              z_position = 6000,
              tab_order=-1001,
              card_title = None,
-             text_align = "left",
+             #text_align = "left",
              font_weight = "bold",
              font_size=32,
              font_color="#000000",
@@ -629,7 +634,7 @@ class _Page:
                             background_color="#FFFFFF",
                             background_color_alpha=None,
                             chart_title_font_size = 17,
-                            label_font_size = 20,
+                            #label_font_size = 20,
                             tab_order = -1001,
                             z_position = 6000):
 
@@ -708,7 +713,7 @@ class _Page:
                             background_color=background_color,
                             background_color_alpha=background_color_alpha,
                             chart_title_font_size = chart_title_font_size,
-                            label_font_size = label_font_size,
+                            #label_font_size = label_font_size,
                             tab_order = tab_order,
                             z_position = z_position)
 
