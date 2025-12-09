@@ -7,7 +7,7 @@ import re
 import shutil
 import ast
 
-import pandas as pd
+import pandas as pd # pylint: disable=import-error
 
 from powerbpy.dashboard import Dashboard
 
@@ -124,6 +124,7 @@ class _DataSet:
 
     # Data model file --------------------------------------------------------------------------
     def _create_tmdl(self):
+        # pylint: disable=no-member
 
         '''An internally called function that creates a TMDL file from a pandas dataframe
         Parameters
@@ -145,6 +146,10 @@ class _DataSet:
         This function loops through all the dataframe's columns, checks the column's type (text, number, date), and generates the appropriate TMDL column definition for that type.
         Dates will only be recocognized as dates if they are in the format (YYYY-MM-DD) i.e. (1999-12-31). If your date is in another format please change in python before calling the add_csv functions.
         '''
+
+        self.col_names = []
+        self.col_deets = []
+        self.col_attributes = {}
 
         self.dataset.rename( columns={'Unnamed: 0':'probably_an_index_column'}, inplace=True )
 
@@ -168,9 +173,6 @@ class _DataSet:
                     # change the data type in the panda dataframe
                     self.dataset[col] = pd.to_datetime(self.dataset[col], format = "%Y-%m-%d")
                     break
-
-        self.col_names = []
-        self.col_deets = []
 
         # loop through columns and write specs out to model file
         for col in self.dataset:
@@ -203,7 +205,7 @@ class _DataSet:
 
             # For numbers, we're not distinguishing between integers (int64)
             # and numbers (double)
-            if self.dataset[col].dtype == "int64" or self.dataset[col].dtype == "float64":
+            if self.dataset[col].dtype in ("int64", "float64"):
 
                 # record more details in a different set
                 self.col_deets.append(f'{{"{col_for_m}", type number}}')

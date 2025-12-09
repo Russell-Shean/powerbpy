@@ -61,8 +61,7 @@ class _Visual:
         if os.path.isdir(self.new_visual_folder) is True:
             raise ValueError('A visual with that visual_id already exists! Try using a different visual_id')
 
-        else:
-            os.makedirs(self.new_visual_folder)
+        os.makedirs(self.new_visual_folder)
 
         # variable type checks
         for var in [self.height, self.width, self.x_position, self.y_position, self.z_position, self.tab_order, self.background_color_alpha]:
@@ -200,7 +199,9 @@ class _Visual:
                 })
 
         if self.background_color_alpha is not None:
-            self.visual_json["visual"]["visualContainerObjects"]["background"]["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{background_color_alpha}D"
+            for bg_obj in self.visual_json["visual"]["visualContainerObjects"]["background"]:
+                if "transparency" in bg_obj.get("properties", {}):
+                    bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{background_color_alpha}D"
 
         # add the parent group id if the user supplies one
         if self.parent_group_id is not None:

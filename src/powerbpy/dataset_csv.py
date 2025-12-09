@@ -5,12 +5,12 @@
 
 import getpass
 import re
-import keyring
+import keyring # pylint: disable=import-error
 
-from azure.storage.filedatalake import DataLakeFileClient
-from azure.identity import InteractiveBrowserCredential
+from azure.storage.filedatalake import DataLakeFileClient # pylint: disable=import-error
+from azure.identity import InteractiveBrowserCredential # pylint: disable=import-error
 
-import pandas as pd
+import pandas as pd # pylint: disable=import-error
 
 from powerbpy.data_set import _DataSet
 
