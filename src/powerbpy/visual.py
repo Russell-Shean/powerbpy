@@ -41,7 +41,7 @@ class _Visual:
         self.visual_type = "GENERIC_VISUAL"
 
         # checks ---------------------------------------------------------
-        if not isinstance(page, Page):
+        if not isinstance(page, _Page):
             raise TypeError("Visuals must be added to a specific page")
 
         # visual id unique?
