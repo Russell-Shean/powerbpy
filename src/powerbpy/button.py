@@ -10,6 +10,7 @@ class _Button(_Visual):
 
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
+    # pylint: disable=too-many-arguments
 
     def __init__(self,
                  page,
@@ -65,7 +66,7 @@ class _Button(_Visual):
         -----
         This function creates a new button on a page.
         '''
-        
+
 
         super().__init__(page=page,
                   visual_id=visual_id,

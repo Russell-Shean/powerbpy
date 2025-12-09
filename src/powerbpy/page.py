@@ -42,11 +42,14 @@ class _Page:
         # Add subfolders for visuals and stuff
         self.visuals_folder = os.path.join(self.page_folder, "visuals")
 
+
+    # pylint: disable=too-many-arguments
     def add_background_image(self,
                              img_path,
                              *,
                              alpha = 51,
                              scaling_method = "Fit"):
+
 
         '''Add a background image to a dashboard page
         Parameters
@@ -89,6 +92,7 @@ class _Page:
         self.background_images.append(background_image)
         return background_image
 
+    # pylint: disable=too-many-arguments
     def add_chart(self,
                   *,
                   visual_id,
@@ -173,6 +177,7 @@ class _Page:
         self.visuals.append(chart)
         return chart
 
+    # pylint: disable=too-many-arguments
     def add_text_box(self,
                      *,
                  text,
@@ -249,6 +254,7 @@ class _Page:
         self.visuals.append(text_box)
         return text_box
 
+    # pylint: disable=too-many-arguments
     def add_button(self,
                     *,
                  label,
@@ -323,6 +329,7 @@ class _Page:
         self.visuals.append(button)
         return button
 
+    # pylint: disable=too-many-arguments
     def add_slicer(self,
                    *,
                   data_source,
@@ -335,10 +342,10 @@ class _Page:
                z_position = 6000,
                tab_order=-1001,
                title = None,
-               text_align = "left",
-               font_weight = "bold",
-               font_size=32,
-               font_color="#000000",
+               #text_align = "left",
+               #font_weight = "bold",
+               #font_size=32,
+               #font_color="#000000",
                background_color = None,
                parent_group_id = None,
                alt_text= "A slicer",
@@ -399,10 +406,10 @@ class _Page:
                z_position=z_position,
                tab_order=tab_order,
                visual_title=title,
-               text_align=text_align,
-               font_weight=font_weight,
-               font_size=font_size,
-               font_color=font_color,
+               #text_align=text_align,
+               #font_weight=font_weight,
+               #font_size=font_size,
+               #font_color=font_color,
                parent_group_id=parent_group_id,
                alt_text = alt_text,
                  background_color=background_color,
@@ -411,6 +418,7 @@ class _Page:
         self.visuals.append(slicer)
         return slicer
 
+    # pylint: disable=too-many-arguments
     def add_card(self,
                   *,
                  data_source,
@@ -500,6 +508,7 @@ class _Page:
         self.visuals.append(card)
         return card
 
+    # pylint: disable=too-many-arguments
     def add_shape_map(self,
                       *,
                    visual_id,
@@ -599,6 +608,7 @@ class _Page:
         self.visuals.append(shape_map)
         return shape_map
 
+    # pylint: disable=too-many-arguments
     def add_sanky_chart(self,
                         *,
                          visual_id,
@@ -705,7 +715,7 @@ class _Page:
         self.visuals.append(sanky_chart)
         return sanky_chart
 
-
+    # pylint: disable=too-many-arguments
     def add_table(self,
                   *,
                        visual_id,

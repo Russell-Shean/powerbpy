@@ -11,7 +11,7 @@ class _Tmdl:
 
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
-    
+
     def __init__(self,
                  dashboard,
                  data_path = None,

@@ -7,6 +7,7 @@ class _Visual:
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-instance-attributes
+    # pylint: disable=too-many-arguments
 
     def __init__(self,
                  page,
