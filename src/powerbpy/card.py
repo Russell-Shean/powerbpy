@@ -6,7 +6,7 @@
 
 import json
 
-
+from powerbpy.visual import _Visual
 
 class _Card(_Visual):
     """A generic class for cards"""
@@ -76,7 +76,7 @@ class _Card(_Visual):
         -----
         This function creates a new card on a page.
         '''
-        from powerbpy.visual import _Visual
+
 
         super().__init__(page=page,
                   visual_id=visual_id,

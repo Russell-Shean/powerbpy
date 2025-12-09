@@ -12,6 +12,8 @@ from azure.identity import InteractiveBrowserCredential # pylint: disable=import
 
 import pandas as pd # pylint: disable=import-error
 
+from powerbpy.data_set import _DataSet
+
 class _LocalCsv(_DataSet):
 
     # pylint: disable=too-few-public-methods
@@ -25,7 +27,7 @@ class _LocalCsv(_DataSet):
 
         # pylint: disable=too-few-public-methods
         # pylint: disable=too-many-locals
-        from powerbpy.data_set import _DataSet
+
 
         super().__init__(dashboard,data_path)
 
