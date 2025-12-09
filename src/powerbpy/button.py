@@ -1,3 +1,5 @@
+""" A subset of the Visual class. This represents buttons"""
+
 import os
 import json
 
@@ -8,6 +10,7 @@ class Button(_Visual):
 
     def __init__(self,
                  page,
+                 *,
                  label,
                  visual_id,
                  height,
