@@ -41,10 +41,10 @@ quartodoc:
       contents:
         # the functions being documented in the package.
         # you can refer to anything: class methods, modules, etc..
-        - dashboard
-        - page:
-            members: true
-            private-members: true
+        - name: dashboard
+        - name: page
+          members: true
+          private-members: true
 
 
 format:
