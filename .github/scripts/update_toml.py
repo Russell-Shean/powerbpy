@@ -1,3 +1,8 @@
+''' This script automatically increments the version of the package in the toml file
+'''
+
+
+
 import re
 import shutil
 

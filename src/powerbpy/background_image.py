@@ -9,6 +9,11 @@ import json
 
 class BackgroundImage:
 
+    '''This class is used to represent background images that can be added to pages.
+    You should never call this class directly, instead use the add_background_image() method attached to the Page class.
+    See add_background_image() for more details.
+    '''
+
     def __init__(self,
                  page,
                  img_path,

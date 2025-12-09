@@ -1,3 +1,11 @@
+'''
+    This file switches out the code highlighting blocks because Github and pandoc use different code highlighting services.
+    Github recognizes batch scripts. Pandoc doesn't so we're going to call dosbat close enough for the quarto site.
+
+    We're also going to try adding a qmd title, although I doubt that will work and I'll probably need to mess with the html file instead
+    This script will run on github actions each time the quartodoc rendering + gh page publishing action runs.
+'''
+
 import shutil
 
 OG_PATH = "docs/reference/index.qmd"
