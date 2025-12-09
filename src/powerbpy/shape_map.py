@@ -185,8 +185,8 @@ class _ShapeMap(_Visual):
             self._add_bin_measures(dataset_name = data_source,
                                     color_var = color_var,
                                     percentile_bin_breaks = percentile_bin_breaks,
-                                    color_palette = color_palette,
-                                    filtering_var = filtering_var,
+                                    #color_palette = color_palette,
+                                    #filtering_var = filtering_var,
                                     location_var = location_var
                                     #data_filtering_condition = {"metric":"adj_rate"}
                                     )
@@ -697,7 +697,7 @@ class _ShapeMap(_Visual):
                 not isinstance(data_filtering_condition, dict)
                 or len(data_filtering_condition) != 1
                 or not all(isinstance(k, str) for k in data_filtering_condition.keys())):
-                
+
                 raise TypeError(
                     "data_filtering_condition must be a dict with exactly one string key. "
                     "Example: {'metric': 'adj_rate'}"

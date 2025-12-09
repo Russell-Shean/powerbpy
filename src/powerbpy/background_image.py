@@ -15,6 +15,7 @@ class _BackgroundImage:
     '''
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
+    # pylint: disable=too-many-arguments
 
     def __init__(self,
                  page,
@@ -23,7 +24,7 @@ class _BackgroundImage:
                  scaling_method = "Fit"):
 
 
-        
+
 
         '''Add a background image to a dashboard page
         Parameters
@@ -55,7 +56,7 @@ class _BackgroundImage:
         ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
         '''
 
-    
+
         self.page = page
         self.dashboard = page.dashboard
 

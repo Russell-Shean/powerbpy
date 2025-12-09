@@ -14,6 +14,7 @@ class _LocalCsv(_DataSet):
 
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
+    # pylint: disable=too-many-arguments
 
     def __init__(self,
                  dashboard,
@@ -55,9 +56,10 @@ class _LocalCsv(_DataSet):
 
 
 class _BlobCsv(_DataSet):
-    
+
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
+    # pylint: disable=too-many-arguments
 
     '''Add a csv file store in a ADLS blob container to a dashboard
 
