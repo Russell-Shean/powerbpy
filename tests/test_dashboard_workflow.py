@@ -2,6 +2,8 @@
    This script does not attempt to check if the resulting dashboard is correct.
 '''
 
+# pylint: disable=duplicate-code
+
 import shutil
 from pathlib import Path
 
