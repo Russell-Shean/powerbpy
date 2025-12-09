@@ -828,7 +828,7 @@ class ShapeMap(_Visual):
             # Generate bin ranges for each of the different bins we've been defining
             # see function definition above
             for i in range(1,len(percentile_bin_breaks)):
-                self._generate_bin_ranges(i,
+                self._generate_bin_ranges(           bin_number=i,
                                                      percentile_bin_breaks = percentile_bin_breaks,
                                                      dataset_file_path = dataset_file_path,
                                                      dataset_name = dataset_name,
