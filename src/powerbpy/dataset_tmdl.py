@@ -61,7 +61,7 @@ class _Tmdl:
             tmdl_dataset_path = os.path.join(self.dashboard.tables_folder, "DateTable.tmdl")
             self.dataset_name = "DataTable"
 
-            data_path = str(resources.files("powerbpy.dashboard_resources.python_resources").joinpath("DateTable.tmdl"))
+            data_path = str(files("powerbpy.dashboard_resources.python_resources").joinpath("DateTable.tmdl"))
 
             # copy date table from package resources to table folder
             shutil.copy(data_path, tmdl_dataset_path)
