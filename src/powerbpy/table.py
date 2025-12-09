@@ -5,6 +5,9 @@ from powerbpy.visual import _Visual
 class _Table(_Visual):
     """A class representing table visuals"""
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+
     def __init__(self,
                  page,
                  *,
@@ -54,8 +57,6 @@ class _Table(_Visual):
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 
         '''
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
 
         self.page = page
         self.x_position = x_position

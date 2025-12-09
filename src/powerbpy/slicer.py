@@ -5,6 +5,9 @@ from powerbpy.visual import _Visual
 class _Slicer(_Visual):
     """A generic class for slicers"""
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+
     def __init__(self,
                 page,
                 *,
@@ -18,10 +21,10 @@ class _Slicer(_Visual):
                z_position,
                tab_order,
                visual_title,
-               text_align,
-               font_weight,
-               font_size,
-               font_color,
+               #text_align,
+               #font_weight,
+               #font_size,
+               #font_color,
                background_color,
                background_color_alpha,
                parent_group_id,
@@ -68,8 +71,6 @@ class _Slicer(_Visual):
         ------
         This function creates a new slicer on a page.
         '''
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
 
         super().__init__(page=page,
                   visual_id=visual_id,

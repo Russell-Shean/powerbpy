@@ -8,6 +8,9 @@ from powerbpy.visual import _Visual
 class _Button(_Visual):
     """ A subset of the Visual class. This represents buttons"""
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+
     def __init__(self,
                  page,
                  *,
@@ -62,8 +65,7 @@ class _Button(_Visual):
         -----
         This function creates a new button on a page.
         '''
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
+        
 
         super().__init__(page=page,
                   visual_id=visual_id,
@@ -80,7 +82,7 @@ class _Button(_Visual):
 
         # checks --------------------------------------------------------------------------------------------------------------
         if alpha is not None:
-            if not isinstance(alpha, int) or not (0 <= alpha <= 100):
+            if not isinstance(alpha, int) or not 0 <= alpha <= 100:
                 raise ValueError("alpha must be an integer between 1–100")
 
         # make sure they're not trying to make the button do two things at once

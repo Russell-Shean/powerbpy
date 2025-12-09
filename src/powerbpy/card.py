@@ -5,6 +5,9 @@ from powerbpy.visual import _Visual
 class _Card(_Visual):
     """A generic class for cards"""
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+
     def __init__(self,
                  page,
                  *,
@@ -65,8 +68,6 @@ class _Card(_Visual):
         -----
         This function creates a new card on a page.
         '''
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
 
         super().__init__(page=page,
                   visual_id=visual_id,

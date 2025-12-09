@@ -3,6 +3,11 @@ import os
 from powerbpy.page import _Page
 
 class _Visual:
+
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+    # pylint: disable=too-many-instance-attributes
+
     def __init__(self,
                  page,
                  *,
@@ -19,9 +24,6 @@ class _Visual:
                   alt_text="A generic visual",
                   background_color=None,
                   background_color_alpha=None):
-
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
 
         self.page = page
         self.dashboard = page.dashboard

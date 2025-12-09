@@ -8,6 +8,10 @@ from powerbpy.visual import _Visual
 class _ShapeMap(_Visual):
     """ A subclass of the visual class, this represents a shapemap"""
 
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+    # pylint: disable=too-many-branches, too-many-statements
+
     def __init__(self,
                  page,
                  *,
@@ -80,8 +84,6 @@ class _ShapeMap(_Visual):
         -----
         This function creates a new cloropleth map on a page.
         '''
-        # pylint: disable=too-few-public-methods
-        # pylint: disable=too-many-locals
 
         #self.dashboard = dashboard
         self.page = page
@@ -652,8 +654,8 @@ class _ShapeMap(_Visual):
                      dataset_name,
                      color_var,
                      percentile_bin_breaks,
-                     color_palette,
-                     filtering_var,
+                     #color_palette,
+                     #filtering_var,
                      location_var,
                      data_filtering_condition = None):
 
@@ -691,11 +693,15 @@ class _ShapeMap(_Visual):
         # If a data_filtering_condition argument was provided, make sure it's a dictionary with only a single key-value pair
         if data_filtering_condition is not None:
 
-            if type(data_filtering_condition) is not dict or type(data_filtering_condition) is not dict:
-                raise TypeError("The data_filtering_condition should be a dictionary with a single key-value pair. \nThe key should be the column you want to look at and the value should be the variable you want to filter for in that column.\n For example to filter the data to only include rows where the metric column is equal to 'adj_rate', pass this dictionary: {'metric':'adj_rate'}")
-
-            if len(data_filtering_condition) > 1:
-                raise ValueError("Sorry the data_filtering_condition currently only supports filtering for one value in one column")
+            if (
+                not isinstance(data_filtering_condition, dict)
+                or len(data_filtering_condition) != 1
+                or not all(isinstance(k, str) for k in data_filtering_condition.keys())):
+                
+                raise TypeError(
+                    "data_filtering_condition must be a dict with exactly one string key. "
+                    "Example: {'metric': 'adj_rate'}"
+                    )
 
         # file paths ---------------------------------------------------------------------------
 

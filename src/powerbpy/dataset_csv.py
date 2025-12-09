@@ -11,6 +11,10 @@ from powerbpy.data_set import _DataSet
 
 
 class _LocalCsv(_DataSet):
+
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
+
     def __init__(self,
                  dashboard,
                  data_path):
@@ -51,6 +55,9 @@ class _LocalCsv(_DataSet):
 
 
 class _BlobCsv(_DataSet):
+    
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
 
     '''Add a csv file store in a ADLS blob container to a dashboard
 
@@ -98,6 +105,7 @@ class _BlobCsv(_DataSet):
 
     def __init__(self,
                  dashboard,
+                 *,
                  data_path,
                  account_url,
                  blob_name,
@@ -106,6 +114,9 @@ class _BlobCsv(_DataSet):
                  sas_url = None,
                  storage_account_key = None,
                  warnings = True):
+
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
 
         super().__init__(dashboard,data_path)
 
