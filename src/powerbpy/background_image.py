@@ -1,3 +1,8 @@
+'''This class is used to represent background images that can be added to pages.
+    You should never call this class directly, instead use the add_background_image() method attached to the Page class.
+    See add_background_image() for more details.
+'''
+
 import os
 import shutil
 import json
@@ -9,6 +14,36 @@ class BackgroundImage:
                  img_path,
                  alpha = 51,
                  scaling_method = "Fit"):
+
+        '''Add a background image to a dashboard page
+        Parameters
+        ----------
+        img_path: str
+            The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png
+        alpha: int
+            The transparency of the background image. Must be a whole integer between 1 and 100.
+        scaling_method: str
+            The method used to scale the image available options include ["Fit", ]
+
+        Notes
+        ----
+        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:
+            1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
+
+        There are two additional optional arguments:
+            2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )
+            3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
+
+        Here's some example code that adds a new background image to the Bee Colonies page:
+
+        ```python
+            page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+                   alpha = 51,
+                   scaling_method = "Fit")
+        ```
+        And here's what the dashboard looks like, now that we've added a background image:
+        ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
+        '''
 
         self.page = page
         self.dashboard = page.dashboard
