@@ -9,8 +9,6 @@ import ast
 
 import pandas as pd # pylint: disable=import-error
 
-from powerbpy.dashboard import Dashboard
-
 class _DataSet:
 
     # pylint: disable=too-few-public-methods
@@ -28,8 +26,7 @@ class _DataSet:
 
         ''' A generic class representing datasets. Currently it is called by local and blob csv files, but not TMDL datasets
         '''
-
-
+        from powerbpy.dashboard import Dashboard
 
         if not isinstance(dashboard, Dashboard):
             raise TypeError("Datasets must be attached to a Dashboard instance")

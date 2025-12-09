@@ -5,8 +5,6 @@ import json
 import shutil
 import uuid
 
-from powerbpy.visual import _Visual
-
 class _ShapeMap(_Visual):
     """ A subclass of the visual class, this represents a shapemap"""
 
@@ -89,6 +87,7 @@ class _ShapeMap(_Visual):
         -----
         This function creates a new cloropleth map on a page.
         '''
+        from powerbpy.visual import _Visual
 
         #self.dashboard = dashboard
         self.page = page
