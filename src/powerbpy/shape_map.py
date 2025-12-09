@@ -13,7 +13,7 @@ class _ShapeMap(_Visual):
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-branches, too-many-statements
-    # pylint: disable=too-many-arguments
+    # pylint: disable=too-many-arguments, pointless-string-statement
 
     def __init__(self,
                  page,
@@ -653,6 +653,8 @@ class _ShapeMap(_Visual):
             file.write(f'\t\t\tbin{bin_number}_LB & "-" & bin{bin_number}_UB\n')
             file.write(f'\t\tlineageTag: {str(uuid.uuid4())}\n')
 
+
+    # pylint: disable=too-many-arguments, pointless-string-statement
     def _add_bin_measures(self,
                          *,
                      dataset_name,
