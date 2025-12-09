@@ -29,6 +29,8 @@ class _Tmdl:
         - Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.
 
         '''
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
 
         self.dashboard = dashboard
 

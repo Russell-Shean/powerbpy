@@ -15,6 +15,9 @@ class _LocalCsv(_DataSet):
                  dashboard,
                  data_path):
 
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
+
         super().__init__(dashboard,data_path)
 
         # load the dataset as a pandas dataframe
@@ -89,6 +92,9 @@ class _BlobCsv(_DataSet):
     I may eventually add an automatic fix for this.
 
     '''
+
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-locals
 
     def __init__(self,
                  dashboard,

@@ -20,6 +20,9 @@ class _Visual:
                   background_color=None,
                   background_color_alpha=None):
 
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
+
         self.page = page
         self.dashboard = page.dashboard
         self.visual_id = visual_id

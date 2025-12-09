@@ -50,6 +50,9 @@ class _BackgroundImage:
         ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
         '''
 
+        # pylint: disable=too-few-public-methods
+        # pylint: disable=too-many-locals
+
         self.page = page
         self.dashboard = page.dashboard
 
