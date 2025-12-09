@@ -2,6 +2,8 @@
 
 import json
 
+from powerbpy.visual import _Visual
+
 class _TextBox(_Visual):
     """ A subset of the Visual class. This represents text boxes"""
 
