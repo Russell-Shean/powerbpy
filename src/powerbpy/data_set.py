@@ -14,6 +14,7 @@ class _DataSet:
     # pylint: disable=too-few-public-methods
     # pylint: disable=too-many-locals
     # pylint: disable=too-many-instance-attributes
+    # pylint: disable=import-outside-toplevel
 
     # Get everything else from the dashboard
     # Attribute delegation (inherit parent instance attributes)

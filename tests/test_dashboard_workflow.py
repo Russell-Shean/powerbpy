@@ -8,8 +8,6 @@ import shutil
 from pathlib import Path
 
 
-
-
 def test_full_dashboard_flow(tmp_path):
     """
     Full integration test for Dashboard creation, page generation,
