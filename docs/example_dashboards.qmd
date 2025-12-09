@@ -1,13 +1,15 @@
 ---
-title: "Example Dashboards"
+title: "Here are some examples of Power BI dashboards built using `{powerbpy}`."
 listing: 
   contents: example_dashboards 
-  type: grid 
   sort: "date desc" 
+  type: default
   categories: true 
+page-layout: full
 format:
   html: 
     comments: false
 ---
+::: {.column-page}
 
-Here are some examples of Power BI dashboards built using `{powerbpy}`. 
+:::
