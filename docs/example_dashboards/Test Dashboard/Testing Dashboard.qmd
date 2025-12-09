@@ -1,14 +1,14 @@
 ---
 title: "Test Dashboard"
 description: This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.
-image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true"
+image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif"
 ---
 
 # Recreate my testing dashboard      
 This example shows how I create the dashboard I use for testing the module. It isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:       
-- create a new dashboard      
-- add pages to the dashboard     
-- add visual elements such as maps and charts to the pages       
+  - create a new dashboard      
+  - add pages to the dashboard     
+  - add visual elements such as maps and charts to the pages       
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true "Example Dashboard")     
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true "Example Dashboard")
 
@@ -85,7 +85,10 @@ Here's some example code:
 
 ```python
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
-```
+```     
+If the code worked, you should see the new dataset when you open the new dashboard. Unfortunately, you'll see a warning that looks like this about how the dashboard needs to be refreshed:     
+    
+To solve the problem, click `Refresh now` and then the dataset should display normally. If you save the file, it should open normally next time.  (Frustratingly, Power BI still requires that datasets to be opened in Power BI desktop to display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called **/.pbi/cache.abf. The file isn't directly readable and I haven't figured out a way to recreate whatever Power BI desktop does and stores in the file).
       
 ## Add a chart
 Here's how you can add a bar chart to your dashboard. To add the chart you'll need to provide the following required arguments:      
@@ -119,4 +122,5 @@ page1.add_chart(visual_id = "colonies_lost_by_year",
 	      y_position = 158,
 	      height = 524,
 	      width = 603)
-```
+```      
+Here's what the chart that we added looks like:
