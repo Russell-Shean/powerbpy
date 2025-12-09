@@ -538,7 +538,7 @@ class _ShapeMap(_Visual):
 
                 # add text box legends for static maps
                 if static_bin_breaks is not None:
-                    self.add_text_box(text = f"{static_bin_breaks[i]} - {static_bin_breaks[i + 1]}",
+                    self.page.add_text_box(text = f"{static_bin_breaks[i]} - {static_bin_breaks[i + 1]}",
                                      text_box_id = f"{visual_id}_legend_box{i + 1}",
                                      height = legend_height,
                                      width = box_width,
