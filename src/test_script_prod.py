@@ -63,7 +63,7 @@ page1.add_chart(visual_id = "colonies_lost_by_year",
 
 # add a text box to the second page
 page1.add_text_box(text = "Explanatory text in the bottom right corner",
-                 visual_id = "page2_explain_box",
+                 visual_id = "page1_explain_box",
                  height = 200,
                    width= 300,
                      x_position = 1000,
