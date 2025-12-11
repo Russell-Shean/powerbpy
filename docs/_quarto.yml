@@ -55,4 +55,4 @@ format:
      dark: darkly
      light: cosmo
 
-#    theme: styles.scss
+    theme: styles.scss
