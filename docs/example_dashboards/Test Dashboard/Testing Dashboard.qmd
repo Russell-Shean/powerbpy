@@ -1,5 +1,6 @@
 ---
 title: "Test Dashboard"
+date: 2025-12-12
 description: This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.
 image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif"
 ---
