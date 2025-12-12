@@ -52,6 +52,7 @@ format:
     toc: true
     
     theme:
-     dark: darkly
+     dark:
+      - darkly
+      - styles.scss
      light: cosmo
-     css: styles.scss

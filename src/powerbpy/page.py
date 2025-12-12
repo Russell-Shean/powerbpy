@@ -7,14 +7,14 @@ import os
 
 
 class _Page:
-    '''A python class used to model a power BI dashboard page.     
-        
-    You should never initate a page class directly, instead use Dashboard.new_page() to create a new page, or Dashboard.load_page() to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple -- it doesn't make sense to have a page not attached to a dashboard.    
+    '''A python class used to model a power BI dashboard page.
+
+    You should never initate a page class directly, instead use Dashboard.new_page() to create a new page, or Dashboard.load_page() to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple -- it doesn't make sense to have a page not attached to a dashboard.
 
     Here's an example workflow:
     ```python
     from powerbpy import Dashboard
-    
+
     # Create a new dashboard
     my_dashboard = Dashboard.create("C:/Users/Russ/PBI_projects/test_dashboard")
 
@@ -93,11 +93,11 @@ class _Page:
 
         Notes
         ----
-        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:        
+        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:
             1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
 
-        There are two additional optional arguments:         
-            2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )       
+        There are two additional optional arguments:
+            2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )
             3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
 
         Here's some example code that adds a new background image to the Bee Colonies page:
@@ -423,7 +423,7 @@ class _Page:
                y_position=y_position,
                z_position=z_position,
                tab_order=tab_order,
-               title=title,
+               visual_title=title,
                parent_group_id=parent_group_id,
                alt_text = alt_text,
                  background_color=background_color,
@@ -639,7 +639,7 @@ class _Page:
                             parent_group_id=None,
                             background_color="#FFFFFF",
                             background_color_alpha=None,
-                            chart_title_font_size = 17,         
+                            chart_title_font_size = 17,
                             tab_order = -1001,
                             z_position = 6000):
 
