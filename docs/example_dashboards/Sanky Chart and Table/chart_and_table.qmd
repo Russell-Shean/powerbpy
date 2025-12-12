@@ -2,7 +2,7 @@
 Title: "WOW Power BI 2025 week 13 demonstration"
 date: 2025-12-11
 description: Let's add a table and a sanky chart to a dashboard.
-image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif"
+image: "assets/images/sanky_screenshot.png"
 ---
 
 # Sanky Chart and Table
