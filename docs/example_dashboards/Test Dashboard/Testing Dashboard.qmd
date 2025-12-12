@@ -11,6 +11,7 @@ This example shows how I create the dashboard I use for testing the module. It i
 - create a new dashboard      
 - add pages to the dashboard     
 - add visual elements such as maps and charts to the pages       
+      
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true "Example Dashboard")     
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true "Example Dashboard")
 
@@ -141,12 +142,22 @@ In addition to visuals, many dashboards use explanatory text. Here's an example 
   3. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
   4. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
   5. `height` - Height of chart on the page          
-  6. `width` - Width of chart on the page
-  
-  
-  = "Explanatory text in the bottom right corner",
+  6. `width` - Width of chart on the page      
+
+There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() [method documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box). <strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here's some example code showing how I added a text box to my testing dashboard:       
+    
+```python   
+# This adds a text box to the bottom right corner of the first page    
+
+page1.add_text_box(text = "Explanatory text in the bottom right corner",
                  visual_id = "page1_explain_box",
                  height = 200,
                    width= 300,
                      x_position = 1000,
-                     y_position = 600
+                     y_position = 600,
+                     font_size = 15)
+
+```     
+If the code worked, the dashboard should look something like this:    
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)
+  
