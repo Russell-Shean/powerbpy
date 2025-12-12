@@ -139,10 +139,10 @@ In addition to visuals, many dashboards use explanatory text. Here's an example 
            
   1. `text` - The text you want to display in the box         
   2. `visual_id` - Give the text box a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
-  3. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
-  4. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
-  5. `height` - Height of chart on the page          
-  6. `width` - Width of chart on the page      
+  3. `x_position` - The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.      
+  4. `y_position` - The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.       
+  5. `height` - Height of text box on the page          
+  6. `width` - Width of text box on the page      
 
 There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() [method documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box). <strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here's some example code showing how I added a text box to my testing dashboard:       
     
@@ -159,5 +159,52 @@ page1.add_text_box(text = "Explanatory text in the bottom right corner",
 
 ```     
 If the code worked, the dashboard should look something like this:    
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)      
+    
+## Add a button     
+In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report. (I'm far from a Power BI expert, so I don't know if it's possible to create buttons that do other things such as analyze or filter data. </strong>Feel free to submit an issue or pull request on Github to request additional button features that I haven't implemented yet!)</strong>.
+The following arguments are required:     
+
+  1. `label` - This text will display inside the button         
+  2. `visual_id` - Give the button a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
+  3. `x_position` - The x coordinate of where you want to put the button on the page. Origin is page's top left corner.      
+  4. `y_position` - The y coordinate of where you want to put the button on the page. Origin is page's top left corner.       
+  5. `height` - Height of button on the page          
+  6. `width` - Width of button on the page      
+
+Additional option argument are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button). For this example, I'd like to highlight two of the optional arguments that enable the button to be linked to navigation:     
+     
+  7. `url_link` = This should be a valid url (web link). When the button is clicked the web page will open in the user's browser.
+  8. `page_navigation_link` = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id's are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a randow string of numbers and letters. If you aren't sure what pages are in your dashboard you can use the [Dashboard.list_pages() method](https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages).
+      
+Let's add two buttons! One that sends the user to www.google.com and one that navigates the user to page 2.     
+
+```python
+# create a second page so that the page navigation button works     
+page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
+                     title= "Bigfoot sightings",
+                     subtitle = "By Washington Counties")    
+
+# Add two buttons 
+# Navigate to an internet address
+page1.add_button(label = "Open Google",
+  visual_id = "page2_google_button",
+  height = 40,
+  width = 131,
+  x_position = 1000,
+  y_position = 540,
+  url_link = "https://www.google.com/")
+
+# navigate back to page 2
+page1.add_button(label = "Move to page 2",
+  visual_id = "page1_move_to_page1_button",
+  height = 40,
+  width = 131,
+  x_position = 1000,
+  y_position = 490,
+  page_navigation_link = "page2")
+
+```     
+If the code works you should get two buttons that look like this. The first button should open a new www.google.com tab in your browser. The second button should send you to page 2.     
   
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/buttons_demo.gif)

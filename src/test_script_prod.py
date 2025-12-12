@@ -33,11 +33,12 @@ page1 = my_dashboard.new_page(page_name = "Bee Colonies",
                      title= "The bees are in trouble!",
                      subtitle = "We're losing bee colonies")
 
-'''
+
 page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
                      title= "Bigfoot sightings",
                      subtitle = "By Washington Counties")
 
+'''
 ## page 3 ------------------------------------------------------------------------------------------------------
 page3 = my_dashboard.new_page(page_name = "Table Page")
 
@@ -75,19 +76,19 @@ page1.add_text_box(text = "Explanatory text in the bottom right corner",
                      y_position = 600,
                      font_size = 15)
 
-'''
+
 # add buttons
 
-# download data button (a link to an internet address)
-page1.add_button(label = "Download Data",
-  visual_id = "page2_download_button",
+# Navigate to an internet address
+page1.add_button(label = "Open Google",
+  visual_id = "page2_google_button",
   height = 40,
   width = 131,
   x_position = 1000,
   y_position = 540,
   url_link = "https://www.google.com/")
 
-# navigate back to page 1 button
+# navigate back to page 2
 page1.add_button(label = "Move to page 2",
   visual_id = "page1_move_to_page1_button",
   height = 40,
@@ -95,6 +96,8 @@ page1.add_button(label = "Move to page 2",
   x_position = 1000,
   y_position = 490,
   page_navigation_link = "page2")
+
+'''
 
 ## Add a map to page 3 ----------------------------------------------------------------------
 
