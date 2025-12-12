@@ -650,8 +650,6 @@ class _Page:
         ----------
         visual_id: str
             Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        chart_type: str
-            The type of chart to build on the page. Known available types include: ["columnChart","barChart", "clusteredBarChart", ]
         data_source: str
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         starting_var: str
