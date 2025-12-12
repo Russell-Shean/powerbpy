@@ -126,7 +126,6 @@ class _Page:
     def add_chart(self,
                   *,
                   visual_id,
-                 chart_type,
                  data_source,
                  chart_title,
                  x_axis_title,
@@ -138,6 +137,7 @@ class _Page:
                  y_position,
                  height,
                  width,
+                 chart_type="columnChart",
                  background_color="#FFFFFF",
                  background_color_alpha=None,
                  tab_order = -1001,
@@ -461,7 +461,6 @@ class _Page:
              z_position = 6000,
              tab_order=-1001,
              card_title = None,
-             #text_align = "left",
              font_weight = "bold",
              font_size=32,
              font_color="#000000",
@@ -494,8 +493,6 @@ class _Page:
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         card_title: int
             An optional title to add to the card.
-        text_align: str
-            How would you like the text aligned (available options: "left", "right", "center")
         font_weight: str
             This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
         font_size: int
@@ -658,8 +655,7 @@ class _Page:
                             parent_group_id=None,
                             background_color="#FFFFFF",
                             background_color_alpha=None,
-                            chart_title_font_size = 17,
-                            #label_font_size = 20,
+                            chart_title_font_size = 17,         
                             tab_order = -1001,
                             z_position = 6000):
 
@@ -668,7 +664,7 @@ class _Page:
 
         Parameters
         ----------
-        chart_id: str
+        visual_id: str
             Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         chart_type: str
             The type of chart to build on the page. Known available types include: ["columnChart","barChart", "clusteredBarChart", ]
@@ -690,8 +686,6 @@ class _Page:
             Alternate text for the visualization can be provided as an argument. This is important for screen readers (accesibility) or if the visualization doesn't load properly.
         chart_title_font_size: int
             Font size for chart title
-        label_font_size: int
-            Font size for the labels on the various sanky nodes
         link_colors: list
             Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.
         x_axis_var: str
@@ -738,7 +732,6 @@ class _Page:
                             background_color=background_color,
                             background_color_alpha=background_color_alpha,
                             chart_title_font_size = chart_title_font_size,
-                            #label_font_size = label_font_size,
                             tab_order = tab_order,
                             z_position = z_position)
 
