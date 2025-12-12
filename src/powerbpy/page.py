@@ -372,10 +372,6 @@ class _Page:
                z_position = 6000,
                tab_order=-1001,
                title = None,
-               #text_align = "left",
-               #font_weight = "bold",
-               #font_size=32,
-               #font_color="#000000",
                background_color = None,
                parent_group_id = None,
                alt_text= "A slicer",
@@ -405,14 +401,6 @@ class _Page:
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         title: str
             An optional title to add to the slicer.
-        text_align: str
-            How would you like the text aligned (available options: "left", "right", "center")
-        font_weight: str
-            This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
-        font_size: int
-            The font size in pts. Must be a whole integer. Defaults to 32 pt
-        font_color: str
-            Hex code for the font color you'd like to use. Defaults to black (#000000)
         background_color: str
             Hex code for the background color of the slicer. Defaults to None (transparent)
         parent_group_id: str
@@ -436,10 +424,6 @@ class _Page:
                z_position=z_position,
                tab_order=tab_order,
                title=title,
-               #text_align=text_align,
-               #font_weight=font_weight,
-               #font_size=font_size,
-               #font_color=font_color,
                parent_group_id=parent_group_id,
                alt_text = alt_text,
                  background_color=background_color,
@@ -581,7 +565,7 @@ class _Page:
             Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.
         static_bin_breaks: list
             This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.
-        color_palatte: list
+        color_palette: list
             A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks
         add_legend: bool
             True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default)
@@ -688,12 +672,6 @@ class _Page:
             Font size for chart title
         link_colors: list
             Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.
-        x_axis_var: str
-            Column name of a column from data_source that you want to use for the x axis of the chart
-        y_axis_var: str
-            Column name of a column from data_source that you want to use for the y axis of the chart
-        y_axis_var_aggregation_type: str
-            Type of aggregation method you want to use to summarize y axis variable. Available options include" ["Sum", "Count", "Average"]
         x_position: int
             The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.
         y_position: int
