@@ -1,0 +1,23 @@
+/* Dark-mode overrides for code appearance */
+@media (prefers-color-scheme: dark) {
+
+  /* INLINE CODE */
+  code,
+  .quarto-code-inline,
+  code.sourceCode {
+    background-color: black !important;
+    color: #eee !important;
+  }
+
+  /* CODE BLOCKS */
+  pre,
+  pre code,
+  pre.sourceCode,
+  .sourceCode,
+  .quarto-highlight,
+  .quarto-highlight code {
+    background-color: black !important;
+    color: #eee !important;
+    box-shadow: none !important;
+  }
+}
