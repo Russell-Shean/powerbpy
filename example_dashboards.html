@@ -82,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -132,6 +132,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="styles.scss">
 </head>
 
 <body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
@@ -376,7 +377,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1765467266697" data-listing-reading-time-sort="9" data-listing-word-count-sort="1740">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1765508990533" data-listing-reading-time-sort="9" data-listing-word-count-sort="1740">
 <div class="thumbnail"><a href="./example_dashboards/Test Dashboard/Testing Dashboard.html" class="no-external">
 
 <img loading="lazy" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif" class="thumbnail-image">
@@ -395,10 +396,10 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1765467266697" data-listing-reading-time-sort="11" data-listing-word-count-sort="2087">
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1765411200000" data-listing-file-modified-sort="1765508990533" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2087">
 <div class="thumbnail"><a href="./example_dashboards/Sanky Chart and Table/chart_and_table.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<img loading="lazy" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -406,11 +407,14 @@ window.Quarto = {
 <a href="./example_dashboards/Sanky Chart and Table/chart_and_table.html" class="no-external">Sanky Chart and Table</a>
 </h3>
 <div class="delink listing-description"><a href="./example_dashboards/Sanky Chart and Table/chart_and_table.html" class="no-external">
-I used the PowerBpy python module to recreate an sanky chart and table dashboard from the Workout Wednesday Group challenge. Here’s a screenshot of the original dashboard…
+<p>Let’s add a table and a sanky chart to a dashboard.</p>
 </a></div>
 </div>
 <div class="metadata">
 <a href="./example_dashboards/Sanky Chart and Table/chart_and_table.html" class="no-external">
+<div class="listing-date">
+Dec 11, 2025
+</div>
 </a>
 </div>
 </div>

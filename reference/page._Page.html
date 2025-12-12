@@ -107,6 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../styles.scss">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
@@ -509,11 +510,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="notes" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h4>
-<p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required argument:<br>
-1. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
-<p>There are two additional optional arguments:<br>
-2. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
-3. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
+<p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required argument: 1. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
+<p>There are two additional optional arguments: 2. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 ) 3. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>           alpha <span class="op">=</span> <span class="dv">51</span>,</span>
@@ -566,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><em>required</em></td>
 </tr>
 <tr class="even">
-<td>button_id</td>
+<td>visual_id</td>
 <td></td>
 <td>Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</td>
 <td><em>required</em></td>
@@ -734,42 +732,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>-1001</code></td>
 </tr>
 <tr class="even">
-<td>visual_title</td>
+<td>card_title</td>
 <td></td>
 <td>An optional title to add to the card.</td>
-<td><em>required</em></td>
+<td><code>None</code></td>
 </tr>
 <tr class="odd">
-<td>text_align</td>
-<td></td>
-<td>How would you like the text aligned (available options: “left”, “right”, “center”)</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
 <td>font_weight</td>
 <td></td>
 <td>This is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]</td>
 <td><code>'bold'</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>font_size</td>
 <td></td>
 <td>The font size in pts. Must be a whole integer. Defaults to 32 pt</td>
 <td><code>32</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>font_color</td>
 <td></td>
 <td>Hex code for the font color you’d like to use. Defaults to black (#000000)</td>
 <td><code>'#000000'</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>background_color</td>
 <td></td>
 <td>Hex code for the background color of the card. Defaults to None (transparent)</td>
 <td><code>None</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>parent_group_id</td>
 <td></td>
 <td>This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.</td>
@@ -787,18 +779,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="powerbpy.page._Page.add_chart">add_chart</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>page._Page.add_chart(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    visual_id,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    chart_type,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    data_source,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    chart_title,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    x_axis_title,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    y_axis_title,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    x_axis_var,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    y_axis_var,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    y_axis_var_aggregation_type,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    x_position,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    y_position,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    height,</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    width,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    data_source,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    chart_title,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    x_axis_title,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    y_axis_title,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    x_axis_var,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    y_axis_var,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    y_axis_var_aggregation_type,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    x_position,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    y_position,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    height,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    width,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    chart_type<span class="op">=</span><span class="st">'columnChart'</span>,</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="st">'#FFFFFF'</span>,</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    background_color_alpha<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    tab_order<span class="op">=-</span><span class="dv">1001</span>,</span>
@@ -813,8 +805,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 7%">
 <col style="width: 1%">
-<col style="width: 87%">
-<col style="width: 2%">
+<col style="width: 86%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -835,7 +827,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>chart_type</td>
 <td></td>
 <td>The type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]</td>
-<td><em>required</em></td>
+<td><code>'columnChart'</code></td>
 </tr>
 <tr class="odd">
 <td>data_source</td>
@@ -844,7 +836,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><em>required</em></td>
 </tr>
 <tr class="even">
-<td>visual_title</td>
+<td>chart_title</td>
 <td></td>
 <td>Give your chart an informative title!:D</td>
 <td><em>required</em></td>
@@ -948,9 +940,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-4">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
+<col style="width: 5%">
 <col style="width: 1%">
-<col style="width: 86%">
+<col style="width: 87%">
 <col style="width: 4%">
 </colgroup>
 <thead>
@@ -963,76 +955,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>chart_id</td>
+<td>visual_id</td>
 <td></td>
 <td>Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
-<td>chart_type</td>
-<td></td>
-<td>The type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
 <td>data_source</td>
 <td></td>
 <td>The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</td>
 <td><em>required</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>starting_var</td>
 <td></td>
 <td>Which variable from the data_source, do you want to use for the left side of the sanky chart?</td>
 <td><em>required</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>starting_var_values</td>
 <td></td>
 <td>Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.</td>
 <td><em>required</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ending_var</td>
 <td></td>
 <td>Which variable from the data_source, do you want to use for the right side of the sanky chart?</td>
 <td><em>required</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ending_var_values</td>
 <td></td>
 <td>Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.</td>
 <td><em>required</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>values_from_var</td>
 <td></td>
 <td>This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I’d like to add the option to provide a sum too</td>
 <td><em>required</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>chart_title</td>
 <td></td>
 <td>Give your chart an informative title!:D</td>
 <td><em>required</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>alt_text</td>
 <td></td>
 <td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accesibility) or if the visualization doesn’t load properly.</td>
 <td><code>'A sankey chart'</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>chart_title_font_size</td>
 <td></td>
 <td>Font size for chart title</td>
 <td><code>17</code></td>
-</tr>
-<tr class="even">
-<td>label_font_size</td>
-<td></td>
-<td>Font size for the labels on the various sanky nodes</td>
-<td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>link_colors</td>
@@ -1041,54 +1021,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>None</code></td>
 </tr>
 <tr class="even">
-<td>x_axis_var</td>
-<td></td>
-<td>Column name of a column from data_source that you want to use for the x axis of the chart</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>y_axis_var</td>
-<td></td>
-<td>Column name of a column from data_source that you want to use for the y axis of the chart</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>y_axis_var_aggregation_type</td>
-<td></td>
-<td>Type of aggregation method you want to use to summarize y axis variable. Available options include” [“Sum”, “Count”, “Average”]</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
 <td>x_position</td>
 <td></td>
 <td>The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.</td>
 <td><em>required</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>y_position</td>
 <td></td>
 <td>The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.</td>
 <td><em>required</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>height</td>
 <td></td>
 <td>Height of chart on the page</td>
 <td><em>required</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>width</td>
 <td></td>
 <td>Width of chart on the page</td>
 <td><em>required</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>tab_order</td>
 <td></td>
 <td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
 <td><code>-1001</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>z_position</td>
 <td></td>
 <td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
@@ -1191,7 +1153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
-<td>color_palatte</td>
+<td>color_palette</td>
 <td></td>
 <td>A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks</td>
 <td><em>required</em></td>
@@ -1350,34 +1312,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>-1001</code></td>
 </tr>
 <tr class="even">
-<td>visual_title</td>
+<td>title</td>
 <td></td>
 <td>An optional title to add to the slicer.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>text_align</td>
-<td></td>
-<td>How would you like the text aligned (available options: “left”, “right”, “center”)</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>font_weight</td>
-<td></td>
-<td>This is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>font_size</td>
-<td></td>
-<td>The font size in pts. Must be a whole integer. Defaults to 32 pt</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>font_color</td>
-<td></td>
-<td>Hex code for the font color you’d like to use. Defaults to black (#000000)</td>
-<td><em>required</em></td>
+<td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>background_color</td>

@@ -1,0 +1,22 @@
+// Dark-mode overrides for code appearance
+@media (prefers-color-scheme: dark) {
+
+  /* Remove background for all inline code */
+  code,
+  .code,
+  .quarto-code-inline {
+    background: none !important;
+    background-color: transparent !important;
+  }
+
+  /* Remove background for all code blocks */
+  pre,
+  pre code,
+  .code-block,
+  .quarto-highlight,
+  .quarto-highlight code {
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;  // remove any theme shadows
+  }
+}
