@@ -155,7 +155,7 @@ class _Page:
             The type of chart to build on the page. Known available types include: ["columnChart","barChart", "clusteredBarChart", ]
         data_source: str
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
-        visual_title: str
+        chart_title: str
             Give your chart an informative title!:D
         x_axis_title: str
             Text to display on the x axis
@@ -309,7 +309,7 @@ class _Page:
         ----------
         label : str
             The text you want to display inside the button
-        button_id: str
+        visual_id: str
             Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height: int
             Height of text box on the page
@@ -403,7 +403,7 @@ class _Page:
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order: int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        visual_title: str
+        title: str
             An optional title to add to the slicer.
         text_align: str
             How would you like the text aligned (available options: "left", "right", "center")
@@ -435,7 +435,7 @@ class _Page:
                y_position=y_position,
                z_position=z_position,
                tab_order=tab_order,
-               visual_title=title,
+               title=title,
                #text_align=text_align,
                #font_weight=font_weight,
                #font_size=font_size,
@@ -492,7 +492,7 @@ class _Page:
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order: int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        visual_title: int
+        card_title: int
             An optional title to add to the card.
         text_align: str
             How would you like the text aligned (available options: "left", "right", "center")
