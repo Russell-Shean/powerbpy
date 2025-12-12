@@ -6,7 +6,7 @@
   .code,
   .quarto-code-inline {
     background: none !important;
-    background-color: transparent !important;
+    background-color: black !important;
   }
 
   /* Remove background for all code blocks */
@@ -16,7 +16,7 @@
   .quarto-highlight,
   .quarto-highlight code {
     background: none !important;
-    background-color: transparent !important;
+    background-color: black !important;
     box-shadow: none !important;  // remove any theme shadows
   }
 }
