@@ -6,7 +6,8 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/pa
 ---
 
 # Recreate my testing dashboard      
-This example shows how I create the dashboard I use for testing the module. It isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:       
+This example shows how I create the dashboard I use for testing the module. It isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:        
+          
 - create a new dashboard      
 - add pages to the dashboard     
 - add visual elements such as maps and charts to the pages       
@@ -36,9 +37,11 @@ You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Altho
     
 ## Add a new page
 Dashboards don't start with any pages until you add them. To add a new page, you'll need to provide the following arguments:          
+        
   1. `page_name` - This is display name for the page. (This is different from the page_id).      
       
 You can also provide the following optional arguments:       
+         
   2. `title` - Title to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.        
   3. `subtitle` - This is similar to the title, but it goes below the title. If you would like more control use the `add_text_box()` function       
   4. `displayOption` - I'm honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to `FitToPage` and other options include `FitToWidth` and `ActualSize`.
@@ -58,11 +61,13 @@ Here's what the new page looks like in Power BI Desktop
 ![New Page Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true "Example Page")      
    
 ## Add background image
-Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:     
+Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:      
+         
   1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       
            
     
-There are two additional optional arguments:     
+There are two additional optional arguments:        
+       
   2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )    
   3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)      
       
@@ -80,6 +85,7 @@ And here's what the dashboard looks like, now that we've added a background imag
 
 ## Add a dataset
 For most dashboards, you'll want to add visuals that help users visualize the data. Before you can start adding visuals, you'll need to add datasets. Here's how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You'll need to provide the following arguments:        
+        
   1. `data_path` = The location of the csv file that you want to add. Can be a relative or full path
 
 Here's some example code:    
@@ -93,19 +99,19 @@ To solve the problem, click `Refresh now` and then the dataset should display no
       
 ## Add a chart
 Here's how you can add a bar chart to your dashboard. To add the chart you'll need to provide the following required arguments:      
+        
   1. `visual_id` - Give your chart a unique id that you'll remember. (Power BI's default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id's in the dashboard. It will also be the name of the file inside the Power BI project folder. )      
-  2. `chart_type` - This is the type of chart to build on the page. I've only ever tried this with the `columnCart` option, the options I currently know about include: : `["columnChart","barChart", "clusteredBarChart"]`        
-  3. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.     
-  4. `chart_title` - Give your chart an informative title! This will display on the dashboard as part of the chart.    
-  5. `x_axis_title` - This is the text that will label the x axis       
-  6. `y_axis_title` - This is the text that will label the y axis       
-  7. `x_axis_var` - This is the variable to use for the x axis        
-  8. `y_axis_var` - This is the variable to use for the y axis       
-  9. `y_axis_var_aggregation_type` - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)        
-  10. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
-  11. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
-  12. `height` - Height of chart on the page          
-  13. `width` - Width of chart on the page
+  2. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.     
+  3. `chart_title` - Give your chart an informative title! This will display on the dashboard as part of the chart.    
+  4. `x_axis_title` - This is the text that will label the x axis       
+  5. `y_axis_title` - This is the text that will label the y axis       
+  6. `x_axis_var` - This is the variable to use for the x axis        
+  7. `y_axis_var` - This is the variable to use for the y axis       
+  8. `y_axis_var_aggregation_type` - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)        
+  9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
+  10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
+  11. `height` - Height of chart on the page          
+  12. `width` - Width of chart on the page
 
 Here's some example code that adds a bar chart showing bee colonies lost per year: 
 
@@ -124,4 +130,23 @@ page1.add_chart(visual_id = "colonies_lost_by_year",
 	      height = 524,
 	      width = 603)
 ```      
-Here's what the chart that we added looks like:
+Here's what the chart that we added looks like:      
+![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/add_chart_example.png?raw=true)     
+
+# Add a text box    
+In addition to visuals, many dashboards use explanatory text. Here's an example of adding a text box to a page. The following arguments are required:      
+           
+  1. `text` - The text you want to display in the box         
+  2. `visual_id` - Give the text box a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
+  3. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
+  4. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
+  5. `height` - Height of chart on the page          
+  6. `width` - Width of chart on the page
+  
+  
+  = "Explanatory text in the bottom right corner",
+                 visual_id = "page1_explain_box",
+                 height = 200,
+                   width= 300,
+                     x_position = 1000,
+                     y_position = 600

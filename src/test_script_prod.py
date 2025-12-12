@@ -17,6 +17,7 @@ my_dashboard = Dashboard.create(dashboard_path)
 # Try to add datasets
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
 
+'''
 my_dashboard.add_local_csv(data_path = "examples/data/wa_bigfoot_by_county.csv")
 
 my_dashboard.add_local_csv(data_path = "examples/data/sales_final_dataset.csv")
@@ -26,11 +27,13 @@ my_dashboard.add_tmdl(data_path = None, add_default_datetable = True)
 
 # add pages
 
+'''
+
 page1 = my_dashboard.new_page(page_name = "Bee Colonies",
                      title= "The bees are in trouble!",
                      subtitle = "We're losing bee colonies")
 
-
+'''
 page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
                      title= "Bigfoot sightings",
                      subtitle = "By Washington Counties")
@@ -41,6 +44,7 @@ page3 = my_dashboard.new_page(page_name = "Table Page")
 # page 4 ----------------------------------------------------------------------------------------------------------
 page4 = my_dashboard.new_page(page_name = "Table Page 2")
 
+'''
 
 page1.add_background_image(
                    img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
@@ -61,6 +65,7 @@ page1.add_chart(visual_id = "colonies_lost_by_year",
         height = 524,
         width = 603)
 
+
 # add a text box to the second page
 page1.add_text_box(text = "Explanatory text in the bottom right corner",
                  visual_id = "page1_explain_box",
@@ -70,7 +75,7 @@ page1.add_text_box(text = "Explanatory text in the bottom right corner",
                      y_position = 600,
                      font_size = 15)
 
-
+'''
 # add buttons
 
 # download data button (a link to an internet address)
@@ -196,3 +201,5 @@ for page_id in pages:
                    scaling_method = "Fit")
 
 print(pages)
+
+'''
