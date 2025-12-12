@@ -334,6 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-a-dataset" id="toc-add-a-dataset" class="nav-link" data-scroll-target="#add-a-dataset">Add a dataset</a></li>
   <li><a href="#add-a-chart" id="toc-add-a-chart" class="nav-link" data-scroll-target="#add-a-chart">Add a chart</a></li>
   </ul></li>
+  <li><a href="#add-a-text-box" id="toc-add-a-text-box" class="nav-link" data-scroll-target="#add-a-text-box">Add a text box</a></li>
   </ul>
 </nav>
     </div>
@@ -373,12 +374,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="recreate-my-testing-dashboard" class="level1">
 <h1>Recreate my testing dashboard</h1>
-<p>This example shows how I create the dashboard I use for testing the module. It isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:<br>
-- create a new dashboard<br>
-- add pages to the dashboard<br>
-- add visual elements such as maps and charts to the pages<br>
+<p>This example shows how I create the dashboard I use for testing the module. It isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:</p>
+<ul>
+<li>create a new dashboard<br>
+</li>
+<li>add pages to the dashboard<br>
+</li>
+<li>add visual elements such as maps and charts to the pages<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"><br>
-<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"></p>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"></li>
+</ul>
 </section>
 <section id="setup" class="level1">
 <h1>Setup</h1>
@@ -400,12 +405,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-new-page" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-new-page">Add a new page</h2>
-<p>Dashboards don’t start with any pages until you add them. To add a new page, you’ll need to provide the following arguments:<br>
-1. <code>page_name</code> - This is display name for the page. (This is different from the page_id).</p>
-<p>You can also provide the following optional arguments:<br>
-2. <code>title</code> - Title to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.<br>
-3. <code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function<br>
-4. <code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</p>
+<p>Dashboards don’t start with any pages until you add them. To add a new page, you’ll need to provide the following arguments:</p>
+<ol type="1">
+<li><code>page_name</code> - This is display name for the page. (This is different from the page_id).</li>
+</ol>
+<p>You can also provide the following optional arguments:</p>
+<ol start="2" type="1">
+<li><code>title</code> - Title to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.<br>
+</li>
+<li><code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function<br>
+</li>
+<li><code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</li>
+</ol>
 <p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function.</p>
 <p>Here’s the code to create a new (mostly blank) page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>page1 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
@@ -416,11 +427,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-background-image" class="level2">
 <h2 class="anchored" data-anchor-id="add-background-image">Add background image</h2>
-<p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required arguments:<br>
-1. <code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</p>
-<p>There are two additional optional arguments:<br>
-2. <code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
-3. <code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</p>
+<p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required arguments:</p>
+<ol type="1">
+<li><code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</li>
+</ol>
+<p>There are two additional optional arguments:</p>
+<ol start="2" type="1">
+<li><code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
+</li>
+<li><code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</li>
+</ol>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                   alpha <span class="op">=</span> <span class="dv">51</span>,</span>
@@ -435,8 +451,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-dataset">Add a dataset</h2>
-<p>For most dashboards, you’ll want to add visuals that help users visualize the data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You’ll need to provide the following arguments:<br>
-1. <code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path</p>
+<p>For most dashboards, you’ll want to add visuals that help users visualize the data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You’ll need to provide the following arguments:</p>
+<ol type="1">
+<li><code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path</li>
+</ol>
 <p>Here’s some example code:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/colony.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, you should see the new dataset when you open the new dashboard. Unfortunately, you’ll see a warning that looks like this about how the dashboard needs to be refreshed:</p>
@@ -444,20 +462,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-chart" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-chart">Add a chart</h2>
-<p>Here’s how you can add a bar chart to your dashboard. To add the chart you’ll need to provide the following required arguments:<br>
-1. <code>visual_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder. )<br>
-2. <code>chart_type</code> - This is the type of chart to build on the page. I’ve only ever tried this with the <code>columnCart</code> option, the options I currently know about include: : <code>["columnChart","barChart", "clusteredBarChart"]</code><br>
-3. <code>data_source</code> - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.<br>
-4. <code>chart_title</code> - Give your chart an informative title! This will display on the dashboard as part of the chart.<br>
-5. <code>x_axis_title</code> - This is the text that will label the x axis<br>
-6. <code>y_axis_title</code> - This is the text that will label the y axis<br>
-7. <code>x_axis_var</code> - This is the variable to use for the x axis<br>
-8. <code>y_axis_var</code> - This is the variable to use for the y axis<br>
-9. <code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)<br>
-10. <code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
-11. <code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
-12. <code>height</code> - Height of chart on the page<br>
-13. <code>width</code> - Width of chart on the page</p>
+<p>Here’s how you can add a bar chart to your dashboard. To add the chart you’ll need to provide the following required arguments:</p>
+<ol type="1">
+<li><code>visual_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder. )<br>
+</li>
+<li><code>data_source</code> - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.<br>
+</li>
+<li><code>chart_title</code> - Give your chart an informative title! This will display on the dashboard as part of the chart.<br>
+</li>
+<li><code>x_axis_title</code> - This is the text that will label the x axis<br>
+</li>
+<li><code>y_axis_title</code> - This is the text that will label the y axis<br>
+</li>
+<li><code>x_axis_var</code> - This is the variable to use for the x axis<br>
+</li>
+<li><code>y_axis_var</code> - This is the variable to use for the y axis<br>
+</li>
+<li><code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)<br>
+</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+</li>
+<li><code>height</code> - Height of chart on the page<br>
+</li>
+<li><code>width</code> - Width of chart on the page</li>
+</ol>
 <p>Here’s some example code that adds a bar chart showing bee colonies lost per year:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>page1.add_chart(visual_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          chart_type <span class="op">=</span> <span class="st">"columnChart"</span>,</span>
@@ -472,10 +502,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          y_position <span class="op">=</span> <span class="dv">158</span>,</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>          height <span class="op">=</span> <span class="dv">524</span>,</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>          width <span class="op">=</span> <span class="dv">603</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here’s what the chart that we added looks like:</p>
-
-
+<p>Here’s what the chart that we added looks like:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/add_chart_example.png?raw=true" class="img-fluid" alt="image"></p>
 </section>
+</section>
+<section id="add-a-text-box" class="level1">
+<h1>Add a text box</h1>
+<p>In addition to visuals, many dashboards use explanatory text. Here’s an example of adding a text box to a page. The following arguments are required:</p>
+<ol type="1">
+<li><code>text</code> - The text you want to display in the box<br>
+</li>
+<li><code>visual_id</code> - Give the text box a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
+</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+</li>
+<li><code>height</code> - Height of chart on the page<br>
+</li>
+<li><code>width</code> - Width of chart on the page</li>
+</ol>
+<p>= “Explanatory text in the bottom right corner”, visual_id = “page1_explain_box”, height = 200, width= 300, x_position = 1000, y_position = 600</p>
+
+
 </section>
 
 </main> <!-- /main -->
