@@ -334,7 +334,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-a-dataset" id="toc-add-a-dataset" class="nav-link" data-scroll-target="#add-a-dataset">Add a dataset</a></li>
   <li><a href="#add-a-chart" id="toc-add-a-chart" class="nav-link" data-scroll-target="#add-a-chart">Add a chart</a></li>
   </ul></li>
-  <li><a href="#add-a-text-box" id="toc-add-a-text-box" class="nav-link" data-scroll-target="#add-a-text-box">Add a text box</a></li>
+  <li><a href="#add-a-text-box" id="toc-add-a-text-box" class="nav-link" data-scroll-target="#add-a-text-box">Add a text box</a>
+  <ul class="collapse">
+  <li><a href="#add-a-button" id="toc-add-a-button" class="nav-link" data-scroll-target="#add-a-button">Add a button</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -514,13 +517,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>visual_id</code> - Give the text box a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
 </li>
-<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+<li><code>x_position</code> - The x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+<li><code>y_position</code> - The y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of chart on the page<br>
+<li><code>height</code> - Height of text box on the page<br>
 </li>
-<li><code>width</code> - Width of chart on the page</li>
+<li><code>width</code> - Width of text box on the page</li>
 </ol>
 <p>There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box">method documentation</a>. <strong>Don’t see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here’s some example code showing how I added a text box to my testing dashboard:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds a text box to the bottom right corner of the first page    </span></span>
@@ -534,8 +537,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                     font_size <span class="op">=</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, the dashboard should look something like this:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true" class="img-fluid" alt="image"></p>
+<section id="add-a-button" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-button">Add a button</h2>
+<p>In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report. (I’m far from a Power BI expert, so I don’t know if it’s possible to create buttons that do other things such as analyze or filter data. Feel free to submit an issue or pull request on Github to request additional button features that I haven’t implemented yet!). The following arguments are required:</p>
+<ol type="1">
+<li><code>label</code> - This text will display inside the button<br>
+</li>
+<li><code>visual_id</code> - Give the button a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
+</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the button on the page. Origin is page’s top left corner.<br>
+</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the button on the page. Origin is page’s top left corner.<br>
+</li>
+<li><code>height</code> - Height of button on the page<br>
+</li>
+<li><code>width</code> - Width of button on the page</li>
+</ol>
+<p>Additional option argument are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button">function documentation</a>. For this example, I’d like to highlight two of the optional arguments that enable the button to be linked to navigation:</p>
+<ol start="7" type="1">
+<li><code>url_link</code> = This should be a valid url (web link). When the button is clicked the web page will open in the user’s browser.</li>
+<li><code>page_navigation_link</code> = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id’s are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a randow string of numbers and letters. If you aren’t sure what pages are in your dashboard you can use the <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">Dashboard.list_pages() method</a>.</li>
+</ol>
+<p>Let’s add two buttons! One that sends the user to www.google.com and one that navigates the user to page 2.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a second page so that the page navigation button works     </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>page2 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bigfoot Map"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                     title<span class="op">=</span> <span class="st">"Bigfoot sightings"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                     subtitle <span class="op">=</span> <span class="st">"By Washington Counties"</span>)    </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add two buttons </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to an internet address</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>page1.add_button(label <span class="op">=</span> <span class="st">"Open Google"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  visual_id <span class="op">=</span> <span class="st">"page2_google_button"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">40</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">131</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  x_position <span class="op">=</span> <span class="dv">1000</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  y_position <span class="op">=</span> <span class="dv">540</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  url_link <span class="op">=</span> <span class="st">"https://www.google.com/"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># navigate back to page 2</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>page1.add_button(label <span class="op">=</span> <span class="st">"Move to page 2"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  visual_id <span class="op">=</span> <span class="st">"page1_move_to_page1_button"</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="dv">40</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  width <span class="op">=</span> <span class="dv">131</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  x_position <span class="op">=</span> <span class="dv">1000</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  y_position <span class="op">=</span> <span class="dv">490</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  page_navigation_link <span class="op">=</span> <span class="st">"page2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code works you should get two buttons that look like this. The first button should open a new www.google.com tab in your browser. The second button should send you to page 2.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/buttons_demo.gif" class="img-fluid figure-img"></p>
+<figcaption>image</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
