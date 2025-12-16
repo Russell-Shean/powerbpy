@@ -79,7 +79,6 @@ store_names = (
                )
 
 
-
 # Makes sure OrderDate is a date
 sales["OrderDate"] = pd.to_datetime(sales["OrderDate"])
 
