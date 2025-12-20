@@ -139,17 +139,10 @@ In addition to visuals, many dashboards use explanatory text. Here's an example 
            
   1. `text` - The text you want to display in the box         
   2. `visual_id` - Give the text box a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
-<<<<<<< HEAD
-  3. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
-  4. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
-  5. `height` - Height of chart on the page          
-  6. `width` - Width of chart on the page      
-=======
   3. `x_position` - The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.      
   4. `y_position` - The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.       
   5. `height` - Height of text box on the page          
   6. `width` - Width of text box on the page      
->>>>>>> 5b643193026e461e78750917125ffc3b080401a9
 
 There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() [method documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box). <strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here's some example code showing how I added a text box to my testing dashboard:       
     
@@ -166,10 +159,6 @@ page1.add_text_box(text = "Explanatory text in the bottom right corner",
 
 ```     
 If the code worked, the dashboard should look something like this:    
-<<<<<<< HEAD
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)
-  
-=======
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)      
     
 ## Add a button     
@@ -219,4 +208,3 @@ page1.add_button(label = "Move to page 2",
 If the code works you should get two buttons that look like this. The first button should open a new www.google.com tab in your browser. The second button should send you to page 2.     
   
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/buttons_demo.gif)
->>>>>>> 5b643193026e461e78750917125ffc3b080401a9
