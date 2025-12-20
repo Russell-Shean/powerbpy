@@ -337,6 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-a-text-box" id="toc-add-a-text-box" class="nav-link" data-scroll-target="#add-a-text-box">Add a text box</a>
   <ul class="collapse">
   <li><a href="#add-a-button" id="toc-add-a-button" class="nav-link" data-scroll-target="#add-a-button">Add a button</a></li>
+  <li><a href="#add-a-choropleth-map" id="toc-add-a-choropleth-map" class="nav-link" data-scroll-target="#add-a-choropleth-map">Add a choropleth map</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -589,6 +590,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>image</figcaption>
 </figure>
 </div>
+</section>
+<section id="add-a-choropleth-map" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-choropleth-map">Add a choropleth map</h2>
+<p>Often we have data that is tied to geographic regions that can be respresented by a polygon such as states, counties, zip codes, or countries. A choropleth map uses color to represent values in the data by shading the polygons according to the value of the data. (If that was way too abstract, see the example below. Basically we’re creating a color code map to represent the data.)</p>
+<p>This function does a lot under the hood so you don’t have to. It creates measures in the dataset so that bins will automatically adjust when filtering conditions change, it creates the map and adds text boxes for a legend and and a slicer to allow the user to filter the data. I’ll describe in more detail below some of the optional method arguments and how they can be used to customize your map. But first, here are the required arguments:</p>
 
 
 </section>
