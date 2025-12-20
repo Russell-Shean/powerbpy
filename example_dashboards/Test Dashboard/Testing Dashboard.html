@@ -516,22 +516,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>text</code> - The text you want to display in the box<br>
 </li>
 <li><code>visual_id</code> - Give the text box a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</li>
-<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
-</li>
-<li><code>height</code> - Height of chart on the page<br>
-</li>
-<li><h1 id="width---width-of-chart-on-the-page"><code>width</code> - Width of chart on the page</h1></li>
 <li><code>x_position</code> - The x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
 </li>
 <li><code>y_position</code> - The y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
 </li>
 <li><code>height</code> - Height of text box on the page<br>
 </li>
-<li><code>width</code> - Width of text box on the page<br>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 5b643193026e461e78750917125ffc3b080401a9</li>
+<li><code>width</code> - Width of text box on the page</li>
 </ol>
 <p>There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box">method documentation</a>. <strong>Don’t see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here’s some example code showing how I added a text box to my testing dashboard:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds a text box to the bottom right corner of the first page    </span></span>
@@ -544,8 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                     y_position <span class="op">=</span> <span class="dv">600</span>,</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                     font_size <span class="op">=</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, the dashboard should look something like this:<br>
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true" class="img-fluid" alt="image"></p>
-<p>======= <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true" class="img-fluid" alt="image"></p>
+<img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true" class="img-fluid" alt="image"></p>
 <section id="add-a-button" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-button">Add a button</h2>
 <p>In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report. (I’m far from a Power BI expert, so I don’t know if it’s possible to create buttons that do other things such as analyze or filter data. Feel free to submit an issue or pull request on Github to request additional button features that I haven’t implemented yet!). The following arguments are required:</p>
@@ -592,7 +583,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  y_position <span class="op">=</span> <span class="dv">490</span>,</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  page_navigation_link <span class="op">=</span> <span class="st">"page2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code works you should get two buttons that look like this. The first button should open a new www.google.com tab in your browser. The second button should send you to page 2.</p>
-<p><img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/buttons_demo.gif" class="img-fluid" alt="image"> &gt;&gt;&gt;&gt;&gt;&gt;&gt; 5b643193026e461e78750917125ffc3b080401a9</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/buttons_demo.gif" class="img-fluid figure-img"></p>
+<figcaption>image</figcaption>
+</figure>
+</div>
 
 
 </section>
