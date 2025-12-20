@@ -6,8 +6,9 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sa
 ---
 
 # Sanky Chart and Table      
-![my sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png) ![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)
-I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (left) and the dashboard I recreated using Power Bpy (right). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).
+I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
+![my sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png)       
+![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)
   
 ## Assumptions
 This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas. If you don't, please refer to basic setup instructions on this page or find one of the many great resources online that explains how to install python packages.  
@@ -22,6 +23,7 @@ The data for this example is stored as an online zip file. The following code do
 This script downloads the data from Github and
 then extracts the individual datasets from the compressed archive file.
 '''
+
 import os
 import tempfile
 import requests
@@ -64,6 +66,8 @@ For this example we need to calculate sales totals by stores time period and cla
 '''
 This script proccesses the data we downloaded
 '''
+# pylint: disable=import-error, invalid-name
+
 import pandas as pd
 import numpy as np
 
@@ -77,6 +81,7 @@ store_names = (
                .drop_duplicates()
                .reset_index(drop=True)
                )
+
 
 
 # Makes sure OrderDate is a date
@@ -221,8 +226,6 @@ First we create a new dashboard
 '''
 This script creates a new dashboard using the data we downloaded and processesd
 '''
-# pylint: disable=import-error
-# pylint: disable=invalid-name
 
 import os
 
