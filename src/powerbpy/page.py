@@ -554,13 +554,13 @@ class _Page:
         data_source: str
             The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         shape_file_path: str
-            A path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.
+            A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
         map_title: str
             The title you want to put above the map.
         location_var: str
-            The name of the column in data_source that you want to use for the location variable on the map
+            The name of the column in data_source that you want to use for the location variable on the map.This should also correspond to the geography of your shape file.
         color_var: str
-            The name of the column in data_source that you want to use for the color variable on the map
+            The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
         filtering_var: str
             Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.
         static_bin_breaks: list
