@@ -54,92 +54,13 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
 </ol>
 
 
+# Example Workflows      
+- To see an intro example of how to create dashboards using the package, see the [test dashboard tututorial](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html).
+- For more details about how to install python and run python scripts see the setup [tutorial](https://www.russellshean.com/powerbpy/basic_setup.html).
+- To see more example dashboards and the scripts used to create them see the [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) section of the website. 
+ 
 
-# Run the example
-This example assumes you are on windows. All the code below should be entered in command prompt or put in a batch script.      
-
-1. Create a new folder to store all the files you'll need.    
-```dosbat
-:: create a new folder
-mkdir automatic_PBI_dashboards_example
-
-:: move into the new folder
-cd automatic_PBI_dashboards_example
-```
-2. Clone the files from github.    
-```batchfile
-git clone https://github.com/Russell-Shean/powerbpy
-```
-3. Activate venv.    
-The following is taken from this <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">tutorial</a>. We'll use venv to install the python package in an isolated environemnt.   
-```batchfile
-:: create a virtual environment
-py -m venv .venv
-
-:: activate the virtual environment
-.venv\Scripts\activate
-
-:: For extra credit, verify that venv is working
-where python
-
-```
-
-4. Make sure pip is installed and up-to-date.    
-Pip is the tool we'll use to install the package.  
-```batchfile
-:: install and/or upgrade pip
-py -m pip install --upgrade pip
-
-:: check version number (and confirm it's working)
-py -m pip --version
-
-```   
-   
-5. Install the package.      
-This package isn't on pypi yet, so you'll need to install it from Github      
-```batchfile
-```dosbat     
-py -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     
-```      
-
-After the package is on pypi, you'll be able to install it using this: 
-```batchfile
-py -m pip install powerbpy
-```     
-
-6. Create the example dashboard.
-Run an example script to generate an example dashboard.
-```batchfile
-
-py powerbpy/examples/create_example_dashboard.py
-
-```     
-    
-7. Open the dashboard.      
-Open the dashboard to confirm everything worked. 
-```batchfile
-start test_dashboard/test_dashboard.pbip
-```
-
-8. Refresh data models
-
-After Power BI opens, you'll see a banner that looks like this:
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/refresh_warning.png?raw=true)      
-
-Click `Refresh now`      
-
-If everything worked you should have a dashboard that looks like this:     
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page1.png?raw=true)         
-        
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/page2.gif?raw=true)            
-          
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/dataset_list.png?raw=true)       
-
-# Next steps
-The code used to generate the dashboard is stored <a href= "https://github.com/Russell-Shean/powerbpy/blob/main/examples/create_example_dashboard.py">here</a>         
-Try building your own dashboards with these functions and let me know what happens!   
-
-# Feedback    
+# Contributing   
 I welcome the following feedback:            
 <ol>
            <li>Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.</li>
