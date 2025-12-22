@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>page._Page</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>page._Page(dashboard, page_id<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A python class used to model a power BI dashboard page.</p>
-<p>You should never initate a page class directly, instead use Dashboard.new_page() to create a new page, or Dashboard.load_page() to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple – it doesn’t make sense to have a page not attached to a dashboard.</p>
+<p>You should never initate a page class directly, instead use <code>Dashboard.new_page()</code> to create a new page, or <code>Dashboard.load_page()</code> to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple – it doesn’t make sense to have a page not attached to a dashboard.</p>
 <p>Here’s an example workflow:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> powerbpy <span class="im">import</span> Dashboard</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1155,7 +1155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>color_palette</td>
 <td></td>
-<td>A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks</td>
+<td>A list of hex codes to use to color your data. There should be one fewer than the number of bins.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">

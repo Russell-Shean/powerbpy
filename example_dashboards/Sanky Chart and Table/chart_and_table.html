@@ -374,7 +374,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sanky-chart-and-table" class="level1">
 <h1>Sanky Chart and Table</h1>
 <p>I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here’s a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available <a href="https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13">here</a>.<br>
-<img id="my-sanky-img" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px"><br>
+<img id="my-sanky-img" class="img-fluid" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px"><br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png" class="img-fluid" alt="wow sanky"></p>
 <section id="assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
@@ -526,39 +526,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="co"># undo the multi indexing of column names</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co"># (I don't even want to try to imagine how Power BI would try to handle multi-indexed columns lol)</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>sales_by_store_and_date.columns <span class="op">=</span> [</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>val<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> val, col <span class="kw">in</span> sales_by_store_and_date.columns</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="co"># finish the final steps in the chain</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>sales_by_store_and_date <span class="op">=</span> (</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    sales_by_store_and_date</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reset the index</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>    <span class="co"># select the columns we want</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    .loc[:, [<span class="st">"Description"</span>,</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>             <span class="st">"store_total_sales_first_180"</span>,</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>             <span class="st">"store_total_sales_last_180"</span>,</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sales_size_first_180"</span>,</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sales_size_last_180"</span>]]</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rename the columns we want</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Description'</span>: <span class="st">'Name'</span>,</span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>        <span class="st">'store_total_sales_first_180'</span>: <span class="st">'Sales First 180 Days'</span>,</span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>        <span class="st">'store_total_sales_last_180'</span>: <span class="st">'Sales Last 180 Days'</span>,</span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>        <span class="st">'sales_size_first_180'</span>: <span class="st">'Starting Size'</span>,</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>        <span class="st">'sales_size_last_180'</span>: <span class="st">'Ending Size'</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="co"># write to file</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>sales_by_store_and_date.to_csv(<span class="st">"data/final_dataset.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co"># (I don't even want to try to imagine how Power BI </span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="co">#   would try to handle multi-indexed columns lol)</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>sales_by_store_and_date.columns <span class="op">=</span> [</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>val<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> val, col <span class="kw">in</span> sales_by_store_and_date.columns</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="co"># finish the final steps in the chain</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>sales_by_store_and_date <span class="op">=</span> (</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    sales_by_store_and_date</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reset the index</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    <span class="co"># select the columns we want</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>    .loc[:, [<span class="st">"Description"</span>,</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>             <span class="st">"store_total_sales_first_180"</span>,</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>             <span class="st">"store_total_sales_last_180"</span>,</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sales_size_first_180"</span>,</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sales_size_last_180"</span>]]</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rename the columns we want</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Description'</span>: <span class="st">'Name'</span>,</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>        <span class="st">'store_total_sales_first_180'</span>: <span class="st">'Sales First 180 Days'</span>,</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>        <span class="st">'store_total_sales_last_180'</span>: <span class="st">'Sales Last 180 Days'</span>,</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>        <span class="st">'sales_size_first_180'</span>: <span class="st">'Starting Size'</span>,</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>        <span class="st">'sales_size_last_180'</span>: <span class="st">'Ending Size'</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="co"># write to file</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>sales_by_store_and_date.to_csv(<span class="st">"data/final_dataset.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>It’s of course also possible to do this type of data processing in other languages too. Here’s a <a href="https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/02-process_data.R">link</a> to an R script I wrote that does the exact same data processing.</p>
 </section>
 <section id="create-dashboard" class="level2">

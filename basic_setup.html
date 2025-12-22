@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>basic_setup</title>
+<title>Setup Python Environment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -326,8 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
   <li><a href="#create-virtual-environment" id="toc-create-virtual-environment" class="nav-link" data-scroll-target="#create-virtual-environment">Create virtual environment</a></li>
-  <li><a href="#install-dependencies" id="toc-install-dependencies" class="nav-link" data-scroll-target="#install-dependencies">Install dependencies</a></li>
-  <li><a href="#executing-python-scripts" id="toc-executing-python-scripts" class="nav-link" data-scroll-target="#executing-python-scripts">Executing python scripts</a></li>
+  <li><a href="#development-version" id="toc-development-version" class="nav-link" data-scroll-target="#development-version">Development version</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -338,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">basic_setup</h1>
+<h1 class="title">Setup Python Environment</h1>
 </div>
 
 
@@ -357,6 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="setup" class="level1">
 <h1>Setup</h1>
+<p>This document briefly covers how to setup your python environment so you can start using the package to build dashboard. If anything doesn’t make sense, please open a pull request or issue so I can improve this documentation. While you’re waiting for me to fix the doccumentation, there are numerous other tutorials online that explain how to install python, create virtual environments and run python scripts.</p>
 <section id="python" class="level2">
 <h2 class="anchored" data-anchor-id="python">Python</h2>
 <ol type="1">
@@ -365,39 +365,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="create-virtual-environment" class="level2">
 <h2 class="anchored" data-anchor-id="create-virtual-environment">Create virtual environment</h2>
-<p>For this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system 1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following: <code>shell    cd path/to/your/folder</code> 2. Create and activate a virtual environment by running the same: ```shell # create a virtual environment python -m venv venv</p>
-<p># for windows venv.bat</p>
-<p># for linux or Mac (remove hashtag first) # source venv/bin/activate ```</p>
-<ol start="2" type="1">
-<li><p>Install the Power Bpy module:</p>
-<pre class="shell"><code># install the Power Bpy module
-pip install powerbpy</code></pre></li>
-<li><p>Write a script to create a dashboard. (This one’s up to you!)</p></li>
-<li><p>When you’re ready to create the dashboard, run the script by running the following in the command prompt window.</p></li>
-</ol>
-<pre class="shell"><code>python name_of_your_script.py</code></pre>
-</section>
-<section id="install-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="install-dependencies">Install dependencies</h2>
+<p>For this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system</p>
 <ol type="1">
-<li>Install python<br>
-You’ll need to install python. Here are some <a href="https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/">instructions</a><br>
-</li>
-<li>Install Power Bpy<br>
-The <code>{powerbpy}</code> package isn’t on pypi yet, so you’ll need to install it from github. <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089">Open a terminal</a> and enter the following:</li>
+<li>Open a command prompt and navigate to the folder you want to create dashboards in by running the following:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>py <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After the package is on pypi, you’ll be able to install it using this:</p>
-<pre class="batchfile"><code>py -m pip install powerbpy</code></pre>
+<pre class="shell"><code>cd path/to/your/folder</code></pre>
+<ol start="2" type="1">
+<li>Create and activate a virtual environment by running the same:</li>
+</ol>
+<pre class="shell"><code># create a virtual environment
+python -m venv venv
+
+# for windows
+venv\Scripts\activate.bat
+
+# for linux or Mac (remove hashtag first)
+# source venv/bin/activate</code></pre>
+<ol start="2" type="1">
+<li>Install the Power Bpy module:</li>
+</ol>
+<pre class="shell"><code># install the Power Bpy module
+pip install powerbpy</code></pre>
+<ol start="3" type="1">
+<li><p>Write a script to create a dashboard. (This one’s up to you!)</p></li>
+<li><p>When you’re ready to create the dashboard, run the script by running the following in the command prompt window. <code>shell    python name_of_your_script.py</code></p></li>
+</ol>
 </section>
-<section id="executing-python-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="executing-python-scripts">Executing python scripts</h2>
-<p>That’s all you need to install! To create the dashboards, you’ll need to either run the commands in a terminal, or use a text editor to save the commands in a a script. I recomend starting with a text editor, because as your dashboard grows more complex, it’ll be helpful to have everything saved in a script. Many text editors have an option to execute a script directly from the editor. You can also execute the scripts from the terminal using the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>py build_dashboard.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This assumes that you named your script <code>build_dashboard.py</code> and the command prompt’s current directory is the folder storing <code>build_dashboard.py</code>. You can change the current directory of the terminal using the <code>cd</code> command. For example you can use the following to move into <code>C:/Users/</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:<span class="at">/Users</span>/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can also use full or relative paths from the current directory to the python script without changing the current working directory. For example if you start in your <code>%userprofile%</code> (<code>C:/Users/[your username]</code>) and the python script is stored at <code>C:/Users/[your username]/python_projects/build_dashboard.py</code>, you can execute the script with the following:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>py python_projects<span class="at">/build_dashboard</span>.py    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="development-version" class="level2">
+<h2 class="anchored" data-anchor-id="development-version">Development version</h2>
+<p>To install the latest version of Power Bpy from Github instead of Pypi you can run the following</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
