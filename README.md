@@ -55,7 +55,7 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
 
 
 # Example Workflows      
-- To see an intro example of how to create dashboards using the package, see the [test dashboard tututorial](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html).
+- To see an intro example of how to create dashboards using the package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) tutorial.
 - For more details about how to install python and run python scripts see the setup [tutorial](https://www.russellshean.com/powerbpy/basic_setup.html).
 - To see more example dashboards and the scripts used to create them see the [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) section of the website. 
  
