@@ -1119,7 +1119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>shape_file_path</td>
 <td></td>
-<td>A path to a shapefile that you want to use to build the map. This shape file will be added to the registered resources.</td>
+<td>A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -1131,13 +1131,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>location_var</td>
 <td></td>
-<td>The name of the column in data_source that you want to use for the location variable on the map</td>
+<td>The name of the column in data_source that you want to use for the location variable on the map.This should also correspond to the geography of your shape file.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>color_var</td>
 <td></td>
-<td>The name of the column in data_source that you want to use for the color variable on the map</td>
+<td>The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
