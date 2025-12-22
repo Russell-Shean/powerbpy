@@ -14,10 +14,10 @@ This package uses the new .pbip/.pbir format with TMDL enabled. This stores dash
 Currently the package has functions that let you do the following *without opening Power BI* 🥳: 
 <!-- Because quarto and or github are dumb, we're using html instead of markdown for the bullet points -->
 <ul>
-           <li>Create a new dashboard</li>
+           <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a></li>
            <li>Import data from</li>
            <ul>
-                      <li>csv file stored locally</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">csv file stored locally</a></li>
                       <li>csv file stored in Azure Data Lake Storage (ADLS)</li>
                       <li>Power BI table stored as a Tabular Model Definition Language (TMDL) file</li>
            </ul>
@@ -25,14 +25,13 @@ Currently the package has functions that let you do the following *without openi
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-background-image">Add background images</a> to a page</li>
            <li>Add visuals to a page</li>
            <ul>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a></li>
-                      <li>slicers</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">buttons</a></li>
                       <li>cards</li>
-                      <li>charts</li>
-                      <li>maps</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">maps</a></li>
+                      <li>slicers</li>
                       <li>tables</li>
                       <li>text boxes</li>
-                      <li>buttons</li>
            </ul>
 </ul>
 
