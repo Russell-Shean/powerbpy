@@ -7,7 +7,7 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sa
 
 # Sanky Chart and Table      
 I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
-<img id="my-sanky-img" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px">      
+<img id="my-sanky-img" class="img-fluid" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px">      
 ![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)
   
 ## Assumptions
@@ -165,7 +165,8 @@ sales_by_store_and_date = (
 
 
 # undo the multi indexing of column names
-# (I don't even want to try to imagine how Power BI would try to handle multi-indexed columns lol)
+# (I don't even want to try to imagine how Power BI 
+#   would try to handle multi-indexed columns lol)
 sales_by_store_and_date.columns = [
     f"{val}_{col}" for val, col in sales_by_store_and_date.columns
 ]

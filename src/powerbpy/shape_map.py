@@ -65,7 +65,7 @@ class _ShapeMap(_Visual):
         static_bin_breaks: list
             This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.
         color_palatte: list
-            A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks
+            A list of hex codes to use to color your data. There should be one fewer than the number of bins.
         add_legend: bool
             True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default)
         static_bin_breaks: list

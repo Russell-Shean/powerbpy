@@ -18,7 +18,7 @@ This example shows how I create the dashboard I use for testing the module. It i
  
    
 # Setup    
-If you don't already have python and the `{powerbpy}` module installed, please refer to the setup instructions first. 
+If you don't already have python and the `{powerbpy}` module installed, please refer to the setup [instructions](https://www.russellshean.com/powerbpy/basic_setup.html) first. 
 
 # Build dashboards   
 ## Create a new dashboard
@@ -134,7 +134,7 @@ page1.add_chart(visual_id = "colonies_lost_by_year",
 Here's what the chart that we added looks like:      
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/add_chart_example.png?raw=true)     
 
-# Add a text box    
+## Add a text box    
 In addition to visuals, many dashboards use explanatory text. Here's an example of adding a text box to a page. The following arguments are required:      
            
   1. `text` - The text you want to display in the box         
@@ -214,7 +214,11 @@ Often we have data that is tied to geographic regions that can be respresented b
    
 This function does a lot under the hood so you don't have to. It creates measures in the dataset so that bins will automatically adjust when filtering conditions change, it creates the map and adds text boxes for a legend and and a slicer to allow the user to filter the data. The method requires you to provide a shape file that corresponds to a variable in your dataset. For example, the dataset could have two columns: US states and average income. In this case you should provide a shapefile of US states.     
 
-The method also give two different options for binning the data and assigning ranges of values to different colors on the map. You can only specify one of the two options at a time. The first option is to provide a static set of breaks that you define yourself. This is ideal if you already know the structure of your data and how you want to assign ranges of values  to different colors. Use the `static_bin_breaks` argument to pass an integer list of break values. The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data. For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the `filtering_var` argument to create a slicer attached to the map that filters the dataset by age before rerendering the map. You could then pass the list of percentiles to `percentile_bin_breaks` such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected "young people" in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people. If you provide `percentile_bin_breaks` you must also provide a `filtering_var`; the assumption being that if you don't need dynamic recalculation of bins based on the filtering variable, you'd be better off calculating a static set of breaks for yourself and passing them as a list to `static_bin_breaks`. 
+The method also give two different options for binning the data and assigning ranges of values to different colors on the map. You can only specify one of the two options at a time.       
+    
+The first option is to provide a static set of breaks that you define yourself. This is ideal if you already know the structure of your data and how you want to assign ranges of values  to different colors. Use the `static_bin_breaks` argument to pass an integer list of break values.        
+      
+The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data. For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the `filtering_var` argument to create a slicer attached to the map that filters the dataset by age before rerendering the map. You could then pass the list of percentiles to `percentile_bin_breaks` such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected "young people" in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people. If you provide `percentile_bin_breaks` you must also provide a `filtering_var`; the assumption being that if you don't need dynamic recalculation of bins based on the filtering variable, you'd be better off calculating a static set of breaks for yourself and passing them as a list to `static_bin_breaks`. 
     
 I'll describe in more detail below some of the optional method arguments and how they can be used to customize your map. But first, here are the required arguments: 
        
@@ -224,10 +228,7 @@ I'll describe in more detail below some of the optional method arguments and how
   4. `map_title` - The title you want to put above the map.
   5. `location_var` - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.
   6. color_var: The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
-        filtering_var: str
-            Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.
-        static_bin_breaks: list
-            This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.
+        
         color_palatte: list
             A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks
         add_legend: bool
