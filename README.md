@@ -7,7 +7,7 @@ Still not convinced?
 See the [use cases](#use-cases) section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
-[![PyPI Downloads](https://static.pepy.tech/badge/powerbpy)](https://pepy.tech/projects/powerbpy)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/powerbpy?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/powerbpy)
 [![Codecov test coverage](https://codecov.io/gh/Russell-Shean/powerbpy/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=master)
 
            
@@ -43,7 +43,7 @@ Currently the package has functions that let you do the following *without openi
 ## Dependencies    
 Before you can start to build power BI dashboards using this package's functions you'll need the following:       
 <ol>
-           <li>Python (version 3.12 or higher!) and pip installed and on path</li>
+           <li>Python (version 3.10 or higher) and pip installed and on path</li>
            <li>Git installed and on path</li>
            <li>Power BI Desktop (You can create the dashboards without this, but not view them).</li>
 </ol>             
@@ -72,7 +72,7 @@ A: Many organizations only support certain tools for publishing. Power BI is oft
 A: You don't have to choose! Dashboards created with Power Bpy can be opened and edited normally in Power BI Desktop. Furthermore, Power BI isn't actually a no-code tool because you have to learn DAX and M. This package give you the option of using python, (a language many people find easy to learn and use), for both data preparation and building dashboards. You also don't have to be really good at python to use the functions in this package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples of how easy it is to build dashboards with python! 
 
 ## Contributing   
-I welcome the following feedback:            
+I welcome to various types of feedback:            
 <ol>
            <li>Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.</li>
            <li>Issues to suggest new features, report bugs, or tell me that the documentation is confusing.</li>

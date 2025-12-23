@@ -159,7 +159,7 @@ page1.add_text_box(text = "Explanatory text in the bottom right corner",
 
 ```     
 If the code worked, the dashboard should look something like this:    
-![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)      
+![text box example](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)      
     
 ## Add a button     
 In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report. (I'm far from a Power BI expert, so I don't know if it's possible to create buttons that do other things such as analyze or filter data. </strong>Feel free to submit an issue or pull request on Github to request additional button features that I haven't implemented yet!)</strong>.
@@ -177,7 +177,7 @@ Additional optional arguments are available and are described in the [function d
   7. `url_link` = This should be a valid url (web link). When the button is clicked the web page will open in the user's browser.
   8. `page_navigation_link` = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id's are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a randow string of numbers and letters. If you aren't sure what pages are in your dashboard you can use the [Dashboard.list_pages() method](https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages).
       
-Let's add two buttons! One that sends the user to www.google.com and one that navigates the user to page 2.     
+Let's add two buttons! One that sends the user to www.google.com and one that navigates the user to the second page.     
 
 ```python
 # create a second page so that the page navigation button works     
@@ -207,7 +207,7 @@ page1.add_button(label = "Move to page 2",
 ```     
 If the code works you should get two buttons that look like this. The first button should open a new www.google.com tab in your browser. The second button should send you to page 2.     
   
-![image](https://media.githubusercontent.com/media/Russell-Shean/powerbpy/refs/heads/main/docs/assets/images/buttons_demo.gif)
+![button example](https://media.githubusercontent.com/media/Russell-Shean/powerbpy/refs/heads/main/docs/assets/images/buttons_demo.gif?raw)
 
 ## Add a choropleth map
 Often we have data that is tied to geographic regions that can be respresented by a polygon such as states, counties, zip codes, or countries. A choropleth map uses color to represent values in the data by shading the polygons according to the value of the data. (If that was way too abstract, see the example below. Basically we're creating a color code map to represent the data.)    
@@ -328,7 +328,15 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
   5. `ending_var` - Which variable from the data_source, do you want to use for the right side of the sanky chart?   
   6. `ending_var_values` - Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.       
   7. `values_from_var` - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too      
-  8. `chart_title` - Give your chart an informative title!:D
+  8. `chart_title` - Give your chart an informative title!:D      
+  9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner   
+  10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.    
+  11. `height` - Height of chart on the page     
+  12. `width` - Width of chart on the page        
+
+ 
+   
+
 
 
 

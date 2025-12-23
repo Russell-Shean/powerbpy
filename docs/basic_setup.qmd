@@ -21,7 +21,7 @@ For this example, we're going to use a virtual environment to keep the package v
    
    2. Create and activate a [virtual environment](https://www.w3schools.com/python/python_virtualenv.asp) by running the same:        
          
-   ```shell
+   ```bash
    # create a virtual environment
    python -m venv venv
 
@@ -32,7 +32,7 @@ For this example, we're going to use a virtual environment to keep the package v
    # source venv/bin/activate
    ```
    
-   2. Install the Power Bpy module:       
+   3. Install the Power Bpy module:       
    ```bash
    # install the Power Bpy module
    pip install powerbpy

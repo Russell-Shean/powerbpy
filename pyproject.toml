@@ -6,7 +6,7 @@ authors = [
 ]
 description = "Automatically create PowerBI dashboards using the .pbir file type"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
