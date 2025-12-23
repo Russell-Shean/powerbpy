@@ -2,7 +2,7 @@
 Title: "Power Bpy"
 include-after-body:
  text: |
-  <script>document.title = "Power Bpy";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.height="140px";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.float="none";  const fig_captions = document.querySelectorAll(".figure > figcaption");  for(let caption of fig_captions){caption.remove();}  </script>
+  <script>document.title = "Power Bpy";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.height="140px";  document.querySelector("a.nav-link:nth-child(2) > img:nth-child(1)").style.float="none";  const fig_captions = document.querySelectorAll(".figure > figcaption");  for(let caption of fig_captions){caption.remove();}const code_blocks = document.querySelectorAll("code");for(let block of code_blocks){block.style.backgroundColor = "black"};  </script>
 ---
 
 # Power Bpy <a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240" /></a>  
@@ -10,7 +10,8 @@ Do you wish you could build dashboard with python or R, but can't because the cl
 
 Introducing Power Bpy, a python package that lets you create Power BI dashboards using python. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop. Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards!       
 
-Still not convinced? See the [use cases](#use-cases) section below for more details about when you might use this package. 
+Still not convinced?        
+See the [use cases](#use-cases) section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
 [![PyPI Downloads](https://static.pepy.tech/badge/powerbpy)](https://pepy.tech/projects/powerbpy)
@@ -56,7 +57,7 @@ Before you can start to build power BI dashboards using this package's functions
 
 
 Power BI settings:      
-You'll need to enable some preview features in Power BI Desktop. Navigate to ```File``` > `Options and Settings` > `Options` > `Preview features` and enable the following options:         
+You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:         
 <ol>
            <li>Shape map visual</li>
            <li>Power BI Project (.pbip) save option</li>
