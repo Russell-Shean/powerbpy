@@ -273,7 +273,7 @@ If the code worked, you should see a map that looks like this:
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true)     
     
 ## Add a table      
-The [sanky chart and table]() demonstration dashboard tutorial shows the same table I add here, but this tutorial provides slightly more detail about the `add_table()` method's arguments. This method lets you add a table to display tabular data to users. You have the option to choose which columns in the dataset to display, add an option title, and add an option summary row that shows totals for each column. The following arguments are required:        
+The [sanky chart and table](https://www.russellshean.com/powerbpy/example_dashboards/Sanky%20Chart%20and%20Table/chart_and_table.html) demonstration dashboard tutorial shows the same table I add here, but this tutorial provides slightly more detail about the `add_table()` method's arguments. This method lets you add a table to display tabular data to users. You have the option to choose which columns in the dataset to display, add an option title, and add an option summary row that shows totals for each column. The following arguments are required:        
 
   1. `visual_id` - Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
   2. `data_source` - The name of the dataset you want to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
@@ -313,8 +313,22 @@ page3.add_table(
               tab_order = -1001,
               z_position = 6000 )    
 
-```
-
+```    
+   
+If the code worked, you should see a table that looks like this:    
+![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/table_example.png)    
+   
+## Add Sanky chart
+The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards/Sanky%20Chart%20and%20Table/chart_and_table.html) that the table example [comes from](https://workout-wednesday.com/pbi-2025-w13/) also included an example of adding a sanky chart. The Sanky chart lets you show changes across time. For the method you will need to specify a data source to use, the variable to use on the starting (left) side of the chart,the variable to use on the ending (right) side of the chart, the individual values from both the starting and ending variables that you want to display on the visual and the variable that you use to count the changes over time and determine the size of arrows and bars. The Sanky chart uses a custom visual definition that is loaded automatically with the Power Bpy package. Here are the required method arguments:      
+    
+  1. `visual_id` - Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
+  2. `data_source` - The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
+  3. `starting_var` - Which variable from the data_source, do you want to use for the left side of the sanky chart
+  4. `starting_var_values` - Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.       
+  5. `ending_var` - Which variable from the data_source, do you want to use for the right side of the sanky chart?   
+  6. `ending_var_values` - Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.       
+  7. `values_from_var` - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too      
+  8. `chart_title` - Give your chart an informative title!:D
 
 
 
