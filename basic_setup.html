@@ -367,11 +367,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="create-virtual-environment">Create virtual environment</h2>
 <p>For this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system</p>
 <ol type="1">
-<li>Open a command prompt and navigate to the folder you want to create dashboards in by running the following:</li>
+<li>Open a command prompt and navigate to the folder you want to create dashboards in by running the following:<br>
+</li>
 </ol>
 <pre class="shell"><code>cd path/to/your/folder</code></pre>
 <ol start="2" type="1">
-<li>Create and activate a virtual environment by running the same:</li>
+<li>Create and activate a <a href="https://www.w3schools.com/python/python_virtualenv.asp">virtual environment</a> by running the same:<br>
+</li>
 </ol>
 <pre class="shell"><code># create a virtual environment
 python -m venv venv
@@ -382,19 +384,22 @@ venv\Scripts\activate.bat
 # for linux or Mac (remove hashtag first)
 # source venv/bin/activate</code></pre>
 <ol start="2" type="1">
-<li>Install the Power Bpy module:</li>
+<li>Install the Power Bpy module:<br>
+</li>
 </ol>
 <pre class="shell"><code># install the Power Bpy module
 pip install powerbpy</code></pre>
 <ol start="3" type="1">
-<li><p>Write a script to create a dashboard. (This one’s up to you!)</p></li>
-<li><p>When you’re ready to create the dashboard, run the script by running the following in the command prompt window. <code>shell    python name_of_your_script.py</code></p></li>
+<li><p>Write a script to create a dashboard. (See <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html">test dashboard</a> and <a href="https://www.russellshean.com/powerbpy/example_dashboards.html">example dashboards</a> tutorials for examples).</p></li>
+<li><p>When you’re ready to create the dashboard, run the script by running the following in the command prompt window.<br>
+</p></li>
 </ol>
+<pre class="shell"><code>python name_of_your_script.py</code></pre>
 </section>
 <section id="development-version" class="level2">
 <h2 class="anchored" data-anchor-id="development-version">Development version</h2>
 <p>To install the latest version of Power Bpy from Github instead of Pypi you can run the following</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install git+https:/<span class="at">/github</span>.com<span class="at">/Russell-Shean/powerbpy</span>.git#egg=powerbpy     </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

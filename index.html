@@ -287,13 +287,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#power-bpy" id="toc-power-bpy" class="nav-link active" data-scroll-target="#power-bpy">Power Bpy </a><a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/" class="nav-link" data-scroll-target="https\://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240"></a></li>
-  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a>
+  <li><a href="#power-bpy" id="toc-power-bpy" class="nav-link active" data-scroll-target="#power-bpy">Power Bpy </a><a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/" class="nav-link" data-scroll-target="https\://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240"></a>
   <ul class="collapse">
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
   <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
-  </ul></li>
   <li><a href="#example-workflows" id="toc-example-workflows" class="nav-link" data-scroll-target="#example-workflows">Example Workflows</a></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a></li>
   <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -307,13 +308,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="power-bpy" class="level1">
 <h1>Power Bpy <a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240"></a></h1>
 <p>Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?</p>
-<p>Introducing Power Bpy, a python package that lets you create Power BI dashboards using python 💪. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.</p>
-<p>This package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there’s more clarity from microsoft about what they’re going to do with .pbir and tmdl.</p>
+<p>Introducing Power Bpy, a python package that lets you create Power BI dashboards using python. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop. Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards!</p>
+<p>Still not convinced? See the <a href="#use-cases">use cases</a> section below for more details about when you might use this package.</p>
 <p><a href="https://pypi.org/project/powerbpy/"><img src="https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&amp;logo=pypi&amp;logoColor=white" class="img-fluid" alt="pypi Version"></a> <a href="https://pepy.tech/projects/powerbpy"><img src="https://static.pepy.tech/badge/powerbpy.png" class="img-fluid" alt="PyPI Downloads"></a> <a href="https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=master"><img src="https://codecov.io/gh/Russell-Shean/powerbpy/branch/master/graph/badge.svg" class="img-fluid" alt="Codecov test coverage"></a></p>
-</section>
-<section id="features" class="level1">
-<h1>Features</h1>
-Currently the package has functions that let you do the following <em>without opening Power BI</em> 🥳: <!-- Because quarto and or github are dumb, we're using html instead of markdown for the bullet points -->
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+Currently the package has functions that let you do the following <em>without opening Power BI Desktop</em>:
 <ul>
 <li>
 <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a>
@@ -346,7 +346,7 @@ Add visuals to a page
 <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">buttons</a>
 </li>
 <li>
-cards
+<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">cards</a>
 </li>
 <li>
 <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a>
@@ -355,16 +355,31 @@ cards
 <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">maps</a>
 </li>
 <li>
-slicers
+<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">slicers</a>
 </li>
 <li>
-tables
+<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">tables</a>
 </li>
 <li>
-text boxes
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">text boxes</a>
+</li>
+</ul>
+<li>
+Get information about your dashboard:
+</li>
+<ul>
+<li>
+<a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">List pages</a> attached to a dashboard
+</li>
+<li>
+<a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.get_measures_list">List measures</a> attached to a dashboard
+</li>
+<li>
+Load existing <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.load_page">pages</a> or <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.load">dashboards</a> into python so you can add pages,datasets, or visualizations
 </li>
 </ul>
 </ul>
+</section>
 <section id="dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
 Before you can start to build power BI dashboards using this package’s functions you’ll need the following:<br>
@@ -398,17 +413,23 @@ Store reports using enhanced metadata format (PBIR)
 </li>
 </ol>
 </section>
-</section>
-<section id="example-workflows" class="level1">
-<h1>Example Workflows</h1>
+<section id="example-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="example-workflows">Example Workflows</h2>
 <ul>
 <li>To see an intro example of how to create dashboards using the package, see the <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html">test dashboard</a> tutorial.</li>
 <li>For more details about how to install python and run python scripts see the setup <a href="https://www.russellshean.com/powerbpy/basic_setup.html">tutorial</a>.</li>
 <li>To see more example dashboards and the scripts used to create them see the <a href="https://www.russellshean.com/powerbpy/example_dashboards.html">example dashboards</a> section of the website.</li>
 </ul>
 </section>
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
+<section id="use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases">Use Cases</h2>
+<p><strong>Q: Why would I use a python package to create dashboards instead of just creating dashboards/visualizations using python tools such as flask?</strong><br>
+A: Many organizations only support certain tools for publishing. Power BI is often bundled with an organization’s subscription to Microsoft. If your organization lets you use flask or build webpages directly with React, then this package probably won’t be much use. If the only tool you are allowed to use to create and publish dashboards is Power BI, this package might help you build version controlled, reproducible and automated dashboard workflows using python instead of manually re-creating dashboards in Power BI desktop.</p>
+<p><strong>Q: One of the reasons I like Power BI is because I don’t have to write code to build dashboards. Why would I use this instead of Power BI desktop?</strong><br>
+A: You don’t have to choose! Dashboards created with Power Bpy can be opened and edited normally in Power BI Desktop. Furthermore, Power BI isn’t actually a no-code tool because you have to learn DAX and M. This package give you the option of using python, (a language many people find easy to learn and use), for both data preparation and building dashboards. You also don’t have to be really good at python to use the functions in this package, see the <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html">test dashboard</a> and <a href="https://www.russellshean.com/powerbpy/example_dashboards.html">example dashboards</a> tutorials for examples of how easy it is to build dashboards with python!</p>
+</section>
+<section id="contributing" class="level2">
+<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
 I welcome the following feedback:<br>
 
 <ol>
@@ -419,24 +440,13 @@ Pull requests to add features, add tests, fix bugs, or improve documentation. If
 Issues to suggest new features, report bugs, or tell me that the documentation is confusing.
 </li>
 <li>
-Power BI feature requests. I need help from Power BI developers who don’t neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change.(Use the .pbip format)
+Power BI feature requests. I need help from Power BI developers who don’t neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change. (Use the .pbip format)
 </li>
 <!-- <li>Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know!</li> -->
 </ol>
-<!--
-# Big changes coming up:            
-1. This package will be renamed as powerbpy and migrated to a different github and pypi location. The version will be reset to 0.1.0
-2. I will add a step-by-step explanation/tutorial for the example dashboard
-3. I will deploy to conda
-4. I plan to convert the functions to classes and methods
-5. I will add tests and input validation. I doubt this will do anything except prevent malformed dashboard files, but stricter input validation may break some edge case uses.
-6. I will add functions to do the following:
-    - Create a map with a dynamic legend
-    - Add cards and slicers
-    - list pages
--->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -336,6 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-a-text-box" id="toc-add-a-text-box" class="nav-link" data-scroll-target="#add-a-text-box">Add a text box</a></li>
   <li><a href="#add-a-button" id="toc-add-a-button" class="nav-link" data-scroll-target="#add-a-button">Add a button</a></li>
   <li><a href="#add-a-choropleth-map" id="toc-add-a-choropleth-map" class="nav-link" data-scroll-target="#add-a-choropleth-map">Add a choropleth map</a></li>
+  <li><a href="#add-a-table" id="toc-add-a-table" class="nav-link" data-scroll-target="#add-a-table">Add a table</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -457,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path</li>
 </ol>
-<p>Here’s some example code:</p>
+<p>Here’s some example code. The dataset is available on Power Bpy’s GitHub <a href="https://github.com/Russell-Shean/powerbpy/tree/main/examples/data">repo</a>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/colony.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, you should see the new dataset when you open the new dashboard. Unfortunately, you’ll see a warning that looks like this about how the dashboard needs to be refreshed:</p>
 <p>To solve the problem, click <code>Refresh now</code> and then the dataset should display normally. If you save the file, it should open normally next time. (Frustratingly, Power BI still requires that datasets to be opened in Power BI desktop to display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called **/.pbi/cache.abf. The file isn’t directly readable and I haven’t figured out a way to recreate whatever Power BI desktop does and stores in the file).</p>
@@ -552,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>width</code> - Width of button on the page</li>
 </ol>
-<p>Additional option argument are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button">function documentation</a>. For this example, I’d like to highlight two of the optional arguments that enable the button to be linked to navigation:</p>
+<p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button">function documentation</a>. For this example, I’d like to highlight two of the optional arguments that enable the button to be linked to navigation:</p>
 <ol start="7" type="1">
 <li><code>url_link</code> = This should be a valid url (web link). When the button is clicked the web page will open in the user’s browser.</li>
 <li><code>page_navigation_link</code> = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id’s are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a randow string of numbers and letters. If you aren’t sure what pages are in your dashboard you can use the <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">Dashboard.list_pages() method</a>.</li>
@@ -598,14 +599,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data. For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the <code>filtering_var</code> argument to create a slicer attached to the map that filters the dataset by age before rerendering the map. You could then pass the list of percentiles to <code>percentile_bin_breaks</code> such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected “young people” in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people. If you provide <code>percentile_bin_breaks</code> you must also provide a <code>filtering_var</code>; the assumption being that if you don’t need dynamic recalculation of bins based on the filtering variable, you’d be better off calculating a static set of breaks for yourself and passing them as a list to <code>static_bin_breaks</code>.</p>
 <p>I’ll describe in more detail below some of the optional method arguments and how they can be used to customize your map. But first, here are the required arguments:</p>
 <ol type="1">
-<li><p><code>visual_id</code> - Give the button a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.</p></li>
-<li><p><code>data_source</code> - The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</p></li>
-<li><p><code>shape_file_path</code> - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</p></li>
-<li><p><code>map_title</code> - The title you want to put above the map.</p></li>
-<li><p><code>location_var</code> - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.</p></li>
-<li><p>color_var: The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.</p>
-<p>color_palatte: list A list of hex codes to use to color your data. There should be one fewer than the number of entries in static_bin_breaks add_legend: bool True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default) static_bin_breaks: list This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. percentile_bin_breaks: list This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1] height: int Height of map on the page width: int Width of map on the page x_position: int The x coordinate of where you want to put the map on the page. Origin is page’s top left corner.</p></li>
+<li><code>visual_id</code> - Give the button a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.</li>
+<li><code>data_source</code> - The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</li>
+<li><code>shape_file_path</code> - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</li>
+<li><code>map_title</code> - The title you want to put above the map.</li>
+<li><code>location_var</code> - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.</li>
+<li><code>color_var</code> - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.</li>
+<li><code>color_palatte</code> - A list of hex codes to use to color your data. There should be one fewer than the number of bins</li>
+<li><code>add_legend</code> - True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default). The legend is a set of Power BI cards the is anchored to the bottom of the frame of the map. If you would like more control over the legend, you may need to create it yourself using the <code>add_card()</code> <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">method</a>.</li>
+<li><code>height</code> - Height of map on the page</li>
+<li><code>width</code> - Width of map on the page</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the map on the page. Origin is page’s top left corner.</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the map on the page. Origin is page’s top left corner.</li>
 </ol>
+<p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_shape_map">function documentation</a>. As described above, the arguments unique to this method control how bins are created:</p>
+<ol start="13" type="1">
+<li><code>filtering_var</code> - Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.<br>
+</li>
+<li><code>static_bin_breaks</code> This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.<br>
+</li>
+<li><code>percentile_bin_breaks</code> - This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]</li>
+</ol>
+<p>Here’s some code to add a shape map that represents bigfoot sightings by county in Washington State with the option to filter the data by the season the sighting occured. The sightings dataset and shapefile are available on Power Bpy’s GitHub <a href="https://github.com/Russell-Shean/powerbpy/tree/main/examples/data">repo</a>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's start by adding a new dataset to the dashboard        </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/wa_bigfoot_by_county.csv"</span>)     </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can add a map to the third page   </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>page2.add_shape_map(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>              visual_id <span class="op">=</span> <span class="st">"bigfoots_by_county_map"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>              data_source <span class="op">=</span> <span class="st">"wa_bigfoot_by_county"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>              shape_file_path <span class="op">=</span> <span class="st">"examples/data/2019_53_WA_Counties9467365124727016.json"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>              map_title <span class="op">=</span> <span class="st">"Washington State Bigfoot Sightings by County"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>              location_var <span class="op">=</span> <span class="st">"county"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>              color_var <span class="op">=</span> <span class="st">"count"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>              filtering_var <span class="op">=</span> <span class="st">"season"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>              <span class="co">#static_bin_breaks = [0, 15.4, 30.8, 46.2, 61.6, 77.0],</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>              percentile_bin_breaks <span class="op">=</span> [<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.8</span>,<span class="dv">1</span>],</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>              color_palette <span class="op">=</span> [<span class="st">"#efb5b9"</span>,  <span class="st">"#e68f96"</span>,<span class="st">"#de6a73"</span>,<span class="st">"#a1343c"</span>, <span class="st">"#6b2328"</span>],</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>              height <span class="op">=</span> <span class="dv">534</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>              width <span class="op">=</span> <span class="dv">816</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>              x_position <span class="op">=</span> <span class="dv">75</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>              y_position <span class="op">=</span> <span class="dv">132</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>              z_position <span class="op">=</span> <span class="dv">2000</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>              add_legend <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>              )    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code worked, you should see a map that looks like this:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"></p>
+</section>
+<section id="add-a-table" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-table">Add a table</h2>
+<p>The <a href="">sanky chart and table</a> demonstration dashboard tutorial shows the same table I add here, but this tutorial provides slightly more detail about the <code>add_table()</code> method’s arguments. This method lets you add a table to display tabular data to users. You have the option to choose which columns in the dataset to display, add an option title, and add an option summary row that shows totals for each column. The following arguments are required:</p>
+<ol type="1">
+<li><code>visual_id</code> - Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</li>
+<li><code>data_source</code> - The name of the dataset you want to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</li>
+<li><code>variables</code> - The variables from the table that you want to include.</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the table on the page. Origin is page’s top left corner</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the table on the page. Origin is page’s top left corner.</li>
+<li><code>height</code> - Height of table on the page</li>
+<li><code>width</code> - Width of table on the page</li>
+</ol>
+<p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">function documentation</a>.The arguments unique to this method include:</p>
+<ol start="8" type="1">
+<li><code>table_title</code> - Optional. Give your table an informative title!:D</li>
+<li><code>table_title_font_size</code> - Optional. The font size of the table’s title. Should be a valid font size number.</li>
+<li><code>column_widths</code> - Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values.</li>
+</ol>
+<p>Here’s some example code. The new dataset is stored in the <a href="https://github.com/Russell-Shean/powerbpy/tree/main/examples/data">data folder</a> of the Power Bpy Github repo</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a new dataset to display in the table</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/sales_final_dataset.csv"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add a new page for the table</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>page3 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Table Page"</span>)     </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># add the table    </span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>page3.add_table(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>              visual_id <span class="op">=</span> <span class="st">"sales_table"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>              data_source <span class="op">=</span> <span class="st">"sales_final_dataset"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>              variables <span class="op">=</span> [<span class="st">"Name"</span>, <span class="st">"Sales First 180 Days"</span>, <span class="st">"Sales Last 180 Days"</span>, <span class="st">"Starting Size"</span>, <span class="st">"Ending Size"</span>],</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>              x_position <span class="op">=</span> <span class="dv">615</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>              y_position <span class="op">=</span> <span class="dv">0</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>              height <span class="op">=</span> <span class="dv">800</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>              width <span class="op">=</span> <span class="dv">615</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>              add_totals_row <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>              table_title <span class="op">=</span> <span class="st">"Store Sales Details"</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>              <span class="co">#column_widths = {"county":100,"season":50,"count":200},</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>              tab_order <span class="op">=</span> <span class="op">-</span><span class="dv">1001</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>              z_position <span class="op">=</span> <span class="dv">6000</span> )    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
