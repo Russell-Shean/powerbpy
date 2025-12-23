@@ -26,13 +26,18 @@ Currently the package has functions that let you do the following *without openi
            <li>Add visuals to a page</li>
            <ul>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">buttons</a></li>
-                      <li>cards</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">cards</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">maps</a></li>
-                      <li>slicers</li>
-                      <li>tables</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">slicers</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">tables</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">text boxes</a></li>
-           </ul>
+           </ul>    
+           <li>Learn more about a dsahboard including:</li>     
+           <ul>      
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">List pages</a> attached to a dashboard</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.get_measures_list">List measures</a> attached to a dashboard</li>
+                      <li>Load existing <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.load_page">pages</a> or <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.load">dashboards</a> into python so you can add pages,datasets, or visualizations</li></ul>
 </ul>
 
 ## Dependencies    
@@ -60,10 +65,10 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
 - To see more example dashboards and the scripts used to create them see the [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) section of the website. 
 
 ## Use Cases
-Q: Why would I use a python package to create dashboards instead of just creating dashboards/visualizations using python tools such as flask?     
+<strong>Q: Why would I use a python package to create dashboards instead of just creating dashboards/visualizations using python tools such as flask?</strong>     
 A: Many organizations only support certain tools for publishing. Power BI is often bundled with an organization's subscription to Microsoft. If your organization lets you use flask or build webpages directly with React, then this package probably won't be much use. If the only tool you are allowed to use to create and publish dashboards is Power BI, this package might help you build version controlled, reproducible and automated dashboard workflows using python instead of manually re-creating dashboards in Power BI desktop.         
 
-Q: One of the reasons I like Power BI is because I don't have to write code to build dashboards. Why would I use this instead of Power BI desktop?
+<strong>Q: One of the reasons I like Power BI is because I don't have to write code to build dashboards. Why would I use this instead of Power BI desktop?</strong>        
 A: You don't have to choose! Dashboards created with Power Bpy can be opened and edited normally in Power BI Desktop. Furthermore, Power BI isn't actually a no-code tool because you have to learn DAX and M. This package give you the option of using python (a language many people find easy to learn and use) instead for both data preparation and building dashboard. You also don't have to be really good at python to use the functions in this package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples of how easy it is to build dashboards with python! 
 
 ## Contributing   
@@ -74,17 +79,5 @@ I welcome the following feedback:
            <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change.(Use the .pbip format)</li>
            <!-- <li>Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know!</li> -->
 </ol>
-<!--
-# Big changes coming up:            
-1. This package will be renamed as powerbpy and migrated to a different github and pypi location. The version will be reset to 0.1.0
-2. I will add a step-by-step explanation/tutorial for the example dashboard
-3. I will deploy to conda
-4. I plan to convert the functions to classes and methods
-5. I will add tests and input validation. I doubt this will do anything except prevent malformed dashboard files, but stricter input validation may break some edge case uses.
-6. I will add functions to do the following:
-    - Create a map with a dynamic legend
-    - Add cards and slicers
-    - list pages
--->
 
 
