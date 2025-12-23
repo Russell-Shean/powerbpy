@@ -13,12 +13,12 @@ This document briefly covers how to setup your python environment so you can sta
 ## Create virtual environment       
 For this example, we're going to use a virtual environment to keep the package versions separate from what you have installed on your system     
 
-   1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following:
+   1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following:      
    ```shell
    cd path/to/your/folder
    ```
    
-   2. Create and activate a virtual environment by running the same:
+   2. Create and activate a [virtual environment](https://www.w3schools.com/python/python_virtualenv.asp) by running the same:       
    ```shell
    # create a virtual environment
    python -m venv venv
@@ -30,14 +30,15 @@ For this example, we're going to use a virtual environment to keep the package v
    # source venv/bin/activate
    ```
    
-   2. Install the Power Bpy module:
+   2. Install the Power Bpy module:       
    ```shell
    # install the Power Bpy module
    pip install powerbpy
    ```     
-   3. Write a script to create a dashboard. (This one's up to you!)
+   3. Write a script to create a dashboard. (See [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples).
    
-   4. When you're ready to create the dashboard, run the script by running the following in the command prompt window.     ```shell
+   4. When you're ready to create the dashboard, run the script by running the following in the command prompt window.       
+   ```shell
    python name_of_your_script.py
    ```     
   

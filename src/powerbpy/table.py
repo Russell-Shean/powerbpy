@@ -38,13 +38,15 @@ class _Table(_Visual):
         ----------
 
         visual_id: str
-            Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
+            Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         data_source: str
-            The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
+            The name of the dataset you want to use to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         variables: list
             The variables from the table that you want to include
         table_title: str
-            Give your table an informative title!:D
+            Optional. Give your table an informative title!:D
+        table_title_font_size: int      
+            Optional. The font size of the table's title. Should be a valid font size number. 
         column_widths: dict
             Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values.
         x_position: int

@@ -569,8 +569,6 @@ class _Page:
             A list of hex codes to use to color your data. There should be one fewer than the number of bins.
         add_legend: bool
             True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default)
-        static_bin_breaks: list
-            This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc.
         percentile_bin_breaks: list
             This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here's an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]
         height: int
@@ -740,13 +738,15 @@ class _Page:
         ----------
 
         visual_id: str
-            Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
+            Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         data_source: str
-            The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
+            The name of the dataset you want to use to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         variables: list
             The variables from the table that you want to include
         table_title: str
-            Give your table an informative title!:D
+            Optional. Give your table an informative title!:D
+        table_title_font_size: int      
+            Optional. The font size of the table's title. Should be a valid font size number.
         column_widths: dict
             Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values.
         x_position: int

@@ -92,7 +92,8 @@ class Dashboard:
     @classmethod
     def create(cls, file_path):
 
-        '''A python class used to model a power BI dashboard project
+        '''Create a new dashboard.     
+        my_dashboard = Dashboard.create(dashboard_path)
 
         Parameters
         ----------
@@ -101,7 +102,7 @@ class Dashboard:
 
         Returns
         -------
-        None
+        An instance of the dashboard class
 
         Notes
         -----

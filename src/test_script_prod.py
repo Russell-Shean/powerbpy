@@ -17,17 +17,21 @@ my_dashboard = Dashboard.create(dashboard_path)
 # Try to add datasets
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
 
-'''
+
 my_dashboard.add_local_csv(data_path = "examples/data/wa_bigfoot_by_county.csv")
+
+
 
 my_dashboard.add_local_csv(data_path = "examples/data/sales_final_dataset.csv")
 
+'''
 # add the default DateTable to the dashboard
 my_dashboard.add_tmdl(data_path = None, add_default_datetable = True)
 
+'''
+
 # add pages
 
-'''
 
 page1 = my_dashboard.new_page(page_name = "Bee Colonies",
                      title= "The bees are in trouble!",
@@ -37,10 +41,11 @@ page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
                      title= "Bigfoot sightings",
                      subtitle = "By Washington Counties")
 
-'''
+
 ## page 3 ------------------------------------------------------------------------------------------------------
 page3 = my_dashboard.new_page(page_name = "Table Page")
 
+'''
 # page 4 ----------------------------------------------------------------------------------------------------------
 page4 = my_dashboard.new_page(page_name = "Table Page 2")
 
@@ -96,7 +101,7 @@ page1.add_button(label = "Move to page 2",
   y_position = 490,
   page_navigation_link = "page2")
 
-'''
+
 
 ## Add a map to page 3 ----------------------------------------------------------------------
 
@@ -105,7 +110,6 @@ page2.add_shape_map(
               data_source = "wa_bigfoot_by_county",
               shape_file_path = "examples/data/2019_53_WA_Counties9467365124727016.json",
               map_title = "Washington State Bigfoot Sightings by County",
-              #map_title = "",
               location_var = "county",
               color_var = "count",
               filtering_var = "season",
@@ -118,10 +122,10 @@ page2.add_shape_map(
               y_position = 132,
               z_position = 2000,
               add_legend = True
-              #add_legend = False
               )
 
-# Add table to page 4 ---------------------
+
+# Add table to page 3 ---------------------
 page3.add_table(
               visual_id = "sales_table",
               data_source = "sales_final_dataset",
@@ -136,7 +140,7 @@ page3.add_table(
               tab_order = -1001,
               z_position = 6000 )
 
-
+'''
 page3.add_sanky_chart(
               visual_id = "sales_sanky",
               data_source = "sales_final_dataset",
