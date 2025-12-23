@@ -37,7 +37,7 @@ Currently the package has functions that let you do the following *without openi
            <ul>      
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#list-all-the-dashboards-pages">List pages</a> attached to a dashboard</li>
                       <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.get_measures_list">List measures</a> attached to a dashboard</li>
-                      <li>Load existing <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#load-an-existing-page">pages</a> or <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#load-an-existing-dashboard">dashboards</a> into python so you can add pages,datasets, or visualizations</li></ul>
+                      <li>Load existing <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#load-an-existing-page">pages</a> or <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#load-an-existing-dashboard">dashboards</a> into python so you can add pages, datasets, or visualizations</li></ul>
 </ul>
 
 ## Dependencies    

@@ -90,7 +90,7 @@ class _BackgroundImage:
         for pack in report_json["resourcePackages"]:
             if pack["name"] == "RegisteredResources":
                 existing_paths = {item.get("path") for item in pack.get("items", [])}
-                
+
                 if img_name not in existing_paths:
                     pack["items"].append(
                         {
