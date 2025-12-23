@@ -356,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="setup" class="level1">
 <h1>Setup</h1>
-<p>This document briefly covers how to setup your python environment so you can start using the package to build dashboard. If anything doesn’t make sense, please open a pull request or issue so I can improve this documentation. While you’re waiting for me to fix the doccumentation, there are numerous other tutorials online that explain how to install python, create virtual environments and run python scripts.</p>
+<p>This document briefly covers how to setup your python environment so you can start using the package to build dashboard. If anything doesn’t make sense, please open a pull request or issue so I can improve this documentation. While you’re waiting for me to fix the doccumentation, there are numerous other tutorials online that explain how to install python, create virtual environments and run python scripts. This example assumes you are using Windows.</p>
 <section id="python" class="level2">
 <h2 class="anchored" data-anchor-id="python">Python</h2>
 <ol type="1">
@@ -367,13 +367,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="create-virtual-environment">Create virtual environment</h2>
 <p>For this example, we’re going to use a virtual environment to keep the package versions separate from what you have installed on your system</p>
 <ol type="1">
-<li>Open a command prompt and navigate to the folder you want to create dashboards in by running the following:<br>
-</li>
+<li>Open a command prompt and navigate to the folder you want to create dashboards in by running the following:</li>
 </ol>
-<pre class="shell"><code>cd path/to/your/folder</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Create and activate a <a href="https://www.w3schools.com/python/python_virtualenv.asp">virtual environment</a> by running the same:<br>
-</li>
+<li>Create and activate a <a href="https://www.w3schools.com/python/python_virtualenv.asp">virtual environment</a> by running the same:</li>
 </ol>
 <pre class="shell"><code># create a virtual environment
 python -m venv venv
@@ -387,14 +385,14 @@ venv\Scripts\activate.bat
 <li>Install the Power Bpy module:<br>
 </li>
 </ol>
-<pre class="shell"><code># install the Power Bpy module
-pip install powerbpy</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install the Power Bpy module</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install powerbpy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li><p>Write a script to create a dashboard. (See <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html">test dashboard</a> and <a href="https://www.russellshean.com/powerbpy/example_dashboards.html">example dashboards</a> tutorials for examples).</p></li>
 <li><p>When you’re ready to create the dashboard, run the script by running the following in the command prompt window.<br>
 </p></li>
 </ol>
-<pre class="shell"><code>python name_of_your_script.py</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> name_of_your_script.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="development-version" class="level2">
 <h2 class="anchored" data-anchor-id="development-version">Development version</h2>
