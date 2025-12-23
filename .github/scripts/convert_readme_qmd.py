@@ -38,6 +38,12 @@ with open(INDEX_QMD_PATH, "w", encoding="utf-8") as new_file:
     # loop through them and remove them
     new_file.write('  for(let caption of fig_captions){caption.remove();}')
 
+    # Select the code blocks
+    new_file.write('code_blocks = document.querySelectorAll("code")')
+
+    # Change the background color to black
+    new_file.write('for(let block of code_blocks){block.style.backgroundColor = "black"}')
+
     new_file.write('  </script>\n')
     new_file.write("---\n\n")
 

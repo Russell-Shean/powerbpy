@@ -50,7 +50,7 @@ Before you can start to build power BI dashboards using this package's functions
 
 
 Power BI settings:      
-You'll need to enable some preview features in Power BI Desktop. Navigate to ```File``` > `Options and Settings` > `Options` > <code>Preview features</code> and enable the following options:         
+You'll need to enable some preview features in Power BI Desktop. Navigate to `File` > `Options and Settings` > `Options` > `Preview features` and enable the following options:         
 <ol>
            <li>Shape map visual</li>
            <li>Power BI Project (.pbip) save option</li>
