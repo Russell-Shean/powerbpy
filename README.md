@@ -4,7 +4,7 @@ Do you wish you could build dashboard with python or R, but can't because the cl
 Introducing Power Bpy, a python package that lets you create Power BI dashboards using python 💪. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.       
 Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳       
 
-Still not convinced? See the [use cases](#dependencies) section below for more details about when you might use this package. 
+Still not convinced? See the [use cases](#use-cases) section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
 [![PyPI Downloads](https://static.pepy.tech/badge/powerbpy)](https://pepy.tech/projects/powerbpy)
@@ -59,7 +59,7 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
 - For more details about how to install python and run python scripts see the setup [tutorial](https://www.russellshean.com/powerbpy/basic_setup.html).
 - To see more example dashboards and the scripts used to create them see the [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) section of the website. 
 
-# Use Cases
+## Use Cases
 Q: Why would I use a python package to create dashboards instead of just creating dashboards/visualizations using python tools such as flask?     
 A: Many organizations only support certain tools for publishing. Power BI is often bundled with an organization's subscription to Microsoft. If your organization lets you use flask or build webpages directly with React, then this package probably won't be much use. If the only tool you are allowed to use to create and publish dashboards is Power BI, this package might help you build version controlled, reproducible and automated dashboard workflows using python instead of manually re-creating dashboards in Power BI desktop.         
 
