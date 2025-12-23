@@ -97,7 +97,7 @@ class _Page:
             1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
 
         There are two additional optional arguments:
-            2. `alpha` - This is the image's transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )
+            2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )
             3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
 
         Here's some example code that adds a new background image to the Bee Colonies page:

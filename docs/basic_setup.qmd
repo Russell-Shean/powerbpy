@@ -8,46 +8,46 @@ This document briefly covers how to setup your python environment so you can sta
    
 ## Python      
      
-   1. Make sure [python](https://www.python.org/downloads/) is installed on your computer.       
+1. Make sure [python](https://www.python.org/downloads/) is installed on your computer.       
         
 ## Create virtual environment       
 For this example, we're going to use a virtual environment to keep the package versions separate from what you have installed on your system     
 
-   1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following:      
+1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following:      
          
-   ```bash
-   cd path/to/your/folder
-   ```
+```bash
+cd path/to/your/folder
+```
    
-   2. Create and activate a [virtual environment](https://www.w3schools.com/python/python_virtualenv.asp) by running the same:        
+2. Create and activate a [virtual environment](https://www.w3schools.com/python/python_virtualenv.asp) by running the same:        
          
-   ```bash
-   # create a virtual environment
-   python -m venv venv
+```bash
+# create a virtual environment
+python -m venv venv
 
-   # for windows
-   venv\Scripts\activate.bat
+# for windows
+venv\Scripts\activate.bat
 
-   # for linux or Mac (remove hashtag first)
-   # source venv/bin/activate
-   ```
+# for linux or Mac (remove hashtag first)
+# source venv/bin/activate
+```
    
-   3. Install the Power Bpy module:       
-   ```bash
-   # install the Power Bpy module
-   pip install powerbpy
-   ```     
-   3. Write a script to create a dashboard. (See [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples).
-   
-   4. When you're ready to create the dashboard, run the script by running the following in the command prompt window.       
-   ```bash
-   python name_of_your_script.py
-   ```     
+3. Install the Power Bpy module:       
+```bash
+# install the Power Bpy module
+pip install powerbpy
+```     
+4. Write a script to create a dashboard. (See [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples).      
+    
+5. When you're ready to create the dashboard, run the script by running the following in the command prompt window.       
+```bash
+python name_of_your_script.py
+```     
   
   
 ## Development version
 To install the latest version of Power Bpy from Github instead of Pypi you can run the following
-```dosbat     
+```bash     
 python -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     
 ```     
    
