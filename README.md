@@ -75,7 +75,7 @@ I welcome the following feedback:
 <ol>
            <li>Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.</li>
            <li>Issues to suggest new features, report bugs, or tell me that the documentation is confusing.</li>
-           <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change.(Use the .pbip format)</li>
+           <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change. (Use the .pbip format)</li>
            <!-- <li>Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know!</li> -->
 </ol>
 
