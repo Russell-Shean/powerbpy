@@ -332,13 +332,70 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
   9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner   
   10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.    
   11. `height` - Height of chart on the page     
-  12. `width` - Width of chart on the page        
+  12. `width` - Width of chart on the page      
 
- 
-   
+Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart).The arguments unique to this method include:      
 
+  1. `link_colors` - Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.     
+
+Here's some example code showing how to create a sanky dashboard:     
+```python
+# Add a sanky chart to page 3
+page3.add_sanky_chart(
+              visual_id = "sales_sanky",
+              data_source = "sales_final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"],
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              values_from_var="Name",
+              x_position=0,
+              y_position=0,
+              height = 800,
+              width = 615,
+)
+
+```
 
 If the code worked, you should see a sanky chart just to the right of the table that looks like this:    
-![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png)
+![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png)      
+    
+Now let's show an example of what can be done with the `link_colors` argument. This allows you to provide a list of hex codes for each arrow (link if you're using power BI's internal vocab). Using this argument you can provide custom colors for each of the arrow, or highlight one arrow in particular with color. Here's an example of changing the arrow colors to read, yellow, and green and also highlight just one of the arrows by making it pink:    
+   
+```python
+# Add a new page
+page4 = my_dashboard.new_page(page_name = "Table Page 2")
+
+# Add a different version of the sanky chart to the new page
+page4.add_sanky_chart(
+              visual_id = "sales_sanky",
+              data_source = "sales_final_dataset",
+              chart_title="Store Starting and Ending Size",
+              starting_var="Starting Size",
+              starting_var_values=["Large", "Medium", "Small"],
+              ending_var="Ending Size",
+              ending_var_values=["Large", "Medium", "Small"],
+              link_colors=["#CF3517","#CF3517","#CF3517",
+                           "#E3EF3A","#EA1389FF","#E3EF3A",
+                           "#26A115","#26A115","#26A115"],
+              values_from_var="Name",
+              x_position=0,
+              y_position=0,
+              height = 800,
+              width = 615
+              )
+
+```
+If the code worked, you should see a sanky chart that looks like this:     
+![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky2_example.png)      
+    
+## Load an existing dashboard
+
+## Load an existing page
+
+## List all the dashboard's pages
+
+## Loop through all the pages
 
               
