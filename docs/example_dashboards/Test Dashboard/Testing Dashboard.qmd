@@ -270,7 +270,7 @@ page2.add_shape_map(
 
 ```
 If the code worked, you should see a map that looks like this:      
-![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true "Example Dashboard")     
+![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true)     
     
 ## Add a table      
 The [sanky chart and table]() demonstration dashboard tutorial shows the same table I add here, but this tutorial provides slightly more detail about the `add_table()` method's arguments. This method lets you add a table to display tabular data to users. You have the option to choose which columns in the dataset to display, add an option title, and add an option summary row that shows totals for each column. The following arguments are required:        

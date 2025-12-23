@@ -67,6 +67,11 @@ jobs:
 
           # publish the webpage to github pages
           quarto publish gh-pages ./docs --no-browser --no-prompt
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+        #  create_branch: true
+          commit_message: commit the readme file back to the repo
  
    
 

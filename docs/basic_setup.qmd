@@ -4,7 +4,7 @@ format: html
 ---
 
 # Setup  
-This document briefly covers how to setup your python environment so you can start using the package to build dashboard. If anything doesn't make sense, please open a pull request or issue so I can improve this documentation. While you're waiting for me to fix the doccumentation, there are numerous other tutorials online that explain how to install python, create virtual environments and run python scripts.         
+This document briefly covers how to setup your python environment so you can start using the package to build dashboard. If anything doesn't make sense, please open a pull request or issue so I can improve this documentation. While you're waiting for me to fix the doccumentation, there are numerous other tutorials online that explain how to install python, create virtual environments and run python scripts. This example assumes you are using Windows.       
    
 ## Python      
      
@@ -14,11 +14,13 @@ This document briefly covers how to setup your python environment so you can sta
 For this example, we're going to use a virtual environment to keep the package versions separate from what you have installed on your system     
 
    1. Open a command prompt and navigate to the folder you want to create dashboards in by running the following:      
-   ```shell
+         
+   ```bash
    cd path/to/your/folder
    ```
    
-   2. Create and activate a [virtual environment](https://www.w3schools.com/python/python_virtualenv.asp) by running the same:       
+   2. Create and activate a [virtual environment](https://www.w3schools.com/python/python_virtualenv.asp) by running the same:        
+         
    ```shell
    # create a virtual environment
    python -m venv venv
@@ -31,14 +33,14 @@ For this example, we're going to use a virtual environment to keep the package v
    ```
    
    2. Install the Power Bpy module:       
-   ```shell
+   ```bash
    # install the Power Bpy module
    pip install powerbpy
    ```     
    3. Write a script to create a dashboard. (See [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples).
    
    4. When you're ready to create the dashboard, run the script by running the following in the command prompt window.       
-   ```shell
+   ```bash
    python name_of_your_script.py
    ```     
   
