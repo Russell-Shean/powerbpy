@@ -30,14 +30,14 @@ Currently the package has functions that let you do the following *without openi
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">maps</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">slicers</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">tables</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-table">tables</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">text boxes</a></li>
            </ul>    
            <li>Get information about your dashboard:</li>     
            <ul>      
-                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">List pages</a> attached to a dashboard</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#list-all-the-dashboards-pages">List pages</a> attached to a dashboard</li>
                       <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.get_measures_list">List measures</a> attached to a dashboard</li>
-                      <li>Load existing <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.load_page">pages</a> or <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.load">dashboards</a> into python so you can add pages,datasets, or visualizations</li></ul>
+                      <li>Load existing <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#load-an-existing-page">pages</a> or <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#load-an-existing-dashboard">dashboards</a> into python so you can add pages,datasets, or visualizations</li></ul>
 </ul>
 
 ## Dependencies    
@@ -81,4 +81,4 @@ I welcome various types of feedback:
 </ol>
 
 ## Sponsorship
-Power Bpy is free and open-source, however if you found the package useful or inspiring, feel free to [sponsor](https://github.com/sponsors/Russell-Shean) the project so that I can keep building it out. Additionally, I am a freelance software developer, if you would like to hire me to build out a custom Power Bpy workflow for your organization, please feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 
+Power Bpy is free and open-source, however if you found the package useful or inspiring, feel free to [sponsor](https://github.com/sponsors/Russell-Shean) the project so that I can keep building it out. Additionally, I am a freelance software developer; if you would like to hire me to build out a custom Power Bpy workflow for your organization, please feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 
