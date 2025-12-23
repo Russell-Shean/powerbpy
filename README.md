@@ -2,8 +2,9 @@
 Do you wish you could build dashboard with python or R, but can't because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?      
 
 Introducing Power Bpy, a python package that lets you create Power BI dashboards using python 💪. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop.       
+Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳       
 
-This package uses the new .pbip/.pbir format with TMDL enabled. This stores dashboards as directories of text files instead of binary files letting you version control your dashboards! 🥳 These features are still preview features, so use this with caution until there's more clarity from microsoft about what they're going to do with .pbir and tmdl.       
+Still not convinced? See the [use cases]() section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
 [![PyPI Downloads](https://static.pepy.tech/badge/powerbpy)](https://pepy.tech/projects/powerbpy)
@@ -12,7 +13,6 @@ This package uses the new .pbip/.pbir format with TMDL enabled. This stores dash
            
 # Features      
 Currently the package has functions that let you do the following *without opening Power BI* 🥳: 
-<!-- Because quarto and or github are dumb, we're using html instead of markdown for the bullet points -->
 <ul>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a></li>
            <li>Import data from</li>
