@@ -338,6 +338,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-a-choropleth-map" id="toc-add-a-choropleth-map" class="nav-link" data-scroll-target="#add-a-choropleth-map">Add a choropleth map</a></li>
   <li><a href="#add-a-table" id="toc-add-a-table" class="nav-link" data-scroll-target="#add-a-table">Add a table</a></li>
   <li><a href="#add-sanky-chart" id="toc-add-sanky-chart" class="nav-link" data-scroll-target="#add-sanky-chart">Add Sanky chart</a></li>
+  <li><a href="#load-an-existing-dashboard" id="toc-load-an-existing-dashboard" class="nav-link" data-scroll-target="#load-an-existing-dashboard">Load an existing dashboard</a></li>
+  <li><a href="#load-an-existing-page" id="toc-load-an-existing-page" class="nav-link" data-scroll-target="#load-an-existing-page">Load an existing page</a></li>
+  <li><a href="#list-all-the-dashboards-pages" id="toc-list-all-the-dashboards-pages" class="nav-link" data-scroll-target="#list-all-the-dashboards-pages">List all the dashboard’s pages</a></li>
+  <li><a href="#loop-through-all-the-pages" id="toc-loop-through-all-the-pages" class="nav-link" data-scroll-target="#loop-through-all-the-pages">Loop through all the pages</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -715,8 +719,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>width</code> - Width of chart on the page</li>
 </ol>
+<p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart">function documentation</a>.The arguments unique to this method include:</p>
+<ol type="1">
+<li><code>link_colors</code> - Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.</li>
+</ol>
+<p>Here’s some example code showing how to create a sanky dashboard:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a sanky chart to page 3</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>page3.add_sanky_chart(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              visual_id <span class="op">=</span> <span class="st">"sales_sanky"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>              data_source <span class="op">=</span> <span class="st">"sales_final_dataset"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>              chart_title<span class="op">=</span><span class="st">"Store Starting and Ending Size"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>              starting_var<span class="op">=</span><span class="st">"Starting Size"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>              starting_var_values<span class="op">=</span>[<span class="st">"Large"</span>, <span class="st">"Medium"</span>, <span class="st">"Small"</span>],</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>              ending_var<span class="op">=</span><span class="st">"Ending Size"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>              ending_var_values<span class="op">=</span>[<span class="st">"Large"</span>, <span class="st">"Medium"</span>, <span class="st">"Small"</span>],</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>              values_from_var<span class="op">=</span><span class="st">"Name"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>              x_position<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>              y_position<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>              height <span class="op">=</span> <span class="dv">800</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>              width <span class="op">=</span> <span class="dv">615</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, you should see a sanky chart just to the right of the table that looks like this:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png" class="img-fluid" alt="Example of a table"></p>
+<p>Now let’s show an example of what can be done with the <code>link_colors</code> argument. This allows you to provide a list of hex codes for each arrow (link if you’re using power BI’s internal vocab). Using this argument you can provide custom colors for each of the arrow, or highlight one arrow in particular with color. Here’s an example of changing the arrow colors to read, yellow, and green and also highlight just one of the arrows by making it pink:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new page</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>page4 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Table Page 2"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a different version of the sanky chart to the new page</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>page4.add_sanky_chart(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>              visual_id <span class="op">=</span> <span class="st">"sales_sanky"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>              data_source <span class="op">=</span> <span class="st">"sales_final_dataset"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>              chart_title<span class="op">=</span><span class="st">"Store Starting and Ending Size"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>              starting_var<span class="op">=</span><span class="st">"Starting Size"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>              starting_var_values<span class="op">=</span>[<span class="st">"Large"</span>, <span class="st">"Medium"</span>, <span class="st">"Small"</span>],</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>              ending_var<span class="op">=</span><span class="st">"Ending Size"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>              ending_var_values<span class="op">=</span>[<span class="st">"Large"</span>, <span class="st">"Medium"</span>, <span class="st">"Small"</span>],</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>              link_colors<span class="op">=</span>[<span class="st">"#CF3517"</span>,<span class="st">"#CF3517"</span>,<span class="st">"#CF3517"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"#E3EF3A"</span>,<span class="st">"#EA1389FF"</span>,<span class="st">"#E3EF3A"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"#26A115"</span>,<span class="st">"#26A115"</span>,<span class="st">"#26A115"</span>],</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>              values_from_var<span class="op">=</span><span class="st">"Name"</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>              x_position<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>              y_position<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>              height <span class="op">=</span> <span class="dv">800</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>              width <span class="op">=</span> <span class="dv">615</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>              )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code worked, you should see a sanky chart that looks like this:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky2_example.png" class="img-fluid" alt="Example of a table"></p>
+</section>
+<section id="load-an-existing-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="load-an-existing-dashboard">Load an existing dashboard</h2>
+</section>
+<section id="load-an-existing-page" class="level2">
+<h2 class="anchored" data-anchor-id="load-an-existing-page">Load an existing page</h2>
+</section>
+<section id="list-all-the-dashboards-pages" class="level2">
+<h2 class="anchored" data-anchor-id="list-all-the-dashboards-pages">List all the dashboard’s pages</h2>
+</section>
+<section id="loop-through-all-the-pages" class="level2">
+<h2 class="anchored" data-anchor-id="loop-through-all-the-pages">Loop through all the pages</h2>
 
 
 </section>
