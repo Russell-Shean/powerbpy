@@ -3,7 +3,8 @@ Do you wish you could build dashboard with python or R, but can't because the cl
 
 Introducing Power Bpy, a python package that lets you create Power BI dashboards using python. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop. Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards!       
 
-Still not convinced? See the [use cases](#use-cases) section below for more details about when you might use this package. 
+Still not convinced?        
+See the [use cases](#use-cases) section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
 [![PyPI Downloads](https://static.pepy.tech/badge/powerbpy)](https://pepy.tech/projects/powerbpy)
@@ -49,7 +50,7 @@ Before you can start to build power BI dashboards using this package's functions
 
 
 Power BI settings:      
-You'll need to enable some preview features in Power BI Desktop. Navigate to ```File``` > `Options and Settings` > `Options` > `Preview features` and enable the following options:         
+You'll need to enable some preview features in Power BI Desktop. Navigate to ```File``` > `Options and Settings` > `Options` > <code>Preview features</code> and enable the following options:         
 <ol>
            <li>Shape map visual</li>
            <li>Power BI Project (.pbip) save option</li>
