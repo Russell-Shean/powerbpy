@@ -89,13 +89,16 @@ class _BackgroundImage:
         # add the image as an item to the registered resources items list
         for pack in report_json["resourcePackages"]:
             if pack["name"] == "RegisteredResources":
-                pack["items"].append(
-                                  {
-                                    "name": img_name,
-                                    "path": img_name,
-                                    "type": "Image"
-                                   }
-                                )
+                existing_paths = {item.get("path") for item in pack.get("items", [])}
+                
+                if img_name not in existing_paths:
+                    pack["items"].append(
+                        {
+                            "name": img_name,
+                            "path": img_name,
+                            "type": "Image"
+                            }
+                            )
 
         # write to file
         with open(self.dashboard.report_json_path,'w', encoding="utf-8") as file:
