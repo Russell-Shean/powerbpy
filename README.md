@@ -32,7 +32,7 @@ Currently the package has functions that let you do the following *without openi
                       <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">tables</a></li>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">text boxes</a></li>
            </ul>    
-           <li>Learn more about a dsahboard including:</li>     
+           <li>Get information about your dashboard:</li>     
            <ul>      
                       <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">List pages</a> attached to a dashboard</li>
                       <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.get_measures_list">List measures</a> attached to a dashboard</li>
