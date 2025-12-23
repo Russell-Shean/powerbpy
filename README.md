@@ -72,12 +72,13 @@ A: Many organizations only support certain tools for publishing. Power BI is oft
 A: You don't have to choose! Dashboards created with Power Bpy can be opened and edited normally in Power BI Desktop. Furthermore, Power BI isn't actually a no-code tool because you have to learn DAX and M. This package give you the option of using python, (a language many people find easy to learn and use), for both data preparation and building dashboards. You also don't have to be really good at python to use the functions in this package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples of how easy it is to build dashboards with python! 
 
 ## Contributing   
-I welcome to various types of feedback:            
+I welcome various types of feedback:            
 <ol>
            <li>Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.</li>
            <li>Issues to suggest new features, report bugs, or tell me that the documentation is confusing.</li>
            <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change. (Use the .pbip format)</li>
-           <!-- <li>Tests. I need some way to test DAX, M and TMDL for validity without using Power BI desktop. If you know of a tool I could use in Github Actions let me know!</li> -->
+
 </ol>
 
-
+## Sponsorship
+Power Bpy is free and open-source, however if you found the package useful or inspiring, feel free to [sponsor](https://github.com/sponsors/Russell-Shean) the project so that I can keep building it out. Additionally, I am a freelance software developer, if you would like to hire me to build out a custom Power Bpy workflow for your organization, please feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 

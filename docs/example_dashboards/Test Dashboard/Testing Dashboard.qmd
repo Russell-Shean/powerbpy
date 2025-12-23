@@ -473,5 +473,7 @@ If the code worked, you should see that all the pages now have the same backgrou
 ![load page example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page_looping1.png)     
 ![load page example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page_looping2.png)     
 
+# Conclusion
+This shows an overview of what's possible with the package so far. To learn more about the functions and their arguments, feel free to refer to the [function reference](https://www.russellshean.com/powerbpy/reference/) documentation or browse the [source code](https://github.com/Russell-Shean/powerbpy/tree/main/src). A few additional details about the project are described in the project's [Readme file](https://github.com/Russell-Shean/powerbpy). I will add more example dashboards to website in [this section](https://www.russellshean.com/powerbpy/example_dashboards.html). If you have questions, suggestions, typo corrections, or want to contribute to the project, please feel free to open a github pull request or issue or reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 
 
               
