@@ -343,6 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#list-all-the-dashboards-pages" id="toc-list-all-the-dashboards-pages" class="nav-link" data-scroll-target="#list-all-the-dashboards-pages">List all the dashboard’s pages</a></li>
   <li><a href="#loop-through-all-the-pages" id="toc-loop-through-all-the-pages" class="nav-link" data-scroll-target="#loop-through-all-the-pages">Loop through all the pages</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -441,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>There are two additional optional arguments:</p>
 <ol start="2" type="1">
-<li><code>alpha</code> - This is the image’s transparency with 0 is fully transparent and 100 is full non-transparent (defaults to 100 )<br>
+<li><code>alpha</code> - This is the image’s transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )<br>
 </li>
 <li><code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</li>
 </ol>
@@ -741,7 +742,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, you should see a sanky chart just to the right of the table that looks like this:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png" class="img-fluid" alt="Example of a table"></p>
-<p>Now let’s show an example of what can be done with the <code>link_colors</code> argument. This allows you to provide a list of hex codes for each arrow (link if you’re using power BI’s internal vocab). Using this argument you can provide custom colors for each of the arrow, or highlight one arrow in particular with color. Here’s an example of changing the arrow colors to read, yellow, and green and also highlight just one of the arrows by making it pink:</p>
+<p>Now let’s show an example of what can be done with the <code>link_colors</code> argument. This allows you to provide a list of hex codes for each arrow, (link if you’re using power BI’s internal vocab). Using this argument you can provide custom colors for each of the arrows, or highlight one arrow in particular with color. Here’s an example of changing the arrow colors to red, yellow, and green and also highlighting just one of the arrows by making it pink:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new page</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>page4 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Table Page 2"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -768,18 +769,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-an-existing-dashboard" class="level2">
 <h2 class="anchored" data-anchor-id="load-an-existing-dashboard">Load an existing dashboard</h2>
+<p>If you’ve been experimenting on your own you may have noticed that you get an error if you run <code>Dashboard.create()</code> with a non-empty path. That is because <code>Dashboard.create()</code> doesn’t just initate a new instance of the dashboard class, it also creates a set of files representing a new blank Power BI dashboard. The error is there to prevent you from accidently overwriting an existing dashboard. If you want to create an instance of the Dashboard class that represents a pre-existing dashboard, you can use <code>Dashboard.load()</code> to load the dashboard into python instead. Here’s an example:</p>
+<p>In a separate script or python window you can run the following:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the Dashboard class again</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> powerbpy <span class="im">import</span> Dashboard</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the dashboard we just created</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>my_dashboard2 <span class="op">=</span> Dashboard.load(<span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>)   </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># To prove the loading worked, let's add a new page</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>page5 <span class="op">=</span> my_dashboard2.new_page(<span class="st">"Page 5?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code worked, the second script/python window should have added a new page to the dashboard we created earlier<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/load_dashboard_example.png" class="img-fluid" alt="new page example"></p>
 </section>
 <section id="load-an-existing-page" class="level2">
 <h2 class="anchored" data-anchor-id="load-an-existing-page">Load an existing page</h2>
+<p>Just like you can load existing dashboards, you can also load existing pages. To load the page you must know its page_id. If you created it using Power BI it will be numbered in the order you created the pages in and should follow the pattern of “page1”, “page2”, “page3”, etc. If you don’t know the page_id, you can open the dashboard folder and follow a path similiar to this one to get a page’s id: <code>test_dashboard/test_dashboard.Report/definition/pages/page1/page.json</code>. The page’s folder name <em>should</em> be the same as the page_id. You could also use the <code>list_pages()</code> method described in the next section to find the page’s id. As an example, let’s try loading the fourth page in the second script/window:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the page using its page_id</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>page4 <span class="op">=</span> my_dashboard2.load_page(<span class="st">"page4"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a text box to the page to provide the loading worked</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>page4.add_text_box(text<span class="op">=</span> <span class="st">"A test text box"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>         visual_id<span class="op">=</span><span class="st">"test_box"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>         height<span class="op">=</span> <span class="dv">200</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>         width<span class="op">=</span><span class="dv">300</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>         x_position<span class="op">=</span> <span class="dv">900</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>         y_position<span class="op">=</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code worked, you should see something like this:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/load_page_example.png" class="img-fluid" alt="load page example"></p>
 </section>
 <section id="list-all-the-dashboards-pages" class="level2">
 <h2 class="anchored" data-anchor-id="list-all-the-dashboards-pages">List all the dashboard’s pages</h2>
+<p>You might not know all the page_ids for pages in your dashboard or you might want to loop through all the pages in the dashboard. Here’s a method that provides a list of all the page_ids in the dashboard:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of pages</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pages <span class="op">=</span> my_dashboard2.list_pages()   </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print to the console</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pages)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You should see a list of page ids like this in the console:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'page1'</span>, <span class="st">'page2'</span>, <span class="st">'page3'</span>, <span class="st">'page4'</span>, <span class="st">'page5'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="loop-through-all-the-pages" class="level2">
 <h2 class="anchored" data-anchor-id="loop-through-all-the-pages">Loop through all the pages</h2>
-
-
+<p>The <code>list_pages()</code> method is useful when you want to get a list of all the page ids, but it’s also useful if you want to loop through all the pages and do the same action to the all at the same time. For example we could add a background image to all the pages at the same time:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of pages</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>pages <span class="op">=</span> my_dashboard2.list_pages()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># loop through all the page ids</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> page_id <span class="kw">in</span> pages:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># You can also use python to control the flow logic</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for example, here we'll add the image to all the </span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pages --- EXCEPT the first one</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> page_id <span class="op">!=</span> <span class="st">"page1"</span>:</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># This is inside the loop, so it loads one page per loop iteration</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        page <span class="op">=</span> my_dashboard2.load_page(page_id)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># And adds the same background image to each page</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        page.add_background_image(</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>                   img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>,</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>                   alpha <span class="op">=</span> <span class="dv">51</span>,</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>                   scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the code worked, you should see that all the pages now have the same background image. Here are two example pages:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page_looping1.png" class="img-fluid" alt="load page example"><br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page_looping2.png" class="img-fluid" alt="load page example"></p>
 </section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This shows an overview of what’s possible with the package so far. To learn more about the functions and their arguments, feel free to refer to the <a href="https://www.russellshean.com/powerbpy/reference/">function reference</a> documentation or browse the <a href="https://github.com/Russell-Shean/powerbpy/tree/main/src">source code</a>. A few additional details about the project are described in the project’s <a href="https://github.com/Russell-Shean/powerbpy">Readme file</a>. I will add more example dashboards to website in <a href="https://www.russellshean.com/powerbpy/example_dashboards.html">this section</a>. If you have questions, suggestions, typo corrections, or want to contribute to the project, please feel free to open a github pull request or issue or reach out to me on <a href="https://www.linkedin.com/in/russell-shean/">Linkedin</a> or <a href="https://bsky.app/profile/rshean.bsky.social">Bluesky</a>.</p>
+
+
 </section>
 
 </main> <!-- /main -->
