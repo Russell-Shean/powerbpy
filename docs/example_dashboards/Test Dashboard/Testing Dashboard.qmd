@@ -338,6 +338,7 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
    
 
 
-
+If the code worked, you should see a sanky chart just to the right of the table that looks like this:    
+![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png)
 
               

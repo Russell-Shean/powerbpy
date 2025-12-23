@@ -10,29 +10,19 @@ from powerbpy import Dashboard
 
 dashboard_path = os.path.join(os.getcwd(), "test_dashboard")
 
-
 my_dashboard = Dashboard.create(dashboard_path)
-
 
 # Try to add datasets
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
-
-
 my_dashboard.add_local_csv(data_path = "examples/data/wa_bigfoot_by_county.csv")
-
-
-
 my_dashboard.add_local_csv(data_path = "examples/data/sales_final_dataset.csv")
 
-'''
+
 # add the default DateTable to the dashboard
 my_dashboard.add_tmdl(data_path = None, add_default_datetable = True)
 
-'''
 
 # add pages
-
-
 page1 = my_dashboard.new_page(page_name = "Bee Colonies",
                      title= "The bees are in trouble!",
                      subtitle = "We're losing bee colonies")
@@ -45,11 +35,10 @@ page2 = my_dashboard.new_page(page_name = "Bigfoot Map",
 ## page 3 ------------------------------------------------------------------------------------------------------
 page3 = my_dashboard.new_page(page_name = "Table Page")
 
-'''
+
 # page 4 ----------------------------------------------------------------------------------------------------------
 page4 = my_dashboard.new_page(page_name = "Table Page 2")
 
-'''
 
 page1.add_background_image(
                    img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
@@ -140,7 +129,7 @@ page3.add_table(
               tab_order = -1001,
               z_position = 6000 )
 
-'''
+
 page3.add_sanky_chart(
               visual_id = "sales_sanky",
               data_source = "sales_final_dataset",
@@ -166,9 +155,9 @@ page4.add_sanky_chart(
               starting_var_values=["Large", "Medium", "Small"],
               ending_var="Ending Size",
               ending_var_values=["Large", "Medium", "Small"],
-              link_colors=["#C29BD5","#C29BD5","#C29BD5",
-                           "#F4CB93","#F4CB93","#F4CB93",
-                           "#7CCDF2","#7CCDF2","#7CCDF2"],
+              link_colors=["#CF3517","#CF3517","#CF3517",
+                           "#E3EF3A","#EA138980","#E3EF3A",
+                           "#26A115","#26A115","#26A115"],
               values_from_var="Name",
               x_position=0,
               y_position=0,
@@ -177,11 +166,13 @@ page4.add_sanky_chart(
               )
 
 
+
 # try loading the dashboard and adding a new page....
 my_dashboard2 = Dashboard.load(dashboard_path)
 
 
 page5 = my_dashboard2.new_page("Page 5?")
+
 
 # Try loading a page and adding a text box
 
@@ -196,6 +187,7 @@ page4.add_text_box(text= "A test text box",
 
 # Get a list of pages
 pages = my_dashboard2.list_pages()
+print(pages)
 
 for page_id in pages:
 
@@ -205,7 +197,3 @@ for page_id in pages:
                    img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
                    alpha = 51,
                    scaling_method = "Fit")
-
-print(pages)
-
-'''
