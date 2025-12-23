@@ -330,6 +330,7 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
   7. `values_from_var` - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too      
   8. `chart_title` - Give your chart an informative title!:D
 
-
+If the code worked, you should see a sanky chart just to the right of the table that looks like this:    
+![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png)
 
               
