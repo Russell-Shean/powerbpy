@@ -14,8 +14,8 @@
     "text": "It may now be possible to directly publish .pbip files. Navigate to file &gt; publish and then click on publish to Power BI service"
   },
   {
-    "objectID": "dashboard_publishing.html#try-save-as-.pbix",
-    "href": "dashboard_publishing.html#try-save-as-.pbix",
+    "objectID": "dashboard_publishing.html#save-as-.pbix",
+    "href": "dashboard_publishing.html#save-as-.pbix",
     "title": "Publish .pbir and .pbip dashboards",
     "section": "",
     "text": "Historically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to file &gt; save as and choose .pbix.\nOpen the .pbix file and navigate to file &gt; publish and then click on publish to Power BI service"
