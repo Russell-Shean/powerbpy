@@ -208,7 +208,7 @@ class Dashboard:
 
         Parameters
         ----------
-        file_path: str        
+        file_path : str        
             The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
 
         Returns
@@ -242,18 +242,18 @@ class Dashboard:
 
         Parameters
         ----------
-        page_name: str
+        page_name : str
             The display name for the page you just created. This is different from the page_id which is only used internally.
-        title: str
+        title : str
             Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
-        subtitle: str
+        subtitle : str
             Subtitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
-        display_option: str
+        display_option : str
             Default way to display the page for end users (View -> Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize
 
         Returns
         -------
-        new_page_id: str
+        new_page_id : str
             The unique id for the page you just created. If you used this function it will be in the format page1, page2, page3, page4, etc. If you manually create a page it will be a randomly generated UUID. To find a page's page id, consult the report > definition> pages > page.json file and look in the page order list.
 
         Notes
@@ -338,12 +338,12 @@ class Dashboard:
 
         Parameters
         ----------
-        page_id: str        
+        page_id : str        
             The page_id of the page you'd like to load.
 
         Returns
         -------
-        _Page: class
+        _Page : class
             This returns an instance of the Page class corresponding to the page you just loaded.
 
         Notes
@@ -370,7 +370,7 @@ class Dashboard:
 
         Returns
         -------
-        pages: list
+        pages : list
             A list of all the page_ids in the dashboard
 
         Notes
@@ -392,9 +392,9 @@ class Dashboard:
 
         Parameters
         ----------
-        data_path: str
+        data_path : str
             The path where the tmdl file is stored.
-        add_default_datetable: bool
+        add_default_datetable : bool
             Do you want the  built in TMDL file containing a variety of date combinations? This will allow you to create your own date hierarchies instead of using time intelligence.
 
         Notes
@@ -420,12 +420,12 @@ class Dashboard:
 
         Parameters
         ----------
-        data_path: str       
+        data_path : str       
             The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.
 
         Returns
         -------
-        dataset: class
+        dataset : class
             An instance of the internal _LocalCsv dataset class
 
         Notes
@@ -463,21 +463,21 @@ class Dashboard:
 
         Parameters
         ----------
-        account_url: str        
+        account_url : str        
             The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.       
-        blob_name: str        
+        blob_name : str        
             The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field.       
-        data_path: str        
+        data_path : str        
             The relative path to the file you want to load from the blob. It should be relative to `blob_name`.        
-        tenant_id: str       
+        tenant_id : str       
             The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).        
-        use_saved_storage_key: bool       
+        use_saved_storage_key : bool       
             This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there.       
                 
             USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.       
-        sas_url: str       
+        sas_url : str       
             A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature".       
-        storage_account_key: str        
+        storage_account_key : str        
             It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger.      
                   
             You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
@@ -528,11 +528,11 @@ class Dashboard:
         '''Return a list of DAX measures in the report
         Parameters
         ----------
-        export_type: str
+        export_type : str
             Export type for the function result: export to a .xlsx file (parameter value 'xlsx'), to a .csv file (parameter value 'csv'), or output in markdown format without saving (parameter value 'markdown'')
-        output_file_path: str
+        output_file_path : str
             The path for export (if the export_type value is specified as '.xlsx' or '.csv'). Example: "D:/PBI project/blank_template/", export result will be stored as "D:/PBI project/blank_template/blank_template - measures.xlsx""
-        starts_with: str
+        starts_with : str
             Technical parameter for measure selection. Default options is 'formatString:', for older reports without formatString in the measure definition try using 'lineageTag:' instead
 
         Returns

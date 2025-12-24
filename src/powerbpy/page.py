@@ -84,11 +84,11 @@ class _Page:
         '''Add a background image to a dashboard page
         Parameters
         ----------
-        img_path: str
+        img_path : str
             The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png
-        alpha: int
+        alpha : int
             The transparency of the background image. Must be a whole integer between 1 and 100.
-        scaling_method: str
+        scaling_method : str
             The method used to scale the image available options include ["Fit", ]
 
         Notes
@@ -149,35 +149,35 @@ class _Page:
         Parameters
         ----------
 
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        chart_type: str
+        chart_type : str
             The type of chart to build on the page. Known available types include: ["columnChart","barChart", "clusteredBarChart", ]
-        data_source: str
+        data_source : str
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
-        chart_title: str
+        chart_title : str
             Give your chart an informative title!:D
-        x_axis_title: str
+        x_axis_title : str
             Text to display on the x axis
-        y_axis_title: str
+        y_axis_title : str
             Text to display on the y axis
-        x_axis_var: str
+        x_axis_var : str
             Column name of a column from data_source that you want to use for the x axis of the chart
-        y_axis_var: str
+        y_axis_var : str
             Column name of a column from data_source that you want to use for the y axis of the chart
-        y_axis_var_aggregation_type: str
+        y_axis_var_aggregation_type : str
             Type of aggregation method you want to use to summarize y axis variable. Available options include" ["Sum", "Count", "Average"]
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.
-        height: int
+        height : int
             Height of chart on the page
-        width: int
+        width : int
             Width of chart on the page
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         '''
 
@@ -230,31 +230,31 @@ class _Page:
 
         Parameters
         ----------
-        text: str
+        text : str
             The text you want to display in the box
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the text box. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        height:int
+        height :int
             Height of text box on the page
-        width: int
+        width : int
             Width of text box on the page
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        font_weight: str
+        font_weight : str
             This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
-        font_size: int
+        font_size : int
             The font size in pts. Must be a whole integer. Defaults to 32 pt
-        font_color: str
+        font_color : str
             Hex code for the font color you'd like to use. Defaults to black (#000000)
-        background_color: str
+        background_color : str
             Hex code for the background color of the text box. Defaults to None (transparent)
-        parent_group_id: str
+        parent_group_id : str
             This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
 
         Notes
@@ -381,29 +381,29 @@ class _Page:
 
         Parameters
         ----------
-        data_source: str
+        data_source : str
             This is the name of the dataset that you want to use to populate the slicer with
-        column_name: str
+        column_name : str
             This is the name of the measure (or variable) name you want to use to populate the slicer with
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        height: int
+        height : int
             Height of slicer on the page
-        width: int
+        width : int
             Width of slicer on the page
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the slicer on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the slicer on the page. Origin is page's top left corner.
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        title: str
+        title : str
             An optional title to add to the slicer.
-        background_color: str
+        background_color : str
             Hex code for the background color of the slicer. Defaults to None (transparent)
-        parent_group_id: str
+        parent_group_id : str
             This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
 
         Notes
@@ -457,35 +457,35 @@ class _Page:
 
         Parameters
         ----------
-        data_source: str
+        data_source : str
             This is the name of the dataset that you want to use to populate the card with
-        measure_name: str
+        measure_name : str
             This is the name of the measure (or variable) name you want to use to populate the card with
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the card. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        height: int
+        height : int
             Height of card on the page
-        width: int
+        width : int
             Width of card on the page
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the card on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the card on the page. Origin is page's top left corner.
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        card_title: int
+        card_title : int
             An optional title to add to the card.
-        font_weight: str
+        font_weight : str
             This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
-        font_size: int
+        font_size : int
             The font size in pts. Must be a whole integer. Defaults to 32 pt
-        font_color: str
+        font_color : str
             Hex code for the font color you'd like to use. Defaults to black (#000000)
-        background_color: str
+        background_color : str
             Hex code for the background color of the card. Defaults to None (transparent)
-        parent_group_id: str
+        parent_group_id : str
             This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
 
         Notes
@@ -549,39 +549,39 @@ class _Page:
 
         Parameters
         ----------
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the map. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        data_source: str
+        data_source : str
             The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
-        shape_file_path: str
+        shape_file_path : str
             A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
-        map_title: str
+        map_title : str
             The title you want to put above the map.
-        location_var: str
+        location_var : str
             The name of the column in data_source that you want to use for the location variable on the map.This should also correspond to the geography of your shape file.
-        color_var: str
+        color_var : str
             The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
-        filtering_var: str
+        filtering_var : str
             Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.
-        static_bin_breaks: list
+        static_bin_breaks : list
             This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.
-        color_palette: list
+        color_palette : list
             A list of hex codes to use to color your data. There should be one fewer than the number of bins.
-        add_legend: bool
+        add_legend : bool
             True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default)
-        percentile_bin_breaks: list
+        percentile_bin_breaks : list
             This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here's an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]
-        height: int
+        height : int
             Height of map on the page
-        width: int
+        width : int
             Width of map on the page
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the map on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the map on the page. Origin is page's top left corner.
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
 
         Notes
@@ -646,39 +646,39 @@ class _Page:
 
         Parameters
         ----------
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        data_source: str
+        data_source : str
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
-        starting_var: str
+        starting_var : str
             Which variable from the data_source, do you want to use for the left side of the sanky chart?
         starting_var_values: list
             Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.
-        ending_var: str
+        ending_var : str
             Which variable from the data_source, do you want to use for the right side of the sanky chart?
-        ending_var_values: list
+        ending_var_values : list
             Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.
-        values_from_var: str
+        values_from_var : str
             This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too
-        chart_title: str
+        chart_title : str
             Give your chart an informative title!:D
-        alt_text: str
+        alt_text : str
             Alternate text for the visualization can be provided as an argument. This is important for screen readers (accesibility) or if the visualization doesn't load properly.
-        chart_title_font_size: int
+        chart_title_font_size : int
             Font size for chart title
-        link_colors: list
+        link_colors : list
             Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.
-        height: int
+        height : int
             Height of chart on the page
-        width: int
+        width : int
             Width of chart on the page
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 
         '''
@@ -737,29 +737,29 @@ class _Page:
         Parameters
         ----------
 
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        data_source: str
+        data_source : str
             The name of the dataset you want to use to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
-        variables: list
+        variables : list
             The variables from the table that you want to include
-        table_title: str
+        table_title : str
             Optional. Give your table an informative title!:D
-        table_title_font_size: int      
+        table_title_font_size : int      
             Optional. The font size of the table's title. Should be a valid font size number.
-        column_widths: dict
+        column_widths : dict
             Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values.
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the table on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the table on the page. Origin is page's top left corner.
-        height: int
+        height : int
             Height of table on the page
-        width: int
+        width : int
             Width of table on the page
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 
         '''
