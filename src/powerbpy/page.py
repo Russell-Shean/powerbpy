@@ -309,27 +309,27 @@ class _Page:
         ----------
         label : str
             The text you want to display inside the button
-        visual_id: str
+        visual_id : str
             Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
-        height: int
+        height : int
             Height of text box on the page
-        width: int
+        width : int
             Width of text box on the page
-        x_position: int
+        x_position : int
             The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.
-        y_position: int
+        y_position : int
             The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
-        z_position: int
+        z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-        tab_order: int
+        tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        fill_color: str
+        fill_color : str
             Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
-        alpha: int
+        alpha : int
             The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
-        url_link: str
+        url_link : str
             Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
-        page_navigation_link: str
+        page_navigation_link : str
             Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.
 
         Notes
