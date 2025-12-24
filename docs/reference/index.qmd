@@ -5,7 +5,7 @@ include-before-body:
   <script>document.title = "Power Bpy - Function Reference";</script>
 ---
 
-# Function reference {.doc .doc-index}
+# Methods reference {.doc .doc-index}
 
 ## Power Bpy
 

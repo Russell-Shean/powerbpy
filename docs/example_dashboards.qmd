@@ -1,5 +1,5 @@
 ---
-title: "Here are some examples of Power BI dashboards built using Power Bpy."
+title: "Examples of Power BI dashboards built using Power Bpy."
 listing: 
   contents: example_dashboards 
   sort: "date desc" 

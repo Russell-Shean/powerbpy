@@ -14,7 +14,7 @@ class Dashboard:
 
     Notes
     -----
-    - For clarity avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create()` or `Dashboard.load()`
+    - For clarity, avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create()` or `Dashboard.load()`.
     - To create a new dashboard instance, use either `Dashboard.create(dashboard_path)` to create a new dashboard or `Dashboard.load(dashboard_path)` to load an existing dashboard.
     - The dashboard uses a .pbip/.pbir format with TMDL enabled.
     - Publishing .pbip files can be complicated. For more details see the [publishing section](https://www.russellshean.com/powerbpy/dashboard_publishing.html) of the Power Bpy website.

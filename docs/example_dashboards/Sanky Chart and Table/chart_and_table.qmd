@@ -6,18 +6,22 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sa
 ---
 
 # Sanky Chart and Table      
-I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom). (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar). The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
+I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom).        
+    
+(It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar).      
+    
+The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
 <img id="my-sanky-img" class="img-fluid" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px">      
 ![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)
   
 ## Assumptions
-This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas. If you don't, please refer to basic setup instructions on this page or find one of the many great resources online that explains how to install python packages.  
+This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas. If you don't, please refer to basic setup [instructions](https://www.russellshean.com/powerbpy/basic_setup.html) section of this website or find one of the many great resources online that explains how to install python packages.  
 
-One of the central assumptions built into the PowerBpy package is that you'd prefer to write python code over using Power BI. Therefore this example will avoid writing any M or DAX and will instead use python to extract, load and transform the data. Once the data is ready will use PowerBpy to create the dashboard. 
+One of the central assumptions built into the PowerBpy package is that you'd prefer to write python code over using Power BI. Therefore, this example will avoid writing any M or DAX and will instead use python to extract, load and transform the data. Once the data is ready, I'll show how to use PowerBpy to create the dashboard. 
 
  
 ## Download Data
-The data for this example is stored as an online zip file. The following code downloads the zip file and extracts it into a local directory. 
+The data for this example is stored as an online zip file. The following code downloads the zip file and extracts the contents into a local directory. 
 ```python
 '''
 This script downloads the data from Github and
@@ -66,7 +70,6 @@ For this example we need to calculate sales totals by stores time period and cla
 '''
 This script proccesses the data we downloaded
 '''
-# pylint: disable=import-error, invalid-name
 
 import pandas as pd
 import numpy as np
@@ -201,13 +204,19 @@ sales_by_store_and_date = (
 sales_by_store_and_date.to_csv("data/final_dataset.csv", index=False)
 
 ```         
-It's of course also possible to do this type of data processing in other languages too. Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/02-process_data.R) to an R script I wrote that does the exact same data processing. 
+It's of course also possible to do this type of data processing in other languages too. Here's a [link](https://github.com/Russell-Shean/powerbpy-demos/blob/main/WOW/2025/13/02-process_data.R) to an R script that does the exact same data processing. 
 
 ## Create Dashboard
-Now that we've obtained and prepped the data, we can create the dashboard!      
+Now that we've obtained and prepped the data, we can create the dashboard! The script below does the following:   
 
-### Create dashboard    
-First we create a new dashboard      
+   - Create a new dashboard
+   - Add the dataset we downloaded and processed to the dashboard
+   - Add a new page to the dashboard      
+   - Add a sanky chart to the new page
+   - Add a table to the new page
+
+For more details about creating dashboards, see the [test dasboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) tutorial or the package's [methods documentation](https://www.russellshean.com/powerbpy/reference/).    
+
 ```python
 '''
 This script creates a new dashboard using the data we downloaded and processesd
