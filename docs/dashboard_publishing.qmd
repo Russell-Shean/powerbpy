@@ -9,7 +9,7 @@ I have not had access to Power BI serivce, (the Microsoft cloud service for publ
 ## Just try publishing it as a .pbip file
 It may now be possible to directly publish .pbip files. Navigate to `file` > `publish` and then click on `publish to Power BI service`    
 
-## Try Save as .pbix    
+## Save as .pbix    
 Historically, this didn't work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to `file` > `save as` and choose .pbix.     
 
 Open the .pbix file and navigate to  `file` > `publish` and then click on `publish to Power BI service`     
