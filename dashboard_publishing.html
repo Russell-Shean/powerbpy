@@ -291,12 +291,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
-  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
   <li><a href="#just-try-publishing-it-as-a-.pbip-file" id="toc-just-try-publishing-it-as-a-.pbip-file" class="nav-link" data-scroll-target="#just-try-publishing-it-as-a-.pbip-file">Just try publishing it as a .pbip file</a></li>
   <li><a href="#save-as-.pbix" id="toc-save-as-.pbix" class="nav-link" data-scroll-target="#save-as-.pbix">Save as .pbix</a></li>
-  </ul></li>
   <li><a href="#convert-to-.pbit-then-save-as-.pbix" id="toc-convert-to-.pbit-then-save-as-.pbix" class="nav-link" data-scroll-target="#convert-to-.pbit-then-save-as-.pbix">Convert to .pbit then save as .pbix</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -323,26 +322,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="background" class="level1">
-<h1>Background</h1>
-<p>I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have <a href="https://learn.microsoft.com/en-us/fabric/cicd/git-integration/manage-branches?tabs=azure-devops">git enabled fabric workspaces</a>, it should be possible to directly publish, but if you don’t, here are a few workarounds you can try. They’re presented in order of complexity</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have <a href="https://learn.microsoft.com/en-us/fabric/cicd/git-integration/manage-branches?tabs=azure-devops">git enabled fabric workspaces</a>, it should be possible to directly publish, but if you don’t, here are a few workarounds you can try. They’re presented in order of complexity.</p>
+</section>
 <section id="just-try-publishing-it-as-a-.pbip-file" class="level2">
 <h2 class="anchored" data-anchor-id="just-try-publishing-it-as-a-.pbip-file">Just try publishing it as a .pbip file</h2>
-<p>It may now be possible to directly publish .pbip files. Navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code></p>
+<p>It may now be possible to directly publish .pbip files. Navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/publish_pbip.png" class="img-fluid figure-img"></p>
+<figcaption>.pbip publish</figcaption>
+</figure>
+</div>
+<p>You should then see a window like this prompting you to login. I don’t have a Power BI service account, so from this point forward, you’re on your own. Good luck and hope it works! If it doesn’t try one of the other options in the sections below.</p>
 </section>
 <section id="save-as-.pbix" class="level2">
 <h2 class="anchored" data-anchor-id="save-as-.pbix">Save as .pbix</h2>
-<p>Historically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to <code>file</code> &gt; <code>save as</code> and choose .pbix.</p>
-<p>Open the .pbix file and navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code></p>
+<p>Historically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to <code>file</code> &gt; <code>save as</code> and choose .pbix.<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/save_as_pbix.png" class="img-fluid" alt=".pbip save as .pbix"></p>
+<p>Open the .pbix file and navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code>. Repeat the login process described above and see if you’re able to publish the dashboard.</p>
 </section>
-</section>
-<section id="convert-to-.pbit-then-save-as-.pbix" class="level1">
-<h1>Convert to .pbit then save as .pbix</h1>
+<section id="convert-to-.pbit-then-save-as-.pbix" class="level2">
+<h2 class="anchored" data-anchor-id="convert-to-.pbit-then-save-as-.pbix">Convert to .pbit then save as .pbix</h2>
 <p>The only workaround I found when I still had access to Power BI service was to first export the .pbir/.pbip file as a Power BI template (.pbit) and then us <code>save as</code> to convert the .pbit to a .pbix file.</p>
-<p>The first step is to convert the .pbir or .pbip file to a Power BI template (.pbit) file. Navigate to <code>file</code> &gt; <code>export</code> and choose <code>publish as template</code>.</p>
-<p>Then give it a description, (doesn’t actually matter what you write), and click okay.</p>
+<p>The first step is to convert the .pbir or .pbip file to a Power BI template (.pbit) file. Navigate to <code>file</code> &gt; <code>export</code> and choose <code>Power BI template</code>.<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/export_to_template.png" class="img-fluid" alt=".pbip export to .pbit"></p>
+<p>Then give it a description, (doesn’t actually matter what you write), and click okay.<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/template_description.png" class="img-fluid" alt=".pbit description"></p>
+<p>A save as dialouge box should pop up, make sure the file type is .pbit and click save<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/template_save_as.png" class="img-fluid" alt=".pbit save as"></p>
 <p>Close the .pbir file and open the new .pbit file. In the .pbit file navigate to <code>file</code> &gt; <code>save as</code> and choose .pbix.</p>
-<p>Open the .pbix file and navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code>.</p>
+<p>Open the .pbix file and navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code>. Repeat the login steps described above. This time it should work!</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Please feel free to reach out with additions, corrections or improvements. If you successfully publish a dashboard, feel free to create a pull request to add additional instructions to this document.</p>
 
 
 </section>

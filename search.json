@@ -4,21 +4,42 @@
     "href": "dashboard_publishing.html",
     "title": "Publish .pbir and .pbip dashboards",
     "section": "",
-    "text": "I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have git enabled fabric workspaces, it should be possible to directly publish, but if you don’t, here are a few workarounds you can try. They’re presented in order of complexity\n\n\nIt may now be possible to directly publish .pbip files. Navigate to file &gt; publish and then click on publish to Power BI service\n\n\n\nHistorically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to file &gt; save as and choose .pbix.\nOpen the .pbix file and navigate to file &gt; publish and then click on publish to Power BI service"
+    "text": "I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have git enabled fabric workspaces, it should be possible to directly publish, but if you don’t, here are a few workarounds you can try. They’re presented in order of complexity."
+  },
+  {
+    "objectID": "dashboard_publishing.html#background",
+    "href": "dashboard_publishing.html#background",
+    "title": "Publish .pbir and .pbip dashboards",
+    "section": "",
+    "text": "I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have git enabled fabric workspaces, it should be possible to directly publish, but if you don’t, here are a few workarounds you can try. They’re presented in order of complexity."
   },
   {
     "objectID": "dashboard_publishing.html#just-try-publishing-it-as-a-.pbip-file",
     "href": "dashboard_publishing.html#just-try-publishing-it-as-a-.pbip-file",
     "title": "Publish .pbir and .pbip dashboards",
-    "section": "",
-    "text": "It may now be possible to directly publish .pbip files. Navigate to file &gt; publish and then click on publish to Power BI service"
+    "section": "Just try publishing it as a .pbip file",
+    "text": "Just try publishing it as a .pbip file\nIt may now be possible to directly publish .pbip files. Navigate to file &gt; publish and then click on publish to Power BI service.\n\n\n\n.pbip publish\n\n\nYou should then see a window like this prompting you to login. I don’t have a Power BI service account, so from this point forward, you’re on your own. Good luck and hope it works! If it doesn’t try one of the other options in the sections below."
   },
   {
     "objectID": "dashboard_publishing.html#save-as-.pbix",
     "href": "dashboard_publishing.html#save-as-.pbix",
     "title": "Publish .pbir and .pbip dashboards",
-    "section": "",
-    "text": "Historically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to file &gt; save as and choose .pbix.\nOpen the .pbix file and navigate to file &gt; publish and then click on publish to Power BI service"
+    "section": "Save as .pbix",
+    "text": "Save as .pbix\nHistorically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to file &gt; save as and choose .pbix.\n\nOpen the .pbix file and navigate to file &gt; publish and then click on publish to Power BI service. Repeat the login process described above and see if you’re able to publish the dashboard."
+  },
+  {
+    "objectID": "dashboard_publishing.html#convert-to-.pbit-then-save-as-.pbix",
+    "href": "dashboard_publishing.html#convert-to-.pbit-then-save-as-.pbix",
+    "title": "Publish .pbir and .pbip dashboards",
+    "section": "Convert to .pbit then save as .pbix",
+    "text": "Convert to .pbit then save as .pbix\nThe only workaround I found when I still had access to Power BI service was to first export the .pbir/.pbip file as a Power BI template (.pbit) and then us save as to convert the .pbit to a .pbix file.\nThe first step is to convert the .pbir or .pbip file to a Power BI template (.pbit) file. Navigate to file &gt; export and choose Power BI template.\n\nThen give it a description, (doesn’t actually matter what you write), and click okay.\n\nA save as dialouge box should pop up, make sure the file type is .pbit and click save\n\nClose the .pbir file and open the new .pbit file. In the .pbit file navigate to file &gt; save as and choose .pbix.\nOpen the .pbix file and navigate to file &gt; publish and then click on publish to Power BI service. Repeat the login steps described above. This time it should work!"
+  },
+  {
+    "objectID": "dashboard_publishing.html#conclusion",
+    "href": "dashboard_publishing.html#conclusion",
+    "title": "Publish .pbir and .pbip dashboards",
+    "section": "Conclusion",
+    "text": "Conclusion\nPlease feel free to reach out with additions, corrections or improvements. If you successfully publish a dashboard, feel free to create a pull request to add additional instructions to this document."
   },
   {
     "objectID": "example_dashboards/Test Dashboard/Testing Dashboard.html",
