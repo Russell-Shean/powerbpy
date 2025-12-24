@@ -4,7 +4,7 @@ format: html
 ---
 
 # Background 
-I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have fabric enabled git workspaces, it should be possible to directly publish, but if you don't, here are a few workarounds you can try. They're presented in order of complexity
+I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have Fabric enabled git workspaces, it should be possible to directly publish, but if you don't, here are a few workarounds you can try. They're presented in order of complexity
 
 ## Just try publishing it as a .pbip file
 It may now be possible to directly publish .pbip files. Navigate to `file` > `publish` and then click on `publish to Power BI service`    
