@@ -4,7 +4,7 @@ version = "0.1.7"
 authors = [
   { name="Russell Shean", email="russshean@gmail.com" },
 ]
-description = "Automatically create PowerBI dashboards using the .pbir file type"
+description = "Create Power BI dashboards using python"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [

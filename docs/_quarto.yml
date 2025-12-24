@@ -13,7 +13,7 @@ website:
         file: basic_setup.qmd
       - text: "Example Dashboards"
         file: example_dashboards.qmd
-      - text: "Publishing .pbir Dashboards"
+      - text: "Publish Dashboards"
         file: dashboard_publishing.qmd
       - text: "Reference"
         file: reference/index.qmd
