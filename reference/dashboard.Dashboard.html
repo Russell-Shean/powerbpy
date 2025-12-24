@@ -493,43 +493,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>account_url</td>
-<td></td>
+<td>str</td>
 <td>The url to your Azure storage account. It should be in the format of <code>https://&lt;YOUR STORAGE ACCOUNT NAME&gt;.blob.core.windows.net/</code>. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>blob_name</td>
-<td></td>
+<td>str</td>
 <td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>data_path</td>
-<td></td>
+<td>str</td>
 <td>The relative path to the file you want to load from the blob. It should be relative to <code>blob_name</code>.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>tenant_id</td>
-<td></td>
+<td>str</td>
 <td>The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>use_saved_storage_key</td>
-<td></td>
+<td>bool</td>
 <td>This optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.</td>
 <td><code>False</code></td>
 </tr>
 <tr class="even">
 <td>sas_url</td>
-<td></td>
+<td>str</td>
 <td>A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>storage_account_key</td>
-<td></td>
+<td>str</td>
 <td>It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</td>
 <td><code>None</code></td>
 </tr>
@@ -588,7 +588,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>data_path</td>
-<td></td>
+<td>str</td>
 <td>The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.</td>
 <td><em>required</em></td>
 </tr>
@@ -649,13 +649,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>data_path</td>
-<td></td>
+<td>str</td>
 <td>The path where the tmdl file is stored.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="even">
 <td>add_default_datetable</td>
-<td></td>
+<td>bool</td>
 <td>Do you want the built in TMDL file containing a variety of date combinations? This will allow you to create your own date hierarchies instead of using time intelligence.</td>
 <td><code>True</code></td>
 </tr>
@@ -759,19 +759,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>export_type</td>
-<td></td>
+<td>str</td>
 <td>Export type for the function result: export to a .xlsx file (parameter value ‘xlsx’), to a .csv file (parameter value ‘csv’), or output in markdown format without saving (parameter value ‘markdown’’)</td>
 <td><code>'markdown'</code></td>
 </tr>
 <tr class="even">
 <td>output_file_path</td>
-<td></td>
+<td>str</td>
 <td>The path for export (if the export_type value is specified as ‘.xlsx’ or ‘.csv’). Example: “D:/PBI project/blank_template/”, export result will be stored as “D:/PBI project/blank_template/blank_template - measures.xlsx””</td>
 <td><code>''</code></td>
 </tr>
 <tr class="odd">
 <td>starts_with</td>
-<td></td>
+<td>str</td>
 <td>Technical parameter for measure selection. Default options is ‘formatString:’, for older reports without formatString in the measure definition try using ‘lineageTag:’ instead</td>
 <td><code>'formatString:'</code></td>
 </tr>
@@ -876,7 +876,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>file_path</td>
-<td></td>
+<td>str</td>
 <td>The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.</td>
 <td><em>required</em></td>
 </tr>
@@ -934,7 +934,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>page_id</td>
-<td></td>
+<td>str</td>
 <td>The page_id of the page you’d like to load.</td>
 <td><em>required</em></td>
 </tr>
@@ -999,25 +999,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>page_name</td>
-<td></td>
+<td>str</td>
 <td>The display name for the page you just created. This is different from the page_id which is only used internally.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>title</td>
-<td></td>
+<td>str</td>
 <td>Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>subtitle</td>
-<td></td>
+<td>str</td>
 <td>Subtitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="even">
 <td>display_option</td>
-<td></td>
+<td>str</td>
 <td>Default way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize</td>
 <td><code>'FitToPage'</code></td>
 </tr>
