@@ -24,7 +24,7 @@ class Dashboard:
     # pylint: disable=too-many-instance-attributes
     # pylint: disable=import-outside-toplevel
 
-    def __private_init__(self,
+    def __init__(self,
                  file_path):
         '''A python class used to model a power BI dashboard project
         '''
