@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dashboard</title>
+<title>dashboard.dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.scss">
 </head>
 
-<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -299,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Publish Dashboards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../reference/index.html"> 
+    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
@@ -316,39 +316,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/dashboard.Dashboard.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/dashboard.Dashboard.html">dashboard.Dashboard</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Function reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Power Bpy</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/dashboard.Dashboard.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">dashboard.Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/page._Page.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">page._Page</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#powerbpy.dashboard" id="toc-powerbpy.dashboard" class="nav-link active" data-scroll-target="#powerbpy.dashboard">dashboard</a>
+  <li><a href="#powerbpy.dashboard.Dashboard" id="toc-powerbpy.dashboard.Dashboard" class="nav-link active" data-scroll-target="#powerbpy.dashboard.Dashboard">dashboard.Dashboard</a>
   <ul class="collapse">
-  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
   <ul class="collapse">
-  <li><a href="#powerbpy.dashboard.Dashboard" id="toc-powerbpy.dashboard.Dashboard" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard">Dashboard</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.add_blob_csv" id="toc-powerbpy.dashboard.Dashboard.add_blob_csv" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.add_blob_csv">add_blob_csv</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.add_local_csv" id="toc-powerbpy.dashboard.Dashboard.add_local_csv" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.add_local_csv">add_local_csv</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.add_tmdl" id="toc-powerbpy.dashboard.Dashboard.add_tmdl" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.add_tmdl">add_tmdl</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.create" id="toc-powerbpy.dashboard.Dashboard.create" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.create">create</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.get_measures_list" id="toc-powerbpy.dashboard.Dashboard.get_measures_list" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.list_pages" id="toc-powerbpy.dashboard.Dashboard.list_pages" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.list_pages">list_pages</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.load" id="toc-powerbpy.dashboard.Dashboard.load" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.load">load</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.load_page" id="toc-powerbpy.dashboard.Dashboard.load_page" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.load_page">load_page</a></li>
+  <li><a href="#powerbpy.dashboard.Dashboard.new_page" id="toc-powerbpy.dashboard.Dashboard.new_page" class="nav-link" data-scroll-target="#powerbpy.dashboard.Dashboard.new_page">new_page</a></li>
   </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/dashboard.Dashboard.html">Power Bpy</a></li><li class="breadcrumb-item"><a href="../reference/dashboard.Dashboard.html">dashboard.Dashboard</a></li></ol></nav></header>
 
 
 
 
 
-<section id="powerbpy.dashboard" class="level1">
-<h1>dashboard</h1>
-<p><code>dashboard</code></p>
+<section id="powerbpy.dashboard.Dashboard" class="level1">
+<h1>dashboard.Dashboard</h1>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A python class used to model a power BI dashboard project</p>
-<section id="classes" class="level2">
-<h2 class="anchored" data-anchor-id="classes">Classes</h2>
+<section id="notes" class="level2 doc-section doc-section-notes">
+<h2 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h2>
+<ul>
+<li>For clarity avoid initiating a dashboard directly using <code>Dashboard(file_path)</code>, instead use <code>Dashboard.create()</code> or <code>Dashboard.load()</code></li>
+<li>To create a new dashboard instance, use either <code>Dashboard.create(dashboard_path)</code> to create a new dashboard or <code>Dashboard.load(dashboard_path)</code> to load an existing dashboard.</li>
+<li>The dashboard uses a .pbip/.pbir format with TMDL enabled.</li>
+<li>Publishing .pbip files can be complicated. For more details see the <a href="https://www.russellshean.com/powerbpy/dashboard_publishing.html">publishing section</a> of the Power Bpy website.</li>
+<li>Time intelligence and relationship autodection are turned off by default</li>
+</ul>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -358,23 +423,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="#powerbpy.dashboard.Dashboard">Dashboard</a></td>
-<td>A python class used to model a power BI dashboard project</td>
+<td><a href="#powerbpy.dashboard.Dashboard.add_blob_csv">add_blob_csv</a></td>
+<td>Add a csv file stored in a ADLS blob container to a dashboard</td>
+</tr>
+<tr class="even">
+<td><a href="#powerbpy.dashboard.Dashboard.add_local_csv">add_local_csv</a></td>
+<td>Add a locally stored CSV file to a dashboard</td>
+</tr>
+<tr class="odd">
+<td><a href="#powerbpy.dashboard.Dashboard.add_tmdl">add_tmdl</a></td>
+<td>Add a locally stored TMDL file to the dashboard</td>
+</tr>
+<tr class="even">
+<td><a href="#powerbpy.dashboard.Dashboard.create">create</a></td>
+<td>Create a new dashboard</td>
+</tr>
+<tr class="odd">
+<td><a href="#powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</a></td>
+<td>Return a list of DAX measures in the report</td>
+</tr>
+<tr class="even">
+<td><a href="#powerbpy.dashboard.Dashboard.list_pages">list_pages</a></td>
+<td>List all pages associated with a dashboard</td>
+</tr>
+<tr class="odd">
+<td><a href="#powerbpy.dashboard.Dashboard.load">load</a></td>
+<td>Load an existing dashboard from a file path</td>
+</tr>
+<tr class="even">
+<td><a href="#powerbpy.dashboard.Dashboard.load_page">load_page</a></td>
+<td>Load an existing page</td>
+</tr>
+<tr class="odd">
+<td><a href="#powerbpy.dashboard.Dashboard.new_page">new_page</a></td>
+<td>Create a new blank dashboard page</td>
 </tr>
 </tbody>
 </table>
-<section id="powerbpy.dashboard.Dashboard" class="level3">
-<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard">Dashboard</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A python class used to model a power BI dashboard project</p>
+<section id="powerbpy.dashboard.Dashboard.add_blob_csv" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.add_blob_csv">add_blob_csv</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.add_blob_csv(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    data_path,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    account_url,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    blob_name,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    tenant_id<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    use_saved_storage_key<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    sas_url<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    storage_account_key<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    warnings<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add a csv file stored in a ADLS blob container to a dashboard</p>
 <section id="parameters" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 84%">
-<col style="width: 6%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 92%">
+<col style="width: 2%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -386,10 +492,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>file_path</td>
+<td>account_url</td>
 <td></td>
-<td>The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.</td>
+<td>The url to your Azure storage account. It should be in the format of <code>https://&lt;YOUR STORAGE ACCOUNT NAME&gt;.blob.core.windows.net/</code>. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.</td>
 <td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>blob_name</td>
+<td></td>
+<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>data_path</td>
+<td></td>
+<td>The relative path to the file you want to load from the blob. It should be relative to <code>blob_name</code>.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>tenant_id</td>
+<td></td>
+<td>The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>use_saved_storage_key</td>
+<td></td>
+<td>This optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.</td>
+<td><code>False</code></td>
+</tr>
+<tr class="even">
+<td>sas_url</td>
+<td></td>
+<td>A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>storage_account_key</td>
+<td></td>
+<td>It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</td>
+<td><code>None</code></td>
 </tr>
 </tbody>
 </table>
@@ -413,174 +555,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="notes" class="level4 doc-section doc-section-notes">
-<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h4>
-<ul>
-<li><p>To create a new dashboard instance, use either Dashboard.create(dashboard_path) to create a new dashboard or Dashboard.create(dashboard_path) to load an existing dashboard.</p></li>
-<li><p>The dashboard uses a .pbip/.pbir format with TMDL enabled.</p></li>
-<li><p>To publish this type of dashboard you will need to either use git enabled workspaces OR convert to a .pbit template and then to a .pbix file before publishing</p></li>
-<li><p>These annoyances are worth it because the .pbir + TMDL format is the only one that allows real version control and programatic manipulation of the report using these functions.</p></li>
-<li><p>(.pbip uses mimified json by default and throws an error when it’s given unpacked json).</p></li>
-<li><p>Time intelligence and relationship autodection are turned off by default</p></li>
-</ul>
-</section>
-<section id="methods" class="level4">
-<h4 class="anchored" data-anchor-id="methods">Methods</h4>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="#powerbpy.dashboard.Dashboard.add_blob_csv">add_blob_csv</a></td>
-<td>Add a csv file store in a ADLS blob container to a dashboard</td>
-</tr>
-<tr class="even">
-<td><a href="#powerbpy.dashboard.Dashboard.add_local_csv">add_local_csv</a></td>
-<td>Add a locally stored CSV file to a dashboard</td>
-</tr>
-<tr class="odd">
-<td><a href="#powerbpy.dashboard.Dashboard.add_tmdl">add_tmdl</a></td>
-<td>Add a locally stored TMDL file to the dashboard</td>
-</tr>
-<tr class="even">
-<td><a href="#powerbpy.dashboard.Dashboard.create">create</a></td>
-<td>Create a new dashboard.</td>
-</tr>
-<tr class="odd">
-<td><a href="#powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</a></td>
-<td>Returns a list of DAX measures in the report</td>
-</tr>
-<tr class="even">
-<td><a href="#powerbpy.dashboard.Dashboard.list_pages">list_pages</a></td>
-<td>List all pages associated with a dashboard</td>
-</tr>
-<tr class="odd">
-<td><a href="#powerbpy.dashboard.Dashboard.load">load</a></td>
-<td>Load an existing dashboard from a file path</td>
-</tr>
-<tr class="even">
-<td><a href="#powerbpy.dashboard.Dashboard.load_page">load_page</a></td>
-<td>Load an existing page</td>
-</tr>
-<tr class="odd">
-<td><a href="#powerbpy.dashboard.Dashboard.new_page">new_page</a></td>
-<td>Create a new blank dashboard page</td>
-</tr>
-</tbody>
-</table>
-<section id="powerbpy.dashboard.Dashboard.add_blob_csv" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.add_blob_csv">add_blob_csv</h5>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.add_blob_csv(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    data_path,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    account_url,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    blob_name,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    tenant_id<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    use_saved_storage_key<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    sas_url<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    storage_account_key<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    warnings<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add a csv file store in a ADLS blob container to a dashboard</p>
-<section id="parameters-1" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-1">Parameters</h6>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 1%">
-<col style="width: 92%">
-<col style="width: 2%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>account_url</td>
-<td></td>
-<td>The url to your Azure storage account. It should be in the format of https://<your storage="" account="" name="">.blob.core.windows.net/. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field</your></td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>blob_name</td>
-<td></td>
-<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.</td>
-<td><em>required</em></td>
-</tr>
-<tr class="odd">
-<td>data_path</td>
-<td></td>
-<td>The relative path to the file you want to load from the blob. It should be relative to blob_name</td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>tenant_id</td>
-<td></td>
-<td>The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).</td>
-<td><code>None</code></td>
-</tr>
-<tr class="odd">
-<td>use_saved_storage_key</td>
-<td></td>
-<td>This optional argument tells python to look in your system’s default credential manager for an Azure Storage Account token and prompt the user to add one if it’s not there. USE WITH CAUTION, THE STORAGE ACCOUNT TOKENS ALLOW FOR A MASSIVE AMOUNT OF ACCESS. CONSIDER USING SAS URLS OR INTERACTIVE BROWSER AUTHENTICATION INSTEAD.</td>
-<td><code>False</code></td>
-</tr>
-<tr class="even">
-<td>sas_url</td>
-<td></td>
-<td>A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose “Get Shared Access Signature”</td>
-<td><code>None</code></td>
-</tr>
-<tr class="odd">
-<td>storage_account_key</td>
-<td></td>
-<td>It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is SUPER BAD practice. Please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="returns-1" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-1">Returns</h6>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td>None</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="notes-1" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-1">Notes</h6>
-<p>DO NOT HARD CODE CREDENTIALS. Use the use_saved_storage_key option instead.</p>
-<p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
-<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset. Other dumb things: If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the semanticmodel &gt; definition &gt; database.tmdl file.</p>
-<p>Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for this.</p>
+<section id="notes-1" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-1">Notes</h4>
+<p>You should never need to hard code credentials into your script. Use the use_saved_storage_key option or a key manager instead.</p>
+<p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
+<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.</p>
+<p>If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the <code>semanticmodel</code> &gt; <code>definition</code> &gt; <code>database.tmdl</code> file.</p>
+<p>Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for existing dashboards that you load with <code>Dashboard.load()</code>.</p>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.add_local_csv" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.add_local_csv">add_local_csv</h5>
+<section id="powerbpy.dashboard.Dashboard.add_local_csv" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.add_local_csv">add_local_csv</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.add_local_csv(data_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add a locally stored CSV file to a dashboard</p>
-<section id="parameters-2" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-2">Parameters</h6>
+<section id="parameters-1" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-1">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 4%">
@@ -606,9 +595,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="returns-2" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-2">Returns</h6>
+<section id="returns-1" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-1">Returns</h4>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
@@ -620,28 +614,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>dataset</td>
 <td>class</td>
-<td>An instantce of the LocalCsv dataset class</td>
+<td>An instance of the internal _LocalCsv dataset class</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="notes-2" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-2">Notes</h6>
-<p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”) NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
+<section id="notes-2" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-2">Notes</h4>
+<p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
 <p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.</p>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.add_tmdl" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.add_tmdl">add_tmdl</h5>
+<section id="powerbpy.dashboard.Dashboard.add_tmdl" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.add_tmdl">add_tmdl</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.add_tmdl(data_path<span class="op">=</span><span class="va">None</span>, add_default_datetable<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add a locally stored TMDL file to the dashboard</p>
-<section id="parameters-3" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-3">Parameters</h6>
+<section id="parameters-2" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-2">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 11%">
+<col style="width: 10%">
 <col style="width: 3%">
-<col style="width: 79%">
+<col style="width: 80%">
 <col style="width: 5%">
 </colgroup>
 <thead>
@@ -662,14 +656,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>add_default_datetable</td>
 <td></td>
-<td>Do you want the TMDL file you add to be our team’s custom date table? This will allow you to create your own date heirarchies instead of using time intelligence</td>
+<td>Do you want the built in TMDL file containing a variety of date combinations? This will allow you to create your own date hierarchies instead of using time intelligence.</td>
 <td><code>True</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="notes-3" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-3">Notes</h6>
+<section id="notes-3" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-3">Notes</h4>
 <ul>
 <li>TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.</li>
 <li>In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale</li>
@@ -677,14 +671,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.create" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.create">create</h5>
+<section id="powerbpy.dashboard.Dashboard.create" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.create">create</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.create(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Create a new dashboard.<br>
-my_dashboard = Dashboard.create(dashboard_path)</p>
-<section id="parameters-4" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-4">Parameters</h6>
+<p>Create a new dashboard</p>
+<section id="parameters-3" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-3">Parameters</h4>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 84%">
+<col style="width: 6%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
@@ -697,20 +696,14 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 <tr class="odd">
 <td>file_path</td>
 <td></td>
-<td></td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>The</td>
-<td></td>
-<td></td>
+<td>The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="returns-3" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-3">Returns</h6>
+<section id="returns-2" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-2">Returns</h4>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -728,24 +721,26 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="notes-4" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-4">Notes</h6>
+<section id="notes-4" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-4">Notes</h4>
 <ul>
 <li>To create a new dashboard instance, use this function <code>Dashboard.create(dashboard_path)</code></li>
 <li>To load an existing dashboard use <code>Dashboard.load(dashboard_path)</code></li>
 </ul>
+<p>Here’s an example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_dashboard <span class="op">=</span> Dashboard.create(dashboard_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.get_measures_list" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</h5>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.get_measures_list(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    export_type<span class="op">=</span><span class="st">'markdown'</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    output_file_path<span class="op">=</span><span class="st">''</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Returns a list of DAX measures in the report</p>
-<section id="parameters-5" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-5">Parameters</h6>
+<section id="powerbpy.dashboard.Dashboard.get_measures_list" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.get_measures_list(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    export_type<span class="op">=</span><span class="st">'markdown'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    output_file_path<span class="op">=</span><span class="st">''</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Return a list of DAX measures in the report</p>
+<section id="parameters-4" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-4">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -783,8 +778,8 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="returns-4" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-4">Returns</h6>
+<section id="returns-3" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-3">Returns</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 3%">
@@ -808,12 +803,12 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </table>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.list_pages" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.list_pages">list_pages</h5>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.list_pages()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="powerbpy.dashboard.Dashboard.list_pages" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.list_pages">list_pages</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.list_pages()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>List all pages associated with a dashboard</p>
-<section id="parameters-6" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-6">Parameters</h6>
+<section id="parameters-5" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-5">Parameters</h4>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -833,14 +828,9 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="returns-5" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-5">Returns</h6>
+<section id="returns-4" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-4">Returns</h4>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 78%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
@@ -852,23 +842,29 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 <tr class="odd">
 <td>pages</td>
 <td>list</td>
-<td>This returns a list of all the page_ids in the dashboard</td>
+<td>A list of all the page_ids in the dashboard</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="notes-5" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-5">Notes</h6>
-<p>Use this function to get a list of all the page_ids associated with a dashboard. The list of page_ids is determined from reading the “test_dashboard/test_dashboard.Report/definition/pages/pages.json” file. This assumes that page_ids listed in the page.json match the folder names.</p>
+<section id="notes-5" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-5">Notes</h4>
+<p>Use this function to get a list of all the page_ids associated with a dashboard. The list of page_ids is determined from reading the <code>.Report</code> &gt; <code>definition</code> &gt; <code>pages</code> &gt; <code>pages.json</code> file. In general you can assume that page_ids listed in the page.json match the folder names for each page.</p>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.load" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.load">load</h5>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="powerbpy.dashboard.Dashboard.load" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.load">load</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Load an existing dashboard from a file path</p>
-<section id="parameters-7" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-7">Parameters</h6>
+<section id="parameters-6" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-6">Parameters</h4>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 84%">
+<col style="width: 6%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
@@ -881,20 +877,14 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 <tr class="odd">
 <td>file_path</td>
 <td></td>
-<td></td>
-<td><em>required</em></td>
-</tr>
-<tr class="even">
-<td>The</td>
-<td></td>
-<td></td>
+<td>The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="returns-6" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-6">Returns</h6>
+<section id="returns-5" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-5">Returns</h4>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -906,26 +896,26 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>None</td>
+<td>An instance of the Dashboard class.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="notes-6" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-6">Notes</h6>
+<section id="notes-6" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-6">Notes</h4>
 <ul>
-<li>To load an existing dashboard, use this function <code>Dashboard.load(dashboard_path)</code></li>
-<li>To create a new dashboard instance use <code>Dashboard.create(dashboard_path)</code></li>
+<li>To load an existing dashboard, use this function <code>Dashboard.load(dashboard_path)</code>.</li>
+<li>To create a new dashboard use <code>Dashboard.create(dashboard_path)</code>.</li>
 </ul>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.load_page" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.load_page">load_page</h5>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load_page(page_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="powerbpy.dashboard.Dashboard.load_page" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.load_page">load_page</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load_page(page_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Load an existing page</p>
-<section id="parameters-8" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-8">Parameters</h6>
+<section id="parameters-7" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-7">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
@@ -951,8 +941,8 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="returns-7" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-7">Returns</h6>
+<section id="returns-6" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-6">Returns</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -975,22 +965,22 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="notes-7" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-7">Notes</h6>
-<p>You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals. To list all page ids you can use <code>Dashboard.list_pages()</code>. You can also check the .pbip folder structure to find the page ids</p>
+<section id="notes-7" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-7">Notes</h4>
+<p>You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals. To list all page ids you can use <code>Dashboard.list_pages()</code>. You can also check the .pbip folder structure to find the page ids.</p>
 </section>
 </section>
-<section id="powerbpy.dashboard.Dashboard.new_page" class="level5">
-<h5 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.new_page">new_page</h5>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.new_page(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    page_name,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    display_option<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="powerbpy.dashboard.Dashboard.new_page" class="level3">
+<h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.new_page">new_page</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.new_page(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    page_name,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    display_option<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create a new blank dashboard page</p>
-<section id="parameters-9" class="level6 doc-section doc-section-parameters">
-<h6 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-9">Parameters</h6>
+<section id="parameters-8" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-8">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -1034,8 +1024,8 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="returns-8" class="level6 doc-section doc-section-returns">
-<h6 class="doc-section doc-section-returns anchored" data-anchor-id="returns-8">Returns</h6>
+<section id="returns-7" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-7">Returns</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 3%">
@@ -1058,18 +1048,16 @@ my_dashboard = Dashboard.create(dashboard_path)</p>
 </tbody>
 </table>
 </section>
-<section id="notes-8" class="level6 doc-section doc-section-notes">
-<h6 class="doc-section doc-section-notes anchored" data-anchor-id="notes-8">Notes</h6>
+<section id="notes-8" class="level4 doc-section doc-section-notes">
+<h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-8">Notes</h4>
 <p>In order to reference the page to add visuals to it later, you’ll need to remember what order you created the pages in. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc. (I’m going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).</p>
 <p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function. Here’s the code to create a new (mostly blank) page:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>               title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>               title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>               subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here’s what the new page looks like in Power BI Desktop <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true" title="Example Page" class="img-fluid" alt="New Page Example"></p>
 
 
-</section>
-</section>
 </section>
 </section>
 </section>
