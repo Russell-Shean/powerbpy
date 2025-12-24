@@ -7,7 +7,7 @@ Still not convinced?
 See the [use cases](#use-cases) section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
-<a href="https://pepy.tech/projects/powerbpy" data-original-href="https://pepy.tech/projects/powerbpy"><img src="https://static.pepy.tech/personalized-badge/powerbpy?period=total&amp;units=INTERNATIONAL_SYSTEM&amp;left_color=BLACK&amp;right_color=GREEN&amp;left_text=downloads" class="img-fluid" alt="PyPI Downloads"></a>
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/powerbpy?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/powerbpy)
 [![Codecov test coverage](https://codecov.io/gh/Russell-Shean/powerbpy/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=master)
 
            
