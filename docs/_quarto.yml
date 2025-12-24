@@ -43,7 +43,7 @@ quartodoc:
       contents:
         # the functions being documented in the package.
         # you can refer to anything: class methods, modules, etc..
-        - dashboard
+        - dashboard.Dashboard
         - page._Page
 
 
