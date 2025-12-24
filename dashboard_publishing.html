@@ -293,8 +293,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
   <ul class="collapse">
-  <li><a href="#convert-to-.pbit" id="toc-convert-to-.pbit" class="nav-link" data-scroll-target="#convert-to-.pbit">Convert to .pbit</a></li>
+  <li><a href="#just-try-publishing-it-as-a-.pbip-file" id="toc-just-try-publishing-it-as-a-.pbip-file" class="nav-link" data-scroll-target="#just-try-publishing-it-as-a-.pbip-file">Just try publishing it as a .pbip file</a></li>
+  <li><a href="#try-save-as-.pbix" id="toc-try-save-as-.pbix" class="nav-link" data-scroll-target="#try-save-as-.pbix">Try Save as .pbix</a></li>
   </ul></li>
+  <li><a href="#convert-to-.pbit-then-save-as-.pbix" id="toc-convert-to-.pbit-then-save-as-.pbix" class="nav-link" data-scroll-target="#convert-to-.pbit-then-save-as-.pbix">Convert to .pbit then save as .pbix</a></li>
   </ul>
 </nav>
     </div>
@@ -323,13 +325,22 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="background" class="level1">
 <h1>Background</h1>
-<p>It is not currently possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have fabric enabled git workspaces, it should be possible to directly publish, but if you don’t there is another workaround. This document describes that workaround.</p>
-<section id="convert-to-.pbit" class="level2">
-<h2 class="anchored" data-anchor-id="convert-to-.pbit">Convert to .pbit</h2>
+<p>I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025, so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have fabric enabled git workspaces, it should be possible to directly publish, but if you don’t, here are a few workarounds you can try. They’re presented in order of complexity</p>
+<section id="just-try-publishing-it-as-a-.pbip-file" class="level2">
+<h2 class="anchored" data-anchor-id="just-try-publishing-it-as-a-.pbip-file">Just try publishing it as a .pbip file</h2>
+<p>It may now be possible to directly publish .pbip files. Navigate to <code>file</code> &gt; <code>publish</code> and then click on <code>publish to Power BI service</code></p>
+</section>
+<section id="try-save-as-.pbix" class="level2">
+<h2 class="anchored" data-anchor-id="try-save-as-.pbix">Try Save as .pbix</h2>
+<p>Historically, this didn’t work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to <code>file</code> &gt; <code>save as</code> and choose .pbix</p>
+</section>
+</section>
+<section id="convert-to-.pbit-then-save-as-.pbix" class="level1">
+<h1>Convert to .pbit then save as .pbix</h1>
+<p>The only workaround I found when I still had access to Power BI service was to first export the .pbir/.pbip file as a Power BI template (.pbit) and then us <code>save as</code> to convert the .pbit to a .pbix file.</p>
 <p>The first step is to convert the .pbir or .pbip file to a Power BI template (.pbit) file.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
