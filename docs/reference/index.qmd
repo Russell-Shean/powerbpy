@@ -9,7 +9,7 @@ include-before-body:
 
 ## Power Bpy
 
-The first thing you should create is an instance of the Dashboard class. Then use the `add_page()` or `load_page()` functions to attach instances of the internal `_Page` class to the Dashboard. All methods are attached to either dashboards or pages. Click below to see which methods are attached to which. For more details about how to build dashboards, see the test dashboard [tutorial](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) section of this website.
+The first thing you should do is create an instance of the Dashboard class. Then use the `add_page()` or `load_page()` methods to attach instances of the internal `_Page` class to the dashboard you just created. All methods are attached to either dashboards or pages. Click below to see which methods are attached to which. For more details about how to build dashboards, see the test dashboard [tutorial](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) section of this website.
 
 | | |
 | --- | --- |
