@@ -17,9 +17,9 @@ Currently the package has functions that let you do the following *without openi
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a></li>
            <li>Import data from</li>
            <ul>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">csv file stored locally</a></li>
-                      <li>csv file stored in Azure Data Lake Storage (ADLS)</li>
-                      <li>Power BI table stored as a Tabular Model Definition Language (TMDL) file</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">csv file</a> stored locally</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_blob_csv">csv file</a> stored in Azure Data Lake Storage (ADLS)</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_tmdl">dataset</a> stored as a Tabular Model Definition Language (TMDL) file</li>
            </ul>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-new-page">Add a page</a></li>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-background-image">Add background images</a> to a page</li>

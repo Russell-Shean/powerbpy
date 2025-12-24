@@ -206,7 +206,6 @@ page1.add_button(label = "Move to page 2",
 
 ```     
 If the code works you should get two buttons that look like this. The first button should open a new www.google.com tab in your browser. The second button should send you to page 2.     
-  
 ![button example](https://media.githubusercontent.com/media/Russell-Shean/powerbpy/refs/heads/main/docs/assets/images/buttons_demo.gif?raw)
 
 ## Add a choropleth map
@@ -336,7 +335,7 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart).The arguments unique to this method include:      
 
-  1. `link_colors` - Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.     
+  13. `link_colors` - Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.     
 
 Here's some example code showing how to create a sanky dashboard:     
 ```python
@@ -474,6 +473,6 @@ If the code worked, you should see that all the pages now have the same backgrou
 ![load page example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page_looping2.png)     
 
 # Conclusion
-This shows an overview of what's possible with the package so far. To learn more about the functions and their arguments, feel free to refer to the [function reference](https://www.russellshean.com/powerbpy/reference/) documentation or browse the [source code](https://github.com/Russell-Shean/powerbpy/tree/main/src). A few additional details about the project are described in the project's [Readme file](https://github.com/Russell-Shean/powerbpy). I will add more example dashboards to website in [this section](https://www.russellshean.com/powerbpy/example_dashboards.html). If you have questions, suggestions, typo corrections, or want to contribute to the project, please feel free to open a github pull request or issue or reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 
+This shows an overview of what's possible with the package so far. To learn more about the functions and their arguments, feel free to refer to the [methods reference](https://www.russellshean.com/powerbpy/reference/) documentation or browse the [source code](https://github.com/Russell-Shean/powerbpy/tree/main/src). A few additional details about the project are described in the project's [Readme file](https://github.com/Russell-Shean/powerbpy). I will add more example dashboards to website in [this section](https://www.russellshean.com/powerbpy/example_dashboards.html). If you have questions, suggestions, typo corrections, or want to contribute to the project, please feel free to open a github pull request or issue or reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 
 
               

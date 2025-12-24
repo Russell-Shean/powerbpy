@@ -338,7 +338,7 @@ class Dashboard:
 
         Parameters
         ----------
-        page_id: str
+        page_id: str        
             The page_id of the page you'd like to load.
 
         Returns
@@ -420,7 +420,7 @@ class Dashboard:
 
         Parameters
         ----------
-        data_path: str
+        data_path: str       
             The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.
 
         Returns
@@ -463,21 +463,21 @@ class Dashboard:
 
         Parameters
         ----------
-        account_url: str
-            The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.
-        blob_name: str
-            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field.
-        data_path: str
-            The relative path to the file you want to load from the blob. It should be relative to `blob_name`.
-        tenant_id: str
-            The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
-        use_saved_storage_key: bool
+        account_url: str        
+            The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.       
+        blob_name: str        
+            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field.       
+        data_path: str        
+            The relative path to the file you want to load from the blob. It should be relative to `blob_name`.        
+        tenant_id: str       
+            The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).        
+        use_saved_storage_key: bool       
             This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there.       
                 
-            USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.
-        sas_url: str
-            A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature".
-        storage_account_key: str
+            USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.       
+        sas_url: str       
+            A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature".       
+        storage_account_key: str        
             It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger.      
                   
             You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
