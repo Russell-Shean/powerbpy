@@ -10,9 +10,17 @@ I have not had access to Power BI serivce, (the Microsoft cloud service for publ
 It may now be possible to directly publish .pbip files. Navigate to `file` > `publish` and then click on `publish to Power BI service`    
 
 ## Try Save as .pbix    
-Historically, this didn't work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to `file` > `save as` and choose .pbix      
+Historically, this didn't work, but the next easiest thing to try is to save the file as a .pbix file. Navigate to `file` > `save as` and choose .pbix.     
+
+Open the .pbix file and navigate to  `file` > `publish` and then click on `publish to Power BI service`     
 
 # Convert to .pbit then save as .pbix     
 The only workaround I found when I still had access to Power BI service was to first export the .pbir/.pbip file as a Power BI template (.pbit) and then us `save as` to convert the .pbit to a .pbix file. 
 
-The first step is to convert the .pbir or .pbip file to a Power BI template (.pbit) file.     
+The first step is to convert the .pbir or .pbip file to a Power BI template (.pbit) file. Navigate to `file` > `export` and choose `publish as template`. 
+
+Then give it a description, (doesn't actually matter what you write), and click okay.        
+
+Close the .pbir file and open the new .pbit file. In the .pbit file navigate to `file` > `save as` and choose .pbix.    
+
+Open the .pbix file and navigate to  `file` > `publish` and then click on `publish to Power BI service`.     
