@@ -64,19 +64,28 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
 - For more details about how to install python and run python scripts see the setup [tutorial](https://www.russellshean.com/powerbpy/basic_setup.html).
 - To see more example dashboards and the scripts used to create them see the [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) section of the website. 
 
+## Publishing
+The .pbip and .pbir formats can be tricky to publish to Power BI service. See this [guide](https://www.russellshean.com/powerbpy/dashboard_publishing.html) for potential workarounds that let you continue publishing. 
+
 ## Use Cases
 <strong>Q: Why would I use a python package to create dashboards instead of just creating dashboards/visualizations using python tools such as flask?</strong>     
+     
 A: Many organizations only support certain tools for publishing. Power BI is often bundled with an organization's subscription to Microsoft. If your organization lets you use flask or build webpages directly with React, then this package probably won't be much use. If the only tool you are allowed to use to create and publish dashboards is Power BI, this package might help you build version controlled, reproducible and automated dashboard workflows using python instead of manually re-creating dashboards in Power BI desktop.         
 
-<strong>Q: One of the reasons I like Power BI is because I don't have to write code to build dashboards. Why would I use this instead of Power BI desktop?</strong>        
-A: You don't have to choose! Dashboards created with Power Bpy can be opened and edited normally in Power BI Desktop. Furthermore, Power BI isn't actually a no-code tool because you have to learn DAX and M. This package give you the option of using python, (a language many people find easy to learn and use), for both data preparation and building dashboards. You also don't have to be really good at python to use the functions in this package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples of how easy it is to build dashboards with python! 
+<strong>Q: I like Power BI because I don't have to write code to build dashboards. Why would I use this instead of Power BI Desktop?</strong>        
+     
+A: You don't have to choose! Dashboards created with Power Bpy can be opened and edited normally in Power BI Desktop. You can use code when it makes sense and point-and-click tools when it doesn't.       
+    
+Additionally, Power BI isn't actually a no-code tool because you have to learn DAX and M. This package give you the additional option of using python, (a language many people find easy to learn and use), for both data preparation and building dashboards.       
+   
+You also don't have to be really good at python to use the functions in this package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) and [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) tutorials for examples of how easy it is to build dashboards with python! 
 
 ## Contributing   
 I welcome various types of feedback:            
 <ol>
-           <li>Pull requests to add features, add tests, fix bugs, or improve documentation. If the change is a major change create an issue first.</li>
+           <li>Pull requests to add features, fix bugs, add tests, or improve documentation. If the change is a major change create an issue first.</li>
            <li>Issues to suggest new features, report bugs, or tell me that the documentation is confusing.</li>
-           <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. It would be really helpful if you could include a .pbix file that has the feature or even better a git diff of the dashboard before and after the change. (Use the .pbip format)</li>
+           <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. If possible it would be really helpful to show the change you want you by including a .pbix file that has the feature,  or even better, before and after commits to GitHub of the dashboard showing the change. (Use the .pbip or .pbir format for the Github commits).</li>
 
 </ol>
 

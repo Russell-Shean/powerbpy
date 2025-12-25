@@ -93,10 +93,12 @@ class _Page:
 
         Notes
         ----
-        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:
+        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:       
+               
             1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
 
-        There are two additional optional arguments:
+        There are two additional optional arguments:        
+                  
             2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )
             3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
 
@@ -652,7 +654,7 @@ class _Page:
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         starting_var : str
             Which variable from the data_source, do you want to use for the left side of the sanky chart?
-        starting_var_values: list
+        starting_var_values : list
             Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.
         ending_var : str
             Which variable from the data_source, do you want to use for the right side of the sanky chart?

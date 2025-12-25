@@ -84,7 +84,7 @@ class Dashboard:
         '''Create a new dashboard     
         Parameters
         ----------
-        file_path: str       
+        file_path : str       
             The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
 
         Returns
