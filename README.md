@@ -1,10 +1,10 @@
 # Power Bpy <a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240" /></a>  
-Do you wish you could build dashboard with python or R, but can't because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?      
+Do you wish you could build dashboards with python or R, but can't because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?      
 
 Introducing Power Bpy, a python package that lets you create Power BI dashboards using python. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop. Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards!       
 
-Still not convinced?        
-See the [use cases](#use-cases) section below for more details about when you might use this package. 
+Not immediately convinced?        
+See some [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) or the [use cases](#use-cases) section below for more details about when you might use this package. 
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/powerbpy?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/powerbpy)
@@ -15,23 +15,23 @@ See the [use cases](#use-cases) section below for more details about when you mi
 Currently the package has functions that let you do the following *without opening Power BI Desktop*: 
 <ul>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a></li>
-           <li>Import data from</li>
+           <li>Import data from:</li>
            <ul>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">csv file</a> stored locally</li>
-                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_blob_csv">csv file</a> stored in Azure Data Lake Storage (ADLS)</li>
-                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_tmdl">dataset</a> stored as a Tabular Model Definition Language (TMDL) file</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">Csv files</a> stored locally</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_blob_csv">Csv files</a> stored in Azure Data Lake Storage (ADLS)</li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_tmdl">Datasets</a> stored as a Tabular Model Definition Language (TMDL) file</li>
            </ul>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-new-page">Add a page</a></li>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-background-image">Add background images</a> to a page</li>
-           <li>Add visuals to a page</li>
+           <li>Add visuals to a page:</li>
            <ul>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">buttons</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">cards</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">maps</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">slicers</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-table">tables</a></li>
-                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">text boxes</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">Buttons</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">Cards</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">Charts</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">Maps</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">Slicers</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-table">Tables</a></li>
+                      <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">Text boxes</a></li>
            </ul>    
            <li>Get information about your dashboard:</li>     
            <ul>      
@@ -43,7 +43,7 @@ Currently the package has functions that let you do the following *without openi
 ## Dependencies    
 Before you can start to build power BI dashboards using this package's functions you'll need the following:       
 <ol>
-           <li>Python (version 3.10 or higher) and pip installed and on path</li>
+           <li>Python 3.10+ and pip installed and on path</li>
            <li>Git installed and on path</li>
            <li>Power BI Desktop (You can create the dashboards without this, but not view them).</li>
 </ol>             
@@ -83,9 +83,9 @@ You also don't have to be really good at python to use the functions in this pac
 ## Contributing   
 I welcome various types of feedback:            
 <ol>
-           <li>Pull requests to add features, fix bugs, add tests, or improve documentation. If the change is a major change create an issue first.</li>
+           <li>Pull requests to add features, fix bugs, add tests, or improve documentation. If the change is a major change, create an issue first.</li>
            <li>Issues to suggest new features, report bugs, or tell me that the documentation is confusing.</li>
-           <li>Power BI feature requests. I need help from Power BI developers who don't neccesarily have experience with python or github. If possible it would be really helpful to show the change you want you by including a .pbix file that has the feature,  or even better, before and after commits to GitHub of the dashboard showing the change. (Use the .pbip or .pbir format for the Github commits).</li>
+           <li>Power BI feature requests. I need help from Power BI developers who don't necessarily have experience with python or github, but who do know what Power BI features they'd like to see.<br><br>If possible it would be really helpful to show the change you want you by including a .pbix file that has the feature,  or even better, before and after commits to GitHub of the dashboard showing the change. (Use the .pbip or .pbir format for the Github commits).</li>
 
 </ol>
 

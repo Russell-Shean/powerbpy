@@ -22,6 +22,6 @@ jobs:
     - name: ruff-action
       uses: astral-sh/ruff-action@v3.5.1
 
-    - name: Analysing the code with pylint
+    - name: Analyzing the code with pylint
       run: |
         pylint $(git ls-files '*.py')

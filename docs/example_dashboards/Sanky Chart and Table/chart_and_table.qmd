@@ -8,7 +8,7 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sa
 # Sanky Chart and Table      
 I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom).        
     
-(It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similiar).      
+(It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similar).      
     
 The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
 <img id="my-sanky-img" class="img-fluid" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px">      
@@ -68,7 +68,7 @@ For this example we need to calculate sales totals by stores time period and cla
 
 ```python
 '''
-This script proccesses the data we downloaded
+This script processes the data we downloaded
 '''
 
 import pandas as pd
@@ -94,10 +94,10 @@ sales["OrderDate"] = pd.to_datetime(sales["OrderDate"])
 sales_by_store_and_date = (
     sales
 
-    # assign seems to be similiar to mutate
+    # assign seems to be similar to mutate
     .assign(
 
-        # np.select appears to be similiar to case_when
+        # np.select appears to be similar to case_when
         time_period = lambda df: np.select(
 
 
@@ -215,11 +215,11 @@ Now that we've obtained and prepped the data, we can create the dashboard! The s
    - Add a sanky chart to the new page
    - Add a table to the new page
 
-For more details about creating dashboards, see the [test dasboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) tutorial or the package's [methods documentation](https://www.russellshean.com/powerbpy/reference/).    
+For more details about creating dashboards, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) tutorial or the package's [methods documentation](https://www.russellshean.com/powerbpy/reference/).    
 
 ```python
 '''
-This script creates a new dashboard using the data we downloaded and processesd
+This script creates a new dashboard using the data we downloaded and processed
 '''
 
 import os

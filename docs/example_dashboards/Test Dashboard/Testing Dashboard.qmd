@@ -5,8 +5,8 @@ description: This is the dashboard I use to test the module. It shows a range of
 image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif"
 ---
 
-# Recreate my testing dashboard      
-This example shows how I create the dashboard I use for testing the module. It isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:        
+# Intro    
+This example shows how I create the dashboard I use for testing the module. The dashboard isn't pretty but it shows a good overview of everything that is currently possible to create using the module. You'll learn how to:        
           
 - create a new dashboard      
 - add pages to the dashboard     
@@ -34,17 +34,17 @@ my_dashboard = Dashboard.create("C:/Users/Russ/PBI_projects/test_dashboard")
 If everything worked, the function should have created the following files:     
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true)       
     
-You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )      
+You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>).      
     
 ## Add a new page
-Dashboards don't start with any pages until you add them. To add a new page, you'll need to provide the following arguments:          
+Dashboards created with Power Bpy don't start with any pages until you add them. To add a new page, you'll need to provide the following arguments:          
         
-  1. `page_name` - This is display name for the page. (This is different from the page_id).      
+  1. `page_name` - The display name for the page. (This is different from the page_id).      
       
 You can also provide the following optional arguments:       
          
   2. `title` - Title to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.        
-  3. `subtitle` - This is similar to the title, but it goes below the title. If you would like more control use the `add_text_box()` function       
+  3. `subtitle` - This is similar to the title, but it goes below the title. If you would like more control use the `add_text_box()` function.       
   4. `displayOption` - I'm honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to `FitToPage` and other options include `FitToWidth` and `ActualSize`.
        
      
@@ -58,19 +58,19 @@ page1 = my_dashboard.new_page(page_name = "Bee Colonies",
 	                   subtitle = "We're losing bee colonies")
 ```
 
-Here's what the new page looks like in Power BI Desktop       
+Here's what the new page looks like in Power BI Desktop:       
 ![New Page Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true "Example Page")      
    
 ## Add background image
 Here's how you can add a background image to a page. To add the image, you'll need to provide the following required arguments:      
          
-  1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard       
+  1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard.       
            
     
 There are two additional optional arguments:        
        
-  2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )    
-  3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)      
+  2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent, (defaults to 100).    
+  3. `scaling_method` - This tells Power BI how to scale the image, (defaults to "Fit" which fits the image to the page).      
       
 Here's some example code that adds a new background image to the Bee Colonies page:     
    
@@ -85,34 +85,38 @@ And here's what the dashboard looks like, now that we've added a background imag
 ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")      
 
 ## Add a dataset
-For most dashboards, you'll want to add visuals that help users visualize the data. Before you can start adding visuals, you'll need to add datasets. Here's how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You'll need to provide the following arguments:        
+For most dashboards, you'll want to add visuals that help users visualize your data. Before you can start adding visuals, you'll need to add datasets. Here's how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to dashboard not pages because the same dataset can be used across multiple pages and visuals. You'll need to provide the following arguments:        
         
-  1. `data_path` = The location of the csv file that you want to add. Can be a relative or full path
+  1. `data_path` = The location of the csv file that you want to add. Can be a relative or full path.
 
 Here's some example code. The dataset is available on Power Bpy's GitHub [repo](https://github.com/Russell-Shean/powerbpy/tree/main/examples/data):    
 
 ```python
 my_dashboard.add_local_csv(data_path = "examples/data/colony.csv")
 ```     
-If the code worked, you should see the new dataset when you open the new dashboard. Unfortunately, you'll see a warning that looks like this about how the dashboard needs to be refreshed:     
+If the code worked, you should see the new dataset when you open the dashboard. Unfortunately, you'll see a warning that looks like this about how the dashboard needs to be refreshed:      
+
+![dataset refresh warning](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/refresh_warning.png?raw=true "Dataset refresh warning")      
     
-To solve the problem, click `Refresh now` and then the dataset should display normally. If you save the file, it should open normally next time.  (Frustratingly, Power BI still requires that datasets to be opened in Power BI desktop to display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called **/.pbi/cache.abf. The file isn't directly readable and I haven't figured out a way to recreate whatever Power BI desktop does and stores in the file).
+To solve the problem, click `Refresh now` and then the dataset should display normally. If you save the file, it should open normally next time.          
+     
+(Frustratingly, Power BI still requires that datasets to be refreshed in Power BI desktop first before they display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called .pbi/cache.abf. The file isn't directly readable and I haven't figured out a way to recreate whatever Power BI desktop does and stores in .pbi/cache.abf).
       
 ## Add a chart
 Here's how you can add a bar chart to your dashboard. To add the chart you'll need to provide the following required arguments:      
         
-  1. `visual_id` - Give your chart a unique id that you'll remember. (Power BI's default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id's in the dashboard. It will also be the name of the file inside the Power BI project folder. )      
+  1. `visual_id` - Give your chart a unique id that you'll remember. (Power BI's default is to generate a UUID, which will be unique, but also impossible to remember. This id needs to be different from all the other visual id's in the dashboard. It will also be the name of the file inside the Power BI project folder).      
   2. `data_source` - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.     
-  3. `chart_title` - Give your chart an informative title! This will display on the dashboard as part of the chart.    
-  4. `x_axis_title` - This is the text that will label the x axis       
-  5. `y_axis_title` - This is the text that will label the y axis       
-  6. `x_axis_var` - This is the variable to use for the x axis        
-  7. `y_axis_var` - This is the variable to use for the y axis       
-  8. `y_axis_var_aggregation_type` - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)        
+  3. `chart_title` - The title that will display at the top of the chart.    
+  4. `x_axis_title` - This is the text that will label the x axis.       
+  5. `y_axis_title` - This is the text that will label the y axis.       
+  6. `x_axis_var` - This is the variable to use for the x axis.        
+  7. `y_axis_var` - This is the variable to use for the y axis.       
+  8. `y_axis_var_aggregation_type` - This is how values in the y axis should be grouped and processed. The default is sum -  (total value of y for each grouping of x).        
   9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
   10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
-  11. `height` - Height of chart on the page          
-  12. `width` - Width of chart on the page
+  11. `height` - Height of chart on the page.          
+  12. `width` - Width of chart on the page.
 
 Here's some example code that adds a bar chart showing bee colonies lost per year: 
 
@@ -137,18 +141,21 @@ Here's what the chart that we added looks like:
 ## Add a text box    
 In addition to visuals, many dashboards use explanatory text. Here's an example of adding a text box to a page. The following arguments are required:      
            
-  1. `text` - The text you want to display in the box         
+  1. `text` - The text you want to display in the box.         
   2. `visual_id` - Give the text box a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
   3. `x_position` - The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.      
   4. `y_position` - The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.       
-  5. `height` - Height of text box on the page          
-  6. `width` - Width of text box on the page      
+  5. `height` - Height of text box on the page.          
+  6. `width` - Width of text box on the page.      
 
-There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() [method documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box). <strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here's some example code showing how I added a text box to my testing dashboard:       
+There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() [method documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box).         
+      
+<strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>.          
+      
+Here's some example code showing how I added a text box to my testing dashboard:       
     
 ```python   
 # This adds a text box to the bottom right corner of the first page    
-
 page1.add_text_box(text = "Explanatory text in the bottom right corner",
                  visual_id = "page1_explain_box",
                  height = 200,
@@ -162,22 +169,25 @@ If the code worked, the dashboard should look something like this:
 ![text box example](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true)      
     
 ## Add a button     
-In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report. (I'm far from a Power BI expert, so I don't know if it's possible to create buttons that do other things such as analyze or filter data. </strong>Feel free to submit an issue or pull request on Github to request additional button features that I haven't implemented yet!)</strong>.
+In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report.        
+     
+(I'm far from a Power BI expert, so I don't know if it's possible to create buttons that do other things such as analyze or filter data. </strong>Feel free to submit an issue or pull request on Github to request additional button features that I haven't implemented yet!)</strong>.        
+    
 The following arguments are required:     
 
-  1. `label` - This text will display inside the button         
+  1. `label` - This text will display inside the button.         
   2. `visual_id` - Give the button a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
   3. `x_position` - The x coordinate of where you want to put the button on the page. Origin is page's top left corner.      
   4. `y_position` - The y coordinate of where you want to put the button on the page. Origin is page's top left corner.       
-  5. `height` - Height of button on the page          
-  6. `width` - Width of button on the page      
+  5. `height` - Height of button on the page.          
+  6. `width` - Width of button on the page.      
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button). For this example, I'd like to highlight two of the optional arguments that enable the button to be linked to navigation:     
      
   7. `url_link` = This should be a valid url (web link). When the button is clicked the web page will open in the user's browser.
-  8. `page_navigation_link` = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id's are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a randow string of numbers and letters. If you aren't sure what pages are in your dashboard you can use the [Dashboard.list_pages() method](https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages).
+  8. `page_navigation_link` = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id's are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a random string of numbers and letters. If you aren't sure what pages are in your dashboard you can use the [list_pages() method](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#list-all-the-dashboards-pages).
       
-Let's add two buttons! One that sends the user to www.google.com and one that navigates the user to the second page.     
+Let's add two buttons! One button will send users to www.google.com and the other will navigate users to the second page.     
 
 ```python
 # create a second page so that the page navigation button works     
@@ -209,28 +219,41 @@ If the code works you should get two buttons that look like this. The first butt
 ![button example](https://media.githubusercontent.com/media/Russell-Shean/powerbpy/refs/heads/main/docs/assets/images/buttons_demo.gif?raw)
 
 ## Add a choropleth map
-Often we have data that is tied to geographic regions that can be respresented by a polygon such as states, counties, zip codes, or countries. A choropleth map uses color to represent values in the data by shading the polygons according to the value of the data. (If that was way too abstract, see the example below. Basically we're creating a color code map to represent the data.)    
+Often we have data that is tied to geographic regions that can be represented by a polygon such as states, counties, zip codes, or countries. A choropleth map uses color to represent values in the data by shading the polygons according to the value of the data. (If that was way too abstract, see the example below. Basically we're creating a color coded map to represent the data).    
    
-This function does a lot under the hood so you don't have to. It creates measures in the dataset so that bins will automatically adjust when filtering conditions change, it creates the map and adds text boxes for a legend and and a slicer to allow the user to filter the data. The method requires you to provide a shape file that corresponds to a variable in your dataset. For example, the dataset could have two columns: US states and average income. In this case you should provide a shapefile of US states.     
+This function does a lot under the hood so you don't have to.        
+      
+  - It creates measures in the dataset so that bins will automatically adjust when filtering conditions change.       
+  - It creates the map.         
+  - It adds text boxes for a legend.     
+  - It optionally adds a slicer to allow the user to filter the data by another variable.       
+       
+The method requires you to provide a shape file that corresponds to a variable in your dataset. For example, the dataset could have two columns: US states and average income. In this case you should provide a shapefile of US states.     
 
 The method also give two different options for binning the data and assigning ranges of values to different colors on the map. You can only specify one of the two options at a time.       
     
 The first option is to provide a static set of breaks that you define yourself. This is ideal if you already know the structure of your data and how you want to assign ranges of values  to different colors. Use the `static_bin_breaks` argument to pass an integer list of break values.        
       
-The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data. For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the `filtering_var` argument to create a slicer attached to the map that filters the dataset by age before rerendering the map. You could then pass the list of percentiles to `percentile_bin_breaks` such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected "young people" in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people. If you provide `percentile_bin_breaks` you must also provide a `filtering_var`; the assumption being that if you don't need dynamic recalculation of bins based on the filtering variable, you'd be better off calculating a static set of breaks for yourself and passing them as a list to `static_bin_breaks`. 
+The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data.         
     
-I'll describe in more detail below some of the optional method arguments and how they can be used to customize your map. But first, here are the required arguments: 
+For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the `filtering_var` argument to create a slicer attached to the map that filters the dataset by age before rerendering the map.        
+     
+You could then pass the list of percentiles to `percentile_bin_breaks` such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected "young people" in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people.        
+      
+If you provide `percentile_bin_breaks` you must also provide a `filtering_var`; the assumption being that if you don't need dynamic recalculation of bins based on the filtering variable, you'd be better off calculating a static set of breaks for yourself and passing them as a list to `static_bin_breaks`. 
+    
+I'll describe in more detail some of the optional method arguments later, but first, here are the required arguments: 
        
-  1. `visual_id` - Give the button a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.
+  1. `visual_id` - Give the map a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.
   2. `data_source` - The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
   3. `shape_file_path` - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
   4. `map_title` - The title you want to put above the map.
-  5. `location_var` - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.
+  5. `location_var` - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geographical units in your shape file.
   6. `color_var` - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
-  7. `color_palatte` - A list of hex codes to use to color your data. There should be one fewer than the number of bins
+  7. `color_palette` - A list of hex codes to use to color your data. There should be one fewer than the number of bins
   8. `add_legend` - True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default). The legend is a set of Power BI cards the is anchored to the bottom of the frame of the map. If you would like more control over the legend, you may need to create it yourself using the `add_card()` [method](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card).
-  9. `height` - Height of map on the page
-  10. `width` - Width of map on the page
+  9. `height` - Height of map on the page.
+  10. `width` - Width of map on the page.
   11. `x_position` - The x coordinate of where you want to put the map on the page. Origin is page's top left corner.
   12. `y_position` - The y coordinate of where you want to put the map on the page. Origin is page's top left corner.    
 
@@ -277,10 +300,10 @@ The [sanky chart and table](https://www.russellshean.com/powerbpy/example_dashbo
   1. `visual_id` - Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
   2. `data_source` - The name of the dataset you want to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
   3. `variables` - The variables from the table that you want to include.
-  4. `x_position` - The x coordinate of where you want to put the table on the page. Origin is page's top left corner
+  4. `x_position` - The x coordinate of where you want to put the table on the page. Origin is page's top left corner.
   5. `y_position` - The y coordinate of where you want to put the table on the page. Origin is page's top left corner.
-  6. `height` - Height of table on the page
-  7. `width` - Width of table on the page        
+  6. `height` - Height of table on the page.
+  7. `width` - Width of table on the page.        
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table).The arguments unique to this method include:      
 
@@ -326,16 +349,16 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
   4. `starting_var_values` - Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.       
   5. `ending_var` - Which variable from the data_source, do you want to use for the right side of the sanky chart?   
   6. `ending_var_values` - Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.       
-  7. `values_from_var` - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too      
-  8. `chart_title` - Give your chart an informative title!:D      
-  9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner   
+  7. `values_from_var` - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too.      
+  8. `chart_title` - The title to display above the chart.      
+  9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.   
   10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.    
-  11. `height` - Height of chart on the page     
-  12. `width` - Width of chart on the page      
+  11. `height` - Height of chart on the page.     
+  12. `width` - Width of chart on the page.      
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart).The arguments unique to this method include:      
 
-  13. `link_colors` - Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.     
+  13. `link_colors` - Here you can provide a list of Hex code colors for the connections between the different categories in the sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.     
 
 Here's some example code showing how to create a sanky dashboard:     
 ```python

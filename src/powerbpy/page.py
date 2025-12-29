@@ -9,7 +9,7 @@ import os
 class _Page:
     '''A python class used to model a power BI dashboard page.
 
-    You should never initate a page class directly, instead use `Dashboard.new_page()` to create a new page, or `Dashboard.load_page()` to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple -- it doesn't make sense to have a page not attached to a dashboard.
+    You should never initiate a page class directly, instead use `Dashboard.new_page()` to create a new page, or `Dashboard.load_page()` to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple -- it doesn't make sense to have a page not attached to a dashboard.
 
     Here's an example workflow:
     ```python
@@ -178,7 +178,7 @@ class _Page:
         width : int
             Width of chart on the page
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         '''
@@ -247,7 +247,7 @@ class _Page:
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         font_weight : str
             This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
         font_size : int
@@ -324,7 +324,7 @@ class _Page:
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         fill_color : str
             Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
         alpha : int
@@ -400,7 +400,7 @@ class _Page:
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         title : str
             An optional title to add to the slicer.
         background_color : str
@@ -476,7 +476,7 @@ class _Page:
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         card_title : int
             An optional title to add to the card.
         font_weight : str
@@ -529,7 +529,7 @@ class _Page:
                   shape_file_path,
                   map_title,
                   location_var,
-                  color_var,
+                  color_var, 
                   color_palette,
                   height,
                   width,
@@ -584,7 +584,7 @@ class _Page:
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
 
         Notes
         -----
@@ -635,7 +635,7 @@ class _Page:
                             width,
                             chart_title,
                             link_colors=None,
-                            alt_text="A sankey chart",
+                            alt_text="A sanky chart",
                             parent_group_id=None,
                             background_color="#FFFFFF",
                             background_color_alpha=None,
@@ -665,7 +665,7 @@ class _Page:
         chart_title : str
             Give your chart an informative title!:D
         alt_text : str
-            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accesibility) or if the visualization doesn't load properly.
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
         chart_title_font_size : int
             Font size for chart title
         link_colors : list
@@ -679,7 +679,7 @@ class _Page:
         width : int
             Width of chart on the page
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 
@@ -760,7 +760,7 @@ class _Page:
         width : int
             Width of table on the page
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
 
