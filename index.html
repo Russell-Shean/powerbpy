@@ -313,10 +313,10 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="power-bpy" class="level1">
 <h1>Power Bpy <a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240"></a></h1>
-<p>Do you wish you could build dashboard with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love love love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?</p>
+<p>Do you wish you could build dashboards with python or R, but can’t because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?</p>
 <p>Introducing Power Bpy, a python package that lets you create Power BI dashboards using python. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop. Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards!</p>
-<p>Still not convinced?<br>
-See the <a href="#use-cases">use cases</a> section below for more details about when you might use this package.</p>
+<p>Not immediately convinced?<br>
+See some <a href="https://www.russellshean.com/powerbpy/example_dashboards.html">example dashboards</a> or the <a href="#use-cases">use cases</a> section below for more details about when you might use this package.</p>
 <p><a href="https://pypi.org/project/powerbpy/"><img src="https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&amp;logo=pypi&amp;logoColor=white" class="img-fluid" alt="pypi Version"></a> <a href="https://pepy.tech/projects/powerbpy"><img src="https://static.pepy.tech/personalized-badge/powerbpy?period=total&amp;units=INTERNATIONAL_SYSTEM&amp;left_color=BLACK&amp;right_color=GREEN&amp;left_text=downloads.png" class="img-fluid" alt="PyPI Downloads"></a> <a href="https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=master"><img src="https://codecov.io/gh/Russell-Shean/powerbpy/branch/master/graph/badge.svg" class="img-fluid" alt="Codecov test coverage"></a></p>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
@@ -326,17 +326,17 @@ Currently the package has functions that let you do the following <em>without op
 <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a>
 </li>
 <li>
-Import data from
+Import data from:
 </li>
 <ul>
 <li>
-<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">csv file</a> stored locally
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">Csv files</a> stored locally
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_blob_csv">csv file</a> stored in Azure Data Lake Storage (ADLS)
+<a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_blob_csv">Csv files</a> stored in Azure Data Lake Storage (ADLS)
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_tmdl">dataset</a> stored as a Tabular Model Definition Language (TMDL) file
+<a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_tmdl">Datasets</a> stored as a Tabular Model Definition Language (TMDL) file
 </li>
 </ul>
 <li>
@@ -346,29 +346,29 @@ Import data from
 <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-background-image">Add background images</a> to a page
 </li>
 <li>
-Add visuals to a page
+Add visuals to a page:
 </li>
 <ul>
 <li>
-<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">buttons</a>
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-button">Buttons</a>
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">cards</a>
+<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">Cards</a>
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">charts</a>
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-chart">Charts</a>
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">maps</a>
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-choropleth-map">Maps</a>
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">slicers</a>
+<a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_slicer">Slicers</a>
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-table">tables</a>
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-table">Tables</a>
 </li>
 <li>
-<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">text boxes</a>
+<a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box">Text boxes</a>
 </li>
 </ul>
 <li>
@@ -393,7 +393,7 @@ Before you can start to build power BI dashboards using this package’s functio
 
 <ol>
 <li>
-Python (version 3.10 or higher) and pip installed and on path
+Python 3.10+ and pip installed and on path
 </li>
 <li>
 Git installed and on path
@@ -447,13 +447,13 @@ I welcome various types of feedback:<br>
 
 <ol>
 <li>
-Pull requests to add features, fix bugs, add tests, or improve documentation. If the change is a major change create an issue first.
+Pull requests to add features, fix bugs, add tests, or improve documentation. If the change is a major change, create an issue first.
 </li>
 <li>
 Issues to suggest new features, report bugs, or tell me that the documentation is confusing.
 </li>
 <li>
-Power BI feature requests. I need help from Power BI developers who don’t neccesarily have experience with python or github. If possible it would be really helpful to show the change you want you by including a .pbix file that has the feature, or even better, before and after commits to GitHub of the dashboard showing the change. (Use the .pbip or .pbir format for the Github commits).
+Power BI feature requests. I need help from Power BI developers who don’t necessarily have experience with python or github, but who do know what Power BI features they’d like to see.<br><br>If possible it would be really helpful to show the change you want you by including a .pbix file that has the feature, or even better, before and after commits to GitHub of the dashboard showing the change. (Use the .pbip or .pbir format for the Github commits).
 </li>
 </ol>
 </section>

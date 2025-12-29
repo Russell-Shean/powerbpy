@@ -328,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#recreate-my-testing-dashboard" id="toc-recreate-my-testing-dashboard" class="nav-link active" data-scroll-target="#recreate-my-testing-dashboard">Recreate my testing dashboard</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#build-dashboards" id="toc-build-dashboards" class="nav-link" data-scroll-target="#build-dashboards">Build dashboards</a>
   <ul class="collapse">
@@ -385,9 +385,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="recreate-my-testing-dashboard" class="level1">
-<h1>Recreate my testing dashboard</h1>
-<p>This example shows how I create the dashboard I use for testing the module. It isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:</p>
+<section id="intro" class="level1">
+<h1>Intro</h1>
+<p>This example shows how I create the dashboard I use for testing the module. The dashboard isn’t pretty but it shows a good overview of everything that is currently possible to create using the module. You’ll learn how to:</p>
 <ul>
 <li>create a new dashboard<br>
 </li>
@@ -414,19 +414,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>my_dashboard <span class="op">=</span> Dashboard.create(<span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If everything worked, the function should have created the following files:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true" class="img-fluid" alt="image"></p>
-<p>You can open the <code>test_dashboard.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>. )</p>
+<p>You can open the <code>test_dashboard.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>).</p>
 </section>
 <section id="add-a-new-page" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-new-page">Add a new page</h2>
-<p>Dashboards don’t start with any pages until you add them. To add a new page, you’ll need to provide the following arguments:</p>
+<p>Dashboards created with Power Bpy don’t start with any pages until you add them. To add a new page, you’ll need to provide the following arguments:</p>
 <ol type="1">
-<li><code>page_name</code> - This is display name for the page. (This is different from the page_id).</li>
+<li><code>page_name</code> - The display name for the page. (This is different from the page_id).</li>
 </ol>
 <p>You can also provide the following optional arguments:</p>
 <ol start="2" type="1">
 <li><code>title</code> - Title to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.<br>
 </li>
-<li><code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function<br>
+<li><code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function.<br>
 </li>
 <li><code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</li>
 </ol>
@@ -435,20 +435,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>page1 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                       title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                       subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here’s what the new page looks like in Power BI Desktop<br>
+<p>Here’s what the new page looks like in Power BI Desktop:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true" title="Example Page" class="img-fluid" alt="New Page Example"></p>
 </section>
 <section id="add-background-image" class="level2">
 <h2 class="anchored" data-anchor-id="add-background-image">Add background image</h2>
 <p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required arguments:</p>
 <ol type="1">
-<li><code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard</li>
+<li><code>img_path</code> - This is the path (relative or full) to the image you want to add to the dashboard.</li>
 </ol>
 <p>There are two additional optional arguments:</p>
 <ol start="2" type="1">
-<li><code>alpha</code> - This is the image’s transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )<br>
+<li><code>alpha</code> - This is the image’s transparency, where 0 is fully transparent and 100 is fully non-transparent, (defaults to 100).<br>
 </li>
-<li><code>scaling_method</code> - This tells Power BI how to scale the image (defaults to “Fit” which fits the image to the page)</li>
+<li><code>scaling_method</code> - This tells Power BI how to scale the image, (defaults to “Fit” which fits the image to the page).</li>
 </ol>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>, </span>
@@ -464,42 +464,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-dataset">Add a dataset</h2>
-<p>For most dashboards, you’ll want to add visuals that help users visualize the data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to the Dashboard not the Page because the same dataset can be used across multiple pages and visuals. You’ll need to provide the following arguments:</p>
+<p>For most dashboards, you’ll want to add visuals that help users visualize your data. Before you can start adding visuals, you’ll need to add datasets. Here’s how you can add a dataset locally stored on your computer as a csv file to your dashboard. This method is attached to dashboard not pages because the same dataset can be used across multiple pages and visuals. You’ll need to provide the following arguments:</p>
 <ol type="1">
-<li><code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path</li>
+<li><code>data_path</code> = The location of the csv file that you want to add. Can be a relative or full path.</li>
 </ol>
 <p>Here’s some example code. The dataset is available on Power Bpy’s GitHub <a href="https://github.com/Russell-Shean/powerbpy/tree/main/examples/data">repo</a>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_dashboard.add_local_csv(data_path <span class="op">=</span> <span class="st">"examples/data/colony.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If the code worked, you should see the new dataset when you open the new dashboard. Unfortunately, you’ll see a warning that looks like this about how the dashboard needs to be refreshed:</p>
-<p>To solve the problem, click <code>Refresh now</code> and then the dataset should display normally. If you save the file, it should open normally next time. (Frustratingly, Power BI still requires that datasets to be opened in Power BI desktop to display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called **/.pbi/cache.abf. The file isn’t directly readable and I haven’t figured out a way to recreate whatever Power BI desktop does and stores in the file).</p>
+<p>If the code worked, you should see the new dataset when you open the dashboard. Unfortunately, you’ll see a warning that looks like this about how the dashboard needs to be refreshed:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/refresh_warning.png?raw=true" title="Dataset refresh warning" class="img-fluid figure-img"></p>
+<figcaption>dataset refresh warning</figcaption>
+</figure>
+</div>
+<p>To solve the problem, click <code>Refresh now</code> and then the dataset should display normally. If you save the file, it should open normally next time.</p>
+<p>(Frustratingly, Power BI still requires that datasets to be refreshed in Power BI desktop first before they display correctly. Whatever Power BI desktop does behind the scenes is stored in a file called .pbi/cache.abf. The file isn’t directly readable and I haven’t figured out a way to recreate whatever Power BI desktop does and stores in .pbi/cache.abf).</p>
 </section>
 <section id="add-a-chart" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-chart">Add a chart</h2>
 <p>Here’s how you can add a bar chart to your dashboard. To add the chart you’ll need to provide the following required arguments:</p>
 <ol type="1">
-<li><code>visual_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder. )<br>
+<li><code>visual_id</code> - Give your chart a unique id that you’ll remember. (Power BI’s default is to generate a UUID, which will be unique, but also impossible to remember. This id needs to be different from all the other visual id’s in the dashboard. It will also be the name of the file inside the Power BI project folder).<br>
 </li>
 <li><code>data_source</code> - The name of the data source you want to use for the visual. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.<br>
 </li>
-<li><code>chart_title</code> - Give your chart an informative title! This will display on the dashboard as part of the chart.<br>
+<li><code>chart_title</code> - The title that will display at the top of the chart.<br>
 </li>
-<li><code>x_axis_title</code> - This is the text that will label the x axis<br>
+<li><code>x_axis_title</code> - This is the text that will label the x axis.<br>
 </li>
-<li><code>y_axis_title</code> - This is the text that will label the y axis<br>
+<li><code>y_axis_title</code> - This is the text that will label the y axis.<br>
 </li>
-<li><code>x_axis_var</code> - This is the variable to use for the x axis<br>
+<li><code>x_axis_var</code> - This is the variable to use for the x axis.<br>
 </li>
-<li><code>y_axis_var</code> - This is the variable to use for the y axis<br>
+<li><code>y_axis_var</code> - This is the variable to use for the y axis.<br>
 </li>
-<li><code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum (total value of y for each grouping of x)<br>
+<li><code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum - (total value of y for each grouping of x).<br>
 </li>
 <li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
 </li>
 <li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of chart on the page<br>
+<li><code>height</code> - Height of chart on the page.<br>
 </li>
-<li><code>width</code> - Width of chart on the page</li>
+<li><code>width</code> - Width of chart on the page.</li>
 </ol>
 <p>Here’s some example code that adds a bar chart showing bee colonies lost per year:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>page1.add_chart(visual_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
@@ -522,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="add-a-text-box">Add a text box</h2>
 <p>In addition to visuals, many dashboards use explanatory text. Here’s an example of adding a text box to a page. The following arguments are required:</p>
 <ol type="1">
-<li><code>text</code> - The text you want to display in the box<br>
+<li><code>text</code> - The text you want to display in the box.<br>
 </li>
 <li><code>visual_id</code> - Give the text box a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
 </li>
@@ -530,28 +537,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>y_position</code> - The y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of text box on the page<br>
+<li><code>height</code> - Height of text box on the page.<br>
 </li>
-<li><code>width</code> - Width of text box on the page</li>
+<li><code>width</code> - Width of text box on the page.</li>
 </ol>
-<p>There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box">method documentation</a>. <strong>Don’t see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>. Here’s some example code showing how I added a text box to my testing dashboard:</p>
+<p>There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box">method documentation</a>.</p>
+<p><strong>Don’t see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>.</p>
+<p>Here’s some example code showing how I added a text box to my testing dashboard:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds a text box to the bottom right corner of the first page    </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>page1.add_text_box(text <span class="op">=</span> <span class="st">"Explanatory text in the bottom right corner"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                 visual_id <span class="op">=</span> <span class="st">"page1_explain_box"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                 height <span class="op">=</span> <span class="dv">200</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                   width<span class="op">=</span> <span class="dv">300</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                     x_position <span class="op">=</span> <span class="dv">1000</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                     y_position <span class="op">=</span> <span class="dv">600</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                     font_size <span class="op">=</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>page1.add_text_box(text <span class="op">=</span> <span class="st">"Explanatory text in the bottom right corner"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                 visual_id <span class="op">=</span> <span class="st">"page1_explain_box"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                 height <span class="op">=</span> <span class="dv">200</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                   width<span class="op">=</span> <span class="dv">300</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                     x_position <span class="op">=</span> <span class="dv">1000</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                     y_position <span class="op">=</span> <span class="dv">600</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                     font_size <span class="op">=</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, the dashboard should look something like this:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/text_box_example.png?raw=true" class="img-fluid" alt="text box example"></p>
 </section>
 <section id="add-a-button" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-button">Add a button</h2>
-<p>In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report. (I’m far from a Power BI expert, so I don’t know if it’s possible to create buttons that do other things such as analyze or filter data. Feel free to submit an issue or pull request on Github to request additional button features that I haven’t implemented yet!). The following arguments are required:</p>
+<p>In addition to text boxes, you can add buttons which allow the user to do things like navigate to an external website or another page in the report.</p>
+<p>(I’m far from a Power BI expert, so I don’t know if it’s possible to create buttons that do other things such as analyze or filter data. Feel free to submit an issue or pull request on Github to request additional button features that I haven’t implemented yet!).</p>
+<p>The following arguments are required:</p>
 <ol type="1">
-<li><code>label</code> - This text will display inside the button<br>
+<li><code>label</code> - This text will display inside the button.<br>
 </li>
 <li><code>visual_id</code> - Give the button a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
 </li>
@@ -559,16 +569,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>y_position</code> - The y coordinate of where you want to put the button on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of button on the page<br>
+<li><code>height</code> - Height of button on the page.<br>
 </li>
-<li><code>width</code> - Width of button on the page</li>
+<li><code>width</code> - Width of button on the page.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button">function documentation</a>. For this example, I’d like to highlight two of the optional arguments that enable the button to be linked to navigation:</p>
 <ol start="7" type="1">
 <li><code>url_link</code> = This should be a valid url (web link). When the button is clicked the web page will open in the user’s browser.</li>
-<li><code>page_navigation_link</code> = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id’s are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a randow string of numbers and letters. If you aren’t sure what pages are in your dashboard you can use the <a href="https://www.russellshean.com/powerbpy/reference/dashboard.html#powerbpy.dashboard.Dashboard.list_pages">Dashboard.list_pages() method</a>.</li>
+<li><code>page_navigation_link</code> = This should be a valid page_id in your dashboard. When the button is clicked, the user will be sent to that page. Page id’s are assigned sequentially in the order pages are created and follow the pattern of page1, page2, page3 etc. If you added a page manually using Power BI desktop, the page id will probably be a random string of numbers and letters. If you aren’t sure what pages are in your dashboard you can use the <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#list-all-the-dashboards-pages">list_pages() method</a>.</li>
 </ol>
-<p>Let’s add two buttons! One that sends the user to www.google.com and one that navigates the user to the second page.</p>
+<p>Let’s add two buttons! One button will send users to www.google.com and the other will navigate users to the second page.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a second page so that the page navigation button works     </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>page2 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bigfoot Map"</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                     title<span class="op">=</span> <span class="st">"Bigfoot sightings"</span>,</span>
@@ -597,23 +607,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-choropleth-map" class="level2">
 <h2 class="anchored" data-anchor-id="add-a-choropleth-map">Add a choropleth map</h2>
-<p>Often we have data that is tied to geographic regions that can be respresented by a polygon such as states, counties, zip codes, or countries. A choropleth map uses color to represent values in the data by shading the polygons according to the value of the data. (If that was way too abstract, see the example below. Basically we’re creating a color code map to represent the data.)</p>
-<p>This function does a lot under the hood so you don’t have to. It creates measures in the dataset so that bins will automatically adjust when filtering conditions change, it creates the map and adds text boxes for a legend and and a slicer to allow the user to filter the data. The method requires you to provide a shape file that corresponds to a variable in your dataset. For example, the dataset could have two columns: US states and average income. In this case you should provide a shapefile of US states.</p>
+<p>Often we have data that is tied to geographic regions that can be represented by a polygon such as states, counties, zip codes, or countries. A choropleth map uses color to represent values in the data by shading the polygons according to the value of the data. (If that was way too abstract, see the example below. Basically we’re creating a color coded map to represent the data).</p>
+<p>This function does a lot under the hood so you don’t have to.</p>
+<ul>
+<li>It creates measures in the dataset so that bins will automatically adjust when filtering conditions change.<br>
+</li>
+<li>It creates the map.<br>
+</li>
+<li>It adds text boxes for a legend.<br>
+</li>
+<li>It optionally adds a slicer to allow the user to filter the data by another variable.</li>
+</ul>
+<p>The method requires you to provide a shape file that corresponds to a variable in your dataset. For example, the dataset could have two columns: US states and average income. In this case you should provide a shapefile of US states.</p>
 <p>The method also give two different options for binning the data and assigning ranges of values to different colors on the map. You can only specify one of the two options at a time.</p>
 <p>The first option is to provide a static set of breaks that you define yourself. This is ideal if you already know the structure of your data and how you want to assign ranges of values to different colors. Use the <code>static_bin_breaks</code> argument to pass an integer list of break values.</p>
-<p>The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data. For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the <code>filtering_var</code> argument to create a slicer attached to the map that filters the dataset by age before rerendering the map. You could then pass the list of percentiles to <code>percentile_bin_breaks</code> such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected “young people” in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people. If you provide <code>percentile_bin_breaks</code> you must also provide a <code>filtering_var</code>; the assumption being that if you don’t need dynamic recalculation of bins based on the filtering variable, you’d be better off calculating a static set of breaks for yourself and passing them as a list to <code>static_bin_breaks</code>.</p>
-<p>I’ll describe in more detail below some of the optional method arguments and how they can be used to customize your map. But first, here are the required arguments:</p>
+<p>The second option is to provide a list of percentiles that you want to use to bin the data into ranges. This option is intended to be used in conjunction with a third variable that you use to filter the data.</p>
+<p>For example, assume you have a third variable in your dataset of average income by state dataset, maybe age. You could pass age to the <code>filtering_var</code> argument to create a slicer attached to the map that filters the dataset by age before rerendering the map.</p>
+<p>You could then pass the list of percentiles to <code>percentile_bin_breaks</code> such as 0, 0.2, 0.4, 0.6, 0.8, 1. This will create breaks between 0% and 20%, 20% and 40%, etc and the bins will be recalculated each time the slicer filters are adjusted. So, for this example, if you selected “young people” in the slicer, the bins will be re-calculated and the map will re-render to show 20, 40, 60 etc, percentiles for just young people.</p>
+<p>If you provide <code>percentile_bin_breaks</code> you must also provide a <code>filtering_var</code>; the assumption being that if you don’t need dynamic recalculation of bins based on the filtering variable, you’d be better off calculating a static set of breaks for yourself and passing them as a list to <code>static_bin_breaks</code>.</p>
+<p>I’ll describe in more detail some of the optional method arguments later, but first, here are the required arguments:</p>
 <ol type="1">
-<li><code>visual_id</code> - Give the button a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.</li>
+<li><code>visual_id</code> - Give the map a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.</li>
 <li><code>data_source</code> - The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</li>
 <li><code>shape_file_path</code> - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</li>
 <li><code>map_title</code> - The title you want to put above the map.</li>
-<li><code>location_var</code> - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.</li>
+<li><code>location_var</code> - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geographical units in your shape file.</li>
 <li><code>color_var</code> - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.</li>
-<li><code>color_palatte</code> - A list of hex codes to use to color your data. There should be one fewer than the number of bins</li>
+<li><code>color_palette</code> - A list of hex codes to use to color your data. There should be one fewer than the number of bins</li>
 <li><code>add_legend</code> - True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default). The legend is a set of Power BI cards the is anchored to the bottom of the frame of the map. If you would like more control over the legend, you may need to create it yourself using the <code>add_card()</code> <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">method</a>.</li>
-<li><code>height</code> - Height of map on the page</li>
-<li><code>width</code> - Width of map on the page</li>
+<li><code>height</code> - Height of map on the page.</li>
+<li><code>width</code> - Width of map on the page.</li>
 <li><code>x_position</code> - The x coordinate of where you want to put the map on the page. Origin is page’s top left corner.</li>
 <li><code>y_position</code> - The y coordinate of where you want to put the map on the page. Origin is page’s top left corner.</li>
 </ol>
@@ -659,10 +682,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>visual_id</code> - Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</li>
 <li><code>data_source</code> - The name of the dataset you want to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</li>
 <li><code>variables</code> - The variables from the table that you want to include.</li>
-<li><code>x_position</code> - The x coordinate of where you want to put the table on the page. Origin is page’s top left corner</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the table on the page. Origin is page’s top left corner.</li>
 <li><code>y_position</code> - The y coordinate of where you want to put the table on the page. Origin is page’s top left corner.</li>
-<li><code>height</code> - Height of table on the page</li>
-<li><code>width</code> - Width of table on the page</li>
+<li><code>height</code> - Height of table on the page.</li>
+<li><code>width</code> - Width of table on the page.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">function documentation</a>.The arguments unique to this method include:</p>
 <ol start="8" type="1">
@@ -707,21 +730,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>ending_var_values</code> - Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.<br>
 </li>
-<li><code>values_from_var</code> - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I’d like to add the option to provide a sum too<br>
+<li><code>values_from_var</code> - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I’d like to add the option to provide a sum too.<br>
 </li>
-<li><code>chart_title</code> - Give your chart an informative title!:D<br>
+<li><code>chart_title</code> - The title to display above the chart.<br>
 </li>
-<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner<br>
+<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
 </li>
 <li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of chart on the page<br>
+<li><code>height</code> - Height of chart on the page.<br>
 </li>
-<li><code>width</code> - Width of chart on the page</li>
+<li><code>width</code> - Width of chart on the page.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart">function documentation</a>.The arguments unique to this method include:</p>
 <ol start="13" type="1">
-<li><code>link_colors</code> - Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.</li>
+<li><code>link_colors</code> - Here you can provide a list of Hex code colors for the connections between the different categories in the sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.</li>
 </ol>
 <p>Here’s some example code showing how to create a sanky dashboard:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a sanky chart to page 3</span></span>
