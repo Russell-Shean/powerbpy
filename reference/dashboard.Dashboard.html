@@ -448,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><a href="#powerbpy.dashboard.Dashboard.load">load</a></td>
-<td>Load an existing dashboard from a file path</td>
+<td>Load an existing dashboard</td>
 </tr>
 <tr class="even">
 <td><a href="#powerbpy.dashboard.Dashboard.load_page">load_page</a></td>
@@ -456,7 +456,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><a href="#powerbpy.dashboard.Dashboard.new_page">new_page</a></td>
-<td>Create a new blank dashboard page</td>
+<td>Create a new page</td>
 </tr>
 </tbody>
 </table>
@@ -680,9 +680,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <colgroup>
 <col style="width: 5%">
-<col style="width: 4%">
+<col style="width: 3%">
 <col style="width: 84%">
-<col style="width: 6%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -696,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>file_path</td>
 <td>str</td>
-<td>The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.</td>
+<td>The path to the new dashboard. Ppib dashboards are stored as directories and the directory should not exist yet. The basename of the directory will also be the report name.</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -724,20 +724,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes-4" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-4">Notes</h4>
 <ul>
-<li>To create a new dashboard instance, use this function <code>Dashboard.create(dashboard_path)</code></li>
-<li>To load an existing dashboard use <code>Dashboard.load(dashboard_path)</code></li>
+<li>To create a new dashboard instance, use this function <code>Dashboard.create(dashboard_path)</code>.</li>
+<li>To load an existing dashboard use <code>Dashboard.load(dashboard_path)</code> instead.</li>
 </ul>
-<p>Here’s an example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_dashboard <span class="op">=</span> Dashboard.create(dashboard_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="powerbpy.dashboard.Dashboard.get_measures_list" class="level3">
 <h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.get_measures_list">get_measures_list</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.get_measures_list(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    export_type<span class="op">=</span><span class="st">'markdown'</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    output_file_path<span class="op">=</span><span class="st">''</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.get_measures_list(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    export_type<span class="op">=</span><span class="st">'markdown'</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    output_file_path<span class="op">=</span><span class="st">''</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    starts_with<span class="op">=</span><span class="st">'formatString:'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Return a list of DAX measures in the report</p>
 <section id="parameters-4" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-4">Parameters</h4>
@@ -805,7 +803,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="powerbpy.dashboard.Dashboard.list_pages" class="level3">
 <h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.list_pages">list_pages</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.list_pages()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.list_pages()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>List all pages associated with a dashboard</p>
 <section id="parameters-5" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-5">Parameters</h4>
@@ -854,16 +852,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="powerbpy.dashboard.Dashboard.load" class="level3">
 <h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.load">load</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Load an existing dashboard from a file path</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Load an existing dashboard</p>
 <section id="parameters-6" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-6">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 84%">
+<col style="width: 9%">
 <col style="width: 6%">
+<col style="width: 74%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -877,7 +875,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>file_path</td>
 <td>str</td>
-<td>The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.</td>
+<td>The file path of the dashboard that you want to load. The dashboard should already exist.</td>
 <td><em>required</em></td>
 </tr>
 </tbody>
@@ -912,7 +910,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="powerbpy.dashboard.Dashboard.load_page" class="level3">
 <h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.load_page">load_page</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load_page(page_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.load_page(page_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Load an existing page</p>
 <section id="parameters-7" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-7">Parameters</h4>
@@ -972,13 +970,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="powerbpy.dashboard.Dashboard.new_page" class="level3">
 <h3 class="anchored" data-anchor-id="powerbpy.dashboard.Dashboard.new_page">new_page</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.new_page(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    page_name,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    display_option<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Create a new blank dashboard page</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard.new_page(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    page_name,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    display_option<span class="op">=</span><span class="st">'FitToPage'</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Create a new page</p>
 <section id="parameters-8" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-8">Parameters</h4>
 <table class="caption-top table">
@@ -1050,11 +1048,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="notes-8" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-8">Notes</h4>
-<p>In order to reference the page to add visuals to it later, you’ll need to remember what order you created the pages in. The first page that is created when you first call <code>create_new_dashboard()</code> is called “page1”, the next page you create is called “page2”, the page after that is called “page3” etc. (I’m going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).</p>
-<p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function. Here’s the code to create a new (mostly blank) page:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>               title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>               subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function. Here’s the code to create a new (mostly blank) page:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>               title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               subtitle <span class="op">=</span> <span class="st">"We're losing bee colonies"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here’s what the new page looks like in Power BI Desktop <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/new_page_example.png?raw=true" title="Example Page" class="img-fluid" alt="New Page Example"></p>
 
 
