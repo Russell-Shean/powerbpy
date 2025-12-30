@@ -85,7 +85,7 @@ class Dashboard:
         Parameters
         ----------
         file_path : str       
-            The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
+            The path to the new dashboard. Ppib dashboards are stored as directories and the directory should not exist yet. The basename of the directory will also be the report name.
 
         Returns
         -------
@@ -93,14 +93,9 @@ class Dashboard:
 
         Notes
         -----
-        - To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)`
-        - To load an existing dashboard use `Dashboard.load(dashboard_path)`    
+        - To create a new dashboard instance, use this function `Dashboard.create(dashboard_path)`.
+        - To load an existing dashboard use `Dashboard.load(dashboard_path)` instead.  
            
-        Here's an example:     
-        ```python
-        my_dashboard = Dashboard.create(dashboard_path)
-        ```
-
         '''
 
         self = cls(file_path)
@@ -204,12 +199,12 @@ class Dashboard:
     def load(cls,
              file_path):
 
-        '''Load an existing dashboard from a file path
+        '''Load an existing dashboard
 
         Parameters
         ----------
         file_path : str        
-            The path to the directory where you want to store the new dashboard. The directory should not exist yet. The basename of the directory will also be the report name.
+            The file path of the dashboard that you want to load. The dashboard should already exist.
 
         Returns
         -------
@@ -238,7 +233,8 @@ class Dashboard:
                  title = None,
                  subtitle = None,
                  display_option = 'FitToPage'):
-        '''Create a new blank dashboard page
+
+        '''Create a new page
 
         Parameters
         ----------
@@ -258,9 +254,7 @@ class Dashboard:
 
         Notes
         ----
-        In order to reference the page to add visuals to it later, you'll need to remember what order you created the pages in. The first page that is created when you first call `create_new_dashboard()` is called "page1", the next page you create is called "page2", the page after that is called "page3" etc. (I'm going to convert the functions to classes and methods soon at which point this paragraph will become irrelevant).
-
-        In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.
+         The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.
         Here's the code to create a new (mostly blank) page:
 
         ```python

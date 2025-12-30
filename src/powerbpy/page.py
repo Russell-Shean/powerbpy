@@ -81,7 +81,7 @@ class _Page:
                              scaling_method = "Fit"):
 
 
-        '''Add a background image to a dashboard page
+        '''Add a background image to a page
         Parameters
         ----------
         img_path : str
@@ -147,7 +147,7 @@ class _Page:
                  parent_group_id = None,
                  alt_text="A chart"):
 
-        '''This function adds a new chart to a page in a power BI dashboard report.
+        '''This function adds a new chart to a page
         Parameters
         ----------
 
@@ -644,8 +644,7 @@ class _Page:
                             z_position = 6000):
 
 
-        '''This function adds a new chart to a page in a power BI dashboard report.
-
+        '''This function adds a new chart to a page
         Parameters
         ----------
         visual_id : str
@@ -735,7 +734,7 @@ class _Page:
                             background_color="#FFFFFF",
                             background_color_alpha=None ):
 
-        '''This function adds a new table to a page in a power BI dashboard report.
+        '''This function adds a new table to a page
         Parameters
         ----------
 
