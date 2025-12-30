@@ -405,11 +405,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes" class="level2 doc-section doc-section-notes">
 <h2 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h2>
 <ul>
-<li>For clarity, avoid initiating a dashboard directly using <code>Dashboard(file_path)</code>, instead use <code>Dashboard.create()</code> or <code>Dashboard.load()</code>.</li>
+<li>Avoid initiating a dashboard directly using <code>Dashboard(file_path)</code>, instead use <code>Dashboard.create()</code> or <code>Dashboard.load()</code>.</li>
 <li>To create a new dashboard instance, use either <code>Dashboard.create(dashboard_path)</code> to create a new dashboard or <code>Dashboard.load(dashboard_path)</code> to load an existing dashboard.</li>
 <li>The dashboard uses a .pbip/.pbir format with TMDL enabled.</li>
 <li>Publishing .pbip files can be complicated. For more details see the <a href="https://www.russellshean.com/powerbpy/dashboard_publishing.html">publishing section</a> of the Power Bpy website.</li>
-<li>Time intelligence and relationship autodection are turned off by default</li>
+<li>Time intelligence and relationship autodetection are turned off by default</li>
 </ul>
 </section>
 <section id="methods" class="level2">
@@ -500,7 +500,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>blob_name</td>
 <td>str</td>
-<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node dislay name field.</td>
+<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node display name field.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -530,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>storage_account_key</td>
 <td>str</td>
-<td>It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault)</td>
+<td>It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system’s credential manger. You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform’s secure secret manager. (Something like Github Secrets or Azure Key Vault).</td>
 <td><code>None</code></td>
 </tr>
 </tbody>
@@ -559,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-1">Notes</h4>
 <p>You should never need to hard code credentials into your script. Use the use_saved_storage_key option or a key manager instead.</p>
 <p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
-<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.</p>
-<p>If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the <code>semanticmodel</code> &gt; <code>definition</code> &gt; <code>database.tmdl</code> file.</p>
+<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include references to the new dataset.</p>
+<p>If you get an error when trying to open the .pbip file try changing the compatibility version to 1567 in the <code>semanticmodel</code> &gt; <code>definition</code> &gt; <code>database.tmdl</code> file.</p>
 <p>Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for existing dashboards that you load with <code>Dashboard.load()</code>.</p>
 </section>
 </section>
@@ -622,7 +622,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes-2" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-2">Notes</h4>
 <p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
-<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.</p>
+<p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include references to the new dataset.</p>
 </section>
 </section>
 <section id="powerbpy.dashboard.Dashboard.add_tmdl" class="level3">
