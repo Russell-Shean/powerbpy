@@ -93,12 +93,12 @@ class _Page:
 
         Notes
         ----
-        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:       
-               
+        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:
+
             1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
 
-        There are two additional optional arguments:        
-                  
+        There are two additional optional arguments:
+
             2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )
             3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
 
@@ -529,7 +529,7 @@ class _Page:
                   shape_file_path,
                   map_title,
                   location_var,
-                  color_var, 
+                  color_var,
                   color_palette,
                   height,
                   width,
@@ -747,7 +747,7 @@ class _Page:
             The variables from the table that you want to include
         table_title : str
             Optional. Give your table an informative title!:D
-        table_title_font_size : int      
+        table_title_font_size : int
             Optional. The font size of the table's title. Should be a valid font size number.
         column_widths : dict
             Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values.

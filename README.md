@@ -1,5 +1,5 @@
 # Power Bpy <a id="hex-sticker" href="https://russell-shean.github.io/powerbpy/"><img src="https://github.com/user-attachments/assets/e372239d-5c28-4ed1-acf6-fb96a03b8a1a" align="right" height="240" /></a>  
-Do you wish you could build dashboards with python or R, but can't because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?      
+Do you wish you could build dashboards with code, but can't because the client specifically asked for Power BI or your employer only supports publishing Power BI? Do you love Power BI, but wish there was a way to automatically generate parts of your dashboard to speed up your development process?      
 
 Introducing Power Bpy, a python package that lets you create Power BI dashboards using python. Dashboards created using these functions can be opened, edited and saved normally in Power BI desktop. Power Bpy uses the new .pbip/.pbir format which stores dashboards as directories of text files instead of binary files letting you version control your dashboards!       
 
@@ -14,14 +14,14 @@ See some [example dashboards](https://www.russellshean.com/powerbpy/example_dash
 ## Features      
 Currently the package has functions that let you do the following *without opening Power BI Desktop*: 
 <ul>
-           <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create a new dashboard</a></li>
+           <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#create-a-new-dashboard">Create new dashboards</a></li>
            <li>Import data from:</li>
            <ul>
                       <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-dataset">Csv files</a> stored locally</li>
                       <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_blob_csv">Csv files</a> stored in Azure Data Lake Storage (ADLS)</li>
                       <li><a href="https://www.russellshean.com/powerbpy/reference/dashboard.Dashboard.html#powerbpy.dashboard.Dashboard.add_tmdl">Datasets</a> stored as a Tabular Model Definition Language (TMDL) file</li>
            </ul>
-           <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-new-page">Add a page</a></li>
+           <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-new-page">Add new pages</a></li>
            <li><a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-background-image">Add background images</a> to a page</li>
            <li>Add visuals to a page:</li>
            <ul>
@@ -43,8 +43,7 @@ Currently the package has functions that let you do the following *without openi
 ## Dependencies    
 Before you can start to build power BI dashboards using this package's functions you'll need the following:       
 <ol>
-           <li>Python 3.10+ and pip installed and on path</li>
-           <li>Git installed and on path</li>
+           <li>Python 3.10+</li>
            <li>Power BI Desktop (You can create the dashboards without this, but not view them).</li>
 </ol>             
 
@@ -56,12 +55,17 @@ You'll need to enable some preview features in Power BI Desktop. Navigate to `Fi
            <li>Power BI Project (.pbip) save option</li>
            <li>Store Semantic Model using TMDL format</li>
            <li>Store reports using enhanced metadata format (PBIR)</li>
-</ol>
+</ol>     
+    
+To install:     
+```python    
+pip install powerbpy    
+```
 
 
 ## Example Workflows      
-- To see an intro example of how to create dashboards using the package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) tutorial.
-- For more details about how to install python and run python scripts see the setup [tutorial](https://www.russellshean.com/powerbpy/basic_setup.html).
+- For more details about how to install python and run python scripts see the setup [tutorial](https://www.russellshean.com/powerbpy/basic_setup.html).       
+- To see an intro example of how to create dashboards using the package, see the [test dashboard](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html) tutorial.      
 - To see more example dashboards and the scripts used to create them see the [example dashboards](https://www.russellshean.com/powerbpy/example_dashboards.html) section of the website. 
 
 ## Publishing

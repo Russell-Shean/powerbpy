@@ -51,3 +51,12 @@ To install the latest version of Power Bpy from Github instead of Pypi you can r
 python -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powerbpy     
 ```     
    
+## Power BI settings
+To open the dashboards in Power BI Desktop, you'll need to enable the following preview features:        
+   
+<ol>
+           <li>Shape map visual</li>
+           <li>Power BI Project (.pbip) save option</li>
+           <li>Store Semantic Model using TMDL format</li>
+           <li>Store reports using enhanced metadata format (PBIR)</li>
+</ol>
