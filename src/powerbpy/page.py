@@ -170,13 +170,13 @@ class _Page:
         y_axis_var_aggregation_type : str
             Type of aggregation method you want to use to summarize y axis variable. Available options include" ["Sum", "Count", "Average"]
         x_position : int
-            The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the chart on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the chart on the page. The origin is the page's top left corner.
         height : int
-            Height of chart on the page
+            The height of the chart on the page
         width : int
-            Width of chart on the page
+            The width of the chart on the page
         tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position : int
@@ -237,13 +237,13 @@ class _Page:
         visual_id : str
             Please choose a unique id to use to identify the text box. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height :int
-            Height of text box on the page
+            The height of the text box on the page
         width : int
-            Width of text box on the page
+            The width of the text box on the page
         x_position : int
-            The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
@@ -314,13 +314,13 @@ class _Page:
         visual_id : str
             Please choose a unique id to use to identify the button. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height : int
-            Height of text box on the page
+            The height of the text box on the page
         width : int
-            Width of text box on the page
+            The width of the text box on the page
         x_position : int
-            The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
@@ -390,13 +390,13 @@ class _Page:
         visual_id : str
             Please choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height : int
-            Height of slicer on the page
+            The height of the slicer on the page
         width : int
-            Width of slicer on the page
+            The width of the slicer on the page
         x_position : int
-            The x coordinate of where you want to put the slicer on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the slicer on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the slicer on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the slicer on the page. The origin is the page's top left corner.
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
@@ -466,13 +466,13 @@ class _Page:
         visual_id : str
             Please choose a unique id to use to identify the card. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height : int
-            Height of card on the page
+            The height of the card on the page
         width : int
-            Width of card on the page
+            The width of the card on the page
         x_position : int
-            The x coordinate of where you want to put the card on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the card on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the card on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the card on the page. The origin is the page's top left corner.
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
@@ -574,13 +574,13 @@ class _Page:
         percentile_bin_breaks : list
             This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here's an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]
         height : int
-            Height of map on the page
+            The height of the map on the page
         width : int
-            Width of map on the page
+            The width of the map on the page
         x_position : int
-            The x coordinate of where you want to put the map on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the map on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the map on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the map on the page. The origin is the page's top left corner.
         z_position : int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order : int
@@ -671,13 +671,13 @@ class _Page:
         link_colors : list
             Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.
         x_position : int
-            The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the chart on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the chart on the page. The origin is the page's top left corner.
         height : int
-            Height of chart on the page
+            The height of the chart on the page
         width : int
-            Width of chart on the page
+            The width of the chart on the page
         tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position : int
@@ -752,13 +752,13 @@ class _Page:
         column_widths : dict
             Optional. Provide the width of columns. Provide the widths as a dictionary with column names as keys and widths as values.
         x_position : int
-            The x coordinate of where you want to put the table on the page. Origin is page's top left corner.
+            The x coordinate of where you want to put the table on the page. The origin is the page's top left corner.
         y_position : int
-            The y coordinate of where you want to put the table on the page. Origin is page's top left corner.
+            The y coordinate of where you want to put the table on the page. The origin is the page's top left corner.
         height : int
-            Height of table on the page
+            The height of the table on the page
         width : int
-            Width of table on the page
+            The width of the table on the page
         tab_order : int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         z_position : int

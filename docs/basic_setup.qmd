@@ -55,8 +55,16 @@ python -m pip install git+https://github.com/Russell-Shean/powerbpy.git#egg=powe
 To open the dashboards in Power BI Desktop, you'll need to enable the following preview features:        
    
 <ol>
-           <li>Shape map visual</li>
            <li>Power BI Project (.pbip) save option</li>
            <li>Store Semantic Model using TMDL format</li>
            <li>Store reports using enhanced metadata format (PBIR)</li>
-</ol>
+</ol>      
+    
+First click on `file` then `options and settings`, and then `options`:     
+![options and settings](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/options_and_settings.png)
+
+Next click on the `preview features` menu:      
+![preview features](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/preview_settings.png)    
+  
+Then check the following three boxes:     
+![.pbir settings](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/pbir_options.png)

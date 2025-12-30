@@ -1,7 +1,7 @@
 ---
 title: "Test Dashboard"
 date: 2025-12-12
-description: This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.
+description: This is the dashboard I use to test the module. It shows a range of examples of what is possible to create with Powerbpy.
 image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif"
 ---
 
@@ -10,8 +10,10 @@ This example shows how I create the dashboard I use for testing the module. The 
           
 - create a new dashboard      
 - add pages to the dashboard     
-- add visual elements such as maps and charts to the pages       
-      
+- add visual elements such as maps and charts to the pages
+- retrieve information about dashboards and pages    
+
+Here are some examples. These two pages were created entirely with python with no manual editing:       
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true "Example Dashboard")     
 ![Example of a dashboard](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true "Example Dashboard")
 
@@ -31,7 +33,7 @@ from powerbpy import Dashboard
 
 my_dashboard = Dashboard.create("C:/Users/Russ/PBI_projects/test_dashboard")
 ```     
-If everything worked, the function should have created the following files:     
+If everything worked, the function should have created a set of files and folders similar to this:      
 ![image](https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true)       
     
 You can open the `test_dashboard.pbip` file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>).      
@@ -45,10 +47,10 @@ You can also provide the following optional arguments:
          
   2. `title` - Title to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.        
   3. `subtitle` - This is similar to the title, but it goes below the title. If you would like more control use the `add_text_box()` function.       
-  4. `displayOption` - I'm honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to `FitToPage` and other options include `FitToWidth` and `ActualSize`.
+  4. `displayOption` - I'm honestly not sure what this does, someone who understands Power BI better than me will have to let me know. ;) Currently the option is set to `FitToPage` and other options include `FitToWidth` and `ActualSize`.
        
      
-In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.      
+In our example, I'll create a new page called "Bee Colonies" and then we'll add a title called "The bees are in trouble!" and a subtitle below it called "We're losing bee colonies". The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the [`add_text_box()`](https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box) function.      
    
 Here's the code to create a new (mostly blank) page:     
 
@@ -113,10 +115,10 @@ Here's how you can add a bar chart to your dashboard. To add the chart you'll ne
   6. `x_axis_var` - This is the variable to use for the x axis.        
   7. `y_axis_var` - This is the variable to use for the y axis.       
   8. `y_axis_var_aggregation_type` - This is how values in the y axis should be grouped and processed. The default is sum -  (total value of y for each grouping of x).        
-  9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.      
-  10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.       
-  11. `height` - Height of chart on the page.          
-  12. `width` - Width of chart on the page.
+  9. `x_position` - The x coordinate of where you want to put the chart on the page. The origin is the page's top left corner.      
+  10. `y_position` - The y coordinate of where you want to put the chart on the page. The origin is the page's top left corner.       
+  11. `height` - The height of the chart on the page.          
+  12. `width` - The width of the chart on the page.
 
 Here's some example code that adds a bar chart showing bee colonies lost per year: 
 
@@ -143,14 +145,14 @@ In addition to visuals, many dashboards use explanatory text. Here's an example 
            
   1. `text` - The text you want to display in the box.         
   2. `visual_id` - Give the text box a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
-  3. `x_position` - The x coordinate of where you want to put the text box on the page. Origin is page's top left corner.      
-  4. `y_position` - The y coordinate of where you want to put the text box on the page. Origin is page's top left corner.       
-  5. `height` - Height of text box on the page.          
-  6. `width` - Width of text box on the page.      
+  3. `x_position` - The x coordinate of where you want to put the text box on the page. The origin is the page's top left corner.      
+  4. `y_position` - The y coordinate of where you want to put the text box on the page. The origin is the page's top left corner.       
+  5. `height` - The height of the text box on the page.          
+  6. `width` - The width of the text box on the page.      
 
 There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() [method documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box).         
       
-<strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>.          
+<strong>Don't see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>          
       
 Here's some example code showing how I added a text box to my testing dashboard:       
     
@@ -177,10 +179,10 @@ The following arguments are required:
 
   1. `label` - This text will display inside the button.         
   2. `visual_id` - Give the button a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.         
-  3. `x_position` - The x coordinate of where you want to put the button on the page. Origin is page's top left corner.      
-  4. `y_position` - The y coordinate of where you want to put the button on the page. Origin is page's top left corner.       
-  5. `height` - Height of button on the page.          
-  6. `width` - Width of button on the page.      
+  3. `x_position` - The x coordinate of where you want to put the button on the page. The origin is the page's top left corner.      
+  4. `y_position` - The y coordinate of where you want to put the button on the page. The origin is the page's top left corner.       
+  5. `height` - The height of the button on the page.          
+  6. `width` - The width of the button on the page.      
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button). For this example, I'd like to highlight two of the optional arguments that enable the button to be linked to navigation:     
      
@@ -252,10 +254,10 @@ I'll describe in more detail some of the optional method arguments later, but fi
   6. `color_var` - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
   7. `color_palette` - A list of hex codes to use to color your data. There should be one fewer than the number of bins
   8. `add_legend` - True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default). The legend is a set of Power BI cards the is anchored to the bottom of the frame of the map. If you would like more control over the legend, you may need to create it yourself using the `add_card()` [method](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card).
-  9. `height` - Height of map on the page.
-  10. `width` - Width of map on the page.
-  11. `x_position` - The x coordinate of where you want to put the map on the page. Origin is page's top left corner.
-  12. `y_position` - The y coordinate of where you want to put the map on the page. Origin is page's top left corner.    
+  9. `height` - The height of the map on the page.
+  10. `width` - The width of the map on the page.
+  11. `x_position` - The x coordinate of where you want to put the map on the page. The origin is the page's top left corner.
+  12. `y_position` - The y coordinate of where you want to put the map on the page. The origin is the page's top left corner.    
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_shape_map). As described above, the arguments unique to this method control how bins are created:      
 
@@ -300,10 +302,10 @@ The [sanky chart and table](https://www.russellshean.com/powerbpy/example_dashbo
   1. `visual_id` - Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
   2. `data_source` - The name of the dataset you want to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
   3. `variables` - The variables from the table that you want to include.
-  4. `x_position` - The x coordinate of where you want to put the table on the page. Origin is page's top left corner.
-  5. `y_position` - The y coordinate of where you want to put the table on the page. Origin is page's top left corner.
-  6. `height` - Height of table on the page.
-  7. `width` - Width of table on the page.        
+  4. `x_position` - The x coordinate of where you want to put the table on the page. The origin is the page's top left corner.
+  5. `y_position` - The y coordinate of where you want to put the table on the page. The origin is the page's top left corner.
+  6. `height` - The height of the table on the page.
+  7. `width` - The width of the table on the page.        
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table).The arguments unique to this method include:      
 
@@ -351,10 +353,10 @@ The [WOW demonstration](https://www.russellshean.com/powerbpy/example_dashboards
   6. `ending_var_values` - Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.       
   7. `values_from_var` - This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too.      
   8. `chart_title` - The title to display above the chart.      
-  9. `x_position` - The x coordinate of where you want to put the chart on the page. Origin is page's top left corner.   
-  10. `y_position` - The y coordinate of where you want to put the chart on the page. Origin is page's top left corner.    
-  11. `height` - Height of chart on the page.     
-  12. `width` - Width of chart on the page.      
+  9. `x_position` - The x coordinate of where you want to put the chart on the page. The origin is the page's top left corner.   
+  10. `y_position` - The y coordinate of where you want to put the chart on the page. The origin is the page's top left corner.    
+  11. `height` - The height of the chart on the page.     
+  12. `width` - The width of the chart on the page.      
 
 Additional optional arguments are available and are described in the [function documentation](https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart).The arguments unique to this method include:      
 
