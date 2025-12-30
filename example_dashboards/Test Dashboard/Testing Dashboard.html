@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-12-12">
-<meta name="description" content="This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.">
+<meta name="description" content="This is the dashboard I use to test the module. It shows a range of examples of what is possible to create with Powerbpy.">
 
 <title>Test Dashboard</title>
 <style>
@@ -362,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    This is the dashboard I use to test the module. It shows a range of example of what is possible to create with Powerbpy.
+    This is the dashboard I use to test the module. It shows a range of examples of what is possible to create with Powerbpy.
   </div>
 </div>
 
@@ -394,8 +394,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>add pages to the dashboard<br>
 </li>
 <li>add visual elements such as maps and charts to the pages</li>
+<li>retrieve information about dashboards and pages</li>
 </ul>
-<p><img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"><br>
+<p>Here are some examples. These two pages were created entirely with python with no manual editing:<br>
+<img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page1.png?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"><br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/page2.gif?raw=true" title="Example Dashboard" class="img-fluid" alt="Example of a dashboard"></p>
 </section>
 <section id="setup" class="level1">
@@ -412,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> powerbpy <span class="im">import</span> Dashboard</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>my_dashboard <span class="op">=</span> Dashboard.create(<span class="st">"C:/Users/Russ/PBI_projects/test_dashboard"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If everything worked, the function should have created the following files:<br>
+<p>If everything worked, the function should have created a set of files and folders similar to this:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/blob/main/docs/assets/images/new_dashboard_filetree.png?raw=true" class="img-fluid" alt="image"></p>
 <p>You can open the <code>test_dashboard.pbip</code> file in Power BI desktop normally. (Although you will probably need to turn on <a href="https://russell-shean.github.io/powerbpy/#dependencies">these preview features</a>).</p>
 </section>
@@ -428,9 +430,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>subtitle</code> - This is similar to the title, but it goes below the title. If you would like more control use the <code>add_text_box()</code> function.<br>
 </li>
-<li><code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know ;). Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</li>
+<li><code>displayOption</code> - I’m honestly not sure what this does, someone who understands Power BI better than me will have to let me know. ;) Currently the option is set to <code>FitToPage</code> and other options include <code>FitToWidth</code> and <code>ActualSize</code>.</li>
 </ol>
-<p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <code>add_text_box()</code> function.</p>
+<p>In our example, I’ll create a new page called “Bee Colonies” and then we’ll add a title called “The bees are in trouble!” and a subtitle below it called “We’re losing bee colonies”. The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don’t want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the <a href="https://www.russellshean.com/powerbpy/example_dashboards/Test%20Dashboard/Testing%20Dashboard.html#add-a-text-box"><code>add_text_box()</code></a> function.</p>
 <p>Here’s the code to create a new (mostly blank) page:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>page1 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Bee Colonies"</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                       title<span class="op">=</span> <span class="st">"The bees are in trouble!"</span>,</span>
@@ -500,13 +502,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>y_axis_var_aggregation_type</code> - This is how values in the y axis should be grouped and processed. The default is sum - (total value of y for each grouping of x).<br>
 </li>
-<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of chart on the page.<br>
+<li><code>height</code> - The height of the chart on the page.<br>
 </li>
-<li><code>width</code> - Width of chart on the page.</li>
+<li><code>width</code> - The width of the chart on the page.</li>
 </ol>
 <p>Here’s some example code that adds a bar chart showing bee colonies lost per year:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>page1.add_chart(visual_id <span class="op">=</span> <span class="st">"colonies_lost_by_year"</span>, </span>
@@ -533,16 +535,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>visual_id</code> - Give the text box a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
 </li>
-<li><code>x_position</code> - The x coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
+<li><code>x_position</code> - The x coordinate of where you want to put the text box on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>y_position</code> - The y coordinate of where you want to put the text box on the page. Origin is page’s top left corner.<br>
+<li><code>y_position</code> - The y coordinate of where you want to put the text box on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of text box on the page.<br>
+<li><code>height</code> - The height of the text box on the page.<br>
 </li>
-<li><code>width</code> - Width of text box on the page.</li>
+<li><code>width</code> - The width of the text box on the page.</li>
 </ol>
 <p>There are additional available arguments (mainly having to do with font styling) for more details, see the add_text_box() <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_text_box">method documentation</a>.</p>
-<p><strong>Don’t see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong>.</p>
+<p><strong>Don’t see an argument for a text styling option you want? Feel free to submit an issue or pull request on Github to request the change! :)</strong></p>
 <p>Here’s some example code showing how I added a text box to my testing dashboard:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds a text box to the bottom right corner of the first page    </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>page1.add_text_box(text <span class="op">=</span> <span class="st">"Explanatory text in the bottom right corner"</span>,</span>
@@ -565,13 +567,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>visual_id</code> - Give the button a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.<br>
 </li>
-<li><code>x_position</code> - The x coordinate of where you want to put the button on the page. Origin is page’s top left corner.<br>
+<li><code>x_position</code> - The x coordinate of where you want to put the button on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>y_position</code> - The y coordinate of where you want to put the button on the page. Origin is page’s top left corner.<br>
+<li><code>y_position</code> - The y coordinate of where you want to put the button on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of button on the page.<br>
+<li><code>height</code> - The height of the button on the page.<br>
 </li>
-<li><code>width</code> - Width of button on the page.</li>
+<li><code>width</code> - The width of the button on the page.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_button">function documentation</a>. For this example, I’d like to highlight two of the optional arguments that enable the button to be linked to navigation:</p>
 <ol start="7" type="1">
@@ -635,10 +637,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>color_var</code> - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.</li>
 <li><code>color_palette</code> - A list of hex codes to use to color your data. There should be one fewer than the number of bins</li>
 <li><code>add_legend</code> - True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default). The legend is a set of Power BI cards the is anchored to the bottom of the frame of the map. If you would like more control over the legend, you may need to create it yourself using the <code>add_card()</code> <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_card">method</a>.</li>
-<li><code>height</code> - Height of map on the page.</li>
-<li><code>width</code> - Width of map on the page.</li>
-<li><code>x_position</code> - The x coordinate of where you want to put the map on the page. Origin is page’s top left corner.</li>
-<li><code>y_position</code> - The y coordinate of where you want to put the map on the page. Origin is page’s top left corner.</li>
+<li><code>height</code> - The height of the map on the page.</li>
+<li><code>width</code> - The width of the map on the page.</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the map on the page. The origin is the page’s top left corner.</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the map on the page. The origin is the page’s top left corner.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_shape_map">function documentation</a>. As described above, the arguments unique to this method control how bins are created:</p>
 <ol start="13" type="1">
@@ -682,10 +684,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>visual_id</code> - Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it’d probably be easier if you choose your own id.</li>
 <li><code>data_source</code> - The name of the dataset you want to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</li>
 <li><code>variables</code> - The variables from the table that you want to include.</li>
-<li><code>x_position</code> - The x coordinate of where you want to put the table on the page. Origin is page’s top left corner.</li>
-<li><code>y_position</code> - The y coordinate of where you want to put the table on the page. Origin is page’s top left corner.</li>
-<li><code>height</code> - Height of table on the page.</li>
-<li><code>width</code> - Width of table on the page.</li>
+<li><code>x_position</code> - The x coordinate of where you want to put the table on the page. The origin is the page’s top left corner.</li>
+<li><code>y_position</code> - The y coordinate of where you want to put the table on the page. The origin is the page’s top left corner.</li>
+<li><code>height</code> - The height of the table on the page.</li>
+<li><code>width</code> - The width of the table on the page.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_table">function documentation</a>.The arguments unique to this method include:</p>
 <ol start="8" type="1">
@@ -734,13 +736,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>chart_title</code> - The title to display above the chart.<br>
 </li>
-<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+<li><code>x_position</code> - The x coordinate of where you want to put the chart on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. Origin is page’s top left corner.<br>
+<li><code>y_position</code> - The y coordinate of where you want to put the chart on the page. The origin is the page’s top left corner.<br>
 </li>
-<li><code>height</code> - Height of chart on the page.<br>
+<li><code>height</code> - The height of the chart on the page.<br>
 </li>
-<li><code>width</code> - Width of chart on the page.</li>
+<li><code>width</code> - The width of the chart on the page.</li>
 </ol>
 <p>Additional optional arguments are available and are described in the <a href="https://www.russellshean.com/powerbpy/reference/page._Page.html#powerbpy.page._Page.add_sanky_chart">function documentation</a>.The arguments unique to this method include:</p>
 <ol start="13" type="1">
