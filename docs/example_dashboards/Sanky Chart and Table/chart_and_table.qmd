@@ -6,18 +6,18 @@ image: "https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sa
 ---
 
 # Sanky Chart and Table      
-I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday Group</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom).        
+I used the PowerBpy python module to recreate an <a href="https://workout-wednesday.com/pbi-2025-w13/">sanky chart and table</a> dashboard from the <a href="https://workout-wednesday.com/">Workout Wednesday</a> challenge. Here's a screenshot of the original dashboard (top) and the dashboard I recreated using Power Bpy (bottom).        
     
-(It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different, but the overall format is pretty similar).      
+(It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different).      
     
 The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
 <img id="my-sanky-img" class="img-fluid" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px">      
 ![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)
   
 ## Assumptions
-This example assumes that you already have python installed and setup and that you know how to install python modules such as pandas. If you don't, please refer to basic setup [instructions](https://www.russellshean.com/powerbpy/basic_setup.html) section of this website or find one of the many great resources online that explains how to install python packages.  
+This example assumes that you already have python installed and that you know how to install python modules such as pandas. If you don't, please refer to basic setup [instructions](https://www.russellshean.com/powerbpy/basic_setup.html) section of this website or find one of the many great resources online that explains how to install python packages.  
 
-One of the central assumptions built into the PowerBpy package is that you'd prefer to write python code over using Power BI. Therefore, this example will avoid writing any M or DAX and will instead use python to extract, load and transform the data. Once the data is ready, I'll show how to use PowerBpy to create the dashboard. 
+One of the central assumptions built into the PowerBpy package is that you'd prefer to write python code over using Power BI. Therefore, this example will avoid writing any M or DAX and will instead use python to extract, load and transform the data. Once the data is ready, I'll show how to use Power Bpy to create the dashboard. 
 
  
 ## Download Data
@@ -62,7 +62,7 @@ with py7zr.SevenZipFile(tmp_file.name, mode="r") as z:
 ```    
 
 ## Process data
-The original example from WoW included creating measures in Power BI using DAX and M as part of the challenge. It's also possible to create the needed variables in python and then upload the processed data to Power BI without writing any DAX or M.     
+The original example included creating measures in Power BI using DAX and M as part of the challenge. It's also possible to create the needed variables in python and then upload the processed data to Power BI without writing any DAX or M.     
 
 For this example we need to calculate sales totals by stores time period and classify the sales as low, medium or high. Here's the python code I used:
 
@@ -94,10 +94,13 @@ sales["OrderDate"] = pd.to_datetime(sales["OrderDate"])
 sales_by_store_and_date = (
     sales
 
-    # assign seems to be similar to mutate
+    # assign seems to be similar to mutate in R
+    # It creates a new variable
     .assign(
 
         # np.select appears to be similar to case_when
+        # It checks logical conditions and assigns a new value for 
+        # variable we created using assign based on the logical tests
         time_period = lambda df: np.select(
 
 

@@ -14,11 +14,11 @@ class Dashboard:
 
     Notes
     -----
-    - For clarity, avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create()` or `Dashboard.load()`.
+    - Avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create()` or `Dashboard.load()`.
     - To create a new dashboard instance, use either `Dashboard.create(dashboard_path)` to create a new dashboard or `Dashboard.load(dashboard_path)` to load an existing dashboard.
     - The dashboard uses a .pbip/.pbir format with TMDL enabled.
     - Publishing .pbip files can be complicated. For more details see the [publishing section](https://www.russellshean.com/powerbpy/dashboard_publishing.html) of the Power Bpy website.
-    - Time intelligence and relationship autodection are turned off by default
+    - Time intelligence and relationship autodetection are turned off by default
 
     '''
     # pylint: disable=too-many-instance-attributes
@@ -436,7 +436,7 @@ class Dashboard:
         If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.
 
         This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
-        The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.
+        The DiagramLayout and Model.tmdl files are updated to include references to the new dataset.
         '''
 
         from powerbpy.dataset_csv import _LocalCsv
@@ -466,7 +466,7 @@ class Dashboard:
         account_url : str        
             The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.       
         blob_name : str        
-            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node dislay name field.       
+            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node display name field.       
         data_path : str        
             The relative path to the file you want to load from the blob. It should be relative to `blob_name`.        
         tenant_id : str       
@@ -480,7 +480,7 @@ class Dashboard:
         storage_account_key : str        
             It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger.      
                   
-            You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault)
+            You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault).
 
         Returns
         -------
@@ -496,9 +496,9 @@ class Dashboard:
         If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.
 
         This function creates a new TMDL file defining the dataset in TMDL format and also in M code.
-        The DiagramLayout and Model.tmdl files are updated to include refrences to the new dataset.      
+        The DiagramLayout and Model.tmdl files are updated to include references to the new dataset.      
             
-        If you get an error when trying to open the .pbip file try changing the combatibility version to 1567 in the `semanticmodel` > `definition` > `database.tmdl` file.
+        If you get an error when trying to open the .pbip file try changing the compatibility version to 1567 in the `semanticmodel` > `definition` > `database.tmdl` file.
 
         Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards.
         I may eventually add an automatic fix for existing dashboards that you load with `Dashboard.load()`.

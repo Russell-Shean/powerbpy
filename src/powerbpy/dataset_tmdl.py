@@ -30,7 +30,7 @@ class _Tmdl:
         data_path: str
             The path where the tmdl file is stored.
         add_default_datetable: bool
-            Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date heirarchies instead of using time intelligence
+            Do you want the TMDL file you add to be our team's custom date table? This will allow you to create your own date hierarchies instead of using time intelligence
 
         Notes
         -----
@@ -84,13 +84,13 @@ class _Tmdl:
 
 
         # dateset_name -----------------------------------------------------------------------------------------------
-        # read the whole table.tmdl file in andmake it a giant blob for regex
+        # read the whole table.tmdl file in and make it a giant blob for regex
         file_content = ""
 
         with open(data_path, encoding="utf-8") as file:
             # list comprehension
             # all lines have all the white spaces and \n and \t striped
-            # They're then joined together using the .join function and ~ as a seperator
+            # They're then joined together using the .join function and ~ as a separator
             file_content = "~".join(re.sub('\t?', '', line).rstrip() for line in file)
 
 

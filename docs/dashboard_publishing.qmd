@@ -4,7 +4,7 @@ format: html
 ---
 
 ## Background 
-I have not had access to Power BI serivce, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025,  so things may have changed since then, but for a long time it was not possible to directly publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have [git enabled fabric workspaces](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/manage-branches?tabs=azure-devops), it should be possible to directly publish, but if you don't, here are a few workarounds you can try. They're presented in order of complexity.
+I have not had access to Power BI service, (the Microsoft cloud service for publishing Power BI dashboards), since April 2025,  so things may have changed since then, but for a long time it was not possible to publish .pbir or .pbip dashboards directly to Power BI service like you can with .pbix files. According to Microsoft, if you have [git enabled fabric workspaces](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/manage-branches?tabs=azure-devops), it should be possible to directly publish, but if you don't, here are a few workarounds you can try. They're presented in order of complexity, from simplest to most complicated.
 
 ## Try publishing it as a .pbip file
 It may now be possible to directly publish .pbip files. Navigate to `file` > `publish` and then click on `publish to Power BI service`.     
@@ -28,7 +28,7 @@ The first step is to convert the .pbir or .pbip file to a Power BI template (.pb
 Then give it a description, (doesn't actually matter what you write), and click okay.      
 ![.pbit description](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/template_description.png)      
 
-A save as dialouge box should pop up, make sure the file type is .pbit and click save     
+A save as dialogue box should pop up. Make sure the file type is .pbit and click save.    
 ![.pbit save as](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/template_save_as.png)        
 
 Close the .pbir file and open the new .pbit file. In the .pbit file navigate to `file` > `save as` and choose .pbix.       

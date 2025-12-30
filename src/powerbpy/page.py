@@ -158,7 +158,7 @@ class _Page:
         data_source : str
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         chart_title : str
-            Give your chart an informative title!:D
+            The title that displays above the chart.
         x_axis_title : str
             Text to display on the x axis
         y_axis_title : str
