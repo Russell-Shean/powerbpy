@@ -1,6 +1,6 @@
 [project]
 name = "powerbpy"
-version = "0.1.7"
+version = "0.2.0"
 authors = [
   { name="Russell Shean", email="russshean@gmail.com" },
 ]
@@ -43,7 +43,7 @@ docs = { script = "sphinx-build clean && sphinx-build -b html docs/ build/" }
 
 # pyproject.toml
 [tool.pytest.ini_options]
-minversion = "0.1.7"
+minversion = "0.2.0"
 addopts = "-ra -q"
 testpaths = [
     "tests"
