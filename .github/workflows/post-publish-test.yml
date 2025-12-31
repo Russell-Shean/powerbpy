@@ -28,7 +28,7 @@ jobs:
           curl -L -o 2019_53_WA_Counties9467365124727016.json https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/2019_53_WA_Counties9467365124727016.json
           
           # production test script
-          curl -L -o test_script_prod.py https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/.github/scripts/test_script_prod.py
+          curl -L -o test_script_prod.py https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/src/test_script_prod.py
       
       - uses: actions/setup-python@v5
         with:
