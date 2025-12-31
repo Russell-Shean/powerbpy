@@ -24,7 +24,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Russell-Shean/powerbpy"
+Homepage = "https://www.russellshean.com/powerbpy/"
 Issues = "https://github.com/Russell-Shean/powerbpy/issues"
 
 

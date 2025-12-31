@@ -11,8 +11,9 @@ I used the PowerBpy python module to recreate an <a href="https://workout-wednes
 (It appears that the data has changed since the original author created his dashboard, so my version and his look a bit different because the data is a bit different).      
     
 The rest of the blog will describe key parts of the code I used to make the dashboard. The full code is available [here](https://github.com/Russell-Shean/powerbpy-demos/tree/main/WOW/2025/13).      
+![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)          
 <img id="my-sanky-img" class="img-fluid" src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky_screenshot.png" style="margin-bottom:10px">      
-![wow sanky](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/WOW_sanky.png)
+
   
 ## Assumptions
 This example assumes that you already have python installed and that you know how to install python modules such as pandas. If you don't, please refer to basic setup [instructions](https://www.russellshean.com/powerbpy/basic_setup.html) section of this website or find one of the many great resources online that explains how to install python packages.  
