@@ -802,3 +802,40 @@ class _Page:
 
         self.visuals.append(table)
         return table
+
+    # pylint: disable=too-many-arguments
+    def add_shape(self,
+                  *,
+                  visual_id,
+                 shape_type,
+                 x_position,
+                 y_position,
+                 height,
+                 width,
+                 background_color="#FFFFFF",
+                 background_color_alpha=None,
+                 tab_order = -1001,
+                 z_position = 6000,
+                 parent_group_id = None,
+                 alt_text="A chart"):
+
+
+        from powerbpy.shape import _Shape
+
+        shape = _Shape(self,
+                        visual_id=visual_id,
+                            y_position=y_position,
+                            height=height,
+                            width=width,
+                            shape_type=shape_type,
+                            alt_text=alt_text,
+                            parent_group_id=parent_group_id,
+                            background_color=background_color,
+                            background_color_alpha=background_color_alpha,
+                            tab_order = tab_order,
+                            z_position = z_position)
+
+        self.visuals.append(shape)
+        return shape
+
+        
