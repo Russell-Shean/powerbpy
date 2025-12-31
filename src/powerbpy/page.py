@@ -92,16 +92,7 @@ class _Page:
 
         Notes
         ----
-        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:       
-              
-            1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
-
-        There are two additional optional arguments:      
-            
-            2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 51 ).
-            3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
-
-        Here's some example code that adds a new background image to the Bee Colonies page:
+        Here's some example code that adds a background image to a page:
 
         ```python
         page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
@@ -571,7 +562,7 @@ class _Page:
         data_source : str
             The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         shape_file_path : str
-            A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by Power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
+            A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by Power BI. In this example dashboard I use a geojson, but presumably an ArcGIS file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
         map_title : str
             The title you want to put above the map.
         location_var : str
@@ -607,7 +598,7 @@ class _Page:
 
         Notes
         -----
-        This function creates a new cloropleth map on a page.
+        This function creates a new choropleth map on a page.
         '''
 
         from powerbpy.shape_map import _ShapeMap

@@ -53,7 +53,7 @@ class _Button(_Visual):
         z_position: int
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order: int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correpond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         fill_color: str
             Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
         alpha: int

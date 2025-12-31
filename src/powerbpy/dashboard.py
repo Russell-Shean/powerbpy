@@ -15,7 +15,7 @@ class Dashboard:
     Notes
     -----
     - Avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create(file_path)` or `Dashboard.load(file_path)`.
-    - To create a new dashboard instance, use either `Dashboard.create(file_pathh)` to create a new dashboard or `Dashboard.load(file_path)` to load an existing dashboard.
+    - To create a new dashboard instance, use either `Dashboard.create(file_path)` to create a new dashboard or `Dashboard.load(file_path)` to load an existing dashboard.
     - Dashboards create with this package use the .pbip/.pbir format with TMDL enabled.
     - Publishing .pbip files can be complicated. For more details see the [publishing section](https://www.russellshean.com/powerbpy/dashboard_publishing.html) of the Power Bpy website.
     - Time intelligence and relationship autodetection are turned off by default.
@@ -85,7 +85,7 @@ class Dashboard:
         Parameters
         ----------
         file_path : str       
-            The path to the new dashboard. Ppib dashboards are stored as directories and the directory should not exist yet. The basename of the directory will also be the report name.
+            The path to the new dashboard. Pbip dashboards are stored as directories and the directory should not exist yet. The basename of the directory will also be the report name.
 
         Returns
         -------
