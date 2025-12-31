@@ -15,8 +15,6 @@ jobs:
   # can still create a dashboard
   post-publish-test-dashboard:
     runs-on: ubuntu-latest
-    needs: 
-       - update-toml
     steps:
       - name: Download data and script
         run: |
