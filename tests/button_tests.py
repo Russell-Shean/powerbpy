@@ -1,7 +1,6 @@
 '''AI generated tests for the _Button class
 '''
 
-import json
 import os
 import builtins
 import pytest
