@@ -131,18 +131,18 @@ jobs:
        - update-toml
     steps:
       - name: Download data and script
-        run: |
-          # csv files
-          curl -L -o colony.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/colony.csv
-          curl -L -o sales_final_dataset.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/sales_final_dataset.csv
-          curl -L -o wa_bigfoot_by_county.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/wa_bigfoot_by_county.csv
+  run: |
+    # csv files
+    curl -L -o colony.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/colony.csv
+    curl -L -o sales_final_dataset.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/sales_final_dataset.csv
+    curl -L -o wa_bigfoot_by_county.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/wa_bigfoot_by_county.csv
 
-          # Other data
-          curl -L -o Taipei_skyline_at_sunset_20150607.jpg https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/Taipei_skyline_at_sunset_20150607.jpg
-          curl -L -o 2019_53_WA_Counties9467365124727016.json https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/examples/data/2019_53_WA_Counties9467365124727016.json
+    # Other data
+    curl -L -o Taipei_skyline_at_sunset_20150607.jpg https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/Taipei_skyline_at_sunset_20150607.jpg
+    curl -L -o 2019_53_WA_Counties9467365124727016.json https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/2019_53_WA_Counties9467365124727016.json
 
-          # download production test script
-          curl -L -o test_script_prod.py https://raw.githubusercontent.com/Russell-Shean/powerbpy/refs/heads/main/.github/scripts/test_script_prod.py
+    # production test script
+    curl -L -o test_script_prod.py https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/.github/scripts/test_script_prod.py
       
       - uses: actions/setup-python@v5
         with:
@@ -154,3 +154,6 @@ jobs:
 
       - name: Create dashboard using Pypi version of powerbpy
         run: python test_script_prod.py
+
+
+
