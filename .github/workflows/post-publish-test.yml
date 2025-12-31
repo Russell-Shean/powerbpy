@@ -18,14 +18,17 @@ jobs:
     steps:
       - name: Download data and script
         run: |
+          # create directory for storing data
+          mkdir -p examples/data
+
           # csv files
-          curl -L -o colony.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/colony.csv
-          curl -L -o sales_final_dataset.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/sales_final_dataset.csv
-          curl -L -o wa_bigfoot_by_county.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/wa_bigfoot_by_county.csv
+          curl -L -o examples/data/colony.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/colony.csv
+          curl -L -o examples/data/sales_final_dataset.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/sales_final_dataset.csv
+          curl -L -o examples/data/wa_bigfoot_by_county.csv https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/wa_bigfoot_by_county.csv
           
           # Other data
-          curl -L -o Taipei_skyline_at_sunset_20150607.jpg https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/Taipei_skyline_at_sunset_20150607.jpg
-          curl -L -o 2019_53_WA_Counties9467365124727016.json https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/2019_53_WA_Counties9467365124727016.json
+          curl -L -o examples/data/Taipei_skyline_at_sunset_20150607.jpg https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/Taipei_skyline_at_sunset_20150607.jpg
+          curl -L -o examples/data/2019_53_WA_Counties9467365124727016.json https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/examples/data/2019_53_WA_Counties9467365124727016.json
           
           # production test script
           curl -L -o test_script_prod.py https://raw.githubusercontent.com/Russell-Shean/powerbpy/main/src/test_script_prod.py
