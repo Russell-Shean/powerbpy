@@ -400,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="powerbpy.page._Page" class="level1">
 <h1>page._Page</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>page._Page(dashboard, page_id<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A python class used to model a power BI dashboard page.</p>
+<p>A python class used to model a Power BI dashboard page.</p>
 <p>You should never initiate a page class directly, instead use <code>Dashboard.new_page()</code> to create a new page, or <code>Dashboard.load_page()</code> to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple – it doesn’t make sense to have a page not attached to a dashboard.</p>
 <p>Here’s an example workflow:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> powerbpy <span class="im">import</span> Dashboard</span>
@@ -412,15 +412,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>page1 <span class="op">=</span> my_dashboard.new_page(<span class="st">"Page 1"</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a visual to page 1</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>page1.add_text_box(text <span class="op">=</span> <span class="st">"Explanatory text in the bottom right corner"</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>             visual_id <span class="op">=</span> <span class="st">"page1_explain_box"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>             height <span class="op">=</span> <span class="dv">200</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>               width<span class="op">=</span> <span class="dv">300</span>,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                 x_position <span class="op">=</span> <span class="dv">1000</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                 y_position <span class="op">=</span> <span class="dv">600</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                 font_size <span class="op">=</span> <span class="dv">15</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>page1.add_text_box(text <span class="op">=</span> <span class="st">"Explanatory text in the bottom right corner"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>             visual_id <span class="op">=</span> <span class="st">"page1_explain_box"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>             height <span class="op">=</span> <span class="dv">200</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>               width<span class="op">=</span> <span class="dv">300</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                 x_position <span class="op">=</span> <span class="dv">1000</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                 y_position <span class="op">=</span> <span class="dv">600</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                 font_size <span class="op">=</span> <span class="dv">15</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <table class="caption-top table">
@@ -445,11 +444,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><a href="#powerbpy.page._Page.add_chart">add_chart</a></td>
-<td>This function adds a new chart to a page</td>
+<td>Add a bar chart to a page</td>
 </tr>
 <tr class="odd">
 <td><a href="#powerbpy.page._Page.add_sanky_chart">add_sanky_chart</a></td>
-<td>This function adds a new chart to a page</td>
+<td>Add a sanky chart to a page</td>
 </tr>
 <tr class="even">
 <td><a href="#powerbpy.page._Page.add_shape_map">add_shape_map</a></td>
@@ -461,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><a href="#powerbpy.page._Page.add_table">add_table</a></td>
-<td>This function adds a new table to a page</td>
+<td>Add a table to a page</td>
 </tr>
 <tr class="odd">
 <td><a href="#powerbpy.page._Page.add_text_box">add_text_box</a></td>
@@ -479,8 +478,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 6%">
 <col style="width: 3%">
-<col style="width: 84%">
-<col style="width: 5%">
+<col style="width: 85%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -494,7 +493,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>img_path</td>
 <td>str</td>
-<td>The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png</td>
+<td>The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows you to add manually, so probably, at a minimum, jpeg and png.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -517,12 +516,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here’s how you can add a background image to a page. To add the image, you’ll need to provide the following required argument:</p>
 <pre><code>1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard</code></pre>
 <p>There are two additional optional arguments:</p>
-<pre><code>2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )
+<pre><code>2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 51 ).
 3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)</code></pre>
 <p>Here’s some example code that adds a new background image to the Bee Colonies page:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           alpha <span class="op">=</span> <span class="dv">51</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>page1.add_background_image(img_path <span class="op">=</span> <span class="st">"examples/data/Taipei_skyline_at_sunset_20150607.jpg"</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="dv">51</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    scaling_method <span class="op">=</span> <span class="st">"Fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And here’s what the dashboard looks like, now that we’ve added a background image: <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true" title="Background Image Example" class="img-fluid" alt="Background Image Example"></p>
 </section>
 </section>
@@ -544,7 +543,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    alt_text<span class="op">=</span><span class="st">'A button'</span>,</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    background_color_alpha<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    parent_group_id<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add a button to a page</p>
 <section id="parameters-1" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-1">Parameters</h4>
@@ -552,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 5%">
 <col style="width: 2%">
-<col style="width: 89%">
+<col style="width: 88%">
 <col style="width: 3%">
 </colgroup>
 <thead>
@@ -603,31 +603,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
 </tr>
 <tr class="even">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
 </tr>
 <tr class="odd">
 <td>fill_color</td>
 <td>str</td>
-<td>Hex code for the background (fill) color you’d like to use for the button. Defaults to blue (#3086C3)</td>
+<td>Hex code for the background (fill) color you’d like to use for the button. Defaults to blue (#3086C3).</td>
 <td><code>'#3086C3'</code></td>
 </tr>
 <tr class="even">
 <td>alpha</td>
 <td>int</td>
-<td>The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)</td>
+<td>The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0, (100% not transparent).</td>
 <td><code>0</code></td>
 </tr>
 <tr class="odd">
 <td>url_link</td>
 <td>str</td>
-<td>Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url</td>
+<td>Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="even">
@@ -635,6 +635,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>str</td>
 <td>Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.</td>
 <td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>parent_group_id</td>
+<td>str</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A button'</code></td>
 </tr>
 </tbody>
 </table>
@@ -687,13 +699,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>data_source</td>
 <td>str</td>
-<td>This is the name of the dataset that you want to use to populate the card with</td>
+<td>This is the name of the dataset that you want to use to populate the card with.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>measure_name</td>
 <td>str</td>
-<td>This is the name of the measure (or variable) name you want to use to populate the card with</td>
+<td>This is the name of the measure (or variable) name you want to use to populate the card with.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -705,13 +717,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>height</td>
 <td>int</td>
-<td>The height of the card on the page</td>
+<td>The height of the card on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>width</td>
 <td>int</td>
-<td>The width of the card on the page</td>
+<td>The width of the card on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -729,13 +741,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
 </tr>
 <tr class="odd">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
 </tr>
 <tr class="even">
@@ -747,32 +759,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>font_weight</td>
 <td>str</td>
-<td>This is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]</td>
+<td>This is an option to change the font’s weight. Defaults to bold.</td>
 <td><code>'bold'</code></td>
 </tr>
 <tr class="even">
 <td>font_size</td>
 <td>int</td>
-<td>The font size in pts. Must be a whole integer. Defaults to 32 pt</td>
+<td>The font size in pts. Must be a whole integer. Defaults to 32 pt.</td>
 <td><code>32</code></td>
 </tr>
 <tr class="odd">
 <td>font_color</td>
 <td>str</td>
-<td>Hex code for the font color you’d like to use. Defaults to black (#000000)</td>
+<td>Hex code for the font color you’d like to use. Defaults to black (#000000).</td>
 <td><code>'#000000'</code></td>
 </tr>
 <tr class="even">
 <td>background_color</td>
 <td>str</td>
-<td>Hex code for the background color of the card. Defaults to None (transparent)</td>
+<td>Hex code for the background color of the card. Defaults to None (transparent).</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>parent_group_id</td>
 <td>str</td>
-<td>This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
 <td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A card'</code></td>
 </tr>
 </tbody>
 </table>
@@ -805,7 +823,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    parent_group_id<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    alt_text<span class="op">=</span><span class="st">'A chart'</span>,</span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This function adds a new chart to a page</p>
+<p>Add a bar chart to a page</p>
 <section id="parameters-3" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-3">Parameters</h4>
 <table class="caption-top table">
@@ -833,7 +851,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>chart_type</td>
 <td>str</td>
-<td>The type of chart to build on the page. Known available types include: [“columnChart”,“barChart”, “clusteredBarChart”, ]</td>
+<td>The type of chart to build on the page. Known available types include: [“columnChart”, “barChart”, “clusteredBarChart” ]</td>
 <td><code>'columnChart'</code></td>
 </tr>
 <tr class="odd">
@@ -905,13 +923,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
+</tr>
+<tr class="odd">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A chart'</code></td>
+</tr>
+<tr class="even">
+<td>parent_group_id</td>
+<td>str</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
 </tr>
 </tbody>
@@ -942,7 +972,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    tab_order<span class="op">=-</span><span class="dv">1001</span>,</span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    z_position<span class="op">=</span><span class="dv">6000</span>,</span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This function adds a new chart to a page</p>
+<p>Add a sanky chart to a page</p>
 <section id="parameters-4" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-4">Parameters</h4>
 <table class="caption-top table">
@@ -982,7 +1012,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>starting_var_values</td>
 <td>list</td>
-<td>Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.</td>
+<td>Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function assumes that you already know the structure of your data and can pass a list of unique values.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -994,19 +1024,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>ending_var_values</td>
 <td>list</td>
-<td>Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.</td>
+<td>Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function assumes that you already know the structure of your data and can pass a list of unique values.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>values_from_var</td>
 <td>str</td>
-<td>This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I’d like to add the option to provide a sum too</td>
+<td>This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I’d like to add the option to provide a sum too.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>chart_title</td>
 <td>str</td>
-<td>Give your chart an informative title!:D</td>
+<td>Title to display above the chart.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -1018,7 +1048,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>chart_title_font_size</td>
 <td>int</td>
-<td>Font size for chart title</td>
+<td>Chart title font size</td>
 <td><code>17</code></td>
 </tr>
 <tr class="odd">
@@ -1054,14 +1084,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
 </tr>
 <tr class="odd">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
+</tr>
+<tr class="even">
+<td>parent_group_id</td>
+<td>str</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td><code>None</code></td>
 </tr>
 </tbody>
 </table>
@@ -1099,8 +1135,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 4%">
 <col style="width: 1%">
-<col style="width: 92%">
-<col style="width: 2%">
+<col style="width: 91%">
+<col style="width: 3%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1126,7 +1162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>shape_file_path</td>
 <td>str</td>
-<td>A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</td>
+<td>A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by Power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -1138,7 +1174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>location_var</td>
 <td>str</td>
-<td>The name of the column in data_source that you want to use for the location variable on the map.This should also correspond to the geography of your shape file.</td>
+<td>The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -1168,25 +1204,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>add_legend</td>
 <td>bool</td>
-<td>True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default)</td>
+<td>True or False, would you like to add the default legend? (By default legend, I mean this function’s default, not the Power BI default).</td>
 <td><code>True</code></td>
 </tr>
 <tr class="odd">
 <td>percentile_bin_breaks</td>
 <td>list</td>
-<td>This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]</td>
+<td>This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create Power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here’s an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]</td>
 <td><code>None</code></td>
 </tr>
 <tr class="even">
 <td>height</td>
 <td>int</td>
-<td>The height of the map on the page</td>
+<td>The height of the map on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>width</td>
 <td>int</td>
-<td>The width of the map on the page</td>
+<td>The width of the map on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -1204,14 +1240,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
 </tr>
 <tr class="odd">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
+</tr>
+<tr class="even">
+<td>parent_group_id</td>
+<td>str</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A shape map'</code></td>
 </tr>
 </tbody>
 </table>
@@ -1246,7 +1294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 4%">
 <col style="width: 2%">
-<col style="width: 90%">
+<col style="width: 89%">
 <col style="width: 3%">
 </colgroup>
 <thead>
@@ -1261,13 +1309,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>data_source</td>
 <td>str</td>
-<td>This is the name of the dataset that you want to use to populate the slicer with</td>
+<td>This is the name of the dataset that you want to use to populate the slicer with.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>column_name</td>
 <td>str</td>
-<td>This is the name of the measure (or variable) name you want to use to populate the slicer with</td>
+<td>This is the name of the measure (or variable) name you want to use to populate the slicer with.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -1279,13 +1327,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>height</td>
 <td>int</td>
-<td>The height of the slicer on the page</td>
+<td>The height of the slicer on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>width</td>
 <td>int</td>
-<td>The width of the slicer on the page</td>
+<td>The width of the slicer on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -1303,13 +1351,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
 </tr>
 <tr class="odd">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
 </tr>
 <tr class="even">
@@ -1321,14 +1369,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>background_color</td>
 <td>str</td>
-<td>Hex code for the background color of the slicer. Defaults to None (transparent)</td>
+<td>Hex code for the background color of the slicer. Defaults to None (transparent).</td>
 <td><code>None</code></td>
 </tr>
 <tr class="even">
 <td>parent_group_id</td>
 <td>str</td>
-<td>This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
 <td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A slicer'</code></td>
 </tr>
 </tbody>
 </table>
@@ -1359,14 +1413,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    background_color<span class="op">=</span><span class="st">'#FFFFFF'</span>,</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    background_color_alpha<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This function adds a new table to a page</p>
+<p>Add a table to a page</p>
 <section id="parameters-7" class="level4 doc-section doc-section-parameters">
 <h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-7">Parameters</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 5%">
 <col style="width: 2%">
-<col style="width: 89%">
+<col style="width: 88%">
 <col style="width: 3%">
 </colgroup>
 <thead>
@@ -1393,13 +1447,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>variables</td>
 <td>list</td>
-<td>The variables from the table that you want to include</td>
+<td>The variables from the dataset that you want to include in the table.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>table_title</td>
 <td>str</td>
-<td>Optional. Give your table an informative title!:D</td>
+<td>Optional. Title to display above the table.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
@@ -1429,26 +1483,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>height</td>
 <td>int</td>
-<td>The height of the table on the page</td>
+<td>The height of the table on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>width</td>
 <td>int</td>
-<td>The width of the table on the page</td>
+<td>The width of the table on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
 </tr>
 <tr class="even">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
+</tr>
+<tr class="odd">
+<td>parent_group_id</td>
+<td>str</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A table'</code></td>
 </tr>
 </tbody>
 </table>
@@ -1480,8 +1546,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 4%">
 <col style="width: 2%">
-<col style="width: 90%">
-<col style="width: 3%">
+<col style="width: 89%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1495,7 +1561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>text</td>
 <td>str</td>
-<td>The text you want to display in the box</td>
+<td>The text you want to display in the box.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
@@ -1507,13 +1573,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>height</td>
 <td></td>
-<td>The height of the text box on the page</td>
+<td>The height of the text box on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
 <td>width</td>
 <td>int</td>
-<td>The width of the text box on the page</td>
+<td>The width of the text box on the page.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -1531,44 +1597,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>z_position</td>
 <td>int</td>
-<td>The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000</td>
+<td>The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.</td>
 <td><code>6000</code></td>
 </tr>
 <tr class="even">
 <td>tab_order</td>
 <td>int</td>
-<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)</td>
+<td>The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).</td>
 <td><code>-1001</code></td>
 </tr>
 <tr class="odd">
 <td>font_weight</td>
 <td>str</td>
-<td>This is an option to change the font’s weight. Defaults to bold. Available options include: [“bold”]</td>
+<td>This is an option to change the font’s weight. Defaults to bold.</td>
 <td><code>'bold'</code></td>
 </tr>
 <tr class="even">
 <td>font_size</td>
 <td>int</td>
-<td>The font size in pts. Must be a whole integer. Defaults to 32 pt</td>
+<td>The font size in pts. Must be a whole integer. Defaults to 32 pt.</td>
 <td><code>32</code></td>
 </tr>
 <tr class="odd">
 <td>font_color</td>
 <td>str</td>
-<td>Hex code for the font color you’d like to use. Defaults to black (#000000)</td>
+<td>Hex code for the font color you’d like to use. Defaults to black (#000000).</td>
 <td><code>'#000000'</code></td>
 </tr>
 <tr class="even">
 <td>background_color</td>
 <td>str</td>
-<td>Hex code for the background color of the text box. Defaults to None (transparent)</td>
+<td>Hex code for the background color of the text box. Defaults to None (transparent).</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>parent_group_id</td>
 <td>str</td>
-<td>This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.</td>
+<td>This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.</td>
 <td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>alt_text</td>
+<td>str</td>
+<td>Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn’t load properly.</td>
+<td><code>'A text box'</code></td>
 </tr>
 </tbody>
 </table>

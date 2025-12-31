@@ -448,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>There are two additional optional arguments:</p>
 <ol start="2" type="1">
-<li><code>alpha</code> - This is the image’s transparency, where 0 is fully transparent and 100 is fully non-transparent, (defaults to 100).<br>
+<li><code>alpha</code> - This is the image’s transparency, where 0 is fully transparent and 100 is fully non-transparent, (defaults to 51).<br>
 </li>
 <li><code>scaling_method</code> - This tells Power BI how to scale the image, (defaults to “Fit” which fits the image to the page).</li>
 </ol>
@@ -632,7 +632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><code>visual_id</code> - Give the map a unique id that you’ll remember. This id cannot be the same as any other visual in the dashboard.</li>
 <li><code>data_source</code> - The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.</li>
-<li><code>shape_file_path</code> - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an ArcGis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</li>
+<li><code>shape_file_path</code> - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by Power BI. In this example dashboard I use a geojson, but presumably an ArcGis file with a .shp extension would also work. This shape file will be added to the dashboard’s registered resources.</li>
 <li><code>map_title</code> - The title you want to put above the map.</li>
 <li><code>location_var</code> - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geographical units in your shape file.</li>
 <li><code>color_var</code> - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.</li>
@@ -649,7 +649,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li><code>static_bin_breaks</code> This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.<br>
 </li>
-<li><code>percentile_bin_breaks</code> - This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. For example, to create 5 equal sized bins, pass this list: [0,0.2,0.4,0.6,0.8,1]</li>
+<li><code>percentile_bin_breaks</code> - This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create Power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. For example, to create 5 equal sized bins, pass this list: [0,0.2,0.4,0.6,0.8,1]</li>
 </ol>
 <p>Here’s some code to add a shape map that represents bigfoot sightings by county in Washington State with the option to filter the data by the season the sighting occurred. The sightings dataset and shapefile are available on Power Bpy’s GitHub <a href="https://github.com/Russell-Shean/powerbpy/tree/main/examples/data">repo</a>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's start by adding a new dataset to the dashboard        </span></span>
@@ -781,7 +781,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If the code worked, you should see a sanky chart just to the right of the table that looks like this:<br>
 <img src="https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png" class="img-fluid" alt="Example of a table"></p>
-<p>Now let’s show an example of what can be done with the <code>link_colors</code> argument. This allows you to provide a list of hex codes for each arrow, (link if you’re using power BI’s internal vocab). Using this argument you can provide custom colors for each of the arrows, or highlight one arrow in particular with color. Here’s an example of changing the arrow colors to red, yellow, and green and also highlighting just one of the arrows by making it pink:</p>
+<p>Now let’s show an example of what can be done with the <code>link_colors</code> argument. This allows you to provide a list of hex codes for each arrow, (link if you’re using Power BI’s internal vocab). Using this argument you can provide custom colors for each of the arrows, or highlight one arrow in particular with color. Here’s an example of changing the arrow colors to red, yellow, and green and also highlighting just one of the arrows by making it pink:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new page</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>page4 <span class="op">=</span> my_dashboard.new_page(page_name <span class="op">=</span> <span class="st">"Table Page 2"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>

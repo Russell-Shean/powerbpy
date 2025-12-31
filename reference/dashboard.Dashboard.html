@@ -401,15 +401,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="powerbpy.dashboard.Dashboard" class="level1">
 <h1>dashboard.Dashboard</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dashboard.Dashboard(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A python class used to model a power BI dashboard project</p>
+<p>A python class used to model a Power BI dashboard project</p>
 <section id="notes" class="level2 doc-section doc-section-notes">
 <h2 class="doc-section doc-section-notes anchored" data-anchor-id="notes">Notes</h2>
 <ul>
-<li>Avoid initiating a dashboard directly using <code>Dashboard(file_path)</code>, instead use <code>Dashboard.create()</code> or <code>Dashboard.load()</code>.</li>
-<li>To create a new dashboard instance, use either <code>Dashboard.create(dashboard_path)</code> to create a new dashboard or <code>Dashboard.load(dashboard_path)</code> to load an existing dashboard.</li>
-<li>The dashboard uses a .pbip/.pbir format with TMDL enabled.</li>
+<li>Avoid initiating a dashboard directly using <code>Dashboard(file_path)</code>, instead use <code>Dashboard.create(file_path)</code> or <code>Dashboard.load(file_path)</code>.</li>
+<li>To create a new dashboard instance, use either <code>Dashboard.create(file_pathh)</code> to create a new dashboard or <code>Dashboard.load(file_path)</code> to load an existing dashboard.</li>
+<li>Dashboards create with this package use the .pbip/.pbir format with TMDL enabled.</li>
 <li>Publishing .pbip files can be complicated. For more details see the <a href="https://www.russellshean.com/powerbpy/dashboard_publishing.html">publishing section</a> of the Power Bpy website.</li>
-<li>Time intelligence and relationship autodetection are turned off by default</li>
+<li>Time intelligence and relationship autodetection are turned off by default.</li>
 </ul>
 </section>
 <section id="methods" class="level2">
@@ -500,7 +500,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>blob_name</td>
 <td>str</td>
-<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside “Blob Containers” will be all your blob containers. Use the node display name field.</td>
+<td>The name of the blob container. In Azure Storage Explorer, click on the storage account, then all your blob containers will be listed under “Blob Containers”. Use the “node display name” field.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
@@ -558,10 +558,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes-1" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-1">Notes</h4>
 <p>You should never need to hard code credentials into your script. Use the use_saved_storage_key option or a key manager instead.</p>
-<p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
+<p>This function creates custom M code and is therefore more picky than Pandas or Power BI Desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
 <p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include references to the new dataset.</p>
 <p>If you get an error when trying to open the .pbip file try changing the compatibility version to 1567 in the <code>semanticmodel</code> &gt; <code>definition</code> &gt; <code>database.tmdl</code> file.</p>
-<p>Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for existing dashboards that you load with <code>Dashboard.load()</code>.</p>
+<p>Dashboards created with the <code>Dashboard.create()</code> function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards. I may eventually add an automatic fix for existing dashboards that you load with <code>Dashboard.load()</code>.</p>
 </section>
 </section>
 <section id="powerbpy.dashboard.Dashboard.add_local_csv" class="level3">
@@ -621,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="notes-2" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-2">Notes</h4>
-<p>This function creates custom M code and is therefore more picky than pandas or Power BI desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
+<p>This function creates custom M code and is therefore more picky than pandas or Power BI Desktop. The csv file should probably not have row numbers. (Any column without a column name will be renamed to “probably_an_index_column”). NA values must display as “NA” or “null” not as N/A. If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.</p>
 <p>This function creates a new TMDL file defining the dataset in TMDL format and also in M code. The DiagramLayout and Model.tmdl files are updated to include references to the new dataset.</p>
 </section>
 </section>
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="notes-3" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-3">Notes</h4>
 <ul>
-<li>TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.</li>
+<li>TMDL is a data storage format automatically created by Power BI consisting of a table and column definitions and the M code used to generate the dataset.</li>
 <li>In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale</li>
 <li>Potential pitfalls: M needs full paths to load data. If the new dashboard doesn’t have access to the same data as the old dashboard, the data copying may fail.</li>
 </ul>
@@ -965,7 +965,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="notes-7" class="level4 doc-section doc-section-notes">
 <h4 class="doc-section doc-section-notes anchored" data-anchor-id="notes-7">Notes</h4>
-<p>You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals. To list all page ids you can use <code>Dashboard.list_pages()</code>. You can also check the .pbip folder structure to find the page ids.</p>
+<p>You should use this function to load an existing page from a Power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals. To list all page ids you can use <code>Dashboard.list_pages()</code>. You can also check the .pbip folder structure to find the page ids.</p>
 </section>
 </section>
 <section id="powerbpy.dashboard.Dashboard.new_page" class="level3">
@@ -1004,19 +1004,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>title</td>
 <td>str</td>
-<td>Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.</td>
+<td>Title to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>subtitle</td>
 <td>str</td>
-<td>Subtitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title’s appearance use that function instead.</td>
+<td>Subtitle to put at the top of the page. This under the hood calls the <code>add_text_box()</code> function. If you would like more control over the title’s appearance use that function instead.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="even">
 <td>display_option</td>
 <td>str</td>
-<td>Default way to display the page for end users (View -&gt; Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize</td>
+<td>Default way to display the page for end users. (To view these option in Power BI Desktop see View -&gt; Page View options). Possible options: FitToPage, FitToWidth, ActualSize</td>
 <td><code>'FitToPage'</code></td>
 </tr>
 </tbody>
