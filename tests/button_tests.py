@@ -1,12 +1,14 @@
 '''AI generated tests for the _Button class
 '''
 
+# pylint: disable=import-error
+
 import os
 import builtins
 import pytest
 from unittest.mock import MagicMock, mock_open
 
-from powerbpy.visual.button import _Button
+from powerbpy.button import _Button
 
 
 # ---------------------------------------------------------------------
