@@ -1,4 +1,4 @@
-'''A python class used to model a power BI dashboard page
+'''A python class used to model a Power BI dashboard page
 
 '''
 
@@ -7,7 +7,7 @@ import os
 
 
 class _Page:
-    '''A python class used to model a power BI dashboard page.
+    '''A python class used to model a Power BI dashboard page.
 
     You should never initiate a page class directly, instead use `Dashboard.new_page()` to create a new page, or `Dashboard.load_page()` to load an existing page. This class is important however because its methods are public. The reason you should never create an instance of the _Page class directly is simple -- it doesn't make sense to have a page not attached to a dashboard.
 
@@ -22,7 +22,6 @@ class _Page:
     page1 = my_dashboard.new_page("Page 1")
 
     # Add a visual to page 1
-
     page1.add_text_box(text = "Explanatory text in the bottom right corner",
                  visual_id = "page1_explain_box",
                  height = 200,
@@ -85,7 +84,7 @@ class _Page:
         Parameters
         ----------
         img_path : str
-            The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows manually, so probably at least jpeg and png
+            The path to the image you want to add. (Can be a relative path because the image is copied to the report folder). Allowed image types are whatever PBI allows you to add manually, so probably, at a minimum, jpeg and png.
         alpha : int
             The transparency of the background image. Must be a whole integer between 1 and 100.
         scaling_method : str
@@ -93,21 +92,21 @@ class _Page:
 
         Notes
         ----
-        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:
-
+        Here's how you can add a background image to a page. To add the image, you'll need to provide the following required argument:       
+              
             1. `img_path` - This is the path (relative or full) to the image you want to add to the dashboard
 
-        There are two additional optional arguments:
-
-            2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 100 )
+        There are two additional optional arguments:      
+            
+            2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent (defaults to 51 ).
             3. `scaling_method` - This tells Power BI how to scale the image (defaults to "Fit" which fits the image to the page)
 
         Here's some example code that adds a new background image to the Bee Colonies page:
 
         ```python
-            page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
-                   alpha = 51,
-                   scaling_method = "Fit")
+        page1.add_background_image(img_path = "examples/data/Taipei_skyline_at_sunset_20150607.jpg",
+            alpha = 51,
+            scaling_method = "Fit")
         ```
         And here's what the dashboard looks like, now that we've added a background image:
         ![Background Image Example](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/background_image_example.png?raw=true "Background Image Example")
@@ -147,14 +146,14 @@ class _Page:
                  parent_group_id = None,
                  alt_text="A chart"):
 
-        '''This function adds a new chart to a page
+        '''Add a bar chart to a page
         Parameters
         ----------
 
         visual_id : str
             Please choose a unique id to use to identify the chart. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         chart_type : str
-            The type of chart to build on the page. Known available types include: ["columnChart","barChart", "clusteredBarChart", ]
+            The type of chart to build on the page. Known available types include: ["columnChart", "barChart", "clusteredBarChart" ]
         data_source : str
             The name of the dataset you want to use to build the chart. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         chart_title : str
@@ -178,9 +177,13 @@ class _Page:
         width : int
             The width of the chart on the page
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
+        parent_group_id : str
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
         '''
 
         from powerbpy.chart import _Chart
@@ -233,32 +236,34 @@ class _Page:
         Parameters
         ----------
         text : str
-            The text you want to display in the box
+            The text you want to display in the box.
         visual_id : str
             Please choose a unique id to use to identify the text box. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height :int
-            The height of the text box on the page
+            The height of the text box on the page.
         width : int
-            The width of the text box on the page
+            The width of the text box on the page.
         x_position : int
             The x coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         y_position : int
             The y coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         font_weight : str
-            This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
+            This is an option to change the font's weight. Defaults to bold.
         font_size : int
-            The font size in pts. Must be a whole integer. Defaults to 32 pt
+            The font size in pts. Must be a whole integer. Defaults to 32 pt.
         font_color : str
-            Hex code for the font color you'd like to use. Defaults to black (#000000)
+            Hex code for the font color you'd like to use. Defaults to black (#000000).
         background_color : str
-            Hex code for the background color of the text box. Defaults to None (transparent)
+            Hex code for the background color of the text box. Defaults to None (transparent).
         parent_group_id : str
-            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
-
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
+       
         Notes
         -----
         This function creates a new text box on a page.
@@ -303,7 +308,8 @@ class _Page:
                  page_navigation_link = None,
                  alt_text="A button",
                  background_color = None,
-                 background_color_alpha=None):
+                 background_color_alpha=None,
+                 parent_group_id=None):
 
         '''Add a button to a page
 
@@ -322,17 +328,21 @@ class _Page:
         y_position : int
             The y coordinate of where you want to put the text box on the page. The origin is the page's top left corner.
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         fill_color : str
-            Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
+            Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3).
         alpha : int
-            The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
+            The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0, (100% not transparent).
         url_link : str
-            Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
+            Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url.
         page_navigation_link : str
             Optional argument. If provided the button will navigate to this page in the report. Must be a valid page_id already present in the report.
+        parent_group_id : str
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
 
         Notes
         -----
@@ -356,7 +366,8 @@ class _Page:
                  page_navigation_link = page_navigation_link,
                  alt_text=alt_text,
                  background_color=background_color,
-                 background_color_alpha=background_color_alpha)
+                 background_color_alpha=background_color_alpha,
+                 parent_group_id=parent_group_id)
 
         self.visuals.append(button)
         return button
@@ -384,29 +395,31 @@ class _Page:
         Parameters
         ----------
         data_source : str
-            This is the name of the dataset that you want to use to populate the slicer with
+            This is the name of the dataset that you want to use to populate the slicer with.
         column_name : str
-            This is the name of the measure (or variable) name you want to use to populate the slicer with
+            This is the name of the measure (or variable) name you want to use to populate the slicer with.
         visual_id : str
             Please choose a unique id to use to identify the slicer. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height : int
-            The height of the slicer on the page
+            The height of the slicer on the page.
         width : int
-            The width of the slicer on the page
+            The width of the slicer on the page.
         x_position : int
             The x coordinate of where you want to put the slicer on the page. The origin is the page's top left corner.
         y_position : int
             The y coordinate of where you want to put the slicer on the page. The origin is the page's top left corner.
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         title : str
             An optional title to add to the slicer.
         background_color : str
-            Hex code for the background color of the slicer. Defaults to None (transparent)
+            Hex code for the background color of the slicer. Defaults to None (transparent).
         parent_group_id : str
-            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.   
 
         Notes
         ------
@@ -460,35 +473,37 @@ class _Page:
         Parameters
         ----------
         data_source : str
-            This is the name of the dataset that you want to use to populate the card with
+            This is the name of the dataset that you want to use to populate the card with.
         measure_name : str
-            This is the name of the measure (or variable) name you want to use to populate the card with
+            This is the name of the measure (or variable) name you want to use to populate the card with.
         visual_id : str
             Please choose a unique id to use to identify the card. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         height : int
-            The height of the card on the page
+            The height of the card on the page.
         width : int
-            The width of the card on the page
+            The width of the card on the page.
         x_position : int
             The x coordinate of where you want to put the card on the page. The origin is the page's top left corner.
         y_position : int
             The y coordinate of where you want to put the card on the page. The origin is the page's top left corner.
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         card_title : int
             An optional title to add to the card.
         font_weight : str
-            This is an option to change the font's weight. Defaults to bold. Available options include: ["bold"]
+            This is an option to change the font's weight. Defaults to bold.
         font_size : int
-            The font size in pts. Must be a whole integer. Defaults to 32 pt
+            The font size in pts. Must be a whole integer. Defaults to 32 pt.
         font_color : str
-            Hex code for the font color you'd like to use. Defaults to black (#000000)
+            Hex code for the font color you'd like to use. Defaults to black (#000000).
         background_color : str
-            Hex code for the background color of the card. Defaults to None (transparent)
+            Hex code for the background color of the card. Defaults to None (transparent).
         parent_group_id : str
-            This should be a valid id code for another power BI visual. If supplied the current visual will be nested inside the parent group.
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
 
         Notes
         -----
@@ -556,11 +571,11 @@ class _Page:
         data_source : str
             The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         shape_file_path : str
-            A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
+            A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by Power BI. In this example dashboard I use a geojson, but presumably an Arcgis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
         map_title : str
             The title you want to put above the map.
         location_var : str
-            The name of the column in data_source that you want to use for the location variable on the map.This should also correspond to the geography of your shape file.
+            The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geography of your shape file.
         color_var : str
             The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
         filtering_var : str
@@ -570,21 +585,25 @@ class _Page:
         color_palette : list
             A list of hex codes to use to color your data. There should be one fewer than the number of bins.
         add_legend : bool
-            True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default)
+            True or False, would you like to add the default legend? (By default legend, I mean this function's default, not the Power BI default).
         percentile_bin_breaks : list
-            This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here's an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]
+            This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create Power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. Here's an example use case: to create 5 equal sized bins pass this list: [0,0.2,0.4,0.6,0.8,1]
         height : int
-            The height of the map on the page
+            The height of the map on the page.
         width : int
-            The width of the map on the page
+            The width of the map on the page.
         x_position : int
             The x coordinate of where you want to put the map on the page. The origin is the page's top left corner.
         y_position : int
             The y coordinate of where you want to put the map on the page. The origin is the page's top left corner.
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
+        parent_group_id : str
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
 
         Notes
         -----
@@ -644,7 +663,7 @@ class _Page:
                             z_position = 6000):
 
 
-        '''This function adds a new chart to a page
+        '''Add a sanky chart to a page
         Parameters
         ----------
         visual_id : str
@@ -654,19 +673,19 @@ class _Page:
         starting_var : str
             Which variable from the data_source, do you want to use for the left side of the sanky chart?
         starting_var_values : list
-            Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.
+            Which individual values do you want to use for the left side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function assumes that you already know the structure of your data and can pass a list of unique values.
         ending_var : str
             Which variable from the data_source, do you want to use for the right side of the sanky chart?
         ending_var_values : list
-            Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function is setup to assume that you already know the structure of your data and can pass a list of unique values.
+            Which individual values do you want to use for the right side of the sanky chart? In general, this will probably mean all the unique values in the starting_var column. This function assumes that you already know the structure of your data and can pass a list of unique values.
         values_from_var : str
-            This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too
+            This is the variable that you want to count unique instances of as grouped by starting and ending variables. For now it only counts unique variables, but I'd like to add the option to provide a sum too.
         chart_title : str
-            Give your chart an informative title!:D
+            Title to display above the chart.
         alt_text : str
             Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
         chart_title_font_size : int
-            Font size for chart title
+            Chart title font size
         link_colors : list
             Here you can provide a list of Hex code colors for the connections between the different categories in the Sanky chart. In general this should be equal to the length of starting_var_values multiplied by the length of ending_var_values. If an argument is not provided the function assigns default colors.
         x_position : int
@@ -678,10 +697,11 @@ class _Page:
         width : int
             The width of the chart on the page
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
+        parent_group_id : str
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.
         '''
 
 
@@ -734,7 +754,7 @@ class _Page:
                             background_color="#FFFFFF",
                             background_color_alpha=None ):
 
-        '''This function adds a new table to a page
+        '''Add a table to a page
         Parameters
         ----------
 
@@ -743,9 +763,9 @@ class _Page:
         data_source : str
             The name of the dataset you want to use to display in the table. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
         variables : list
-            The variables from the table that you want to include
+            The variables from the dataset that you want to include in the table.
         table_title : str
-            Optional. Give your table an informative title!:D
+            Optional. Title to display above the table.
         table_title_font_size : int
             Optional. The font size of the table's title. Should be a valid font size number.
         column_widths : dict
@@ -755,14 +775,17 @@ class _Page:
         y_position : int
             The y coordinate of where you want to put the table on the page. The origin is the page's top left corner.
         height : int
-            The height of the table on the page
+            The height of the table on the page.
         width : int
-            The width of the table on the page
+            The width of the table on the page.
         tab_order : int
-            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
+            The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         z_position : int
-            The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
-
+            The z index for the visual. (Larger numbers mean more to the front, smaller numbers mean more to the back). Defaults to 6000.
+        parent_group_id : str
+            This should be a valid id code for another Power BI visual. If supplied the current visual will be nested inside the parent group.    
+        alt_text : str
+            Alternate text for the visualization can be provided as an argument. This is important for screen readers (accessibility) or if the visualization doesn't load properly.
         '''
 
         from powerbpy.table import _Table

@@ -10,15 +10,15 @@ from importlib import resources
 import pandas as pd # pylint: disable=import-error
 
 class Dashboard:
-    '''A python class used to model a power BI dashboard project
+    '''A python class used to model a Power BI dashboard project
 
     Notes
     -----
-    - Avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create()` or `Dashboard.load()`.
-    - To create a new dashboard instance, use either `Dashboard.create(dashboard_path)` to create a new dashboard or `Dashboard.load(dashboard_path)` to load an existing dashboard.
-    - The dashboard uses a .pbip/.pbir format with TMDL enabled.
+    - Avoid initiating a dashboard directly using `Dashboard(file_path)`, instead use `Dashboard.create(file_path)` or `Dashboard.load(file_path)`.
+    - To create a new dashboard instance, use either `Dashboard.create(file_pathh)` to create a new dashboard or `Dashboard.load(file_path)` to load an existing dashboard.
+    - Dashboards create with this package use the .pbip/.pbir format with TMDL enabled.
     - Publishing .pbip files can be complicated. For more details see the [publishing section](https://www.russellshean.com/powerbpy/dashboard_publishing.html) of the Power Bpy website.
-    - Time intelligence and relationship autodetection are turned off by default
+    - Time intelligence and relationship autodetection are turned off by default.
 
     '''
     # pylint: disable=too-many-instance-attributes
@@ -26,7 +26,7 @@ class Dashboard:
 
     def __init__(self,
                  file_path):
-        '''A python class used to model a power BI dashboard project
+        '''A python class used to model a Power BI dashboard project
         '''
 
         # Define pages as a list of instances of the page class
@@ -218,7 +218,7 @@ class Dashboard:
 
         self = cls(file_path)
 
-        # check to make sure that the dashboard seems to be an actual power BI dashboard
+        # check to make sure that the dashboard seems to be an actual Power BI dashboard
         for path in [self.report_folder_path,
                      self.semantic_model_folder_path,
                      self.pbip_file_path]:
@@ -241,11 +241,11 @@ class Dashboard:
         page_name : str
             The display name for the page you just created. This is different from the page_id which is only used internally.
         title : str
-            Title to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
+            Title to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.
         subtitle : str
-            Subtitle to put at the top of the page. This under the hood calls the add_text_box() function. If you would like more control over the title's appearance use that function instead.
+            Subtitle to put at the top of the page. This under the hood calls the `add_text_box()` function. If you would like more control over the title's appearance use that function instead.
         display_option : str
-            Default way to display the page for end users (View -> Page View options in Power BI). Possible options: FitToPage, FitToWidth, ActualSize
+            Default way to display the page for end users.  (To view these option in Power BI Desktop see View -> Page View options). Possible options: FitToPage, FitToWidth, ActualSize
 
         Returns
         -------
@@ -254,7 +254,7 @@ class Dashboard:
 
         Notes
         ----
-         The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.
+        The title and subtitle arguments make a best guess about the best font and position for the text boxes that make up the title and subtitle. These arguments are optional, so if you don't want a title or subtitle, just leave the argument blank. If you want the title to have a different font, style, position, etc from the default use the `add_text_box()` function.
         Here's the code to create a new (mostly blank) page:
 
         ```python
@@ -342,7 +342,7 @@ class Dashboard:
 
         Notes
         ----
-        You should use this function to load an existing page from a power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals.
+        You should use this function to load an existing page from a Power BI report as an instance of the Page class. This lets you call Page methods such as those that add visuals.
         To list all page ids you can use `Dashboard.list_pages()`. You can also check the .pbip folder structure to find the page ids.
         '''
         # Local import avoids circular import at module load
@@ -393,7 +393,7 @@ class Dashboard:
 
         Notes
         -----
-        - TMDL is a data storage format automatically created by power BI consisting of a table and column definitions and the M code used to generate the dataset.
+        - TMDL is a data storage format automatically created by Power BI consisting of a table and column definitions and the M code used to generate the dataset.
         - In practice this means that you can copy datasets between dashboards. You can use this function to automatically copy the TMDL files at scale
         - Potential pitfalls: M needs full paths to load data. If the new dashboard doesn't have access to the same data as the old dashboard, the data copying may fail.
         '''
@@ -424,7 +424,7 @@ class Dashboard:
 
         Notes
         -----
-        This function creates custom M code and is therefore more picky than pandas or Power BI desktop.
+        This function creates custom M code and is therefore more picky than pandas or Power BI Desktop.
         The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column").
         NA values must display as "NA" or "null" not as N/A.
         If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.
@@ -460,7 +460,7 @@ class Dashboard:
         account_url : str        
             The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.       
         blob_name : str        
-            The name of the blob container. In Azure Storage Explorer, click on the storage account, then inside "Blob Containers" will be all your blob containers. Use the node display name field.       
+            The name of the blob container. In Azure Storage Explorer, click on the storage account, then all your blob containers will be listed under "Blob Containers". Use the "node display name" field.       
         data_path : str        
             The relative path to the file you want to load from the blob. It should be relative to `blob_name`.        
         tenant_id : str       
@@ -484,7 +484,7 @@ class Dashboard:
         -----
         You should never need to hard code credentials into your script. Use the use_saved_storage_key option or a key manager instead.
 
-        This function creates custom M code and is therefore more picky than pandas or Power BI desktop.
+        This function creates custom M code and is therefore more picky than Pandas or Power BI Desktop.
         The csv file should probably not have row numbers. (Any column without a column name will be renamed to "probably_an_index_column").
         NA values must display as "NA" or "null" not as N/A.
         If the data is malformed in Power BI, try cleaning it first in python and then rerunning this function.
@@ -494,7 +494,7 @@ class Dashboard:
             
         If you get an error when trying to open the .pbip file try changing the compatibility version to 1567 in the `semanticmodel` > `definition` > `database.tmdl` file.
 
-        Dashboards created with the Dashboard.create() function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards.
+        Dashboards created with the `Dashboard.create()` function start with the compatibility version set to 1567, so you should only have this problem with manually created dashboards.
         I may eventually add an automatic fix for existing dashboards that you load with `Dashboard.load()`.
         '''
 

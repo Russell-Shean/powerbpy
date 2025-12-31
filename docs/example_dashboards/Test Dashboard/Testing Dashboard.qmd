@@ -71,7 +71,7 @@ Here's how you can add a background image to a page. To add the image, you'll ne
     
 There are two additional optional arguments:        
        
-  2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent, (defaults to 100).    
+  2. `alpha` - This is the image's transparency, where 0 is fully transparent and 100 is fully non-transparent, (defaults to 51).    
   3. `scaling_method` - This tells Power BI how to scale the image, (defaults to "Fit" which fits the image to the page).      
       
 Here's some example code that adds a new background image to the Bee Colonies page:     
@@ -249,7 +249,7 @@ I'll describe in more detail some of the optional method arguments later, but fi
        
   1. `visual_id` - Give the map a unique id that you'll remember. This id cannot be the same as any other visual in the dashboard.
   2. `data_source` - The name of the dataset you want to use to build the map. This corresponds to the dataset_name field in the add data functions. You must have already loaded the data to the dashboard.
-  3. `shape_file_path` - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by power BI. In this example dashboard I use a geojson, but presumably an ArcGis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
+  3. `shape_file_path` - A path to a shapefile that you want to use to build the map. This file can be any valid shapefile accepted by Power BI. In this example dashboard I use a geojson, but presumably an ArcGis file with a .shp extension would also work. This shape file will be added to the dashboard's registered resources.
   4. `map_title` - The title you want to put above the map.
   5. `location_var` - The name of the column in data_source that you want to use for the location variable on the map. This should also correspond to the geographical units in your shape file.
   6. `color_var` - The name of the column in data_source that you want to use for the color variable on the map. This variable should be numeric.
@@ -264,7 +264,7 @@ Additional optional arguments are available and are described in the [function d
 
   13. `filtering_var` - Optional. The name of a column in data source that you want to use to filter the color variable on the map. This must be supplied if providing percentile_bin_breaks. If you want to use percentiles without filtering (ie on static data), you should calculate the percentiles yourself and pass them to static_bin_breaks. Do not provide both static_bin_breaks and a filtering_var.      
   14. `static_bin_breaks` This should be a list of numbers that you want to use to create bins in your data. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. The function will create bins between the first and second number, second and third, third and fourth, etc. A filtering_var cannot be provided if static_bin_breaks is provided. Use percentile bin breaks instead.      
-  15. `percentile_bin_breaks` - This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. For example, to create 5 equal sized bins, pass this list: [0,0.2,0.4,0.6,0.8,1]      
+  15. `percentile_bin_breaks` - This should be a list of percentiles between 0 and 1 that you want to us to create bins in your data. If provided, a filtering_var must also be provided. This will create Power BI measures that dynamically update when the data is filtered by things such as slicers. There should be one more entry in the list than the number of bins you want and therefore the number of colors passed to the color_palette argument. For example, to create 5 equal sized bins, pass this list: [0,0.2,0.4,0.6,0.8,1]      
       
 Here's some code to add a shape map that represents bigfoot sightings by county in Washington State with the option to filter the data by the season the sighting occurred. The sightings dataset and shapefile are available on Power Bpy's GitHub [repo](https://github.com/Russell-Shean/powerbpy/tree/main/examples/data).      
      
@@ -396,7 +396,7 @@ page3.add_sanky_chart(
 If the code worked, you should see a sanky chart just to the right of the table that looks like this:    
 ![Example of a table](https://github.com/Russell-Shean/powerbpy/raw/main/docs/assets/images/sanky1_example.png)      
     
-Now let's show an example of what can be done with the `link_colors` argument. This allows you to provide a list of hex codes for each arrow, (link if you're using power BI's internal vocab). Using this argument you can provide custom colors for each of the arrows, or highlight one arrow in particular with color. Here's an example of changing the arrow colors to red, yellow, and green and also highlighting just one of the arrows by making it pink:    
+Now let's show an example of what can be done with the `link_colors` argument. This allows you to provide a list of hex codes for each arrow, (link if you're using Power BI's internal vocab). Using this argument you can provide custom colors for each of the arrows, or highlight one arrow in particular with color. Here's an example of changing the arrow colors to red, yellow, and green and also highlighting just one of the arrows by making it pink:    
    
 ```python
 # Add a new page
