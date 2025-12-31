@@ -8,7 +8,7 @@ See some [example dashboards](https://www.russellshean.com/powerbpy/example_dash
 
 [![pypi Version](https://img.shields.io/pypi/v/powerbpy.svg?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/powerbpy/)
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/powerbpy?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/powerbpy)
-[![Codecov test coverage](https://codecov.io/gh/Russell-Shean/powerbpy/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/Russell-Shean/powerbpy/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Russell-Shean/powerbpy?branch=main)
 
            
 ## Features      
