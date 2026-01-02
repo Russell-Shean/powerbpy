@@ -185,6 +185,16 @@ page4.add_text_box(text= "A test text box",
          x_position= 900,
          y_position= 300)
 
+
+# Add an arrow to the dashboard
+page4.add_shape(
+         visual_id="4th_page_arrow",
+         shape_type="arrow",
+         height= 200,
+         width=300,
+         x_position= 900,
+         y_position= 300)
+
 # Get a list of pages
 pages = my_dashboard2.list_pages()
 print(pages)
