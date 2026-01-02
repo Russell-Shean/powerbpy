@@ -20,6 +20,7 @@ class _Visual:
                   width,
                   x_position,
                   y_position,
+
                   visual_title=None,
                   visual_title_font_size=None,
                   z_position = 6000,
@@ -27,7 +28,10 @@ class _Visual:
                   parent_group_id = None,
                   alt_text="A generic visual",
                   background_color=None,
-                  background_color_alpha=None):
+                  background_color_alpha=None,
+                  fill_color=None,
+                  fill_color_alpha=None
+                  ):
 
         #from powerbpy.page import _Page
 
@@ -50,6 +54,8 @@ class _Visual:
         self.alt_text = alt_text
         self.background_color = background_color
         self.background_color_alpha = background_color_alpha
+        self.fill_color = fill_color
+        self.fill_color_alpha = fill_color_alpha
 
         # Define generic properties
         self.powerbi_schema = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json"
@@ -90,7 +96,29 @@ class _Visual:
 
             "visual": {
                 "visualType": self.visual_type,
-                "objects": {},
+                "objects": {
+                    "fill": [
+                        {
+                            "properties": {
+                            "show": {
+                                "expr": {
+                                    "Literal": {
+                                        "Value": "false"
+                                        }
+                                         }
+                                         },
+
+                            "transparency": {
+                            "expr": {
+                                "Literal": {
+                                    "Value": "0D"
+                                }
+                            }
+                        }
+                                          }   
+                                          }
+                                          ]},
+
                 "visualContainerObjects": {
                     "general": [
                         {
@@ -119,11 +147,10 @@ class _Visual:
                 }
 
             ]
-                    },
+                    }                                          },
                 "drillFilterOtherVisuals": True
 
                 }
-        }
 
         # Add a title to the visual if the user provides one
         if self.visual_title is not None:
@@ -175,6 +202,7 @@ class _Visual:
                                 }
                             }
                         }
+                        
                     }
                 })
 
@@ -205,6 +233,47 @@ class _Visual:
             for bg_obj in self.visual_json["visual"]["visualContainerObjects"]["background"]:
                 if "transparency" in bg_obj.get("properties", {}):
                     bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{background_color_alpha}D"
+
+
+        # add a fill color if the user provided one
+        if self.fill_color is not None:
+            self.visual_json["visual"]["objects"]["fill"].append( {
+                    "properties": {
+                        "show": {
+                            "expr": {
+                                "Literal": {
+                                    "Value": "true"
+                                }
+                            }
+                        }
+                    }
+                })
+
+            self.visual_json["visual"]["objects"]["fill"].append(         {
+                "properties": {
+                    "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                     "Literal": {
+                                            "Value": f"'{self.fill_color}'"
+                                        }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+
+
+        })
+
+        if self.fill_color_alpha is not None:
+            for bg_obj in self.visual_json["visual"]["objects"]["fill"]:
+                if "transparency" in bg_obj.get("properties", {}):
+                    bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{fill_color_alpha}D"
 
         # add the parent group id if the user supplies one
         if self.parent_group_id is not None:

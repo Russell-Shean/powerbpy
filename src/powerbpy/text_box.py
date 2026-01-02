@@ -30,7 +30,9 @@ class _TextBox(_Visual):
                  font_size=32,
                  font_color="#000000",
                  background_color = None,
-                 background_color_alpha=None
+                 background_color_alpha=None,
+                 fill_color=None,
+                 fill_color_alpha=None
                  ):
 
         '''Add a text box to a page
@@ -85,6 +87,8 @@ class _TextBox(_Visual):
                   alt_text=alt_text,
              background_color=background_color,
              background_color_alpha=background_color_alpha,
+                  fill_color=fill_color,
+                  fill_color_alpha=fill_color_alpha
 )
 
         # checks --------------------------------------------------------------------------------------------------------------
@@ -113,62 +117,6 @@ class _TextBox(_Visual):
                             }
                         ]
                     }
-                }
-            ]
-
-
-
-        # add a background color if the user provided one
-        if background_color is not None:
-            self.visual_json["visual"]["visualContainerObjects"]["background"] =  [
-                {
-                    "properties": {
-                        "show": {
-                            "expr": {
-                                "Literal": {
-                                    "Value": "true"
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "color": {
-                            "solid": {
-                                "color": {
-                                    "expr": {
-                                        "Literal": {
-                                            "Value": f"'{background_color}'"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "transparency": {
-                            "expr": {
-                                "Literal": {
-                                    "Value": "0D"
-                                }
-                            }
-                        }
-                    }
-                }
-
-            ]
-
-        else:
-            self.visual_json["visual"]["visualContainerObjects"]["background"] = [
-                {
-                    "properties": {
-                    "show": {
-                        "expr": {
-                            "Literal": {
-                                "Value": "false"
-                            }
-                        }
-                    }
-                }
                 }
             ]
 

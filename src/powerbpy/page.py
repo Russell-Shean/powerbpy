@@ -220,7 +220,9 @@ class _Page:
                  font_size=32,
                  font_color="#000000",
                  background_color = None,
-                 background_color_alpha=None):
+                 background_color_alpha=None,
+                 fill_color=None,
+                 fill_color_alpha=None):
 
         '''Add a text box to a page
 
@@ -277,7 +279,9 @@ class _Page:
                  font_size=font_size,
                  font_color=font_color,
                  background_color=background_color,
-                 background_color_alpha=background_color_alpha)
+                 background_color_alpha=background_color_alpha,
+                 fill_color=fill_color,
+                 fill_color_alpha=fill_color_alpha)
 
         self.visuals.append(text_box)
         return text_box
@@ -813,8 +817,10 @@ class _Page:
                  height,
                  width,
                  shape_rotation_angle=0,
-                 background_color="#FFFFFF",
+                 #background_color="#FFFFFF",
                  # background_color_alpha=None,
+                 fill_color="#FFFFFF",
+                 fill_color_alpha=None,
                  tab_order = -1001,
                  z_position = 6000,
                  parent_group_id = None,
@@ -833,8 +839,10 @@ class _Page:
                             shape_rotation_angle=shape_rotation_angle,
                             alt_text=alt_text,
                             parent_group_id=parent_group_id,
-                            background_color=background_color,
+                            #background_color=background_color,
                             #background_color_alpha=background_color_alpha,
+                            fill_color=fill_color,
+                            fill_color_alpha=fill_color_alpha,
                             tab_order = tab_order,
                             z_position = z_position)
 
