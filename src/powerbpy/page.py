@@ -819,7 +819,7 @@ class _Page:
                  shape_rotation_angle=0,
                  #background_color="#FFFFFF",
                  # background_color_alpha=None,
-                 fill_color="#FFFFFF",
+                 fill_color="#4A90E2",
                  fill_color_alpha=None,
                  tab_order = -1001,
                  z_position = 6000,

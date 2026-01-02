@@ -147,8 +147,9 @@ class _Visual:
                 }
 
             ]
-                    }                                          },
+                    } ,
                 "drillFilterOtherVisuals": True
+                 }
 
                 }
 
