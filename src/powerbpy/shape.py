@@ -22,7 +22,7 @@ class _Shape(_Visual):
                             height,
                             width,
                             parent_group_id,
-                           # background_color,
+                           background_color,
                             #background_color_alpha,
                             tab_order,
                             z_position,
@@ -93,6 +93,8 @@ class _Shape(_Visual):
         }
         ]
 
+
+        # Set the rotation angle
         self.visual_json["visual"]["objects"]["rotation"] = [
                {
               "properties": {
@@ -108,8 +110,6 @@ class _Shape(_Visual):
         }
 
         ]
-
-       
 
         # Write out the new json
         with open(self.visual_json_path, "w", encoding="utf-8") as file:

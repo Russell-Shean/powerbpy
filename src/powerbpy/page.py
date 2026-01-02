@@ -813,7 +813,7 @@ class _Page:
                  height,
                  width,
                  shape_rotation_angle=0,
-                 #background_color="#FFFFFF",
+                 background_color="#FFFFFF",
                  # background_color_alpha=None,
                  tab_order = -1001,
                  z_position = 6000,
@@ -833,7 +833,7 @@ class _Page:
                             shape_rotation_angle=shape_rotation_angle,
                             alt_text=alt_text,
                             parent_group_id=parent_group_id,
-                           # background_color=background_color,
+                            background_color=background_color,
                             #background_color_alpha=background_color_alpha,
                             tab_order = tab_order,
                             z_position = z_position)
