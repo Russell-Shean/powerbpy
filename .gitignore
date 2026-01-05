@@ -186,7 +186,7 @@ cython_debug/
 docs/docs/**
 
 # user generated dashboards
-test_dashboard/
+#test_dashboard/
 .Rproj.user
 
 # random R files

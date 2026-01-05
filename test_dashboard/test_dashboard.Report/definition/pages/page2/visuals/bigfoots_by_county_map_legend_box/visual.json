@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json",
+  "name": "bigfoots_by_county_map_legend_box",
+  "position": {
+    "x": 316.59999999999997,
+    "y": 649,
+    "z": 3000,
+    "height": 34,
+    "width": 652.8000000000001,
+    "tabOrder": -1
+  },
+  "visualGroup": {
+    "displayName": "Bins",
+    "groupMode": "ScaleMode"
+  }
+}

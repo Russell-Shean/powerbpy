@@ -1,0 +1,62 @@
+table sales_final_dataset
+	lineageTag: 719de1e3-eb22-465f-bfdb-ddb0ce69f335
+
+	column 'Name'
+		dataType: string
+		lineageTag: 9aed83f1-96a8-4a11-895e-c4fc7c44a958
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales First 180 Days'
+		dataType: double
+		lineageTag: 11da71f1-403b-49fa-9327-24050f02438d
+		summarizeBy: sum
+		sourceColumn: Sales First 180 Days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales Last 180 Days'
+		dataType: double
+		lineageTag: dd604e9e-3738-43a9-bfea-b170174faefa
+		summarizeBy: sum
+		sourceColumn: Sales Last 180 Days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Starting Size'
+		dataType: string
+		lineageTag: f2943db5-842d-43f4-a18a-07d9fcdec4e6
+		summarizeBy: none
+		sourceColumn: Starting Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ending Size'
+		dataType: string
+		lineageTag: e5a42844-51f2-4c4a-a541-fa11dc16dca9
+		summarizeBy: none
+		sourceColumn: Ending Size
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sales_final_dataset = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents("\home\russ\Documents\coding_projects\portfolio_projects\powerbpy\examples\data\sales_final_dataset.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					#"Replaced Value" = Table.ReplaceValue(#"Promoted Headers","NA",null,Replacer.ReplaceValue,{"Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"}),
+					#"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{  {"Name", type text}, {"Sales First 180 Days", type number}, {"Sales Last 180 Days", type number}, {"Starting Size", type text}, {"Ending Size", type text}   })
+				in
+					#"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

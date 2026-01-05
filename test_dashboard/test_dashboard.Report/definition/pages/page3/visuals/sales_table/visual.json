@@ -1,0 +1,211 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "sales_table",
+  "position": {
+    "x": 615,
+    "y": 0,
+    "z": 6000,
+    "height": 800,
+    "width": 615,
+    "tabOrder": -1001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "objects": {
+      "fill": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'A table'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Store Sales Details'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "sales_final_dataset.Name",
+              "nativeQueryRef": "Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Sales First 180 Days"
+                }
+              },
+              "queryRef": "sales_final_dataset.Sales First 180 Days",
+              "nativeQueryRef": "Sales First 180 Days"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Sales Last 180 Days"
+                }
+              },
+              "queryRef": "sales_final_dataset.Sales Last 180 Days",
+              "nativeQueryRef": "Sales Last 180 Days"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Starting Size"
+                }
+              },
+              "queryRef": "sales_final_dataset.Starting Size",
+              "nativeQueryRef": "Starting Size"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Ending Size"
+                }
+              },
+              "queryRef": "sales_final_dataset.Ending Size",
+              "nativeQueryRef": "Ending Size"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "drillFilterOtherVisuals": true
+}
