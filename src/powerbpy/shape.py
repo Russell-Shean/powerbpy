@@ -39,6 +39,10 @@ class _Shape(_Visual):
             The type of shape you want to put on the page. For example an arrow would be "arrow"
         shape_rotation_angle : str
             The angle that you want to rotate the shape by. Defaults to 0, or no rotation.
+        fill_color : str
+            The hex code of the color that you want to use to fill the shape. 
+        fill_color_alpha : int
+            The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0, (100% not transparent).
         alt_text : str
             Alternate text for the visualization can be provided as an argument. This is important for screen readers (accesibility) or if the visualization doesn't load properly.
         chart_title_font_size: int

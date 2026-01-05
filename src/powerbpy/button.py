@@ -25,7 +25,7 @@ class _Button(_Visual):
                  z_position = 6000,
                  tab_order=-1001,
                  fill_color="#3086C3",
-                 alpha=0,
+                 fill_color_alpha=0,
                  url_link = None,
                  page_navigation_link = None,
                  parent_group_id = None,
@@ -56,7 +56,7 @@ class _Button(_Visual):
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
         fill_color: str
             Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
-        alpha: int
+        fill_color_alpha: int
             The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
         url_link: str
             Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
@@ -80,13 +80,10 @@ class _Button(_Visual):
                   tab_order=tab_order,
                   parent_group_id=parent_group_id,
                   alt_text=alt_text,
-                  background_color=background_color,
-                  background_color_alpha=background_color_alpha)
+                  fill_color=fill_color,
+                  fill_color_alpha=fill_color_alpha)
 
-        # checks --------------------------------------------------------------------------------------------------------------
-        if alpha is not None:
-            if not isinstance(alpha, int) or not 0 <= alpha <= 100:
-                raise ValueError("alpha must be an integer between 1–100")
+        
 
         # make sure they're not trying to make the button do two things at once
         if page_navigation_link is not None and url_link is not None:
@@ -127,45 +124,6 @@ class _Button(_Visual):
                                 }
                             }
                         }
-                    }
-                }
-            ]
-
-        self.visual_json["visual"]["objects"]["fill"] = [
-                {
-                    "properties": {
-                        "show": {
-                            "expr": {
-                                "Literal": {
-                                    "Value": "true"
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "fillColor": {
-                            "solid": {
-                                "color": {
-                                    "expr": {
-                                        "Literal": {
-                                            "Value": f"'{fill_color}'"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "transparency": {
-                            "expr": {
-                                "Literal": {
-                                    "Value": f"{alpha}D"
-                                }
-                            }
-                        }
-                    },
-                    "selector": {
-                        "id": "default"
                     }
                 }
             ]

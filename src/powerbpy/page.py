@@ -298,7 +298,7 @@ class _Page:
                  z_position = 6000,
                  tab_order=-1001,
                  fill_color="#3086C3",
-                 alpha=0,
+                 fill_color_alpha=0,
                  url_link = None,
                  page_navigation_link = None,
                  alt_text="A button",
@@ -328,7 +328,7 @@ class _Page:
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions).
         fill_color : str
             Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3).
-        alpha : int
+        fill_color_alpha : int
             The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0, (100% not transparent).
         url_link : str
             Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url.
@@ -356,7 +356,7 @@ class _Page:
                  z_position =z_position,
                  tab_order=tab_order,
                  fill_color=fill_color,
-                 alpha=alpha,
+                 fill_color_alpha=fill_color_alpha,
                  url_link = url_link,
                  page_navigation_link = page_navigation_link,
                  alt_text=alt_text,

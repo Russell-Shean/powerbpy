@@ -62,6 +62,10 @@ class _Visual:
         self.visual_type = "GENERIC_VISUAL"
 
 
+        # checks --------------------------------------------------------------------------------------------------------------
+        if fill_color_alpha is not None:
+            if not isinstance(fill_color_alpha, int) or not 0 <= fill_color_alpha <= 100:
+                raise ValueError("fill_color_alpha must be an integer between 1–100")
 
         # visual id unique?
         self.new_visual_folder = os.path.join(self.page.visuals_folder, self.visual_id)
