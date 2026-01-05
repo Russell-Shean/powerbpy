@@ -1,9 +1,9 @@
 table colony
-	lineageTag: 7482f3a9-f577-492f-97bc-1bc1a68b3c22
+	lineageTag: 98a97dba-948f-4178-948b-2a00d01d7a4a
 
 	column 'year'
 		dataType: double
-		lineageTag: 1a935798-9d02-4a4d-a7a3-f7931745ccae
+		lineageTag: 7d3fd0b3-8ef1-410a-93ab-dce9e0878ce8
 		summarizeBy: sum
 		sourceColumn: year
 
@@ -13,7 +13,7 @@ table colony
 
 	column 'months'
 		dataType: string
-		lineageTag: d02186fe-3937-46ac-9088-c224bbfd59e1
+		lineageTag: 09d9abd9-e683-4e31-9386-44e9da7c5eae
 		summarizeBy: none
 		sourceColumn: months
 
@@ -21,7 +21,7 @@ table colony
 
 	column 'state'
 		dataType: string
-		lineageTag: b3085b0a-4735-459f-bcb2-ed5dbcc98dec
+		lineageTag: c6b9e364-cbe4-4a97-94b2-30c4f7499ab2
 		summarizeBy: none
 		sourceColumn: state
 
@@ -29,7 +29,7 @@ table colony
 
 	column 'colony_n'
 		dataType: double
-		lineageTag: ee505ed5-3d07-4d4b-84cd-b9d54b29d97e
+		lineageTag: 36fd1a7f-3fc8-4d7e-a749-23325998927e
 		summarizeBy: sum
 		sourceColumn: colony_n
 
@@ -39,7 +39,7 @@ table colony
 
 	column 'colony_max'
 		dataType: double
-		lineageTag: fb5d8ae3-c7c6-4cce-8ebb-b7a946f36d3e
+		lineageTag: 7749f344-d86c-4cc4-b6c3-8611e06807bc
 		summarizeBy: sum
 		sourceColumn: colony_max
 
@@ -49,7 +49,7 @@ table colony
 
 	column 'colony_lost'
 		dataType: double
-		lineageTag: 6d83388e-e0c6-4f1f-8713-db58c5858fd3
+		lineageTag: 60a6c3cd-d653-4426-943e-995df770fbf0
 		summarizeBy: sum
 		sourceColumn: colony_lost
 
@@ -59,7 +59,7 @@ table colony
 
 	column 'colony_lost_pct'
 		dataType: double
-		lineageTag: b6dcc273-64ae-499d-aae0-0fa4e956e615
+		lineageTag: 5d029177-d15d-47e1-837b-390a7e951a06
 		summarizeBy: sum
 		sourceColumn: colony_lost_pct
 
@@ -69,7 +69,7 @@ table colony
 
 	column 'colony_added'
 		dataType: double
-		lineageTag: 361f0ef9-5ec3-4714-9573-03aaf17e852c
+		lineageTag: cb0a8e38-59ed-4ed8-9c20-3a053f650065
 		summarizeBy: sum
 		sourceColumn: colony_added
 
@@ -79,7 +79,7 @@ table colony
 
 	column 'colony_reno'
 		dataType: double
-		lineageTag: f78e0d0e-ced7-4079-9790-c4f24b6981ba
+		lineageTag: d5763850-e20b-43a7-bf21-51ed83bbf6c3
 		summarizeBy: sum
 		sourceColumn: colony_reno
 
@@ -89,7 +89,7 @@ table colony
 
 	column 'colony_reno_pct'
 		dataType: double
-		lineageTag: 6ebf0fdd-44ad-4690-9809-fed953d8fe21
+		lineageTag: 14f9d62d-8b6c-42de-9a64-84207d77a2dc
 		summarizeBy: sum
 		sourceColumn: colony_reno_pct
 

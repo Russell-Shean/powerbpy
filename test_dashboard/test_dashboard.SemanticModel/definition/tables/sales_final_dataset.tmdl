@@ -1,9 +1,9 @@
 table sales_final_dataset
-	lineageTag: 719de1e3-eb22-465f-bfdb-ddb0ce69f335
+	lineageTag: da09aed1-5516-4169-9a29-8239a691f952
 
 	column 'Name'
 		dataType: string
-		lineageTag: 9aed83f1-96a8-4a11-895e-c4fc7c44a958
+		lineageTag: 1da7ad5b-355e-420b-bd40-694573005199
 		summarizeBy: none
 		sourceColumn: Name
 
@@ -11,7 +11,7 @@ table sales_final_dataset
 
 	column 'Sales First 180 Days'
 		dataType: double
-		lineageTag: 11da71f1-403b-49fa-9327-24050f02438d
+		lineageTag: 7f2d2443-fa4f-4a88-8f94-f938be65c7ca
 		summarizeBy: sum
 		sourceColumn: Sales First 180 Days
 
@@ -21,7 +21,7 @@ table sales_final_dataset
 
 	column 'Sales Last 180 Days'
 		dataType: double
-		lineageTag: dd604e9e-3738-43a9-bfea-b170174faefa
+		lineageTag: 7a2e6eb7-629c-46d6-bda2-75d8a1632fca
 		summarizeBy: sum
 		sourceColumn: Sales Last 180 Days
 
@@ -31,7 +31,7 @@ table sales_final_dataset
 
 	column 'Starting Size'
 		dataType: string
-		lineageTag: f2943db5-842d-43f4-a18a-07d9fcdec4e6
+		lineageTag: 100cc9cd-59d2-4aaf-a42c-44756e7f1cf5
 		summarizeBy: none
 		sourceColumn: Starting Size
 
@@ -39,7 +39,7 @@ table sales_final_dataset
 
 	column 'Ending Size'
 		dataType: string
-		lineageTag: e5a42844-51f2-4c4a-a541-fa11dc16dca9
+		lineageTag: 92eed4e0-4e13-43ca-bf15-2c43cf26e273
 		summarizeBy: none
 		sourceColumn: Ending Size
 

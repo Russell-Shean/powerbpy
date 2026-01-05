@@ -18,7 +18,18 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4A90E2'"
+                    }
+                  }
                 }
               }
             },
@@ -30,7 +41,9 @@
               }
             }
           }
-        },
+        }
+      ],
+      "outline": [
         {
           "properties": {
             "show": {
@@ -39,25 +52,25 @@
                   "Value": "true"
                 }
               }
-            }
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
+            },
+            "weight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "lineColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#2323ba'"
                     }
                   }
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
@@ -116,7 +129,7 @@
           }
         }
       ]
-    }
-  },
-  "drillFilterOtherVisuals": true
+    },
+    "drillFilterOtherVisuals": true
+  }
 }
