@@ -36,7 +36,6 @@ class _Table(_Visual):
         '''This function adds a new table to a page in a power BI dashboard report.
         Parameters
         ----------
-
         visual_id: str
             Please choose a unique id to use to identify the table. PBI defaults to using a UUID, but it'd probably be easier if you choose your own id.
         data_source: str

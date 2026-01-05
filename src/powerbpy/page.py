@@ -298,12 +298,10 @@ class _Page:
                  z_position = 6000,
                  tab_order=-1001,
                  fill_color="#3086C3",
-                 fill_color_alpha=0,
+                 fill_color_alpha=100,
                  url_link = None,
                  page_navigation_link = None,
                  alt_text="A button",
-                 background_color = None,
-                 background_color_alpha=None,
                  parent_group_id=None):
 
         '''Add a button to a page
@@ -360,8 +358,6 @@ class _Page:
                  url_link = url_link,
                  page_navigation_link = page_navigation_link,
                  alt_text=alt_text,
-                 background_color=background_color,
-                 background_color_alpha=background_color_alpha,
                  parent_group_id=parent_group_id)
 
         self.visuals.append(button)
@@ -819,6 +815,8 @@ class _Page:
                  shape_rotation_angle=0,
                  #background_color="#FFFFFF",
                  # background_color_alpha=None,
+                 border_width=1,
+                 border_color="#2323ba",
                  fill_color="#4A90E2",
                  fill_color_alpha=None,
                  tab_order = -1001,
@@ -841,6 +839,8 @@ class _Page:
                             parent_group_id=parent_group_id,
                             #background_color=background_color,
                             #background_color_alpha=background_color_alpha,
+                            border_color=border_color,
+                            border_width=border_width,
                             fill_color=fill_color,
                             fill_color_alpha=fill_color_alpha,
                             tab_order = tab_order,

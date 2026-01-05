@@ -30,7 +30,9 @@ class _Visual:
                   background_color=None,
                   background_color_alpha=None,
                   fill_color=None,
-                  fill_color_alpha=None
+                  fill_color_alpha=None,
+                  border_width=None,
+                  border_color=None
                   ):
 
         #from powerbpy.page import _Page
@@ -56,6 +58,8 @@ class _Visual:
         self.background_color_alpha = background_color_alpha
         self.fill_color = fill_color
         self.fill_color_alpha = fill_color_alpha
+        self.border_width = border_width
+        self.border_color = border_color
 
         # Define generic properties
         self.powerbi_schema = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json"
@@ -112,6 +116,18 @@ class _Visual:
                                          }
                                          },
 
+                            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                     "Literal": {
+                                            "Value": f"'#3086C3'"
+                                        }
+                  }
+                }
+              }
+            },
+
                             "transparency": {
                             "expr": {
                                 "Literal": {
@@ -121,7 +137,45 @@ class _Visual:
                         }
                                           }   
                                           }
-                                          ]},
+                                          ],
+                    "outline": [
+                        { 
+                            "properties": { 
+
+                                 "show": {
+                                                             "expr": {
+                                                                 "Literal": {
+                                                                     "Value": "false"
+                                                                     }
+                                                                     }
+                                                                     },
+                                "weight": { 
+                                    "expr": {
+                                        "Literal": {
+                                            "Value": "1D"
+                                            }
+                                            }
+                                            },
+                                            
+                                "lineColor": {
+                                    "solid": {
+                                        "color": {
+                                            "expr": {
+
+                                                "Literal": {
+                                            "Value": f"'#2323ba'"
+                                        }
+
+                                            }
+                                            }
+                                            }
+                                            }
+                                            }
+                                            } ]
+                                          
+                                          
+                                          
+                                          },
 
                 "visualContainerObjects": {
                     "general": [
@@ -218,7 +272,7 @@ class _Visual:
                                 "color": {
                                     "expr": {
                                         "Literal": {
-                                            "Value": f"'{self.background_color}'"
+                                            "Value": f"'#3086C3'"
                                         }
                                     }
                                 }
@@ -242,43 +296,56 @@ class _Visual:
 
         # add a fill color if the user provided one
         if self.fill_color is not None:
-            self.visual_json["visual"]["objects"]["fill"].append( {
-                    "properties": {
-                        "show": {
-                            "expr": {
-                                "Literal": {
-                                    "Value": "true"
-                                }
-                            }
-                        }
-                    }
-                })
+            for obj in self.visual_json["visual"]["objects"]["fill"]:
+                if "show" in obj.get("properties"):
+                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
 
-            self.visual_json["visual"]["objects"]["fill"].append(         {
-                "properties": {
-                    "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                     "Literal": {
-                                            "Value": f"'{self.fill_color}'"
-                                        }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
+                if "fillColor" in obj.get("properties"):
+                    obj["properties"]["fillColor"]["solid"]["color"]["expr"]["Literal"]["Value"] =  f"'{self.fill_color}'"
 
-
-        })
 
         if self.fill_color_alpha is not None:
             for bg_obj in self.visual_json["visual"]["objects"]["fill"]:
+
+                if "show" in obj.get("properties"):
+                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
+
                 if "transparency" in bg_obj.get("properties", {}):
                     bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{fill_color_alpha}D"
+
+        
+
+
+        # Border width
+        if self.border_width is not None:
+            for obj in self.visual_json["visual"]["objects"]["outline"]:
+
+                # turn the border on
+                if "show" in obj.get("properties", {}):
+                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
+
+                # change width from default
+                if "weight" in obj.get("properties", {}):
+                    obj["properties"]["weight"]["expr"]["Literal"]["Value"] = f"{self.border_width}D"
+
+        # border color
+        if self.border_color is not None:
+            for obj in self.visual_json["visual"]["objects"]["outline"]:
+
+                # turn the border on
+                if "show" in obj.get("properties", {}):
+                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
+
+                # change width from default
+                if "lineColor" in obj.get("properties", {}):
+                    obj["properties"]["lineColor"]["solid"]["color"]["expr"]["Literal"]["Value"] = f"'{self.border_color}'"
+
+
+                
+
+
+
+
 
         # add the parent group id if the user supplies one
         if self.parent_group_id is not None:

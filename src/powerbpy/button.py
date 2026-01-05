@@ -29,9 +29,7 @@ class _Button(_Visual):
                  url_link = None,
                  page_navigation_link = None,
                  parent_group_id = None,
-                 alt_text = "A button",
-                 background_color = None,
-                 background_color_alpha= None
+                 alt_text = "A button"
                  ):
 
         '''Add a button to a page
