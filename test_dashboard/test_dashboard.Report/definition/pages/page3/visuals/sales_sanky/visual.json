@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "sales_sanky",
   "position": {
     "x": 0,
@@ -11,69 +11,6 @@
   },
   "visual": {
     "visualType": "sankey02300D1BE6F5427989F3DE31CCA9E0F32020",
-    "query": {
-      "queryState": {
-        "Source": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "sales_final_dataset"
-                    }
-                  },
-                  "Property": "Starting Size"
-                }
-              },
-              "queryRef": "sales_final_dataset.Starting Size",
-              "nativeQueryRef": "Starting Size"
-            }
-          ]
-        },
-        "Destination": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "sales_final_dataset"
-                    }
-                  },
-                  "Property": "Ending Size"
-                }
-              },
-              "queryRef": "sales_final_dataset.Ending Size",
-              "nativeQueryRef": "Ending Size"
-            }
-          ]
-        },
-        "Weight": {
-          "projections": [
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "sales_final_dataset"
-                        }
-                      },
-                      "Property": "Name"
-                    }
-                  },
-                  "Function": 5
-                }
-              },
-              "queryRef": "CountNonNull(sales_final_dataset.Name)",
-              "nativeQueryRef": "Count of Name"
-            }
-          ]
-        }
-      }
-    },
     "objects": {
       "linkLabels": [
         {
@@ -668,7 +605,15 @@
       ],
       "cyclesLinks": [
         {
-          "properties": {}
+          "properties": {
+            "nodesWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
         }
       ],
       "scaleSettings": [
@@ -780,6 +725,69 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Source": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Starting Size"
+                }
+              },
+              "queryRef": "sales_final_dataset.Starting Size",
+              "nativeQueryRef": "Starting Size"
+            }
+          ]
+        },
+        "Destination": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales_final_dataset"
+                    }
+                  },
+                  "Property": "Ending Size"
+                }
+              },
+              "queryRef": "sales_final_dataset.Ending Size",
+              "nativeQueryRef": "Ending Size"
+            }
+          ]
+        },
+        "Weight": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "sales_final_dataset"
+                        }
+                      },
+                      "Property": "Name"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(sales_final_dataset.Name)",
+              "nativeQueryRef": "Count of Name"
+            }
+          ]
+        }
+      }
+    }
   }
 }

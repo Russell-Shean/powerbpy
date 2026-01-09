@@ -250,11 +250,14 @@ class _Visual:
                             "transparency": {
                             "expr": {
                                 "Literal": {
-                                    "Value": "50D"
+                                    "Value": "0D"
                                 }
                             }
                         }
-                                          }   
+                                          },
+          "selector": {
+            "id": "default"
+          }   
                                           }
                                           ] 
         
@@ -308,8 +311,15 @@ class _Visual:
                                             }
                                             
 
+                                            },
+
+                                                      "selector": {
+            "id": "default"
+          }
+
+
                                             }
-                                            } ]
+ ]
 
 
         

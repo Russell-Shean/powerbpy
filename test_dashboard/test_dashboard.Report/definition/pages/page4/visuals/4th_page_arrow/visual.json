@@ -20,7 +20,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFF00'"
+                      "Value": "'#4A90E2'"
                     }
                   }
                 }
@@ -29,22 +29,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "50D"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFFF00'"
-                    }
-                  }
+                  "Value": "0D"
                 }
               }
             }
@@ -71,29 +56,7 @@
             "weight": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "weight": {
-              "expr": {
-                "Literal": {
-                  "Value": "7D"
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0D6ABF'"
-                    }
-                  }
+                  "Value": "19D"
                 }
               }
             }
