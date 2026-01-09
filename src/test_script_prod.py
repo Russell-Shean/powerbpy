@@ -190,6 +190,8 @@ page4.add_text_box(text= "A test text box",
 page4.add_shape(
          visual_id="4th_page_arrow",
          shape_type="arrow",
+         border_color="#F130F0",
+         fill_color="#FFFF00",
          height= 100,
          width=200,
          x_position= 900,

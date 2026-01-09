@@ -289,6 +289,7 @@ class _Visual:
 
         # Border
         if (self.border_color is not None) or (self.border_width is not None):
+            print(f"visual id:{self.visual_id}\nborder color: {self.border_color}\nborder_width: {self.border_width}")
             self.visual_json["visual"]["objects"]["outline"] =  [
                         { 
                             "properties": { 

@@ -1,0 +1,1 @@
+'''This class represents and image added to a page. It is different from a background image because it's a subset of the visual class and has inherited size and position unlike a background image.'''

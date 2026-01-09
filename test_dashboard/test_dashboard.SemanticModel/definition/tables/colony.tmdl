@@ -1,9 +1,9 @@
 table colony
-	lineageTag: 8aeb6b66-7a37-4ce3-84b3-c09a2f8ea71f
+	lineageTag: 4fceb011-01e4-4055-91f4-65b576809ba2
 
-	column 'year'
+	column year
 		dataType: double
-		lineageTag: 5ff45fc7-6b4d-4527-81ae-3cb6ac7dcb89
+		lineageTag: 4e4c973b-e263-46a3-9c2e-e1ecdf71f7fa
 		summarizeBy: sum
 		sourceColumn: year
 
@@ -11,25 +11,25 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'months'
+	column months
 		dataType: string
-		lineageTag: 91a8f798-a049-4897-8b02-a34683fec489
+		lineageTag: a83b748d-d708-4edc-8708-c195ffae6942
 		summarizeBy: none
 		sourceColumn: months
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'state'
+	column state
 		dataType: string
-		lineageTag: 589f54c1-efe4-4765-a4a1-9946231fa4a5
+		lineageTag: 36984f36-56a4-48d1-abc2-2b0ac0584a8e
 		summarizeBy: none
 		sourceColumn: state
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'colony_n'
+	column colony_n
 		dataType: double
-		lineageTag: 1bc83820-ad13-40ea-a925-427d0f3a0ea4
+		lineageTag: d0fd6365-3d78-453d-936c-6562757c2c76
 		summarizeBy: sum
 		sourceColumn: colony_n
 
@@ -37,9 +37,9 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'colony_max'
+	column colony_max
 		dataType: double
-		lineageTag: 70a2dd9b-6786-4e58-87f1-2414c76e1672
+		lineageTag: 9ad459b4-ea6c-4a81-8b71-bf2b5bc7c3ab
 		summarizeBy: sum
 		sourceColumn: colony_max
 
@@ -47,9 +47,9 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'colony_lost'
+	column colony_lost
 		dataType: double
-		lineageTag: db89fbb6-9aa0-4359-8647-1deddeba9cec
+		lineageTag: 7e72c993-ccb1-4369-9314-114345d47d01
 		summarizeBy: sum
 		sourceColumn: colony_lost
 
@@ -57,9 +57,9 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'colony_lost_pct'
+	column colony_lost_pct
 		dataType: double
-		lineageTag: a30837ae-a102-4c5c-af01-d6a38305b9dc
+		lineageTag: 828854d4-c3d9-47cd-975a-1a0b6aef059e
 		summarizeBy: sum
 		sourceColumn: colony_lost_pct
 
@@ -67,9 +67,9 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'colony_added'
+	column colony_added
 		dataType: double
-		lineageTag: 4352d2e9-9707-4103-b2a4-24ac23589cd3
+		lineageTag: 7757541f-2bb6-45b8-8713-9dd53e6ca9e2
 		summarizeBy: sum
 		sourceColumn: colony_added
 
@@ -77,9 +77,9 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'colony_reno'
+	column colony_reno
 		dataType: double
-		lineageTag: 940133de-83d5-463b-8df6-a1f75691595f
+		lineageTag: f83e2b76-b2d0-486a-a84d-6924ba60599f
 		summarizeBy: sum
 		sourceColumn: colony_reno
 
@@ -87,9 +87,9 @@ table colony
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'colony_reno_pct'
+	column colony_reno_pct
 		dataType: double
-		lineageTag: 13351710-6574-4ee0-8012-2aa5af8b35c4
+		lineageTag: c27ee518-9c77-4acd-92f8-72dab3e65b64
 		summarizeBy: sum
 		sourceColumn: colony_reno_pct
 
