@@ -233,13 +233,7 @@ class _Visual:
             self.visual_json["visual"]["objects"]["fill"] = [
                         {
                             "properties": {
-                            "show": {
-                                "expr": {
-                                    "Literal": {
-                                        "Value": "true"
-                                        }
-                                         }
-                                         },
+
 
                             "fillColor": {
               "solid": {
@@ -269,8 +263,7 @@ class _Visual:
 
             # add a fill argument only if fill_color is provided 
             for obj in self.visual_json["visual"]["objects"]["fill"]:
-                if "show" in obj.get("properties"):
-                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
+
 
                 if "fillColor" in obj.get("properties"):
                     obj["properties"]["fillColor"]["solid"]["color"]["expr"]["Literal"]["Value"] =  f"'{self.fill_color}'"
@@ -278,9 +271,6 @@ class _Visual:
 
         if self.fill_color_alpha is not None:
             for bg_obj in self.visual_json["visual"]["objects"]["fill"]:
-
-                if "show" in obj.get("properties"):
-                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
 
                 if "transparency" in bg_obj.get("properties", {}):
                     bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{fill_color_alpha}D"
@@ -294,22 +284,8 @@ class _Visual:
                         { 
                             "properties": { 
 
-                                 "show": {
-                                                             "expr": {
-                                                                 "Literal": {
-                                                                     "Value": "false"
-                                                                     }
-                                                                     }
-                                                                     },
-                                "weight": { 
-                                    "expr": {
-                                        "Literal": {
-                                            "Value": "1D"
-                                            }
-                                            }
-                                            },
-                                            
-                                "lineColor": {
+
+                                 "lineColor": {
                                     "solid": {
                                         "color": {
                                             "expr": {
@@ -321,7 +297,17 @@ class _Visual:
                                             }
                                             }
                                             }
+                                            },
+
+                                "weight": { 
+                                    "expr": {
+                                        "Literal": {
+                                            "Value": "1D"
                                             }
+                                            }
+                                            }
+                                            
+
                                             }
                                             } ]
 
@@ -333,10 +319,6 @@ class _Visual:
         if self.border_width is not None:
             for obj in self.visual_json["visual"]["objects"]["outline"]:
 
-                # turn the border on
-                if "show" in obj.get("properties", {}):
-                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
-
                 # change width from default
                 if "weight" in obj.get("properties", {}):
                     obj["properties"]["weight"]["expr"]["Literal"]["Value"] = f"{self.border_width}D"
@@ -344,10 +326,6 @@ class _Visual:
         # border color
         if self.border_color is not None:
             for obj in self.visual_json["visual"]["objects"]["outline"]:
-
-                # turn the border on
-                if "show" in obj.get("properties", {}):
-                    obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
 
                 # change width from default
                 if "lineColor" in obj.get("properties", {}):
