@@ -14,7 +14,7 @@
             "y": 0
           },
           "nodeIndex": "colony",
-          "nodeLineageTag": "4fceb011-01e4-4055-91f4-65b576809ba2",
+          "nodeLineageTag": "eb75f7f3-b76d-4c0e-a6c1-8f064a4bf3fd",
           "size": {
             "height": 300,
             "width": 234
@@ -27,7 +27,7 @@
             "y": 0
           },
           "nodeIndex": "wa_bigfoot_by_county",
-          "nodeLineageTag": "cac0307a-e071-4d32-bb51-b25145d20576",
+          "nodeLineageTag": "e5b11c7d-d350-4402-b1ab-a17208ce5d76",
           "size": {
             "height": 300,
             "width": 234
@@ -40,7 +40,7 @@
             "y": 0
           },
           "nodeIndex": "sales_final_dataset",
-          "nodeLineageTag": "151182f5-b14b-48be-9292-80ccfafa3a1a",
+          "nodeLineageTag": "30ad4029-d600-4801-b35b-009f23a694fd",
           "size": {
             "height": 300,
             "width": 234
@@ -52,7 +52,7 @@
             "x": 0,
             "y": 0
           },
-          "nodeIndex": "DateTable",
+          "nodeIndex": "DataTable",
           "nodeLineageTag": "db57fa20-d82e-4023-ba17-cac4037f3611",
           "size": {
             "height": 300,

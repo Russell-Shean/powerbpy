@@ -1,190 +1,25 @@
 table wa_bigfoot_by_county
-	lineageTag: cac0307a-e071-4d32-bb51-b25145d20576
+	lineageTag: e5b11c7d-d350-4402-b1ab-a17208ce5d76
 
-	measure 'Bin 1 Range' =
-			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
-			RETURN
-			bin1_LB & "-" & bin1_UB
-		lineageTag: 70d6826e-3b79-4068-b564-afc8413527f8
-
-	measure 'Bin 2 Range' =
-			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
-			VAR bin2_LB = bin1_UB + 0.01
-			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
-			RETURN
-			bin2_LB & "-" & bin2_UB
-		lineageTag: 10ffc3e5-a8bf-4229-86e8-6b03bcf7c821
-
-	measure 'Bin 3 Range' =
-			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_60 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
-			VAR bin2_LB = bin1_UB + 0.01
-			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
-			VAR bin3_LB = bin2_UB + 0.01
-			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
-			RETURN
-			bin3_LB & "-" & bin3_UB
-		lineageTag: 2c3e73c3-3960-4271-a42d-3b8355ab3bda
-
-	measure 'Bin 4 Range' =
-			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_60 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_80 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
-			VAR bin2_LB = bin1_UB + 0.01
-			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
-			VAR bin3_LB = bin2_UB + 0.01
-			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
-			VAR bin4_LB = bin3_UB + 0.01
-			VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, ROUND( perc_80, 2) )
-			RETURN
-			bin4_LB & "-" & bin4_UB
-		lineageTag: 959ad51f-fd3a-4f06-a4ef-3b1f032188cc
-
-	measure 'Bin 5 Range' =
-			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_60 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_80 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR perc_100 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
-			VAR bin2_LB = bin1_UB + 0.01
-			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
-			VAR bin3_LB = bin2_UB + 0.01
-			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
-			VAR bin4_LB = bin3_UB + 0.01
-			VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, ROUND( perc_80, 2) )
-			VAR bin5_LB = bin4_UB + 0.01
-			VAR bin5_UB = IF ( perc_80 == perc_100 || perc_100 <= bin5_LB, bin5_LB + 0.01, ROUND( perc_100, 2) )
-			RETURN
-			bin5_LB & "-" & bin5_UB
-		lineageTag: b841e23d-e276-423a-8c55-d7bcb5c2b195
-
-	measure 'Measure Value' = CALCULATE ( SUM ( wa_bigfoot_by_county[count] ))
-		lineageTag: f91cf8ca-454c-4dcf-8b0e-d14db37bd82d
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Bin Assignment Measure' = ```
-			
-			 VAR perc_0 = 
-					CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			 VAR perc_20 = 
-					CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			 VAR perc_40 = 
-					CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			 VAR perc_60 = 
-					CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			 VAR perc_80 = 
-					CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-			 VAR perc_100 = 
-					CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
-				VAR bin1_LB = perc_0
-				VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, perc_20)
-				VAR bin2_LB = bin1_UB + 0.01
-				VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, perc_40 )
-				VAR bin3_LB = bin2_UB + 0.01
-				VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, perc_60 )
-				VAR bin4_LB = bin3_UB + 0.01
-				VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, perc_80 )
-				VAR bin5_LB = bin4_UB + 0.01
-				VAR bin5_UB = IF ( perc_80 == perc_100 || perc_100 <= bin5_LB, bin5_LB + 0.01, perc_100 )
-				RETURN
-			
-					SWITCH (
-						TRUE (),
-						ISBLANK([Measure Value]), 0,
-						[Measure Value] >= ROUND(bin1_LB,2) &&
-						[Measure Value] <= ROUND(bin1_UB,2), 1,
-						[Measure Value] >= ROUND(bin2_LB,2) &&
-						[Measure Value] <= ROUND(bin2_UB,2), 2,
-						[Measure Value] >= ROUND(bin3_LB,2) &&
-						[Measure Value] <= ROUND(bin3_UB,2), 3,
-						[Measure Value] >= ROUND(bin4_LB,2) &&
-						[Measure Value] <= ROUND(bin4_UB,2), 4,
-						[Measure Value] >= ROUND(bin5_LB,2) &&
-						[Measure Value] <= ROUND(bin5_UB,2), 5
-			
-					)
-			```
-		formatString: 0
-		lineageTag: 06c6e8bf-b367-4975-832d-c521158da20e
-
-	measure 'Empty Bin' =
-			
-			"No Data"
-		lineageTag: c51c2190-4cb0-4a6d-b1aa-6284dc69bd4c
-
-	measure '20 percentile' = ```
-			
-				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			```
-		lineageTag: f70b2a52-20b0-4715-94c4-b68c7076c0f7
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '40 percentile' = ```
-			
-				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			```
-		lineageTag: b565e8ed-eef3-4c39-85cf-3026b322784d
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '60 percentile' = ```
-			
-				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			```
-		lineageTag: 0c25b5eb-53a8-44c8-9002-ffe64957fb3b
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '80 percentile' = ```
-			
-				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			```
-		lineageTag: 30c1f6f1-1509-4600-83c0-3a575eccdfd0
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '100 percentile' = ```
-			
-				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
-			```
-		lineageTag: 9f63cf1d-64ed-4d03-8c85-1edb0a52f452
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column county
+	column 'county'
 		dataType: string
-		lineageTag: 4e06c4d1-7090-4322-96b7-c6155e6e7e39
+		lineageTag: 91903d84-5646-4aff-a6c8-b1cbb9a29eb8
 		summarizeBy: none
 		sourceColumn: county
 
 		annotation SummarizationSetBy = Automatic
 
-	column season
+	column 'season'
 		dataType: string
-		lineageTag: b5bf8f1e-5162-4f8f-ae5b-18882ddb80a8
+		lineageTag: 86c5d800-e2ff-46a9-9917-a5819d76d6e7
 		summarizeBy: none
 		sourceColumn: season
 
 		annotation SummarizationSetBy = Automatic
 
-	column count
+	column 'count'
 		dataType: double
-		lineageTag: dffafc4b-3281-4e1b-9c5c-7b49bceee400
+		lineageTag: 9d5eca02-77d7-4249-b38f-3cff9f324422
 		summarizeBy: sum
 		sourceColumn: count
 
@@ -206,4 +41,163 @@ table wa_bigfoot_by_county
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navigation
+
+	measure 'Bin 1 Range' =
+			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
+			RETURN
+			bin1_LB & "-" & bin1_UB
+		lineageTag: 900d1e10-ab95-4eba-94f6-6d5f20066875
+	measure 'Bin 2 Range' =
+			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
+			VAR bin2_LB = bin1_UB + 0.01
+			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
+			RETURN
+			bin2_LB & "-" & bin2_UB
+		lineageTag: 1fc7a04c-c5e1-402b-a3f0-a67a365fccb4
+	measure 'Bin 3 Range' =
+			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_60 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
+			VAR bin2_LB = bin1_UB + 0.01
+			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
+			VAR bin3_LB = bin2_UB + 0.01
+			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
+			RETURN
+			bin3_LB & "-" & bin3_UB
+		lineageTag: 1cad5dec-4ea4-4fef-9845-22de8361182b
+	measure 'Bin 4 Range' =
+			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_60 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_80 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
+			VAR bin2_LB = bin1_UB + 0.01
+			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
+			VAR bin3_LB = bin2_UB + 0.01
+			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
+			VAR bin4_LB = bin3_UB + 0.01
+			VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, ROUND( perc_80, 2) )
+			RETURN
+			bin4_LB & "-" & bin4_UB
+		lineageTag: 52894a44-40d5-41dc-8498-ef45bd65cbf3
+	measure 'Bin 5 Range' =
+			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_40 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_60 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_80 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR perc_100 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
+			VAR bin2_LB = bin1_UB + 0.01
+			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
+			VAR bin3_LB = bin2_UB + 0.01
+			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
+			VAR bin4_LB = bin3_UB + 0.01
+			VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, ROUND( perc_80, 2) )
+			VAR bin5_LB = bin4_UB + 0.01
+			VAR bin5_UB = IF ( perc_80 == perc_100 || perc_100 <= bin5_LB, bin5_LB + 0.01, ROUND( perc_100, 2) )
+			RETURN
+			bin5_LB & "-" & bin5_UB
+		lineageTag: 17eb8d15-5093-4391-8f3b-58f34379b5bb
+	measure 'Measure Value' = CALCULATE ( SUM ( wa_bigfoot_by_county[count] ))
+		lineageTag: 3f9a94d9-620e-489b-adf1-246a5bbb483b
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Bin Assignment Measure' = ```
+
+		 VAR perc_0 = 
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+		 VAR perc_20 = 
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+		 VAR perc_40 = 
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+		 VAR perc_60 = 
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+		 VAR perc_80 = 
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+		 VAR perc_100 = 
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
+			VAR bin1_LB = perc_0
+			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, perc_20)
+			VAR bin2_LB = bin1_UB + 0.01
+			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, perc_40 )
+			VAR bin3_LB = bin2_UB + 0.01
+			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, perc_60 )
+			VAR bin4_LB = bin3_UB + 0.01
+			VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, perc_80 )
+			VAR bin5_LB = bin4_UB + 0.01
+			VAR bin5_UB = IF ( perc_80 == perc_100 || perc_100 <= bin5_LB, bin5_LB + 0.01, perc_100 )
+			RETURN
+
+				SWITCH (
+					TRUE (),
+					ISBLANK([Measure Value]), 0,
+					[Measure Value] >= ROUND(bin1_LB,2) &&
+					[Measure Value] <= ROUND(bin1_UB,2), 1,
+					[Measure Value] >= ROUND(bin2_LB,2) &&
+					[Measure Value] <= ROUND(bin2_UB,2), 2,
+					[Measure Value] >= ROUND(bin3_LB,2) &&
+					[Measure Value] <= ROUND(bin3_UB,2), 3,
+					[Measure Value] >= ROUND(bin4_LB,2) &&
+					[Measure Value] <= ROUND(bin4_UB,2), 4,
+					[Measure Value] >= ROUND(bin5_LB,2) &&
+					[Measure Value] <= ROUND(bin5_UB,2), 5
+
+				)
+			```
+		formatString: 0
+		lineageTag: c5058e24-dae9-4009-8099-d34bba3af452
+
+	measure 'Empty Bin' =
+
+			"No Data"
+		lineageTag: e6f41a9c-11da-454b-8734-9036029cfe22
+
+	measure '20 percentile' = ```
+
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			```
+		lineageTag: 3d287917-734b-4903-bbf2-2daa2136ba57
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '40 percentile' = ```
+
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			```
+		lineageTag: e9186545-d56d-4d41-8ef4-da9570d9cdaf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '60 percentile' = ```
+
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			```
+		lineageTag: 42dbe9b5-ebea-44ef-8261-21322154cf87
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '80 percentile' = ```
+
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			```
+		lineageTag: aafef912-7d78-491a-85c9-af5b477d46cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '100 percentile' = ```
+
+				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
+			```
+		lineageTag: 51cee053-983e-4685-a5aa-65f6859676b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

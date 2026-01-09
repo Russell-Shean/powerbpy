@@ -3,6 +3,7 @@
   "datasetReference": {
     "byPath": {
       "path": "../test_dashboard.SemanticModel"
-    }
+    },
+    "byConnection": null
   }
 }

@@ -8,14 +8,20 @@ model Model
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBIDesktopVersion = 2.137.952.0 (24.10)
+
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["colony","wa_bigfoot_by_county","sales_final_dataset","DateTable"]
-
-ref table colony
-ref table wa_bigfoot_by_county
-ref table sales_final_dataset
-ref table DateTable
+annotation PBI_QueryOrder = ['colony', 'wa_bigfoot_by_county', 'sales_final_dataset', 'DataTable']
 
 ref cultureInfo en-US
 
+
+
+ref table colony
+
+ref table wa_bigfoot_by_county
+
+ref table sales_final_dataset
+
+ref table DataTable

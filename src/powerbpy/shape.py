@@ -93,6 +93,9 @@ class _Shape(_Visual):
         # Update the visual type
         self.visual_json["visual"]["visualType"] = "shape"
 
+        # update schema
+        self.visual_json["$schema"] = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json"
+
         ## objects
         self.visual_json["visual"]["objects"]["shape"] = [
              { "properties": {
