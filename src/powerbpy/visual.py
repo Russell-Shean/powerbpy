@@ -104,78 +104,7 @@ class _Visual:
 
             "visual": {
                 "visualType": self.visual_type,
-                "objects": {
-                    "fill": [
-                        {
-                            "properties": {
-                            "show": {
-                                "expr": {
-                                    "Literal": {
-                                        "Value": "false"
-                                        }
-                                         }
-                                         },
-
-                            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                     "Literal": {
-                                            "Value": f"'#3086C3'"
-                                        }
-                  }
-                }
-              }
-            },
-
-                            "transparency": {
-                            "expr": {
-                                "Literal": {
-                                    "Value": "0D"
-                                }
-                            }
-                        }
-                                          }   
-                                          }
-                                          ],
-                    "outline": [
-                        { 
-                            "properties": { 
-
-                                 "show": {
-                                                             "expr": {
-                                                                 "Literal": {
-                                                                     "Value": "false"
-                                                                     }
-                                                                     }
-                                                                     },
-                                "weight": { 
-                                    "expr": {
-                                        "Literal": {
-                                            "Value": "1D"
-                                            }
-                                            }
-                                            },
-                                            
-                                "lineColor": {
-                                    "solid": {
-                                        "color": {
-                                            "expr": {
-
-                                                "Literal": {
-                                            "Value": f"'#2323ba'"
-                                        }
-
-                                            }
-                                            }
-                                            }
-                                            }
-                                            }
-                                            } ]
-                                          
-                                          
-                                          
-                                          },
+                "objects": {},
 
                 "visualContainerObjects": {
                     "general": [
@@ -252,6 +181,7 @@ class _Visual:
 
         # add a background color if the user provided one
         if self.background_color is not None:
+            print(f"visual id: {self.visual_id}\nbackground_color:{self.background_color}\nbackground_color_alpha: {self.background_color_alpha}\n\n")
             self.visual_json["visual"]["visualContainerObjects"]["background"].append( {
                     "properties": {
                         "show": {
@@ -272,7 +202,7 @@ class _Visual:
                                 "color": {
                                     "expr": {
                                         "Literal": {
-                                            "Value": f"'#3086C3'"
+                                            "Value": f"'{self.background_color}'"
                                         }
                                     }
                                 }
@@ -289,13 +219,55 @@ class _Visual:
                 })
 
         if self.background_color_alpha is not None:
+            print(f"visual id: {self.visual_id}\nbackground_color:{self.background_color}\nbackground_color_alpha: {self.background_color_alpha}\n\n")
             for bg_obj in self.visual_json["visual"]["visualContainerObjects"]["background"]:
                 if "transparency" in bg_obj.get("properties", {}):
                     bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{background_color_alpha}D"
 
 
         # add a fill color if the user provided one
+
+        # Define the associated json, only when an argument if provided for fill_color or fill_color_alpha
+        if (self.fill_color is not None) or (self.fill_color_alpha is not None):
+            print(f"visual id: {self.visual_id}\nfill_color: {self.fill_color}\nfill_color_alpha: {self.fill_color_alpha}\n\n")
+            self.visual_json["visual"]["objects"]["fill"] = [
+                        {
+                            "properties": {
+                            "show": {
+                                "expr": {
+                                    "Literal": {
+                                        "Value": "true"
+                                        }
+                                         }
+                                         },
+
+                            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                     "Literal": {
+                                            "Value": f"'#3086C3'"
+                                        }
+                  }
+                }
+              }
+            },
+
+                            "transparency": {
+                            "expr": {
+                                "Literal": {
+                                    "Value": "50D"
+                                }
+                            }
+                        }
+                                          }   
+                                          }
+                                          ] 
+        
+        
         if self.fill_color is not None:
+
+            # add a fill argument only if fill_color is provided 
             for obj in self.visual_json["visual"]["objects"]["fill"]:
                 if "show" in obj.get("properties"):
                     obj["properties"]["show"]["expr"]["Literal"]["Value"] = "true"
@@ -312,6 +284,46 @@ class _Visual:
 
                 if "transparency" in bg_obj.get("properties", {}):
                     bg_obj["properties"]["transparency"]["expr"]["Literal"]["Value"] = f"{fill_color_alpha}D"
+
+        
+
+        # Border
+        if (self.border_color is not None) or (self.border_width is not None):
+            self.visual_json["visual"]["objects"]["outline"] =  [
+                        { 
+                            "properties": { 
+
+                                 "show": {
+                                                             "expr": {
+                                                                 "Literal": {
+                                                                     "Value": "false"
+                                                                     }
+                                                                     }
+                                                                     },
+                                "weight": { 
+                                    "expr": {
+                                        "Literal": {
+                                            "Value": "1D"
+                                            }
+                                            }
+                                            },
+                                            
+                                "lineColor": {
+                                    "solid": {
+                                        "color": {
+                                            "expr": {
+
+                                                "Literal": {
+                                            "Value": f"'#2323ba'"
+                                        }
+
+                                            }
+                                            }
+                                            }
+                                            }
+                                            }
+                                            } ]
+
 
         
 

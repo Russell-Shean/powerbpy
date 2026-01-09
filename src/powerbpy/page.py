@@ -297,8 +297,8 @@ class _Page:
                  y_position,
                  z_position = 6000,
                  tab_order=-1001,
-                 fill_color="#3086C3",
-                 fill_color_alpha=100,
+                 background_color="#3086C3",
+                 background_color_alpha=0,
                  url_link = None,
                  page_navigation_link = None,
                  alt_text="A button",
@@ -353,8 +353,8 @@ class _Page:
                  y_position=y_position,
                  z_position =z_position,
                  tab_order=tab_order,
-                 fill_color=fill_color,
-                 fill_color_alpha=fill_color_alpha,
+                 background_color=background_color,
+                 background_color_alpha=background_color_alpha,
                  url_link = url_link,
                  page_navigation_link = page_navigation_link,
                  alt_text=alt_text,
@@ -379,7 +379,7 @@ class _Page:
                background_color = None,
                parent_group_id = None,
                alt_text= "A slicer",
-                 background_color_alpha=None):
+               background_color_alpha=None):
 
         '''Add a slicer to a page
 

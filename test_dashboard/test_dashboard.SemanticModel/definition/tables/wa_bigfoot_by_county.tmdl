@@ -1,9 +1,9 @@
 table wa_bigfoot_by_county
-	lineageTag: 0dda0214-ae83-47f1-8349-b18442fd2e5a
+	lineageTag: a36ea162-ab45-4ac3-a968-5693afa02c71
 
 	column 'county'
 		dataType: string
-		lineageTag: 83965237-3fcb-423e-b407-90d5b27f4931
+		lineageTag: e35e2dd7-486e-4e21-9513-0f6ed0756acd
 		summarizeBy: none
 		sourceColumn: county
 
@@ -11,7 +11,7 @@ table wa_bigfoot_by_county
 
 	column 'season'
 		dataType: string
-		lineageTag: f29c94b4-0829-43d6-ba38-034a4ab42fb1
+		lineageTag: 46d02056-75ee-457d-b0d8-aa89b61b11d0
 		summarizeBy: none
 		sourceColumn: season
 
@@ -19,7 +19,7 @@ table wa_bigfoot_by_county
 
 	column 'count'
 		dataType: double
-		lineageTag: cb8a9755-3e0f-4cc7-b60d-77a90c214fd6
+		lineageTag: 16d34598-6a21-461b-8069-edacf36d6104
 		summarizeBy: sum
 		sourceColumn: count
 
@@ -31,7 +31,7 @@ table wa_bigfoot_by_county
 		mode: import
 		source =
 				let
-					Source = Csv.Document(File.Contents("\home\russ\Documents\coding_projects\portfolio_projects\powerbpy\examples\data\wa_bigfoot_by_county.csv"),[Delimiter=",", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+					Source = Csv.Document(File.Contents("C:\Users\rshea\coding_projects\powerbpy\examples\data\wa_bigfoot_by_county.csv"),[Delimiter=",", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 					#"Replaced Value" = Table.ReplaceValue(#"Promoted Headers","NA",null,Replacer.ReplaceValue,{"county", "season", "count"}),
 					#"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{  {"county", type text}, {"season", type text}, {"count", type number}   })
@@ -48,7 +48,7 @@ table wa_bigfoot_by_county
 			VAR bin1_LB = perc_0			VAR bin1_UB = IF ( perc_0 == perc_20, bin1_LB + 0.01, ROUND( perc_20, 2) )
 			RETURN
 			bin1_LB & "-" & bin1_UB
-		lineageTag: 19bf3ac3-f26e-4497-bbc4-e247bde7a5ea
+		lineageTag: cb6332df-1c5e-45ef-a68c-1bc7b6e8896a
 	measure 'Bin 2 Range' =
 			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
 			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
@@ -58,7 +58,7 @@ table wa_bigfoot_by_county
 			VAR bin2_UB = IF ( perc_20 == perc_40 || perc_40 <= bin2_LB, bin2_LB + 0.01, ROUND( perc_40, 2) )
 			RETURN
 			bin2_LB & "-" & bin2_UB
-		lineageTag: bcbe1971-1709-471a-a081-5cc7f5249736
+		lineageTag: a0ac5ee2-b397-42d3-84dd-a5eddc2ea9dc
 	measure 'Bin 3 Range' =
 			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
 			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
@@ -71,7 +71,7 @@ table wa_bigfoot_by_county
 			VAR bin3_UB = IF ( perc_40 == perc_60 || perc_60 <= bin3_LB, bin3_LB + 0.01, ROUND( perc_60, 2) )
 			RETURN
 			bin3_LB & "-" & bin3_UB
-		lineageTag: 16ea9ff7-73f2-4af3-b2d3-74406ebce48d
+		lineageTag: 925d833d-0acb-4274-bd8b-a4cac750f647
 	measure 'Bin 4 Range' =
 			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
 			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
@@ -87,7 +87,7 @@ table wa_bigfoot_by_county
 			VAR bin4_UB = IF ( perc_60 == perc_80 || perc_80 <= bin4_LB, bin4_LB + 0.01, ROUND( perc_80, 2) )
 			RETURN
 			bin4_LB & "-" & bin4_UB
-		lineageTag: 81844484-4ab7-4902-89f0-492a273f0927
+		lineageTag: 0ef036f1-a4bb-453a-8f86-1e50f1af1f26
 	measure 'Bin 5 Range' =
 			VAR perc_0 =  CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0 ), REMOVEFILTERS(wa_bigfoot_by_county[county]) )
 			VAR perc_20 = CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
@@ -106,9 +106,9 @@ table wa_bigfoot_by_county
 			VAR bin5_UB = IF ( perc_80 == perc_100 || perc_100 <= bin5_LB, bin5_LB + 0.01, ROUND( perc_100, 2) )
 			RETURN
 			bin5_LB & "-" & bin5_UB
-		lineageTag: 73ea1898-992a-4495-b842-a7d6857b265f
+		lineageTag: 935c8365-86fd-48c5-b01c-6575c889b47e
 	measure 'Measure Value' = CALCULATE ( SUM ( wa_bigfoot_by_county[count] ))
-		lineageTag: 4b80e752-c66d-41bf-bb39-e906ceae1a33
+		lineageTag: 277aa5ec-5ea1-47a4-8e3e-cac5de5084e7
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Bin Assignment Measure' = ```
@@ -154,18 +154,18 @@ table wa_bigfoot_by_county
 				)
 			```
 		formatString: 0
-		lineageTag: 2f4f48eb-91c6-4d1e-b994-4fc86855c6da
+		lineageTag: 45f38853-4204-482e-a098-59203cc47c30
 
 	measure 'Empty Bin' =
 
 			"No Data"
-		lineageTag: 78d0d811-6d4e-4454-9a6f-31a659859466
+		lineageTag: 96ab2f80-91c6-4780-a876-4e2fa1727585
 
 	measure '20 percentile' = ```
 
 				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.2 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
 			```
-		lineageTag: a9ad595f-2e3c-4114-9e54-c5e09cbba79d
+		lineageTag: 7db7c67d-ed08-4105-91ad-4853e3fdfe82
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -173,7 +173,7 @@ table wa_bigfoot_by_county
 
 				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.4 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
 			```
-		lineageTag: e9652407-aa82-4dae-94ac-6a3e95b7961f
+		lineageTag: 23609765-645e-48db-ad45-8ab465a4602e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -181,7 +181,7 @@ table wa_bigfoot_by_county
 
 				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.6 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
 			```
-		lineageTag: 535a19ee-6022-4260-95a2-040051a933b9
+		lineageTag: 231fccf1-bfa5-4d46-98b3-7071615c23f7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -189,7 +189,7 @@ table wa_bigfoot_by_county
 
 				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 0.8 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
 			```
-		lineageTag: 45f57001-6e68-4b51-8965-db721462b9ff
+		lineageTag: edd018f0-0355-4670-b0b8-7dbf5cbcab39
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -197,7 +197,7 @@ table wa_bigfoot_by_county
 
 				CALCULATE ( PERCENTILE.INC (wa_bigfoot_by_county[count], 1 ), REMOVEFILTERS(wa_bigfoot_by_county[county])  )
 			```
-		lineageTag: 5f329dfd-09f0-4847-be79-1dbc65db824e
+		lineageTag: d5afed94-e563-4fe7-ae8c-3dbc0ba51010
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

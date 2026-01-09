@@ -1,9 +1,9 @@
 table sales_final_dataset
-	lineageTag: da09aed1-5516-4169-9a29-8239a691f952
+	lineageTag: 6d2bd83b-a35f-4ab4-8825-450d736f1f18
 
 	column 'Name'
 		dataType: string
-		lineageTag: 1da7ad5b-355e-420b-bd40-694573005199
+		lineageTag: f5f94195-ba4e-42ce-ac31-1538908a4397
 		summarizeBy: none
 		sourceColumn: Name
 
@@ -11,7 +11,7 @@ table sales_final_dataset
 
 	column 'Sales First 180 Days'
 		dataType: double
-		lineageTag: 7f2d2443-fa4f-4a88-8f94-f938be65c7ca
+		lineageTag: dfe563fa-3c61-47e9-9dd3-a00d85d7d3cc
 		summarizeBy: sum
 		sourceColumn: Sales First 180 Days
 
@@ -21,7 +21,7 @@ table sales_final_dataset
 
 	column 'Sales Last 180 Days'
 		dataType: double
-		lineageTag: 7a2e6eb7-629c-46d6-bda2-75d8a1632fca
+		lineageTag: 2cb4c2e8-9513-4bf5-bea1-1179d1c1dbfd
 		summarizeBy: sum
 		sourceColumn: Sales Last 180 Days
 
@@ -31,7 +31,7 @@ table sales_final_dataset
 
 	column 'Starting Size'
 		dataType: string
-		lineageTag: 100cc9cd-59d2-4aaf-a42c-44756e7f1cf5
+		lineageTag: 16ec51e5-465d-4bf4-868f-861a3dcb2261
 		summarizeBy: none
 		sourceColumn: Starting Size
 
@@ -39,7 +39,7 @@ table sales_final_dataset
 
 	column 'Ending Size'
 		dataType: string
-		lineageTag: 92eed4e0-4e13-43ca-bf15-2c43cf26e273
+		lineageTag: eb4de160-15f7-4ee4-9729-45bdca90d8ec
 		summarizeBy: none
 		sourceColumn: Ending Size
 
@@ -49,7 +49,7 @@ table sales_final_dataset
 		mode: import
 		source =
 				let
-					Source = Csv.Document(File.Contents("\home\russ\Documents\coding_projects\portfolio_projects\powerbpy\examples\data\sales_final_dataset.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+					Source = Csv.Document(File.Contents("C:\Users\rshea\coding_projects\powerbpy\examples\data\sales_final_dataset.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 					#"Replaced Value" = Table.ReplaceValue(#"Promoted Headers","NA",null,Replacer.ReplaceValue,{"Name", "Sales First 180 Days", "Sales Last 180 Days", "Starting Size", "Ending Size"}),
 					#"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{  {"Name", type text}, {"Sales First 180 Days", type number}, {"Sales Last 180 Days", type number}, {"Starting Size", type text}, {"Ending Size", type text}   })

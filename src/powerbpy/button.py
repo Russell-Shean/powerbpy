@@ -24,8 +24,8 @@ class _Button(_Visual):
                  y_position,
                  z_position = 6000,
                  tab_order=-1001,
-                 fill_color="#3086C3",
-                 fill_color_alpha=0,
+                 background_color="#3086C3",
+                 background_color_alpha=0,
                  url_link = None,
                  page_navigation_link = None,
                  parent_group_id = None,
@@ -52,9 +52,9 @@ class _Button(_Visual):
             The z index for the visual. (Larger number means more to the front, smaller number means more to the back). Defaults to 6000
         tab_order: int
             The order which the screen reader reads different elements on the page. Defaults to -1001 for now. (I need to do more to figure out what the numbers correspond to. It should also be possible to create a function to automatically order this left to right top to bottom by looping through all the visuals on a page and comparing their x and y positions)
-        fill_color: str
+        background_color: str
             Hex code for the background (fill) color you'd like to use for the button. Defaults to blue (#3086C3)
-        fill_color_alpha: int
+        background_color_alpha: int
             The transparency of the fill color. Must be a whole integer between 1 and 100. Defaults to 0 (100% not transparent)
         url_link: str
             Optional argument. If provided, the button will navigate to this URL. Should be a full, not relative url
@@ -78,8 +78,9 @@ class _Button(_Visual):
                   tab_order=tab_order,
                   parent_group_id=parent_group_id,
                   alt_text=alt_text,
-                  fill_color=fill_color,
-                  fill_color_alpha=fill_color_alpha)
+                  background_color=background_color,
+                  background_color_alpha=background_color_alpha
+                 )
 
         
 

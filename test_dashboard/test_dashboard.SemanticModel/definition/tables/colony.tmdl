@@ -1,9 +1,9 @@
 table colony
-	lineageTag: 98a97dba-948f-4178-948b-2a00d01d7a4a
+	lineageTag: 8aeb6b66-7a37-4ce3-84b3-c09a2f8ea71f
 
 	column 'year'
 		dataType: double
-		lineageTag: 7d3fd0b3-8ef1-410a-93ab-dce9e0878ce8
+		lineageTag: 5ff45fc7-6b4d-4527-81ae-3cb6ac7dcb89
 		summarizeBy: sum
 		sourceColumn: year
 
@@ -13,7 +13,7 @@ table colony
 
 	column 'months'
 		dataType: string
-		lineageTag: 09d9abd9-e683-4e31-9386-44e9da7c5eae
+		lineageTag: 91a8f798-a049-4897-8b02-a34683fec489
 		summarizeBy: none
 		sourceColumn: months
 
@@ -21,7 +21,7 @@ table colony
 
 	column 'state'
 		dataType: string
-		lineageTag: c6b9e364-cbe4-4a97-94b2-30c4f7499ab2
+		lineageTag: 589f54c1-efe4-4765-a4a1-9946231fa4a5
 		summarizeBy: none
 		sourceColumn: state
 
@@ -29,7 +29,7 @@ table colony
 
 	column 'colony_n'
 		dataType: double
-		lineageTag: 36fd1a7f-3fc8-4d7e-a749-23325998927e
+		lineageTag: 1bc83820-ad13-40ea-a925-427d0f3a0ea4
 		summarizeBy: sum
 		sourceColumn: colony_n
 
@@ -39,7 +39,7 @@ table colony
 
 	column 'colony_max'
 		dataType: double
-		lineageTag: 7749f344-d86c-4cc4-b6c3-8611e06807bc
+		lineageTag: 70a2dd9b-6786-4e58-87f1-2414c76e1672
 		summarizeBy: sum
 		sourceColumn: colony_max
 
@@ -49,7 +49,7 @@ table colony
 
 	column 'colony_lost'
 		dataType: double
-		lineageTag: 60a6c3cd-d653-4426-943e-995df770fbf0
+		lineageTag: db89fbb6-9aa0-4359-8647-1deddeba9cec
 		summarizeBy: sum
 		sourceColumn: colony_lost
 
@@ -59,7 +59,7 @@ table colony
 
 	column 'colony_lost_pct'
 		dataType: double
-		lineageTag: 5d029177-d15d-47e1-837b-390a7e951a06
+		lineageTag: a30837ae-a102-4c5c-af01-d6a38305b9dc
 		summarizeBy: sum
 		sourceColumn: colony_lost_pct
 
@@ -69,7 +69,7 @@ table colony
 
 	column 'colony_added'
 		dataType: double
-		lineageTag: cb0a8e38-59ed-4ed8-9c20-3a053f650065
+		lineageTag: 4352d2e9-9707-4103-b2a4-24ac23589cd3
 		summarizeBy: sum
 		sourceColumn: colony_added
 
@@ -79,7 +79,7 @@ table colony
 
 	column 'colony_reno'
 		dataType: double
-		lineageTag: d5763850-e20b-43a7-bf21-51ed83bbf6c3
+		lineageTag: 940133de-83d5-463b-8df6-a1f75691595f
 		summarizeBy: sum
 		sourceColumn: colony_reno
 
@@ -89,7 +89,7 @@ table colony
 
 	column 'colony_reno_pct'
 		dataType: double
-		lineageTag: 14f9d62d-8b6c-42de-9a64-84207d77a2dc
+		lineageTag: 13351710-6574-4ee0-8012-2aa5af8b35c4
 		summarizeBy: sum
 		sourceColumn: colony_reno_pct
 
@@ -101,7 +101,7 @@ table colony
 		mode: import
 		source =
 				let
-					Source = Csv.Document(File.Contents("\home\russ\Documents\coding_projects\portfolio_projects\powerbpy\examples\data\colony.csv"),[Delimiter=",", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+					Source = Csv.Document(File.Contents("C:\Users\rshea\coding_projects\powerbpy\examples\data\colony.csv"),[Delimiter=",", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 					#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 					#"Replaced Value" = Table.ReplaceValue(#"Promoted Headers","NA",null,Replacer.ReplaceValue,{"year", "months", "state", "colony_n", "colony_max", "colony_lost", "colony_lost_pct", "colony_added", "colony_reno", "colony_reno_pct"}),
 					#"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{  {"year", type number}, {"months", type text}, {"state", type text}, {"colony_n", type number}, {"colony_max", type number}, {"colony_lost", type number}, {"colony_lost_pct", type number}, {"colony_added", type number}, {"colony_reno", type number}, {"colony_reno_pct", type number}   })
