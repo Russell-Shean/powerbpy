@@ -52,7 +52,7 @@
             "x": 0,
             "y": 0
           },
-          "nodeIndex": "DataTable",
+          "nodeIndex": "DateTable",
           "nodeLineageTag": "db57fa20-d82e-4023-ba17-cac4037f3611",
           "size": {
             "height": 300,

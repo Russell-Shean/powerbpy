@@ -1,7 +1,7 @@
 table sales_final_dataset
 	lineageTag: 30ad4029-d600-4801-b35b-009f23a694fd
 
-	column 'Name'
+	column Name
 		dataType: string
 		lineageTag: a5489263-8847-4da7-802f-52a31bde499f
 		summarizeBy: none
