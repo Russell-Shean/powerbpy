@@ -179,18 +179,18 @@ class Dashboard:
 
         ## Semantic model folder ----------------------------------------------------------------
         # .platform file
-        with open(self.platform_file_path,'r', encoding="utf-8") as file:
-            platform_file = json.load(file)
+        with open(self.sm_platform_file_path,'r', encoding="utf-8") as file:
+            sm_platform_file = json.load(file)
 
         # modify the display name
-        platform_file["metadata"]["displayName"] = f'{self.report_name}'
+        sm_platform_file["metadata"]["displayName"] = f'{self.report_name}'
 
         # update the unique UUID
-        platform_file["config"]["logicalId"] = self.sm_logical_id
+        sm_platform_file["config"]["logicalId"] = self.sm_logical_id
 
         # write to file
-        with open(self.platform_file_path,'w', encoding="utf-8") as file:
-            json.dump(platform_file, file, indent = 2)
+        with open(self.sm_platform_file_path,'w', encoding="utf-8") as file:
+            json.dump(sm_platform_file, file, indent = 2)
 
         return self
 

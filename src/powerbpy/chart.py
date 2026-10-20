@@ -8,6 +8,19 @@ import json
 
 from powerbpy.visual import _Visual
 
+# Power BI SQExpr aggregation Function codes
+_AGGREGATION_FUNCTION_CODES = {
+    "Sum": 0,
+    "Min": 1,
+    "Max": 2,
+    "Count": 3,
+    "LongCount": 4,
+    "DistinctCount": 5,
+    "CountDistinct": 5,
+    "Average": 6,
+    "Avg": 6,
+}
+
 class _Chart(_Visual):
     """A subset of the visual class, this class represents charts"""
 
@@ -133,7 +146,7 @@ class _Chart(_Visual):
                                             "Property": y_axis_var
                                         }
                                     },
-                                    "Function": 0
+                                    "Function": _AGGREGATION_FUNCTION_CODES.get(y_axis_var_aggregation_type, 0)
                                 }
                             },
                             "queryRef": f"{y_axis_var_aggregation_type}({data_source}.{y_axis_var})",
@@ -157,7 +170,7 @@ class _Chart(_Visual):
                                         "Property": y_axis_var
                                     }
                                 },
-                                "Function": 0
+                                "Function": _AGGREGATION_FUNCTION_CODES.get(y_axis_var_aggregation_type, 0)
                             }
                         },
                         "direction": "Descending"
