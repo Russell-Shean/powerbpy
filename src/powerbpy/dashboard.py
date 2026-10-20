@@ -408,14 +408,18 @@ class Dashboard:
         return tmdl
 
     def add_local_csv(self,
-                      data_path):
+                      data_path,
+                      encoding = "utf-8"):
 
         '''Add a locally stored CSV file to a dashboard
 
         Parameters
         ----------
-        data_path : str       
+        data_path : str
             The path where the csv file is stored. Can be a relative path. The M code requires a full path, but this python function will help you resolve any valid relative paths to an absolute path.
+        encoding : str
+            The encoding of the CSV file. Defaults to "utf-8". Common values:
+            "utf-8" (65001), "windows-1252" (1252), "utf-16" (1200), "iso-8859-1" (28591).
 
         Returns
         -------
@@ -436,7 +440,8 @@ class Dashboard:
         from powerbpy.dataset_csv import _LocalCsv
 
         dataset = _LocalCsv(self,
-                           data_path)
+                           data_path,
+                           encoding=encoding)
 
         self.datasets.append(dataset)
         return dataset
@@ -451,30 +456,34 @@ class Dashboard:
                  use_saved_storage_key = False,
                  sas_url = None,
                  storage_account_key = None,
-                 warnings = True):
+                 warnings = True,
+                 encoding = "utf-8"):
 
         '''Add a csv file stored in a ADLS blob container to a dashboard
 
         Parameters
         ----------
-        account_url : str        
-            The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.       
-        blob_name : str        
-            The name of the blob container. In Azure Storage Explorer, click on the storage account, then all your blob containers will be listed under "Blob Containers". Use the "node display name" field.       
-        data_path : str        
-            The relative path to the file you want to load from the blob. It should be relative to `blob_name`.        
-        tenant_id : str       
-            The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).        
-        use_saved_storage_key : bool       
-            This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there.       
-                
-            USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.       
-        sas_url : str       
-            A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature".       
-        storage_account_key : str        
-            It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger.      
-                  
+        account_url : str
+            The url to your Azure storage account. It should be in the format of `https://<YOUR STORAGE ACCOUNT NAME>.blob.core.windows.net/`. You can find it in Azure Storage Explorer by clicking on the storage account and then looking at the blob endpoint field.
+        blob_name : str
+            The name of the blob container. In Azure Storage Explorer, click on the storage account, then all your blob containers will be listed under "Blob Containers". Use the "node display name" field.
+        data_path : str
+            The relative path to the file you want to load from the blob. It should be relative to `blob_name`.
+        tenant_id : str
+            The tenant id of the tenant where your storage account is stored. This field is only used with browser authentication. (The default).
+        use_saved_storage_key : bool
+            This optional argument tells python to look in your system's default credential manager for an Azure Storage Account token and prompt the user to add one if it's not there.
+
+            USE WITH CAUTION, storage account tokens give a significant number of permissions. Consider using SAS urls or interactive browser authentication for more limited permissions instead.
+        sas_url : str
+            A limited time single access url scoped to just the file you want to grant read access to. To generate one from Azure Storage Explorer, right click on the file you want and then choose "Get Shared Access Signature".
+        storage_account_key : str
+            It is not recommended to use this when running this function on a local computer. Hardcoding credentials into code is a potential security risk. On a local computer, please set use_saved_storage_key to true instead. It will store the key securely in your operating system's credential manger.
+
             You should only pass a storage account key to the function if you are running this code in a cloud environment such as databricks and using that cloud platform's secure secret manager. (Something like Github Secrets or Azure Key Vault).
+        encoding : str
+            The encoding of the CSV file. Defaults to "utf-8". Common values:
+            "utf-8" (65001), "windows-1252" (1252), "utf-16" (1200), "iso-8859-1" (28591).
 
         Returns
         -------
@@ -508,7 +517,8 @@ class Dashboard:
                  use_saved_storage_key = use_saved_storage_key,
                  sas_url = sas_url,
                  storage_account_key = storage_account_key,
-                 warnings = warnings)
+                 warnings = warnings,
+                 encoding = encoding)
 
         self.datasets.append(dataset)
         return dataset
