@@ -717,7 +717,7 @@ class _ShapeMap(_Visual):
 
         #check to make sure the dataset exists
         if not os.path.exists(dataset_file_path):
-            raise ValueError("The {dataset_name} dataset doesn't exist yet! Try adding it using Dashboard.add_local_csv() or one of the other methods for adding datasets")
+            raise ValueError(f"The {dataset_name} dataset doesn't exist yet! Try adding it using Dashboard.add_local_csv() or one of the other methods for adding datasets")
 
 
 

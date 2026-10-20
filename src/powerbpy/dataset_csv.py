@@ -5,10 +5,7 @@
 
 import getpass
 import re
-import keyring # pylint: disable=import-error
-
-from azure.storage.filedatalake import DataLakeFileClient # pylint: disable=import-error
-from azure.identity import InteractiveBrowserCredential # pylint: disable=import-error
+import warnings
 
 import pandas as pd # pylint: disable=import-error
 
@@ -121,10 +118,15 @@ class _BlobCsv(_DataSet):
                  use_saved_storage_key = False,
                  sas_url = None,
                  storage_account_key = None,
-                 warnings = True):
+                 show_warnings = True):
 
         # pylint: disable=too-few-public-methods
         # pylint: disable=too-many-locals
+
+        # Lazy imports: azure and keyring are only needed for blob access
+        import keyring # pylint: disable=import-error
+        from azure.storage.filedatalake import DataLakeFileClient # pylint: disable=import-error
+        from azure.identity import InteractiveBrowserCredential # pylint: disable=import-error
 
         super().__init__(dashboard,data_path)
 
@@ -134,9 +136,9 @@ class _BlobCsv(_DataSet):
         account_name = m.group(0)
 
 
-        if warnings:
+        if show_warnings:
             if storage_account_key is not None:
-                warnings.warn("DO NOT HARD CODE CREDENTIALS!! Only provide a storage_account_key argument if you're securely retreiving it from something like azure key vault. If this code is running locally set use_saved_storage_key to true instead. Set warnings = False to disable this warning. ")
+                warnings.warn("DO NOT HARD CODE CREDENTIALS!! Only provide a storage_account_key argument if you're securely retreiving it from something like azure key vault. If this code is running locally set use_saved_storage_key to true instead. Set show_warnings = False to disable this warning. ")
 
         if sas_url is not None and use_saved_storage_key is True:
             raise ValueError("You can't save an azure storage key to your system's credential manager when providing an sas_url. Try changing use_saved_storage_key to False and try again")
