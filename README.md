@@ -87,4 +87,4 @@ I welcome various types of feedback:
 </ol>
 
 ## Sponsorship
-Power Bpy is free and open-source, however if you found the package useful or inspiring, feel free to [sponsor](https://github.com/sponsors/Russell-Shean) the project so that I can keep building it out. Additionally, I am a freelance software developer; if you would like to hire me to build out a custom Power Bpy workflow for your organization, please feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/) or [Bluesky](https://bsky.app/profile/rshean.bsky.social). 
+Power Bpy is free and open-source, however if you found the package useful or inspiring, feel free to [sponsor](https://github.com/sponsors/Russell-Shean) the project so that I can keep building it out. Additionally, I am a freelance software developer; if you would like to hire me to build out a custom Power Bpy workflow for your organization, please feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/russell-shean/). 
