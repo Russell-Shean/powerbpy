@@ -258,3 +258,40 @@ class _DataSet:
         # create a dictionary containing col_deets and col_names
         self.col_attributes = {"col_deets":self.col_deets, "col_names": self.col_names}
         return self.col_attributes
+
+
+    def add_measure(self,
+                    name,
+                    expression,
+                    format_string = None):
+
+        '''Add a DAX measure to this dataset's TMDL file.
+
+        Parameters
+        ----------
+        name : str
+            The display name of the measure (e.g. "Total Beneficiaries").
+        expression : str
+            The DAX expression (e.g. "COUNTROWS('my_table')").
+        format_string : str, optional
+            Power BI format string (e.g. "#,0", "0.00%", "$#,0.00").
+            If not provided, no format string is written.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        >>> dataset = dashboard.add_local_csv("data.csv")
+        >>> dataset.add_measure("Total Rows", "COUNTROWS('data')", "#,0")
+        >>> dataset.add_measure("Unique IDs", "DISTINCTCOUNT('data'[id])")
+        '''
+
+        measure_id = str(uuid.uuid4())
+
+        with open(self.dataset_file_path, 'a', encoding="utf-8") as file:
+            file.write(f"\n\tmeasure '{name}' = {expression}\n")
+            if format_string is not None:
+                file.write(f"\t\tformatString: {format_string}\n")
+            file.write(f"\t\tlineageTag: {measure_id}\n\n")
